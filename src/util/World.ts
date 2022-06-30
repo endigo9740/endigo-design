@@ -1,9 +1,10 @@
 import * as PIXI from 'pixi.js';
 
 export class World {
-    public container: any;
-    public imageSrc: string = '';
-    private sprite: any;
+    public sprite: any;
+
+    private container: any;
+    private imageSrc: string = '';
 
     constructor(config: any) {
         this.container = config.container;
