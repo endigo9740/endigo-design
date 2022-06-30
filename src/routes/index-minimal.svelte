@@ -1,1 +1,1 @@
-<h1>(minimal)</h1>
+<h1>(Page: Minimal)</h1>

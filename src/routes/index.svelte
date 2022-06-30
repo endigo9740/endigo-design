@@ -1,1 +1,5 @@
-<h1>(game)</h1>
+<script lang="ts">
+    import Game from "$lib/Game.svelte";
+</script>
+
+<Game></Game>
