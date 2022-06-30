@@ -1,4 +1,4 @@
-export class Input {
+export class Camera {
     public offset: any = {x: 0, y: 0};
     
     private app: any;
@@ -21,13 +21,15 @@ export class Input {
         this.container.on('pointerup', () => this.onPointerUp());
         this.container.on('pointerout', () => this.onPointerOut());
         this.container.on('pointermove', (e: any) => this.onPointerMove(e));
+        // Center camera on world, on load
+        this.world.sprite.texture.baseTexture.on('loaded', () => {
+           this.centerOnWorld();
+        });
     }
 
-    cameraCenterOnWorld(): void {
-        this.world.sprite.texture.baseTexture.on('loaded', () => {
-            this.offset.x = -(this.world.sprite.width - this.app.screen.width) / 2;
-            this.offset.y = -(this.world.sprite.height - this.app.screen.height) / 2;
-        });
+    centerOnWorld(): void {
+        this.offset.x = -(this.world.sprite.width - this.app.screen.width) / 2;
+        this.offset.y = -(this.world.sprite.height - this.app.screen.height) / 2;
     }
 
     reset(): void {

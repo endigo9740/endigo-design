@@ -3,10 +3,15 @@
 
     import { onMount } from 'svelte';
     import { World } from '$util/World';    
-    import { Input } from '$util/Input';
+    import { Camera } from '$util/Camera';
     import { Grid } from '$util/Grid';
 
     let elemCanvas: HTMLCanvasElement;
+
+    let world: World;
+    let camera: Camera;
+    let grid: Grid;
+    let elapsed: number = 0.0;
     
     onMount(() => {
 
@@ -23,31 +28,43 @@
         // Containers
         const containerLevel = new PIXI.Container();
         
-            // Generate Overworld Map
-            const world = new World({ container: containerLevel });
+            // Draw World
+            world = new World({ container: containerLevel });
             world.generate();
 
-            // Handle Panning Input
-            const panning = new Input({ app: game, container: containerLevel, world });
-            panning.init();
-            panning.cameraCenterOnWorld();
-
             // Draw Grid
-            const grid = new Grid({ container: containerLevel, enabled: true, labeled: false });
+            grid = new Grid({ container: containerLevel, enabled: true, labeled: false });
+
+            // Handle Camera Panning
+            camera = new Camera({ app: game, container: containerLevel, world });
+            camera.init();
 
         // Add to Stage
         game.stage.addChild(containerLevel);
 
         // Animation Loop
-        let elapsed: number = 0.0;
         game.ticker.add((delta: any) => {
             elapsed += delta;
-            // Set world container position
-            containerLevel.position.x = panning.offset.x;
-            containerLevel.position.y = panning.offset.y;
+            // Move world based on camera position
+            containerLevel.position.x = camera.offset.x;
+            containerLevel.position.y = camera.offset.y;
         });
         
     });
+
+    // UI Handlers
+    function onCenterCamera(): void { camera.centerOnWorld(); }
+    function onMenu(): void { alert('Menu pressed!'); }
 </script>
 
+<!-- UI -->
+<header class="fixed top-4 left-4 bg-slate-900/80 px-8 py-4 rounded-full">
+    <h3 class="uppercase">Chris Simmons</h3>
+</header>
+<nav class="fixed bottom-4 right-4 space-x-4">
+    <button type="button" on:click={onCenterCamera} class="bg-cyan-500 p-2">Center</button>
+    <button type="button" on:click={onMenu} class="bg-cyan-500 p-2">Menu</button>
+</nav>
+
+<!-- Game -->
 <canvas id="game" bind:this={elemCanvas}></canvas>
