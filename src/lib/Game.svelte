@@ -1,16 +1,19 @@
 <script lang="ts">
     import * as PIXI from 'pixi.js';
+
     import { onMount } from 'svelte';
     import { World } from '$util/World';    
     import { Grid } from '$util/Grid';
 
-    // Pixi Settings
-    PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
-
-    // Vars
-    let elemCanvas: any;
+    let elemCanvas: HTMLCanvasElement;
     
     onMount(() => {
+
+        console.log(typeof elemCanvas);
+
+        // Pixi.js Settings
+        PIXI.settings.RESOLUTION = window.devicePixelRatio;
+        PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
         // Init Game App
         const game = new PIXI.Application({
@@ -36,6 +39,4 @@
     });
 </script>
 
-<div id="game">
-    <canvas bind:this={elemCanvas}></canvas>
-</div>
+<canvas id="game" bind:this={elemCanvas}></canvas>

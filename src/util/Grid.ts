@@ -1,9 +1,6 @@
 // Grid Handler
 import * as PIXI from 'pixi.js';
 
-const fontName = 'endigo';
-PIXI.BitmapFont.from(fontName, { fill: "#333333", fontSize: 8, fontWeight: 'bold' }, { resolution: devicePixelRatio });
-
 export class Grid {
     public enabled: boolean = true;
     public labeled: boolean = true;
@@ -41,6 +38,8 @@ export class Grid {
 
     // Rendered Labels for Grid Cells
     drawLabels(): void {
+        const fontName = 'endigo';
+        PIXI.BitmapFont.from(fontName, { fill: "#333333", fontSize: 8, fontWeight: 'bold' }, { resolution: devicePixelRatio });
         if (this.labeled) {
             // Loop
             for (let y = 0; y < this.height; y++) {
