@@ -14,8 +14,10 @@ export class Grid {
     constructor(config: any) {
         this.enabled = config.enabled || false;
         this.labeled = config.labeled || false;
-        this.container = config.container;
-        this.init();
+        this.container = config.container || null;
+        if (this.container) {
+            this.init();
+        }
     }
 
     init(): void {
