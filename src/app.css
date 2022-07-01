@@ -6,6 +6,9 @@
 html, body { @apply w-full h-full; }
 body { @apply bg-slate-900 text-white; }
 
+button { @apply py-2 px-3; }
+    .btn-filled { @apply bg-cyan-600 rounded shadow hover:bg-cyan-500; }
+
 /* TYPOGRAPHY --- */
 
 /* Headings */

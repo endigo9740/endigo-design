@@ -94,7 +94,7 @@
                     });
 
                     // Draw Grid
-                    grid = new Grid({ container: containerLevel, enabled: true, labeled: false });
+                    grid = new Grid({ container: containerLevel, enabled: false, labeled: false });
 
                     // Handle Camera Panning
                     camera = new Camera({ app: game, container: containerLevel, world });
@@ -133,11 +133,12 @@
     {:else}
 
     <!-- HUD -->
-    <header class="fixed top-4 left-4 z-10 bg-slate-900/90 px-8 py-4 rounded-full" transition:fade>
+    <header class="fixed top-0 left-0 z-10 bg-slate-900/90 px-8 py-4 rounded-br-xl" transition:fade>
+        <small class="text-cyan-500">The portfolio of</small>
         <h3 class="uppercase">Chris Simmons</h3>
     </header>
-    <nav class="fixed bottom-4 right-4 z-10 space-x-4" transition:fade>
-        <button type="button" on:click={onCenterCamera} class="bg-cyan-500 p-2">Center</button>
+    <nav class="fixed bottom-0 right-0 z-10 bg-slate-900/90 px-8 py-4 rounded-tl-xl space-x-4" transition:fade>
+        <button type="button" class="btn-filled" on:click={onCenterCamera}>Center</button>
     </nav>
 
 {/if}
