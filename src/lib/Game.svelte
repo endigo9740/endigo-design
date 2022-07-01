@@ -3,17 +3,39 @@
 
     import { onMount } from 'svelte';
     import { World } from '$util/World';  
-    import { Person } from '$util/Person';  
+    import { Npc } from '$util/entities/Npc';  
     import { Camera } from '$util/Camera';
     import { Grid } from '$util/Grid';
 
     let elemCanvas: HTMLCanvasElement;
 
+    // Game
     let world: World;
-        let npcOne: Person;
+        let npcOne: Npc;
+        let npcTwo: Npc;
     let grid: Grid;
     let camera: Camera;
     let elapsed: number = 0.0;
+
+    // Pathing
+    let pathingLeftRight: any[] = [
+        {path: 'right'},
+        {path: 'wait', delay: 2000},
+        {path: 'left'},
+        {path: 'left'},
+        {path: 'wait', delay: 2000},
+        {path: 'right'},
+    ];
+    let pathingCircle: any[] = [
+        {path: 'right'},
+        {path: 'wait', delay: 2000},
+        {path: 'down'},
+        {path: 'wait', delay: 2000},
+        {path: 'left'},
+        {path: 'wait', delay: 2000},
+        {path: 'up'},
+        {path: 'wait', delay: 2000},
+    ];
     
     onMount(() => {
 
@@ -35,7 +57,8 @@
             world.generate();
 
             // Draw NPCs
-            npcOne = new Person({ container: containerLevel, x: 33, y: 18 });
+            npcOne = new Npc({ containerLevel, x: 33, y: 18, paths: pathingLeftRight});
+            npcTwo = new Npc({ containerLevel, x: 32, y: 20, paths: pathingCircle});
 
             // Draw Grid
             grid = new Grid({ container: containerLevel, enabled: true, labeled: false });
@@ -57,6 +80,7 @@
 
             // NPCs
             npcOne.render();
+            npcTwo.render();
         });
         
     });
