@@ -2,6 +2,7 @@
     import * as PIXI from 'pixi.js';
 
     import { onMount } from 'svelte';
+    import { SpriteHandler } from '$util/SpriteHandler';
     import { World } from '$util/World';  
     import { Npc } from '$util/entities/Npc';  
     import { Camera } from '$util/Camera';
@@ -10,6 +11,7 @@
     let elemCanvas: HTMLCanvasElement;
 
     // Game
+    let spriteHandler: SpriteHandler;
     let world: World;
         let npcOne: Npc;
         let npcTwo: Npc;
@@ -20,23 +22,23 @@
     // Pathing
     let pathingLeftRight: any[] = [
         {path: 'right'},
-        {path: 'wait', delay: 2000},
+        {path: 'wait', delay: 3000},
         {path: 'left'},
         {path: 'left'},
-        {path: 'wait', delay: 2000},
+        {path: 'wait', delay: 3000},
         {path: 'right'},
     ];
     let pathingCircle: any[] = [
         {path: 'right'},
-        {path: 'wait', delay: 2000},
+        {path: 'wait', delay: 4000},
         {path: 'down'},
-        {path: 'wait', delay: 2000},
+        {path: 'wait', delay: 4000},
         {path: 'left'},
-        {path: 'wait', delay: 2000},
+        {path: 'wait', delay: 4000},
         {path: 'up'},
-        {path: 'wait', delay: 2000},
+        {path: 'wait', delay: 4000},
     ];
-    
+
     onMount(() => {
 
         // Pixi.js Settings
@@ -49,39 +51,51 @@
             resizeTo: window,
         });
 
-        // Containers
-        const containerLevel = new PIXI.Container();
-        
-            // Draw World
-            world = new World({ container: containerLevel });
-            world.generate();
+        // Load Game Resources
+        ['overworld.png', 'ninja-green.json', 'ninja-red.json'].forEach(r => { game.loader.add(r); });
 
-            // Draw NPCs
-            npcOne = new Npc({ containerLevel, x: 33, y: 18, paths: pathingLeftRight});
-            npcTwo = new Npc({ containerLevel, x: 32, y: 20, paths: pathingCircle});
+        // On Game Loaded
+        game.loader
+            .load(() => {
 
-            // Draw Grid
-            grid = new Grid({ container: containerLevel, enabled: true, labeled: false });
+                // Init Sprite Handler
+                spriteHandler = new SpriteHandler({ loader: game.loader });
 
-            // Handle Camera Panning
-            camera = new Camera({ app: game, container: containerLevel, world });
-            camera.init();
+                // Containers
+                const containerLevel = new PIXI.Container();
+                
+                    // Draw World
+                    world = new World({ container: containerLevel });
+                    world.generate();
 
-        // Add to Stage
-        game.stage.addChild(containerLevel);
+                    // Create NPCs
+                    npcOne = new Npc({ containerLevel, animSprite: spriteHandler.animSpriteSheet('ninja-green.json'), x: 33, y: 18, paths: pathingLeftRight});
+                    npcTwo = new Npc({ containerLevel, animSprite: spriteHandler.animSpriteSheet('ninja-red.json'), x: 32, y: 20, paths: pathingCircle});
 
-        // Animation Loop
-        game.ticker.add((delta: any) => {
-            elapsed += delta;
+                    // Draw Grid
+                    grid = new Grid({ container: containerLevel, enabled: true, labeled: false });
 
-            // Move containerLevel based on camera position
-            containerLevel.position.x = camera.offset.x;
-            containerLevel.position.y = camera.offset.y;
+                    // Handle Camera Panning
+                    camera = new Camera({ app: game, container: containerLevel, world });
+                    camera.init();
 
-            // NPCs
-            npcOne.render();
-            npcTwo.render();
-        });
+                // Add to Stage
+                game.stage.addChild(containerLevel);
+
+                // Animation Loop
+                game.ticker.add((delta: any) => {
+                    elapsed += delta;
+
+                    // Move containerLevel based on camera position
+                    containerLevel.position.x = camera.offset.x;
+                    containerLevel.position.y = camera.offset.y;
+
+                    // NPCs
+                    npcOne.render();
+                    npcTwo.render();
+                });
+
+            });
         
     });
 
