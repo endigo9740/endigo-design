@@ -1,33 +1,9 @@
 {
     "frames": {
-        "down-idle": {
-            "frame": {
-                "x": 0,
-                "y": 0,
-                "w": 16,
-                "h": 16
-            },
-            "rotated": false,
-            "trimmed": false,
-            "spriteSourceSize": {
-                "x": 0,
-                "y": 0,
-                "w": 16,
-                "h": 16
-            },
-            "sourceSize": {
-                "w": 16,
-                "h": 16
-            },
-            "pivot": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
         "down-walk-1": {
             "frame": {
                 "x": 0,
-                "y": 16,
+                "y": 0,
                 "w": 16,
                 "h": 16
             },
@@ -35,7 +11,7 @@
             "trimmed": false,
             "spriteSourceSize": {
                 "x": 0,
-                "y": 16,
+                "y": 0,
                 "w": 16,
                 "h": 16
             },
@@ -49,6 +25,54 @@
             }
         },
         "down-walk-2": {
+            "frame": {
+                "x": 0,
+                "y": 16,
+                "w": 16,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 16,
+                "w": 16,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 16,
+                "h": 16
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "down-walk-3": {
+            "frame": {
+                "x": 0,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 16,
+                "h": 16
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "down-walk-4": {
             "frame": {
                 "x": 0,
                 "y": 48,

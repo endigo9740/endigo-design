@@ -2,11 +2,16 @@
     import * as PIXI from 'pixi.js';
 
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
+
     import { SpriteHandler } from '$util/SpriteHandler';
     import { World } from '$util/World';  
     import { Npc } from '$util/entities/Npc';  
     import { Camera } from '$util/Camera';
     import { Grid } from '$util/Grid';
+
+    import Dialog from './Dialog.svelte';
+    import { dialogStore } from '$lib/DialogStore';
 
     let elemCanvas: HTMLCanvasElement;
 
@@ -69,8 +74,24 @@
                     world.generate();
 
                     // Create NPCs
-                    npcOne = new Npc({ containerLevel, animSprite: spriteHandler.animSpriteSheet('ninja-green.json'), x: 33, y: 18, paths: pathingLeftRight});
-                    npcTwo = new Npc({ containerLevel, animSprite: spriteHandler.animSpriteSheet('ninja-red.json'), x: 32, y: 20, paths: pathingCircle});
+                    npcOne = new Npc({
+                        name: 'Green Ninja',
+                        containerLevel,
+                        portrait: 'ninja-green-portrait.png',
+                        animSprite: spriteHandler.animSpriteSheet('ninja-green.json'),
+                        x: 33, y: 18,
+                        paths: pathingLeftRight,
+                        dialog: `Hello, I'm the green ninja.`,
+                    });
+                    npcTwo = new Npc({
+                        name: 'Red Ninja',
+                        containerLevel,
+                        portrait: 'ninja-red-portrait.png',
+                        animSprite: spriteHandler.animSpriteSheet('ninja-red.json'),
+                        x: 32, y: 20,
+                        paths: pathingCircle,
+                        dialog: `Hello, I'm the red ninja.`
+                    });
 
                     // Draw Grid
                     grid = new Grid({ container: containerLevel, enabled: true, labeled: false });
@@ -104,12 +125,22 @@
 </script>
 
 <!-- Overlay UI -->
-<header class="fixed top-4 left-4 bg-slate-900/80 px-8 py-4 rounded-full">
-    <h3 class="uppercase">Chris Simmons</h3>
-</header>
-<nav class="fixed bottom-4 right-4 space-x-4">
-    <button type="button" on:click={onCenterCamera} class="bg-cyan-500 p-2">Center</button>
-</nav>
+{#if $dialogStore}
+
+    <!-- Dialog -->
+    <Dialog />
+
+    {:else}
+
+    <!-- HUD -->
+    <header class="fixed top-4 left-4 z-10 bg-slate-900/90 px-8 py-4 rounded-full" transition:fade>
+        <h3 class="uppercase">Chris Simmons</h3>
+    </header>
+    <nav class="fixed bottom-4 right-4 z-10 space-x-4" transition:fade>
+        <button type="button" on:click={onCenterCamera} class="bg-cyan-500 p-2">Center</button>
+    </nav>
+
+{/if}
 
 <!-- Game -->
 <canvas id="game" bind:this={elemCanvas}></canvas>
