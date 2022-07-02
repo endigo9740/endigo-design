@@ -28,6 +28,12 @@ const config = {
 		alias: {
 			$lib: 'src/lib',
 			$util: 'src/util',
+		},
+		vite: {
+			ssr: {
+				// Fix per: https://github.com/sveltejs/kit/issues/4504#issuecomment-1135338008
+				noExternal: ['pixi.js']
+			}
 		}
 	}
 };
