@@ -2,19 +2,22 @@
     import { fade } from 'svelte/transition';
     import { dialogStore } from "./DialogStore";
 
-    const timeout: number = 3000;
+    const delay: number = 3000;
+    let timeoutDialog: any;
+
     dialogStore.subscribe((ds: any) => {
-        if (ds !== undefined) { setTimeout(() => { dismiss(); }, timeout); }
+        if (ds !== undefined) {
+            clearTimeout(timeoutDialog);
+            timeoutDialog = setTimeout(dismiss, delay);
+        }
     });
 
-    function dismiss(): void {
-        dialogStore.set(undefined)
-    }
+    function dismiss(): void { dialogStore.set(undefined) }
 </script>
 
 {#if $dialogStore}
-<section class="fixed left-4 right-4 bottom-4 z-20 bg-slate-900/90 p-8 rounded-xl flex items-center space-x-8" transition:fade on:click={dismiss}>
-    <img src={$dialogStore.portrait} class="image-crisp w-[128px] h-[128px] bg-black border border-white rounded-xl" alt="portrait">
+<section class="fixed left-4 right-4 bottom-4 z-20 bg-slate-900/90 p-8 rounded-xl flex items-start space-x-8" transition:fade on:click={dismiss}>
+    <img src={$dialogStore.portrait} class="image-crisp w-16 h-16 md:w-[128px] md:h-[128px] bg-black border border-white rounded-xl" alt="portrait">
     <div class="space-y-2">
         <h3>{$dialogStore.name}:</h3>
         <p>{$dialogStore.message}</p>

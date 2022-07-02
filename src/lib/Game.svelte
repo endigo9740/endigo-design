@@ -24,30 +24,9 @@
     let camera: Camera;
     let elapsed: number = 0.0;
 
-    // // Pathing
-    let pathingLeftRight: any[] = [
-        {path: 'right'},
-        {path: 'wait', delay: 3000},
-        {path: 'left'},
-        {path: 'left'},
-        {path: 'wait', delay: 3000},
-        {path: 'right'},
-    ];
-    let pathingCircle: any[] = [
-        {path: 'right'},
-        {path: 'wait', delay: 4000},
-        {path: 'down'},
-        {path: 'wait', delay: 4000},
-        {path: 'left'},
-        {path: 'wait', delay: 4000},
-        {path: 'up'},
-        {path: 'wait', delay: 4000},
-    ];
-
     onMount(() => {
 
         // Pixi.js Settings
-        // PIXI.settings.RESOLUTION = window.devicePixelRatio; // NOTE: this breaks mobile
         PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
         // Init Game App
@@ -80,7 +59,7 @@
                         portrait: 'ninja-green-portrait.png',
                         animSprite: spriteHandler.animSpriteSheet('ninja-green.json'),
                         x: 33, y: 18,
-                        paths: pathingLeftRight,
+                        pathing: 'left-right',
                         dialog: `Hello, I'm the green ninja.`,
                     });
                     npcTwo = new Npc({
@@ -89,8 +68,8 @@
                         portrait: 'ninja-red-portrait.png',
                         animSprite: spriteHandler.animSpriteSheet('ninja-red.json'),
                         x: 32, y: 20,
-                        paths: pathingCircle,
-                        dialog: `Hello, I'm the red ninja.`
+                        pathing: 'circle',
+                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
                     });
 
                     // Draw Grid

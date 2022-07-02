@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { Grid } from '../Grid';
+import { pathing } from './pathing';
 
 export class GameObject {
     public name: string;
@@ -11,7 +12,7 @@ export class GameObject {
     private containerLevel: any;
     private x: number;
     private y: number;
-    public paths: any[] = [];
+    public pathing: string;
     public dialog: any;
 
     constructor(config: any) {
@@ -21,7 +22,7 @@ export class GameObject {
         this.animSprite = config.animSprite;
         this.x = config.x || 0;
         this.y = config.y || 0;
-        this.paths = config.paths || [];
+        this.pathing = pathing[config.pathing] || pathing['idle'];
         this.dialog = config.dialog;
         // Init
         this.init();

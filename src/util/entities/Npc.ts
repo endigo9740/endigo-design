@@ -13,7 +13,7 @@ export class Npc extends GameObject {
 
         // Handle Interaction
         this.containerGameObject.interactive = true;
-        this.containerGameObject.on('click', (e: any) => { this.onClick(e, this); });
+        this.containerGameObject.on('pointerdown', (e: any) => { this.onPointerDown(e, this); });
         this.containerGameObject.on('pointerover', (e: any) => { this.onPointerOver(e, this); });
         this.containerGameObject.on('pointerout', (e: any) => { this.onPointerOut(e, this); });
     }
@@ -28,7 +28,7 @@ export class Npc extends GameObject {
     // }
 
     render(): void {
-        if (this.paths.length > 0) { this.movement(); }
+        if (this.pathing.length > 0) { this.movement(); }
     }
 
     movement(): void {
@@ -37,7 +37,7 @@ export class Npc extends GameObject {
             // Animate
             if (this.animSprite.playing === false) { this.animSprite.play() } 
             // Pathing
-            const currentPath = this.paths[this.pathingIndex];
+            const currentPath: any = this.pathing[this.pathingIndex];
             switch(currentPath.path) {
                 case 'up': this.containerGameObject.y -= 1; break;
                 case 'left': this.containerGameObject.x -= 1; break;
@@ -53,11 +53,11 @@ export class Npc extends GameObject {
         // Switch to Next Path
         if (this.pathingProgress <= 0) {
             this.pathingProgress = this.grid.unit(1);
-            (this.pathingIndex+1) >= this.paths.length ? this.pathingIndex = 0 :  this.pathingIndex++;
+            (this.pathingIndex+1) >= this.pathing.length ? this.pathingIndex = 0 :  this.pathingIndex++;
         }
     }
 
-    onClick(event: any, _this: any): void {
+    onPointerDown(event: any, _this: any): void {
         dialogStore.set({
             name: _this.name,
             message: _this.dialog,
