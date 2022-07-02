@@ -1,6 +1,6 @@
-<script lang="ts"></script>
+<!-- <script lang="ts"></script> -->
 
-<nav class="flex flex-col justify-center items-center w-full h-full space-y-4 text-center">
+<section class="page flex flex-col justify-center items-center w-full h-full space-y-4 text-center">
 
     <h2>Endigo Design</h2>
 
@@ -14,4 +14,4 @@
         <small>View this version if you're in a hurry.</small>
     </a>
 
-</nav>
+</section>

@@ -129,11 +129,11 @@
     {:else}
 
     <!-- HUD -->
-    <header class="fixed top-0 left-0 z-10 bg-slate-900/90 px-8 py-4 rounded-br-xl" transition:fade>
-        <small class="text-cyan-500">The portfolio of</small>
-        <h3 class="uppercase">Chris Simmons</h3>
+    <header class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur" transition:fade|local>
+        <img src="portrait.png" class="ring-2 ring-white aspect-square w-[30px] rounded-full" alt="logo">
+        <a href="/" class="text-white text-2xl font-bold uppercase">Chris Simmons</a>
     </header>
-    <nav class="fixed bottom-0 right-0 z-10 bg-slate-900/90 px-8 py-4 rounded-tl-xl space-x-4" transition:fade>
+    <nav class="fixed bottom-0 right-0 z-10 bg-slate-900/90 p-6 rounded-tl-xl space-x-4 backdrop-blur" transition:fade|local>
         <button type="button" class="btn-filled" on:click={() => {onCenterCamera()}}>Center</button>
     </nav>
 
