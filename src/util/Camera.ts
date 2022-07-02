@@ -83,10 +83,9 @@ export class Camera {
         this.offset.x += this.netPan.x;
         this.offset.y += this.netPan.y;
     
-        // Camera Bounds for Map
+        // Lock camera within world bounds
         if (this.offset.x >= 0) { this.offset.x = 0; } // left
         if (this.offset.y >= 0) { this.offset.y = 0; } // top
-        // TODO: fix this on mobile
         const maxOffsetX = this.container.width - this.app.screen.width;
         const maxOffsetY = this.container.height - this.app.screen.height;
         if (this.offset.x <= -maxOffsetX) { this.offset.x = -maxOffsetX; } // right

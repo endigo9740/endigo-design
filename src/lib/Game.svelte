@@ -53,7 +53,7 @@
         // Init Game App
         const game = new PIXI.Application({
             view: elemCanvas,
-            resizeTo: window,
+            resizeTo: document.body,
         });
 
         // Load Game Resources
