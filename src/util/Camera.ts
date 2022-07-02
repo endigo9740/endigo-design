@@ -16,15 +16,14 @@ export class Camera {
     }
 
     init(): void {
+        // Center Camera
+        this.centerOnWorld();
+        // Handle Interaction
         this.container.interactive = true;
         this.container.on('pointerdown', (e: any) => this.onPointerDown(e));
         this.container.on('pointerup', () => this.onPointerUp());
         this.container.on('pointerout', () => this.onPointerOut());
         this.container.on('pointermove', (e: any) => this.onPointerMove(e));
-        // Center camera on world, on load
-        this.world.sprite.texture.baseTexture.on('loaded', () => {
-           this.centerOnWorld();
-        });
     }
 
     centerOnWorld(): void {
