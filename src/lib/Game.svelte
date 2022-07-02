@@ -24,7 +24,7 @@
     let camera: Camera;
     let elapsed: number = 0.0;
 
-    // Pathing
+    // // Pathing
     let pathingLeftRight: any[] = [
         {path: 'right'},
         {path: 'wait', delay: 3000},
@@ -47,7 +47,7 @@
     onMount(() => {
 
         // Pixi.js Settings
-        PIXI.settings.RESOLUTION = window.devicePixelRatio;
+        // PIXI.settings.RESOLUTION = window.devicePixelRatio; // NOTE: this breaks mobile
         PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
         // Init Game App
@@ -138,7 +138,7 @@
         <h3 class="uppercase">Chris Simmons</h3>
     </header>
     <nav class="fixed bottom-0 right-0 z-10 bg-slate-900/90 px-8 py-4 rounded-tl-xl space-x-4" transition:fade>
-        <button type="button" class="btn-filled" on:click={onCenterCamera}>Center</button>
+        <button type="button" class="btn-filled" on:click={() => {onCenterCamera()}}>Center</button>
     </nav>
 
 {/if}
