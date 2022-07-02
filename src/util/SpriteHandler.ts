@@ -1,3 +1,5 @@
+// https://pixijs.download/dev/docs/PIXI.AnimatedSprite.html
+
 import * as PIXI from 'pixi.js';
 
 export class SpriteHandler {

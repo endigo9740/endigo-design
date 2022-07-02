@@ -15,6 +15,9 @@
 
     let elemCanvas: HTMLCanvasElement;
 
+    // Loading
+    let loadingAmount: number = 0;
+
     // Game
     let spriteHandler: SpriteHandler;
     let world: World;
@@ -33,75 +36,89 @@
         const game = new PIXI.Application({
             view: elemCanvas,
             resizeTo: document.body,
+            backgroundColor: 0x141414
         });
 
         // Load Game Resources
         ['overworld.png', 'ninja-green.json', 'ninja-red.json'].forEach(r => { game.loader.add(r); });
 
+        // Loading Lifecycle
+        // https://pixijs.download/release/docs/PIXI.Loader.html
+        game.loader.onProgress.add((loader, resources) => { loadingAmount = loader.progress; });
+        game.loader.onError.add((loader, resources) => { window.location.href = '/index-minimal'; }); // redirect
+        
         // On Game Loaded
-        game.loader
-            .load(() => {
+        game.loader.load((loader, resources) => {
 
-                // Init Sprite Handler
-                spriteHandler = new SpriteHandler({ loader: game.loader });
+            console.log('GAME LOADED');
 
-                // Containers
-                const containerLevel = new PIXI.Container();
-                
-                    // Draw World
-                    world = new World({ container: containerLevel });
-                    world.generate();
+            // Init Sprite Handler
+            spriteHandler = new SpriteHandler({ loader: game.loader });
 
-                    // Create NPCs
-                    npcOne = new Npc({
-                        name: 'Green Ninja',
-                        containerLevel,
-                        portrait: 'ninja-green-portrait.png',
-                        animSprite: spriteHandler.animSpriteSheet('ninja-green.json'),
-                        x: 33, y: 18,
-                        pathing: 'left-right',
-                        dialog: `Hello, I'm the green ninja.`,
-                    });
-                    npcTwo = new Npc({
-                        name: 'Red Ninja',
-                        containerLevel,
-                        portrait: 'ninja-red-portrait.png',
-                        animSprite: spriteHandler.animSpriteSheet('ninja-red.json'),
-                        x: 32, y: 20,
-                        pathing: 'circle',
-                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
-                    });
+            // Containers
+            const containerLevel = new PIXI.Container();
+            
+                // Draw World
+                world = new World({ container: containerLevel, texture: resources['overworld.png'].texture });
+                world.generate();
 
-                    // Draw Grid
-                    grid = new Grid({ container: containerLevel, enabled: false, labeled: false });
-
-                    // Handle Camera Panning
-                    camera = new Camera({ app: game, container: containerLevel, world });
-                    camera.init();
-
-                // Add to Stage
-                game.stage.addChild(containerLevel);
-
-                // Animation Loop
-                game.ticker.add((delta: any) => {
-                    elapsed += delta;
-
-                    // Move containerLevel based on camera position
-                    containerLevel.position.x = camera.offset.x;
-                    containerLevel.position.y = camera.offset.y;
-
-                    // NPCs
-                    npcOne.render();
-                    npcTwo.render();
+                // Create NPCs
+                npcOne = new Npc({
+                    name: 'Green Ninja',
+                    containerLevel,
+                    portrait: 'ninja-green-portrait.png',
+                    animSprite: spriteHandler.animSpriteSheet('ninja-green.json'),
+                    x: 33, y: 18,
+                    pathing: 'left-right',
+                    dialog: `Hello, I'm the green ninja.`,
+                });
+                npcTwo = new Npc({
+                    name: 'Red Ninja',
+                    containerLevel,
+                    portrait: 'ninja-red-portrait.png',
+                    animSprite: spriteHandler.animSpriteSheet('ninja-red.json'),
+                    x: 32, y: 20,
+                    pathing: 'circle',
+                    dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
                 });
 
+                // Draw Grid
+                grid = new Grid({ container: containerLevel, enabled: false, labeled: false });
+
+                // Handle Camera Panning
+                camera = new Camera({ app: game, container: containerLevel, world });
+                camera.init();
+
+            // Add to Stage
+            game.stage.addChild(containerLevel);
+
+            // Animation Loop
+            game.ticker.add((delta: any) => {
+                elapsed += delta;
+
+                // Move containerLevel based on camera position
+                if (containerLevel.position.x !== camera.offset.x) { containerLevel.position.x = camera.offset.x };
+                if (containerLevel.position.y !== camera.offset.y) { containerLevel.position.y = camera.offset.y };
+
+                // NPCs
+                npcOne.render();
+                npcTwo.render();
             });
+
+        });
         
     });
 
     // UI Handlers
     function onCenterCamera(): void { camera.centerOnWorld(); }
 </script>
+
+<!-- Loading Text -->
+{#if loadingAmount < 100}
+<section class="fixed top-0 left-0 right-0 bottom-0 z-90 flex justify-center items-center">
+    <h2>{loadingAmount.toFixed(0)}% Loaded...</h2>
+</section>
+{/if}
 
 <!-- Overlay UI -->
 {#if $dialogStore}
