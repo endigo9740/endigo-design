@@ -16,19 +16,28 @@
 	export let category: string;
 	export let id: string;
 
-    const workDetails: any = works[category].projects.find((p: any) => p.id === id);
-    console.log(workDetails);
+    const categoryLabel = works[category].label;
+    const work: any = works[category].projects.find((p: any) => p.id === id);
 </script>
 
 <!-- Page -->
-<main class="page">
+<main class="page flex">
+    
+    <!-- Info -->
+    <section class="w-[40%] p-4 space-y-10 overflow-x-auto">
+        <a href="/works">&larr; Back to Works</a>
+        <header class="space-y-2">
+            <h2 class="text-sm text-white/70 uppercase">{categoryLabel}</h2>
+            <h1 class="section-label text-4xl">{work.name}</h1>
+        </header>
+        <a href={work.url} class="inline-block btn btn-hollow" target="_blank">Launch</a>
+        <div>{@html work.details}</div>
+    </section>
 
-    <!-- Wrap -->
-    <div class="page-wrap space-y-20">
-
-        <a href="/works">&larr; Back</a>
-        <pre>{JSON.stringify(workDetails, null, 2)}</pre>
-
-    </div>
+    <!-- Media -->
+    <section class="w-[60%] bg-black/20 border-l border-white/10 py-4 px-20 backdrop-blur-xl flex flex-col items-center space-y-10 overflow-x-auto">
+        {#if work.screenshots.length === 0}<p>No screenshots available.</p>{/if}
+        {#each work.screenshots as screenshot}<img src={screenshot} alt="example">{/each}
+    </section>
 
 </main>
