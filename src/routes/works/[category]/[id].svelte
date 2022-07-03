@@ -21,6 +21,7 @@
 </script>
 
 <!-- Page -->
+{#if works}
 <main class="page flex">
     
     <!-- Info -->
@@ -37,7 +38,10 @@
     <!-- Media -->
     <section class="w-[60%] bg-black/20 border-l border-white/10 py-4 px-20 backdrop-blur-xl flex flex-col items-center space-y-10 overflow-x-auto">
         {#if work.screenshots.length === 0}<p>No screenshots available.</p>{/if}
-        {#each work.screenshots as screenshot}<img src={screenshot} alt="example">{/each}
+        {#each work.screenshots as screenshot}
+            <img src={screenshot} class="shadow-xl rounded-xl" alt="example">
+        {/each}
     </section>
 
 </main>
+{/if}

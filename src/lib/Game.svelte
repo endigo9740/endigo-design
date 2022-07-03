@@ -4,14 +4,17 @@
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
 
+    import Dialog from './Dialog.svelte';
+    import { dialogStore } from '$lib/DialogStore';
+
+    import Modal from './Modal.svelte';
+    let modalVisible: boolean = false;
+
     import { SpriteHandler } from '$util/SpriteHandler';
     import { World } from '$util/World';  
     import { Npc } from '$util/entities/Npc';  
     import { Camera } from '$util/Camera';
     import { Grid } from '$util/Grid';
-
-    import Dialog from './Dialog.svelte';
-    import { dialogStore } from '$lib/DialogStore';
 
     let elemCanvas: HTMLCanvasElement;
 
@@ -110,8 +113,14 @@
     });
 
     // UI Handlers
-    function onCenterCamera(): void { camera.centerOnWorld(); }
+    function onUiMenu(): void { modalVisible = !modalVisible; }
+    function onUiCenter(): void { camera.centerOnWorld(); }
 </script>
+
+<!-- Page Modal -->
+{#if modalVisible}
+<Modal />
+{/if}
 
 <!-- Loading Text -->
 {#if loadingAmount < 100}
@@ -129,12 +138,13 @@
     {:else}
 
     <!-- HUD -->
-    <header class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur" transition:fade|local>
+    <a href="/" class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur" transition:fade|local>
         <img src="portrait.png" class="ring-2 ring-white aspect-square w-[30px] rounded-full" alt="logo">
-        <a href="/" class="text-white text-2xl font-bold uppercase">Chris Simmons</a>
-    </header>
-    <nav class="fixed bottom-0 right-0 z-10 bg-slate-900/90 p-6 rounded-tl-xl space-x-4 backdrop-blur" transition:fade|local>
-        <button type="button" class="btn-filled" on:click={() => {onCenterCamera()}}>Center</button>
+        <span class="text-white text-2xl font-bold uppercase">Chris Simmons</span>
+    </a>
+    <nav class="fixed bottom-0 right-0 z-50 bg-slate-900/90 p-6 rounded-tl-xl space-x-4 backdrop-blur" transition:fade|local>
+        <button type="button" class="btn-filled" on:click={() => {onUiMenu()}}>Menu</button>
+        <button type="button" class="btn-filled" on:click={() => {onUiCenter()}}>Center</button>
     </nav>
 
 {/if}

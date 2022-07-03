@@ -1,12 +1,15 @@
 <script lang="ts">
     import Nav from "$lib/Nav.svelte";
     import Footer from "$lib/Footer.svelte";
+
+    // Compact modal display for game
+    export let compact: boolean = false;
 </script>
 
 <main class="page">
     
     <!-- Navigation -->
-    <Nav enabled={true} />
+    <Nav enabled={!compact} />
 
     <!-- Wrap -->
     <div class="page-wrap space-y-20">
@@ -34,7 +37,7 @@
         </section>
 
         <!-- Footer -->
-        <Footer />
+        <Footer enabled={!compact} />
 
     </div>
 

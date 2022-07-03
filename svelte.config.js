@@ -28,6 +28,7 @@ const config = {
 		alias: {
 			$lib: 'src/lib',
 			$util: 'src/util',
+			$routes: 'src/routes',
 		},
 		vite: {
 			// per: https://github.com/sveltejs/kit/issues/4504#issuecomment-1135338008
