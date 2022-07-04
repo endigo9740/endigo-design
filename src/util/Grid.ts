@@ -7,9 +7,9 @@ export class Grid {
 
     private container: any;
 
-    private tileSize: number = 32 * 2; // px/zoom
+    private tileSize: number = 16 * 3; // px/zoom
     private width: number = 64; // tiles
-    private height: number = 32; // tiles
+    private height: number = 64; // tiles
     
     constructor(config: any) {
         this.enabled = config.enabled || false;
@@ -35,7 +35,7 @@ export class Grid {
         for (let y = 0; y < this.height; y++) {
             for (let x = 0; x < this.width; x++) {
                 let graphicCell = new PIXI.Graphics();
-                    graphicCell.lineStyle(1, 0xCCCCCC, 0.05);
+                    graphicCell.lineStyle(1, 0x000000, 0.1);
                     graphicCell.drawRect(this.unit(x), this.unit(y), this.unit(1), this.unit(1));
                 this.container.addChild(graphicCell);
             }

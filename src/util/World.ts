@@ -13,8 +13,8 @@ export class World {
 
     generate(): void {
         this.sprite = PIXI.Sprite.from(this.texture);
-            this.sprite.width = this.sprite.width * 2;
-            this.sprite.height = this.sprite.height * 2;
+            this.sprite.width = this.sprite.width;
+            this.sprite.height = this.sprite.height;
         this.container.addChild(this.sprite);
     }
 

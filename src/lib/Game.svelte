@@ -71,7 +71,7 @@
                     containerLevel,
                     portrait: 'ninja-green-portrait.png',
                     animSprite: spriteHandler.animSpriteSheet('ninja-green.json'),
-                    x: 33, y: 18,
+                    x: 34, y: 34,
                     pathing: 'left-right',
                     dialog: `Hello, I'm the green ninja.`,
                 });
@@ -80,7 +80,7 @@
                     containerLevel,
                     portrait: 'ninja-red-portrait.png',
                     animSprite: spriteHandler.animSpriteSheet('ninja-red.json'),
-                    x: 32, y: 20,
+                    x: 11, y: 58,
                     pathing: 'circle',
                     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
                 });
