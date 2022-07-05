@@ -1,33 +1,9 @@
 {
     "frames": {
-        "down-idle": {
-            "frame": {
-                "x": 0,
-                "y": 0,
-                "w": 16,
-                "h": 16
-            },
-            "rotated": false,
-            "trimmed": false,
-            "spriteSourceSize": {
-                "x": 0,
-                "y": 0,
-                "w": 16,
-                "h": 16
-            },
-            "sourceSize": {
-                "w": 16,
-                "h": 16
-            },
-            "pivot": {
-                "x": 0.5,
-                "y": 0.5
-            }
-        },
         "down-walk-1": {
             "frame": {
                 "x": 0,
-                "y": 16,
+                "y": 32,
                 "w": 16,
                 "h": 16
             },
@@ -35,7 +11,7 @@
             "trimmed": false,
             "spriteSourceSize": {
                 "x": 0,
-                "y": 16,
+                "y": 32,
                 "w": 16,
                 "h": 16
             },
@@ -50,8 +26,56 @@
         },
         "down-walk-2": {
             "frame": {
+                "x": 16,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 16,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 16,
+                "h": 16
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "down-walk-3": {
+            "frame": {
+                "x": 32,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 32,
+                "y": 32,
+                "w": 16,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 16,
+                "h": 16
+            },
+            "pivot": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        "down-walk-4": {
+            "frame": {
                 "x": 0,
-                "y": 48,
+                "y": 32,
                 "w": 16,
                 "h": 16
             },
@@ -59,7 +83,7 @@
             "trimmed": false,
             "spriteSourceSize": {
                 "x": 0,
-                "y": 48,
+                "y": 32,
                 "w": 16,
                 "h": 16
             },
@@ -76,10 +100,10 @@
     "meta": {
         "app": "http://free-tex-packer.com",
         "version": "0.6.7",
-        "image": "ninja-red.png",
+        "image": "npc.png",
         "format": "RGBA8888",
         "size": {
-            "w": 64,
+            "w": 48,
             "h": 64
         },
         "scale": 1

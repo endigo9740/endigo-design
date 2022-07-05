@@ -21,8 +21,8 @@ export class Npc extends GameObject {
     // addShadow(): void {
     //     this.animSprite.y -= this.grid.unit(1)/3; // shift up half tile
     //     const graphicShadow  = new PIXI.Graphics();
-    //         graphicShadow.beginFill(0x000000, 0.2);
-    //         graphicShadow.drawEllipse(this.grid.unit(1)/2+10, this.grid.unit(1)/2-10, this.grid.unit(1)/2, this.grid.unit(1)/4);
+    //         graphicShadow.beginFill(0x000000, 0.15);
+    //         graphicShadow.drawEllipse(this.grid.unit(1)/2+5, this.grid.unit(1)/2, this.grid.unit(1)/2-10, this.grid.unit(1)/4);
     //         graphicShadow.endFill();
     //     this.containerGameObject.addChildAt(graphicShadow, 0);
     // }

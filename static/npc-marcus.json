@@ -3,7 +3,7 @@
         "down-walk-1": {
             "frame": {
                 "x": 0,
-                "y": 0,
+                "y": 48,
                 "w": 16,
                 "h": 16
             },
@@ -11,7 +11,7 @@
             "trimmed": false,
             "spriteSourceSize": {
                 "x": 0,
-                "y": 0,
+                "y": 48,
                 "w": 16,
                 "h": 16
             },
@@ -26,16 +26,16 @@
         },
         "down-walk-2": {
             "frame": {
-                "x": 0,
-                "y": 16,
+                "x": 16,
+                "y": 48,
                 "w": 16,
                 "h": 16
             },
             "rotated": false,
             "trimmed": false,
             "spriteSourceSize": {
-                "x": 0,
-                "y": 16,
+                "x": 16,
+                "y": 48,
                 "w": 16,
                 "h": 16
             },
@@ -50,16 +50,16 @@
         },
         "down-walk-3": {
             "frame": {
-                "x": 0,
-                "y": 32,
+                "x": 32,
+                "y": 48,
                 "w": 16,
                 "h": 16
             },
             "rotated": false,
             "trimmed": false,
             "spriteSourceSize": {
-                "x": 0,
-                "y": 32,
+                "x": 32,
+                "y": 48,
                 "w": 16,
                 "h": 16
             },
@@ -100,10 +100,10 @@
     "meta": {
         "app": "http://free-tex-packer.com",
         "version": "0.6.7",
-        "image": "ninja-green.png",
+        "image": "npc.png",
         "format": "RGBA8888",
         "size": {
-            "w": 64,
+            "w": 48,
             "h": 64
         },
         "scale": 1
