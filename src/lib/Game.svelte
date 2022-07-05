@@ -13,6 +13,7 @@
     import { SpriteHandler } from '$util/SpriteHandler';
     import { World } from '$util/World';  
     import { Npc } from '$util/entities/Npc';  
+    import { Terminal } from '$util/entities/Terminal';
     import { Camera } from '$util/Camera';
     import { Grid } from '$util/Grid';
 
@@ -28,6 +29,7 @@
         let npcMelissa: Npc;
         let npcSkeleton: Npc;
         let npcMarcus: Npc;
+        let terminalSkeleton: Terminal;
     let grid: Grid;
     let camera: Camera;
     let elapsed: number = 0.0;
@@ -51,16 +53,19 @@
             'npc-melissa.json',
             'npc-skeleton.json',
             'npc-marcus.json',
+            'terminal.json',
         ].forEach(r => { game.loader.add(r); });
 
         // Loading Lifecycle
         // https://pixijs.download/release/docs/PIXI.Loader.html
-        game.loader.onProgress.add((loader, resources) => { loadingAmount = loader.progress; });
+        game.loader.onProgress.add((loader, resources) => {
+            loadingAmount = loader.progress;
+            if (loadingAmount > 99) { loadingAmount = 100; }
+        });
         game.loader.onError.add((loader, resources) => { window.location.href = '/index-minimal'; }); // redirect
         
         // On Game Loaded
         game.loader.load((loader, resources) => {
-
             console.log('GAME LOADED');
 
             // Init Sprite Handler
@@ -79,8 +84,8 @@
                     containerLevel,
                     portrait: 'portrait.png',
                     animSprite: spriteHandler.animSpriteSheet('npc-chris.json'),
-                    x: 33, y: 32,
-                    pathing: 'idle',
+                    x: 33, y: 34,
+                    pathing: 'left-right',
                     dialog: `Hello, I'm the Chris. Welcome to my portfolio site! Have a look around. You may interact with several points of interest.`,
                 });
                 npcMelissa = new Npc({
@@ -111,6 +116,14 @@
                     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
                 });
 
+                // Draw Terminals
+                terminalSkeleton = new Terminal({
+                    name: 'Terminal 1',
+                    containerLevel,
+                    animSprite: spriteHandler.animSpriteSheet('terminal.json'),
+                    x: 33, y: 31,
+                });
+
                 // Draw Grid
                 grid = new Grid({ container: containerLevel, enabled: false, labeled: false });
 
@@ -134,6 +147,9 @@
                 npcMelissa.render();
                 npcSkeleton.render();
                 npcMarcus.render();
+
+                // Terminals
+                terminalSkeleton.render();
             });
 
         });

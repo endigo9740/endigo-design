@@ -27,9 +27,8 @@ export class Camera {
     }
 
     centerOnWorld(): void {
-        const correction: number = 64*2; // since world tiles not centered
-        this.offset.x = -(this.world.sprite.width - this.app.screen.width) / 2 - correction;
-        this.offset.y = -(this.world.sprite.height - this.app.screen.height) / 2 - correction;
+        this.offset.x = -Math.ceil((this.world.sprite.width - this.app.screen.width) / 2);
+        this.offset.y = -Math.ceil((this.world.sprite.height - this.app.screen.height) / 2);
     }
 
     reset(): void {

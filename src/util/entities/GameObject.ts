@@ -8,10 +8,10 @@ export class GameObject {
     public portrait: string;
     public animSprite: PIXI.AnimatedSprite;
     public grid: Grid = new Grid({});
+    public x: number;
+    public y: number;
 
     private containerLevel: any;
-    private x: number;
-    private y: number;
     public pathing: string;
     public dialog: any;
 
@@ -29,19 +29,23 @@ export class GameObject {
     }
 
     init(): void {
-        // Animated Spritesheet Settings
+        this.animSpriteSettiongs();
+        this.gameContainerSettiongs();
+    }
+
+    animSpriteSettiongs(): void {
         this.animSprite.animationSpeed = 0.15;
         this.animSprite.width = this.grid.unit(1);
         this.animSprite.height = this.grid.unit(1);
+    }
 
-        // Game Object Container
+    gameContainerSettiongs(): void {
         this.containerGameObject = new PIXI.Container();
-            this.containerGameObject.x = this.grid.unit(this.x);
-            this.containerGameObject.y = this.grid.unit(this.y);
-            this.containerGameObject.width = this.grid.unit(1);
-            this.containerGameObject.height = this.grid.unit(1);
+        this.containerGameObject.x = this.grid.unit(this.x);
+        this.containerGameObject.y = this.grid.unit(this.y);
+        this.containerGameObject.width = this.grid.unit(1);
+        this.containerGameObject.height = this.grid.unit(1);
         this.containerGameObject.addChild(this.animSprite);
-
         // Add to Level Container
         this.containerLevel.addChild(this.containerGameObject);
     }

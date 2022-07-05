@@ -9,23 +9,13 @@ export class Npc extends GameObject {
 
     constructor(config: any) {
         super(config);
-        // this.addShadow();
 
         // Handle Interaction
         this.containerGameObject.interactive = true;
-        this.containerGameObject.on('pointerdown', (e: any) => { this.onPointerDown(e, this); });
         this.containerGameObject.on('pointerover', (e: any) => { this.onPointerOver(e, this); });
+        this.containerGameObject.on('pointerdown', (e: any) => { this.onPointerDown(e, this); });
         this.containerGameObject.on('pointerout', (e: any) => { this.onPointerOut(e, this); });
     }
-
-    // addShadow(): void {
-    //     this.animSprite.y -= this.grid.unit(1)/3; // shift up half tile
-    //     const graphicShadow  = new PIXI.Graphics();
-    //         graphicShadow.beginFill(0x000000, 0.15);
-    //         graphicShadow.drawEllipse(this.grid.unit(1)/2+5, this.grid.unit(1)/2, this.grid.unit(1)/2-10, this.grid.unit(1)/4);
-    //         graphicShadow.endFill();
-    //     this.containerGameObject.addChildAt(graphicShadow, 0);
-    // }
 
     render(): void {
         if (this.pathing.length > 0) { this.movement(); }
@@ -57,18 +47,18 @@ export class Npc extends GameObject {
         }
     }
 
+    onPointerOver(event: any, _this: any): void {
+        let colorMatrixFilter: any = new PIXI.filters.ColorMatrixFilter();
+            colorMatrixFilter.brightness(0.75);
+        _this.containerGameObject.filters = [colorMatrixFilter];
+    }
+
     onPointerDown(event: any, _this: any): void {
         dialogStore.set({
             name: _this.name,
             message: _this.dialog,
             portrait: _this.portrait
         });
-    }
-
-    onPointerOver(event: any, _this: any): void {
-        let colorMatrixFilter: any = new PIXI.filters.ColorMatrixFilter();
-            colorMatrixFilter.brightness(0.75);
-        _this.containerGameObject.filters = [colorMatrixFilter];
     }
     
     onPointerOut(event: any, _this: any): void {

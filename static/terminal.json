@@ -1,0 +1,42 @@
+{ "frames": {
+   "terminal 0.aseprite": {
+    "frame": { "x": 0, "y": 0, "w": 16, "h": 32 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 32 },
+    "sourceSize": { "w": 16, "h": 32 },
+    "duration": 100
+   },
+   "terminal 1.aseprite": {
+    "frame": { "x": 16, "y": 0, "w": 16, "h": 32 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 32 },
+    "sourceSize": { "w": 16, "h": 32 },
+    "duration": 100
+   },
+   "terminal 2.aseprite": {
+    "frame": { "x": 32, "y": 0, "w": 16, "h": 32 },
+    "rotated": false,
+    "trimmed": false,
+    "spriteSourceSize": { "x": 0, "y": 0, "w": 16, "h": 32 },
+    "sourceSize": { "w": 16, "h": 32 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.2.35-arm64",
+  "image": "terminal.png",
+  "format": "RGBA8888",
+  "size": { "w": 48, "h": 32 },
+  "scale": "1",
+  "frameTags": [
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}
