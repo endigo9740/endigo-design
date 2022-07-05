@@ -1,10 +1,14 @@
 import * as PIXI from 'pixi.js';
 import { GameObject } from './GameObject';
+import { pageModalStore } from '$lib/PageModalStore';
 
 export class Terminal extends GameObject {
 
+    public page: any;
+
     constructor(config: any) {
         super(config);
+        this.page = config.page || { /* default */ };
 
         // Handle Interaction
         this.containerGameObject.interactive = true;
@@ -33,7 +37,7 @@ export class Terminal extends GameObject {
     }
 
     onPointerDown(event: any, _this: any): void {
-        console.log('Terminal onPointerDown() triggered');
+        pageModalStore.set(this.page);
     }
 
     render(): void {}

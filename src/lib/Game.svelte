@@ -6,9 +6,9 @@
 
     import Dialog from './Dialog.svelte';
     import { dialogStore } from '$lib/DialogStore';
-
-    import Modal from './Modal.svelte';
-    let modalVisible: boolean = false;
+    
+    import PageModal from './PageModal.svelte';
+    import { pageModalStore } from '$lib/PageModalStore';
 
     import { SpriteHandler } from '$util/SpriteHandler';
     import { World } from '$util/World';  
@@ -122,6 +122,11 @@
                     containerLevel,
                     animSprite: spriteHandler.animSpriteSheet('terminal.json'),
                     x: 33, y: 31,
+                    page: {
+                        component: 'Work',
+                        category: 'brain-and-bones',
+                        id: 'skeleton', // 'branding',
+                    }
                 });
 
                 // Draw Grid
@@ -156,42 +161,33 @@
         
     });
 
-    // UI Handlers
-    function onUiMenu(): void { modalVisible = !modalVisible; }
     function onUiCenter(): void { camera.centerOnWorld(); }
 </script>
 
-<!-- Page Modal -->
-{#if modalVisible}
-<Modal />
-{/if}
-
-<!-- Loading Text -->
+<!-- UI Overlay -->
 {#if loadingAmount < 100}
-<section class="fixed top-0 left-0 right-0 bottom-0 z-90 flex justify-center items-center">
-    <h2>{loadingAmount.toFixed(0)}% Loaded...</h2>
-</section>
-{/if}
-
-<!-- Overlay UI -->
-{#if $dialogStore}
-
-    <!-- Dialog -->
-    <Dialog />
-
+<!-- Loading Text -->
+    <section class="fixed top-0 left-0 right-0 bottom-0 z-90 flex justify-center items-center">
+        <h2>{loadingAmount.toFixed(0)}% Loaded...</h2>
+    </section>
+{:else}
+    {#if $dialogStore !== undefined}
+        <!-- Dialog Modal -->
+        <Dialog />
+    {:else if $pageModalStore !== undefined}
+        <!-- Page Modal -->
+        <PageModal />
     {:else}
-
-    <!-- HUD -->
-    <a href="/" class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur" transition:fade|local>
-        <img src="portrait.png" class="ring-2 ring-white aspect-square w-[30px] rounded-full" alt="logo">
-        <span class="text-white text-2xl font-bold uppercase">Chris Simmons</span>
-    </a>
-    <nav class="fixed bottom-0 right-0 z-50 bg-slate-900/90 p-6 rounded-tl-xl space-x-4 backdrop-blur" transition:fade|local>
-        <button type="button" class="btn-filled" on:click={() => {onUiMenu()}}>Menu</button>
-        <button type="button" class="btn-filled" on:click={() => {onUiCenter()}}>Center</button>
-    </nav>
-
+        <!-- HUD -->
+        <a href="/" class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur" transition:fade|local={{duration: 250}}>
+            <img src="portrait.png" class="ring-2 ring-white aspect-square w-[30px] rounded-full" alt="logo">
+            <span class="text-white text-2xl font-bold uppercase">Chris Simmons</span>
+        </a>
+        <nav class="fixed bottom-0 right-0 z-50 bg-slate-900/90 p-6 rounded-tl-xl space-x-4 backdrop-blur" transition:fade|local={{duration: 250}}>
+            <button type="button" class="btn-filled" on:click={() => {onUiCenter()}}>Center</button>
+        </nav>
+    {/if}
 {/if}
 
-<!-- Game -->
+<!-- Game Canvas -->
 <canvas id="game" bind:this={elemCanvas}></canvas>
