@@ -82,61 +82,61 @@
 
                 // Create NPCs
                 npcs = [
-                    new Npc({
-                        name: 'Chris',
-                        containerLevel,
-                        portrait: 'portrait.png',
-                        animSprite: spriteHandler.animSpriteSheet('npc-chris.json'),
-                        x: 33, y: 34,
-                        pathing: 'left-right',
-                        dialog: `Hello, I'm the Chris. Welcome to my portfolio site! Have a look around. You may interact with several points of interest.`,
-                    }),
-                    new Npc({
-                        name: 'Melissa',
-                        containerLevel,
-                        portrait: 'npc-melissa-portrait.png',
-                        animSprite: spriteHandler.animSpriteSheet('npc-melissa.json'),
-                        x: 12, y: 58,
-                        pathing: 'circle',
-                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
-                    }),
-                    new Npc({
-                        name: 'Skeleton',
-                        containerLevel,
-                        portrait: 'npc-skeleton-portrait.png',
-                        animSprite: spriteHandler.animSpriteSheet('npc-skeleton.json'),
-                        x: 36, y: 5,
-                        pathing: 'left-right',
-                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
-                    }),
-                    new Npc({
-                        name: 'Marcus',
-                        containerLevel,
-                        portrait: 'npc-marcus-portrait.png',
-                        animSprite: spriteHandler.animSpriteSheet('npc-marcus.json'),
-                        x: 9, y: 12,
-                        pathing: 'up-down',
-                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
-                    }),
+                    // new Npc({
+                    //     name: 'Chris',
+                    //     containerLevel,
+                    //     portrait: 'portrait.png',
+                    //     animSprite: spriteHandler.animSpriteSheet('npc-chris.json'),
+                    //     x: 33, y: 34,
+                    //     pathing: 'left-right',
+                    //     dialog: `Hello, I'm the Chris. Welcome to my portfolio site! Have a look around. You may interact with several points of interest.`,
+                    // }),
+                    // new Npc({
+                    //     name: 'Melissa',
+                    //     containerLevel,
+                    //     portrait: 'npc-melissa-portrait.png',
+                    //     animSprite: spriteHandler.animSpriteSheet('npc-melissa.json'),
+                    //     x: 12, y: 58,
+                    //     pathing: 'circle',
+                    //     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
+                    // }),
+                    // new Npc({
+                    //     name: 'Skeleton',
+                    //     containerLevel,
+                    //     portrait: 'npc-skeleton-portrait.png',
+                    //     animSprite: spriteHandler.animSpriteSheet('npc-skeleton.json'),
+                    //     x: 36, y: 5,
+                    //     pathing: 'left-right',
+                    //     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
+                    // }),
+                    // new Npc({
+                    //     name: 'Marcus',
+                    //     containerLevel,
+                    //     portrait: 'npc-marcus-portrait.png',
+                    //     animSprite: spriteHandler.animSpriteSheet('npc-marcus.json'),
+                    //     x: 9, y: 12,
+                    //     pathing: 'up-down',
+                    //     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
+                    // }),
                 ];
 
                 // Draw Terminals
                 terminals = [
                     // Brain & Bones
-                    new Terminal({
-                        name: 'Skeleton',
-                        containerLevel,
-                        animSprite: spriteHandler.animSpriteSheet('terminal.json'),
-                        x: 33, y: 31,
-                        page: { component: 'Work', category: 'brain-and-bones', id: 'skeleton' }
-                    }),
-                    new Terminal({
-                        name: 'Branding',
-                        containerLevel,
-                        animSprite: spriteHandler.animSpriteSheet('terminal.json'),
-                        x: 4, y: 37,
-                        page: { component: 'Work', category: 'brain-and-bones', id: 'branding' }
-                    }),
+                    // new Terminal({
+                    //     name: 'Skeleton',
+                    //     containerLevel,
+                    //     animSprite: spriteHandler.animSpriteSheet('terminal.json'),
+                    //     x: 33, y: 31,
+                    //     page: { component: 'Work', category: 'brain-and-bones', id: 'skeleton' }
+                    // }),
+                    // new Terminal({
+                    //     name: 'Branding',
+                    //     containerLevel,
+                    //     animSprite: spriteHandler.animSpriteSheet('terminal.json'),
+                    //     x: 4, y: 37,
+                    //     page: { component: 'Work', category: 'brain-and-bones', id: 'branding' }
+                    // }),
                 ];
 
                 // Draw Grid

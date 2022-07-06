@@ -7,9 +7,9 @@ export class Grid {
 
     private container: any;
 
-    private tileSize: number = 16 * 4; // px/zoom
-    private width: number = 64; // tiles
-    private height: number = 64; // tiles
+    private tileSize: number = 16 * 2; // px/zoom
+    private width: number = 128; // tiles
+    private height: number = 128; // tiles
     
     constructor(config: any) {
         this.enabled = config.enabled || false;
