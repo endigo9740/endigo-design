@@ -2,7 +2,7 @@ import * as PIXI from 'pixi.js';
 import { GameObject } from './GameObject';
 import { pageModalStore } from '$lib/PageModalStore';
 
-export class Terminal extends GameObject {
+export class Pillar extends GameObject {
 
     public page: any;
 
@@ -22,8 +22,8 @@ export class Terminal extends GameObject {
 
     animSpriteSettiongs(): void {
         this.animSprite.animationSpeed = 0.1;
-        this.animSprite.width = this.grid.unit(1);
-        this.animSprite.height = this.grid.unit(2);
+        this.animSprite.width = this.grid.unit(3);
+        this.animSprite.height = this.grid.unit(6);
     }
 
     onPointerOver(event: any, _this: any): void {

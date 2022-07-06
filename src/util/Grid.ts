@@ -7,7 +7,7 @@ export class Grid {
 
     private container: any;
 
-    private tileSize: number = 16 * 2; // px/zoom
+    private tileSize: number = 16 * 3; // px/zoom
     private width: number = 128; // tiles
     private height: number = 128; // tiles
     
