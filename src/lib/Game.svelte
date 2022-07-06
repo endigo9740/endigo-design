@@ -2,7 +2,7 @@
     import * as PIXI from 'pixi.js';
 
     import { onMount } from 'svelte';
-    import { fade } from 'svelte/transition';
+    import { fly } from 'svelte/transition';
 
     import Dialog from './Dialog.svelte';
     import { dialogStore } from '$lib/DialogStore';
@@ -123,14 +123,14 @@
                         containerLevel,
                         animSprite: spriteHandler.animSpriteSheet('pillar.json'),
                         x: 63, y: 59,
-                        page: { component: 'Work', category: 'brain-and-bones', id: 'skeleton' }
+                        page: { component: 'Work', category: 'brain-and-bones', id: 'skeleton', categoryLabel: "Brain & Bones" }
                     }),
                     // new Pillar({
                     //     name: 'Branding',
                     //     containerLevel,
                     //     animSprite: spriteHandler.animSpriteSheet('pillar.json'),
                     //     x: 4, y: 37,
-                    //     page: { component: 'Work', category: 'brain-and-bones', id: 'branding' }
+                    //     page: { component: 'Work', category: 'brain-and-bones', id: 'branding', categoryLabel: "Brain & Bones" }
                     // }),
                 ];
 
@@ -138,7 +138,7 @@
                 grid = new Grid({ container: containerLevel, enabled: false, labeled: false });
 
                 // Handle Camera Panning
-                camera = new Camera({ app: game, container: containerLevel, world });
+                camera = new Camera({ app: game, container: containerLevel, world, loadTarget: pillars[0] });
                 camera.init();
 
             // Add to Stage
@@ -163,7 +163,8 @@
         
     });
 
-    function onUiCenter(): void { camera.centerOnWorld(); }
+    let selectedTarget: any;
+    function centerOnTarget(): void { camera.centerOnTarget(selectedTarget); }
 </script>
 
 <!-- UI Overlay -->
@@ -181,12 +182,26 @@
         <PageModal />
     {:else}
         <!-- HUD -->
-        <a href="/" class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur" transition:fade|local={{duration: 250}}>
+        <a href="/" class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur" transition:fly|local={{y: -100, duration: 250}}>
             <img src="portrait.png" class="ring-2 ring-white aspect-square w-[30px] rounded-full" alt="logo">
             <span class="text-white text-2xl font-bold uppercase">Chris Simmons</span>
         </a>
-        <nav class="fixed bottom-0 right-0 z-50 bg-slate-900/90 p-6 rounded-tl-xl space-x-4 backdrop-blur" transition:fade|local={{duration: 250}}>
-            <button type="button" class="btn-filled" on:click={() => {onUiCenter()}}>Center</button>
+        <nav class="fixed bottom-0 right-0 z-50 bg-slate-900/90 p-6 rounded-tl-xl space-x-4 backdrop-blur" transition:fly|local={{y: 100, duration: 250}}>
+            <label for="selection">
+                <span class="text-xs mr-4 opacity-30">Found</span>
+                <select name="selection" id="selection" bind:value={selectedTarget} on:change={() => {centerOnTarget()}}>
+                    <optgroup label="Projects">
+                        {#each pillars as pillar}
+                        <option value={pillar}>{pillar.page.categoryLabel} - {pillar.name}</option>
+                        {/each}
+                    </optgroup>
+                    <optgroup label="Characters">
+                        {#each npcs as npc}
+                        <option value={npc}>{npc.name}</option>
+                        {/each}
+                    </optgroup>
+                </select>
+            </label>
         </nav>
     {/if}
 {/if}

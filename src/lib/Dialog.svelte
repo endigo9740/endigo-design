@@ -6,7 +6,10 @@
 </script>
 
 {#if $dialogStore}
-<section class="fixed left-4 right-4 max-w-[1440px] mx-auto bottom-4 z-20 bg-slate-900/90 p-8 rounded-xl flex items-start space-x-8" transition:fade>
+<section
+    class="fixed left-4 right-4 max-w-[1440px] mx-auto bottom-4 z-20 bg-slate-900/90 p-8 rounded-xl flex items-start space-x-8"
+    transition:fade={{duration: 150}}
+>
 
     <!-- Portrait -->
     <img src={$dialogStore.portrait} class="flex-none image-crisp w-16 h-16 md:w-[128px] md:h-[128px] bg-black border border-white rounded-xl" alt="portrait">

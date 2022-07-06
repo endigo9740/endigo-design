@@ -9,15 +9,18 @@ export class Camera {
     private startPan: any = {x: 0, y: 0};
     private netPan: any = {x: 0, y: 0};
 
+    private loadTarget: any;
+
     constructor(config: any) {
         this.app = config.app;
         this.container = config.container;
         this.world = config.world;
+        this.loadTarget = config.loadTarget;
     }
 
     init(): void {
-        // Center Camera
-        this.centerOnWorld();
+        // Center camera on provided target
+        this.centerOnTarget(this.loadTarget);
         // Handle Interaction
         this.container.interactive = true;
         this.container.on('pointerdown', (e: any) => this.onPointerDown(e));
@@ -29,6 +32,18 @@ export class Camera {
     centerOnWorld(): void {
         this.offset.x = -Math.ceil((this.world.sprite.width - this.app.screen.width) / 2);
         this.offset.y = -Math.ceil((this.world.sprite.height - this.app.screen.height) / 2);
+    }
+
+    centerOnTarget(targetContainer: any): void {
+        // Set to target container grid position
+        this.offset.x = -Math.ceil(targetContainer.x * (16*3));
+        this.offset.y = -Math.ceil(targetContainer.y * (16*3));
+        // Adjust for screen width/height
+        this.offset.x += Math.ceil(this.app.screen.width / 2);
+        this.offset.y += Math.ceil(this.app.screen.height / 2);
+        // Adjust for target width/height
+        this.offset.x -= Math.ceil(targetContainer.containerGameObject.width / 2);
+        this.offset.y -= Math.ceil(targetContainer.containerGameObject.height / 2);
     }
 
     reset(): void {
