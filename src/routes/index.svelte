@@ -4,6 +4,6 @@
 
     <h2>Endigo Design</h2>
     <a class="btn btn-filled w-[280px]" href="/game">Game Mode</a>
-    <a class="btn btn-filled w-[280px]" href="/works">Basic Mode</a>
+    <a class="btn btn-filled w-[280px]" href="/works">Traditional</a>
 
 </section>

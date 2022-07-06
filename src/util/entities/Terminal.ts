@@ -8,7 +8,7 @@ export class Terminal extends GameObject {
 
     constructor(config: any) {
         super(config);
-        this.page = config.page || { /* default */ };
+        this.page = config.page || { component: 'About' };
 
         // Handle Interaction
         this.containerGameObject.interactive = true;

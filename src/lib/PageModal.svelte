@@ -20,12 +20,12 @@
     <button type="button" class="fixed top-4 right-4 btn-filled" on:click={closeModal}>X</button>
     
     <!-- Window -->
-    <div class="w-[90%] max-h-[75%] bg-slate-900/[0.9] border border-white/20 rounded-xl shadow-2xl m-10 overflow-y-auto">
+    <div class="w-[90%] h-full max-h-[75%] bg-slate-900/[0.96] border border-white/20 rounded-xl shadow-2xl m-10 overflow-hidden">
 
         {#if $pageModalStore.component === 'About'}
             <About compact={true} />
         {:else if $pageModalStore.component === 'Work'}
-            <Work category={$pageModalStore.category} id={$pageModalStore.id} />
+            <Work compact={true} category={$pageModalStore.category} id={$pageModalStore.id} />
         {:else}
             <p>(Invalid Page Settings)</p>
         {/if}
