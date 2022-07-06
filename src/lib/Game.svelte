@@ -75,6 +75,34 @@
                 world = new World({ container: containerLevel, texture: resources['overworld.png'].texture });
                 world.generate();
 
+                // Draw Pillar
+                pillars = [
+                    // About
+                    new Pillar({
+                        name: 'About Chris',
+                        containerLevel,
+                        animSprite: spriteHandler.animSpriteSheet('pillar.json'),
+                        x: 63, y: 59,
+                        // page: { component: 'About', label: "Brain & Bones" }
+                        page: { component: 'Work', category: 'brain-and-bones', id: 'skeleton', label: "Brain & Bones" }
+                    }),
+                    // Brain & Bones
+                    // new Pillar({
+                    //     name: 'Skeleton',
+                    //     containerLevel,
+                    //     animSprite: spriteHandler.animSpriteSheet('pillar.json'),
+                    //     x: 63, y: 59,
+                    //     page: { component: 'Work', category: 'brain-and-bones', id: 'skeleton', label: "Brain & Bones" }
+                    // }),
+                    // new Pillar({
+                    //     name: 'Branding',
+                    //     containerLevel,
+                    //     animSprite: spriteHandler.animSpriteSheet('pillar.json'),
+                    //     x: 4, y: 37,
+                    //     page: { component: 'Work', category: 'brain-and-bones', id: 'branding', label: "Brain & Bones" }
+                    // }),
+                ];
+
                 // Create NPCs
                 npcs = [
                     new Npc({
@@ -84,7 +112,7 @@
                         animSprite: spriteHandler.animSpriteSheet('npc-chris.json'),
                         x: 64, y: 71,
                         pathing: 'left-right',
-                        dialog: `Hello, I'm the Chris. Welcome to my portfolio site! Have a look around. You may interact with several points of interest.`,
+                        dialog: `Hello, I'm the Chris. Welcome to my portfolio site! Have a look around. You may interact with ${pillars.length} pillars. Each pillar features one of my portfolio projects. Be sure to try the pillar near me as well. It will help you get to know me.`,
                     }),
                     new Npc({
                         name: 'Melissa',
@@ -112,25 +140,6 @@
                     //     x: 9, y: 12,
                     //     pathing: 'up-down',
                     //     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
-                    // }),
-                ];
-
-                // Draw Pillar
-                pillars = [
-                    // Brain & Bones
-                    new Pillar({
-                        name: 'Skeleton',
-                        containerLevel,
-                        animSprite: spriteHandler.animSpriteSheet('pillar.json'),
-                        x: 63, y: 59,
-                        page: { component: 'Work', category: 'brain-and-bones', id: 'skeleton', categoryLabel: "Brain & Bones" }
-                    }),
-                    // new Pillar({
-                    //     name: 'Branding',
-                    //     containerLevel,
-                    //     animSprite: spriteHandler.animSpriteSheet('pillar.json'),
-                    //     x: 4, y: 37,
-                    //     page: { component: 'Work', category: 'brain-and-bones', id: 'branding', categoryLabel: "Brain & Bones" }
                     // }),
                 ];
 
@@ -190,9 +199,10 @@
             <label for="selection">
                 <span class="text-xs mr-4 opacity-30">Found</span>
                 <select name="selection" id="selection" bind:value={selectedTarget} on:change={() => {centerOnTarget()}}>
+                    <option disabled>Menu</option>
                     <optgroup label="Projects">
                         {#each pillars as pillar}
-                        <option value={pillar}>{pillar.page.categoryLabel} - {pillar.name}</option>
+                        <option value={pillar}>{pillar.page.label} - {pillar.name}</option>
                         {/each}
                     </optgroup>
                     <optgroup label="Characters">
