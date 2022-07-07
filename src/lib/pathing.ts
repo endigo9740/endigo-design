@@ -13,10 +13,12 @@ export const pathing: any = {
     
     "left-right": [
         {path: 'right'},
-        {path: 'wait', delay: 6000},
+        {path: 'wait', delay: 5000},
         {path: 'left'},
         {path: 'left'},
-        {path: 'wait', delay: 6000},
+        {path: 'left'},
+        {path: 'wait', delay: 5000},
+        {path: 'right'},
         {path: 'right'},
     ],
 

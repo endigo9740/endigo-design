@@ -123,9 +123,9 @@
                         camera,
                         portrait: 'portrait.png',
                         animSprite: spriteHandler.animSpriteSheet('npc-chris.json'),
-                        x: 64, y: 71,
-                        pathing: 'idle',
-                        dialog: `Hello, I'm the Chris. Welcome to my portfolio site! Have a look around. You may interact with ${pillars.length} pillars. Each pillar features one of my portfolio projects. Be sure to try the pillar near me as well. It will help you get to know me.`,
+                        x: 64, y: 68,
+                        pathing: 'left-right',
+                        dialog: `Hello, I'm the Chris. Welcome to my interactive portfolio gallery! Have a look around. You goal is to find all ${pillars.length} pillars. Each pillar features information about me or one of my projects. Once activated you'll see the pillar come to life. Try the one just north of me to get started!`,
                     }),
                     new Npc({
                         name: 'Melissa',
@@ -137,33 +137,33 @@
                         pathing: 'circle',
                         dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`,
                     }),
-                    new Npc({
-                        name: 'Skeleton',
-                        containerLevel,
-                        camera,
-                        portrait: 'npc-skeleton-portrait.png',
-                        animSprite: spriteHandler.animSpriteSheet('npc-skeleton.json'),
-                        x: 64, y: 70,
-                        pathing: 'left-right',
-                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`,
-                    }),
-                    new Npc({
-                        name: 'Marcus',
-                        containerLevel,
-                        camera,
-                        portrait: 'npc-marcus-portrait.png',
-                        animSprite: spriteHandler.animSpriteSheet('npc-marcus.json'),
-                        x: 65, y: 78,
-                        pathing: 'up-down',
-                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`,
-                    }),
+                    // new Npc({
+                    //     name: 'Skeleton',
+                    //     containerLevel,
+                    //     camera,
+                    //     portrait: 'npc-skeleton-portrait.png',
+                    //     animSprite: spriteHandler.animSpriteSheet('npc-skeleton.json'),
+                    //     x: 64, y: 70,
+                    //     pathing: 'left-right',
+                    //     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`,
+                    // }),
+                    // new Npc({
+                    //     name: 'Marcus',
+                    //     containerLevel,
+                    //     camera,
+                    //     portrait: 'npc-marcus-portrait.png',
+                    //     animSprite: spriteHandler.animSpriteSheet('npc-marcus.json'),
+                    //     x: 65, y: 78,
+                    //     pathing: 'up-down',
+                    //     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`,
+                    // }),
                 ];
 
             // Add to Stage
             game.stage.addChild(containerLevel);
 
             // Post Staging
-            camera.centerOnTarget(pillars[0])
+            camera.centerOnTarget(npcs[0])
 
             // Animation Loop
             game.ticker.add((delta: any) => {
@@ -192,7 +192,7 @@
 {#if !loadingComplete}
 <!-- Loading Text -->
     <section class="fixed top-0 left-0 right-0 bottom-0 z-90 flex justify-center items-center">
-        <h2>{loadingAmount.toFixed(0)}% Loaded...</h2>
+        <span>{loadingAmount.toFixed(0)}%</span>
     </section>
 {:else}
     {#if $dialogStore !== undefined}

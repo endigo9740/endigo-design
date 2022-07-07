@@ -15,14 +15,14 @@
     <img src={$dialogStore.portrait} class="flex-none image-crisp w-16 h-16 md:w-[128px] md:h-[128px] bg-black border border-white rounded-xl" alt="portrait">
 
     <!-- Text -->
-    <div class="flex-auto space-y-2">
+    <div class="flex-auto space-y-4">
         <h3>{$dialogStore.name}:</h3>
         <p>{$dialogStore.message}</p>
+        <!-- Actions -->
+        <nav>
+            <button type="button" class="btn-filled" on:click={dismiss}>Okay, got it!</button>
+        </nav>
     </div>
     
-    <!-- Actions -->
-    <div class="flex-none">
-        <button type="button" class="btn-filled" on:click={dismiss}>Gotcha</button>
-    </div>
 </section>
 {/if}

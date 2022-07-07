@@ -31,11 +31,11 @@ export class GameObject {
     }
 
     init(): void {
-        this.animSpriteSettiongs();
+        this.animSpriteSettings();
         this.gameContainerSettiongs();
     }
 
-    animSpriteSettiongs(): void {
+    animSpriteSettings(): void {
         this.animSprite.animationSpeed = 0.15;
         this.animSprite.width = this.grid.unit(1);
         this.animSprite.height = this.grid.unit(1);

@@ -18,7 +18,7 @@ export class Pillar extends GameObject {
         this.containerGameObject.on('pointerdown', () => { this.onPointerDown(); });
     }
 
-    animSpriteSettiongs(): void {
+    animSpriteSettings(): void {
         this.animSprite.animationSpeed = 0.2;
         this.animSprite.width = this.grid.unit(3);
         this.animSprite.height = this.grid.unit(6);
