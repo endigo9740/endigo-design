@@ -21,11 +21,10 @@ pre { @apply bg-black/30 p-4; }
 pre+pre { @apply mt-4; }
 
 button, .btn, button { @apply text-white text-base font-bold uppercase p-2; }
-    .btn-filled { @apply bg-cyan-600 rounded shadow py-2 px-5 hover:bg-cyan-500; }
-    .btn-hollow { @apply ring-2 ring-white/60 py-2 px-5 hover:ring-white; }
+    .btn-hollow { @apply bg-white/10 ring-2 ring-white/60 py-2 px-5 hover:bg-white/20 hover:ring-white shadow-xl rounded-sm; }
 
 select {
-    @apply text-white text-base font-bold uppercase p-2 bg-cyan-600 rounded shadow hover:bg-cyan-500;
+    @apply bg-white/10 ring-2 ring-white/60 p-2 hover:bg-white/20 hover:ring-white shadow-xl rounded-sm appearance-none;
 }
 
 /* TYPOGRAPHY --- */
@@ -54,4 +53,18 @@ a { @apply text-white/60 hover:text-white; }
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
     image-rendering: crisp-edges;
+}
+
+/* Animations --- */
+
+.animFloat {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, -15px); }
+    100%   { transform: translate(0, 0px); }   
 }

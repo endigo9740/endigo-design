@@ -16,9 +16,10 @@
         <div class="page-wrap space-y-20">
 
         <!-- Hero -->
-        <header class="h-[250px] flex justify-center items-center">
-            <div class="text-center space-y-2">
-                <h1 class="text-7xl md:text-9xl drop-shadow-xl">Hi, I'm <span class="text-cyan-500">Chris</span></h1>
+        <header class="flex justify-center items-center py-20">
+            <div class="text-center space-y-2 drop-shadow-lg">
+                <img src="logo.png" class="animFloat mx-auto" alt="logo">
+                <h1 class="text-7xl md:text-9xl font-normal">Hi, I'm <span class="text-rose-400 font-bold">Chris</span></h1>
                 <p class="text-xs md:text-lg text-white/50 font-bold drop-shadow-xl md:translate-x-12">Developer, designer, UX, game maker, and more.</p>
             </div>
         </header>
@@ -37,10 +38,10 @@
                             {#if project.thumbnail}
                             <div class="flex flex-col items-center space-y-4">
                                 <img src={project.thumbnail} class="image-crisp w-[200%] h-[200%]" alt="thumbnail">
-                                <span>{project.name}</span>
+                                <p class="font-bold">{project.name}</p>
                             </div>
                             {:else}
-                            <span>{project.name}</span>
+                            <p class="font-bold">{project.name}</p>
                             {/if}
                         </a>
                         {/each}

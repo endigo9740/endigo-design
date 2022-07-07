@@ -19,7 +19,7 @@ export class Pillar extends GameObject {
     }
 
     animSpriteSettings(): void {
-        this.animSprite.animationSpeed = 0.2;
+        this.animSprite.animationSpeed = 0.3;
         this.animSprite.width = this.grid.unit(3);
         this.animSprite.height = this.grid.unit(6);
     }

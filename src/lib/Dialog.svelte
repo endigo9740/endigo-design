@@ -7,7 +7,7 @@
 
 {#if $dialogStore !== undefined}
 <section
-    class="fixed left-4 right-4 max-w-[1440px] mx-auto bottom-4 z-20 bg-slate-900/80 p-8 rounded-xl flex items-start space-x-8"
+    class="fixed left-4 right-4 bottom-10 z-20 max-w-[1440px] mx-auto bg-slate-900/[0.9] border-2 border-black/30 p-8 rounded-xl flex items-start space-x-8"
     transition:fly={{y: 200, duration: 150}}
 >
 
@@ -16,11 +16,11 @@
 
     <!-- Text -->
     <div class="flex-auto space-y-4">
-        <h3>{$dialogStore.name}:</h3>
-        <p>{$dialogStore.message}</p>
+        <h2>{$dialogStore.name}:</h2>
+        <p class="text-2xl">{$dialogStore.message}</p>
         <!-- Actions -->
         <nav>
-            <button type="button" class="btn-filled" on:click={dismiss}>Okay, got it!</button>
+            <button type="button" class="btn-hollow" on:click={dismiss}>Okay, got it!</button>
         </nav>
     </div>
     

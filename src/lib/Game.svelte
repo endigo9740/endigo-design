@@ -1,15 +1,16 @@
 <script lang="ts">
     import * as PIXI from 'pixi.js';
-
     import { onMount } from 'svelte';
-    import { fly } from 'svelte/transition';
 
+    // UI
+    import ProgressBar from './ProgressBar.svelte';
     import Dialog from './Dialog.svelte';
     import { dialogStore } from '$lib/DialogStore';
-    
     import PageModal from './PageModal.svelte';
     import { pageModalStore } from '$lib/PageModalStore';
+    import Hud from './Hud.svelte';
 
+    // Game Classes
     import { SpriteHandler } from '$util/SpriteHandler';
     import { World } from '$util/World';  
     import { Npc } from '$util/entities/Npc';  
@@ -17,22 +18,22 @@
     import { Camera } from '$util/Camera';
     import { Grid } from '$util/Grid';
 
+    // Game Data
     import { works } from '$lib/works';
 
     let elemCanvas: HTMLCanvasElement;
 
-    // Loading
-    let loadingComplete: boolean = false;
-    let loadingAmount: number = 0;
+    // Loading State
+    const loading: any = {amount: 0, complete: false};
 
     // Game
+    let game: PIXI.Application;
     let spriteHandler: SpriteHandler;
     let world: World;
-        let npcs: any[] = [];
-        let pillars: any[] = [];
-    let grid: Grid;
     let camera: Camera;
-    let elapsed: number = 0.0;
+    let grid: Grid;
+    let npcs: any[] = [];
+    let pillars: any[] = [];
 
     onMount(() => {
 
@@ -40,7 +41,7 @@
         PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
         // Init Game App
-        const game = new PIXI.Application({
+        game = new PIXI.Application({
             view: elemCanvas,
             resizeTo: document.body,
             backgroundColor: 0x141414
@@ -58,16 +59,13 @@
 
         // Loading Lifecycle
         // https://pixijs.download/release/docs/PIXI.Loader.html
-        game.loader.onProgress.add((loader, resources) => {
-            loadingAmount = loader.progress;
-            if (loadingAmount > 99) { loadingAmount = 100; }
-        });
+        game.loader.onProgress.add((loader, resources) => { loading.amount = Math.ceil(loader.progress);  });
         game.loader.onError.add((loader, resources) => { window.location.href = '/works'; }); // redirect
         
         // On Game Loaded
         game.loader.load((loader, resources) => {
             // console.log('GAME LOADED');
-            loadingComplete = true;
+            loading.complete = true;
 
             // Init Sprite Handler
             spriteHandler = new SpriteHandler({ loader: game.loader });
@@ -125,7 +123,7 @@
                         animSprite: spriteHandler.animSpriteSheet('npc-chris.json'),
                         x: 64, y: 68,
                         pathing: 'left-right',
-                        dialog: `Hello, I'm the Chris. Welcome to my interactive portfolio gallery! Have a look around. You goal is to find all ${pillars.length} pillars. Each pillar features information about me or one of my projects. Once activated you'll see the pillar come to life. Try the one just north of me to get started!`,
+                        dialog: `Hello, I'm the Chris. Welcome to my interactive portfolio gallery! Have a look around. Each pillar features information about me or one of my projects. Once activated you'll see the pillar come to life. Try the one just north of me to get started! You goal is to find all ${pillars.length} pillars. Good luck!`,
                     }),
                     new Npc({
                         name: 'Melissa',
@@ -167,7 +165,6 @@
 
             // Animation Loop
             game.ticker.add((delta: any) => {
-                elapsed += delta;
 
                 // Move containerLevel based on camera position
                 if (containerLevel.position.x !== camera.offset.x) { containerLevel.position.x = camera.offset.x };
@@ -178,62 +175,24 @@
 
                 // Pillar
                 pillars.forEach(pillar => pillar.render());
+                
             });
 
         });
         
     });
-
-    let selectedTarget: any;
-    function centerOnTarget(): void { camera.centerOnTarget(selectedTarget); }
 </script>
 
 <!-- UI Overlay -->
-{#if !loadingComplete}
-<!-- Loading Text -->
-    <section class="fixed top-0 left-0 right-0 bottom-0 z-90 flex justify-center items-center">
-        <span>{loadingAmount.toFixed(0)}%</span>
-    </section>
+{#if loading.complete === false}
+    <ProgressBar amount={loading.amount} />
 {:else}
     {#if $dialogStore !== undefined}
-        <!-- Dialog Modal -->
         <Dialog />
     {:else if $pageModalStore !== undefined}
-        <!-- Page Modal -->
         <PageModal />
     {:else}
-        <!-- HUD -->
-        <a
-            href="/"
-            class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur hover:bg-slate-800/90"
-            transition:fly|local={{y: -100, duration: 250}}
-            title="Go to homepage."
-        >
-            <img src="portrait.png" class="ring-2 ring-white aspect-square w-[30px] rounded-full" alt="logo">
-            <span class="text-white text-2xl font-bold uppercase">Chris Simmons</span>
-        </a>
-        <nav class="fixed bottom-0 right-0 z-50 bg-slate-900/90 p-6 rounded-tl-xl space-x-4 backdrop-blur" transition:fly|local={{y: 100, duration: 250}}>
-            <label for="selection">
-                <span class="text-xs mr-4 opacity-30">Found</span>
-                <select name="selection" id="selection" bind:value={selectedTarget} on:change={() => {centerOnTarget()}}>
-                    <option disabled>Menu</option>
-                    <optgroup label="Pillars">
-                        {#each pillars as pillar, i}
-                            <!-- {#if pillar.found} -->
-                            <option value={pillar}>{pillar.page.category ? `${pillar.page.category} /` : ''} {pillar.name}</option>
-                            <!-- {:else}
-                            <option value={pillar}>Unactivated Pillar #{i+1}</option>
-                            {/if} -->
-                        {/each}
-                    </optgroup>
-                    <optgroup label="Characters">
-                        {#each npcs as npc}
-                        <option value={npc}>{npc.name}</option>
-                        {/each}
-                    </optgroup>
-                </select>
-            </label>
-        </nav>
+        <Hud {camera} {pillars} {npcs} />
     {/if}
 {/if}
 

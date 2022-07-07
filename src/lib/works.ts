@@ -24,7 +24,7 @@ export const works: any = {
             },
             {
                 id: "branding",
-                name: "Company Branding",
+                name: "Branding & Identity",
                 details: testHtml,
                 url: null,
                 coords: {x: 29, y: 101},
@@ -70,7 +70,7 @@ export const works: any = {
         projects: [
             {
                 id: "branding",
-                name: "Company Branding",
+                name: "Branding & Identity",
                 details: testHtml,
                 url: null,
                 coords: {x: 14, y: 36},

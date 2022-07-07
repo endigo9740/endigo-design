@@ -33,7 +33,7 @@
         <!-- Contact -->
         <section>
             <h2 class="section-label">Contact</h2>
-            <p>(...)</p>
+            <p>Contact information coming soon.</p>
         </section>
 
         <!-- Footer -->

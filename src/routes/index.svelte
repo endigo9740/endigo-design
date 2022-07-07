@@ -2,8 +2,17 @@
 
 <section class="page flex flex-col justify-center items-center w-full h-full space-y-4 text-center">
 
-    <h2>Endigo Design</h2>
-    <a class="btn btn-filled w-[280px]" href="/game">Game Mode</a>
-    <a class="btn btn-filled w-[280px]" href="/works">Traditional</a>
+    <div class="space-y-4">
+        <header>
+            <h2 class="uppercase">Endigo Design</h2>
+            <p>The portfolio of Chris Simmons</p>
+        </header>
+        <img src="logo.png" class="animFloat mx-auto py-6" alt="logo">
+        <p class="font-bold text-lg">Choose your adventure...</p>
+        <nav class="grid grid-cols-2 gap-4">
+            <a class="btn btn-hollow !py-4" href="/game">Game</a>
+            <a class="btn btn-hollow !py-4" href="/works">Traditional</a>
+        </nav>
+    </div>
 
 </section>
