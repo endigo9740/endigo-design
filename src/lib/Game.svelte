@@ -17,6 +17,8 @@
     import { Camera } from '$util/Camera';
     import { Grid } from '$util/Grid';
 
+    import { works } from '$lib/works';
+
     let elemCanvas: HTMLCanvasElement;
 
     // Loading
@@ -64,7 +66,7 @@
         
         // On Game Loaded
         game.loader.load((loader, resources) => {
-            console.log('GAME LOADED');
+            // console.log('GAME LOADED');
             loadingComplete = true;
 
             // Init Sprite Handler
@@ -85,25 +87,24 @@
                         containerLevel,
                         animSprite: spriteHandler.animSpriteSheet('pillar.json'),
                         x: 63, y: 59,
-                        // page: { component: 'About', label: "Brain & Bones" }
-                        page: { component: 'Work', category: 'brain-and-bones', id: 'skeleton', label: "Brain & Bones" }
+                        page: { component: 'About', category: 'page' }
                     }),
-                    // Brain & Bones
-                    // new Pillar({
-                    //     name: 'Skeleton',
-                    //     containerLevel,
-                    //     animSprite: spriteHandler.animSpriteSheet('pillar.json'),
-                    //     x: 63, y: 59,
-                    //     page: { component: 'Work', category: 'brain-and-bones', id: 'skeleton', label: "Brain & Bones" }
-                    // }),
-                    // new Pillar({
-                    //     name: 'Branding',
-                    //     containerLevel,
-                    //     animSprite: spriteHandler.animSpriteSheet('pillar.json'),
-                    //     x: 4, y: 37,
-                    //     page: { component: 'Work', category: 'brain-and-bones', id: 'branding', label: "Brain & Bones" }
-                    // }),
                 ];
+                Object.entries(works).forEach((category: any) => {
+                    const [categoryKey, categoryDetails] = category;
+                    categoryDetails.projects.forEach((project: any) => {
+                        if (!project.coords) return;
+                        pillars.push(
+                            new Pillar({
+                                name: project.name,
+                                containerLevel,
+                                animSprite: spriteHandler.animSpriteSheet('pillar.json'),
+                                x: project.coords.x, y: project.coords.y,
+                                page: { component: 'Work', category: categoryKey, id: project.id }
+                            }),
+                        );
+                    });
+                });
 
                 // Create NPCs
                 npcs = [
@@ -207,9 +208,13 @@
                 <span class="text-xs mr-4 opacity-30">Found</span>
                 <select name="selection" id="selection" bind:value={selectedTarget} on:change={() => {centerOnTarget()}}>
                     <option disabled>Menu</option>
-                    <optgroup label="Projects">
-                        {#each pillars as pillar}
-                        <option value={pillar}>{pillar.page.label} - {pillar.name}</option>
+                    <optgroup label="Pillars">
+                        {#each pillars as pillar, i}
+                            <!-- {#if pillar.found} -->
+                            <option value={pillar}>{pillar.page.category} / {pillar.name}</option>
+                            <!-- {:else}
+                            <option value={pillar}>Unactivated Pillar #{i+1}</option>
+                            {/if} -->
                         {/each}
                     </optgroup>
                     <optgroup label="Characters">

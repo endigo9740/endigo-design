@@ -48,9 +48,9 @@ export class Npc extends GameObject {
     }
 
     onPointerOver(event: any, _this: any): void {
-        let colorMatrixFilter: any = new PIXI.filters.ColorMatrixFilter();
-            colorMatrixFilter.brightness(0.75);
-        _this.containerGameObject.filters = [colorMatrixFilter];
+        let filterEffect: any = new PIXI.filters.ColorMatrixFilter();
+            filterEffect.brightness(1.3, false);
+        _this.containerGameObject.filters = [filterEffect];
     }
 
     onPointerDown(event: any, _this: any): void {
