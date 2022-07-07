@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { Grid } from '../Grid';
-import { pathing } from './pathing';
+import { pathing } from '$lib/pathing';
 
 export class GameObject {
     public name: string;

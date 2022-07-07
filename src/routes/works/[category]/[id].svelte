@@ -11,7 +11,7 @@
 	}
 </script>
 <script lang=ts>
-    import Details from './Work.svelte';
+    import Details from './Embed.svelte';
     export let category: string;
 	export let id: string;
 </script>

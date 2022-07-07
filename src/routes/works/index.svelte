@@ -34,7 +34,14 @@
                         <!-- Project -->
                         {#each work.projects as project}
                         <a href={`/works/${key}/${project.id}`} class="aspect-square flex justify-center items-center" style:background-color={project.accent}>
+                            {#if project.thumbnail}
+                            <div class="flex flex-col items-center space-y-4">
+                                <img src={project.thumbnail} class="image-crisp w-[200%] h-[200%]" alt="thumbnail">
+                                <span>{project.name}</span>
+                            </div>
+                            {:else}
                             <span>{project.name}</span>
+                            {/if}
                         </a>
                         {/each}
                     </div>

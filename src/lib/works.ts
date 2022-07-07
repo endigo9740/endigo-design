@@ -16,7 +16,7 @@ export const works: any = {
                 url: 'https://skeleton.brainandbonesllc.com/',
                 coords: {x: 15, y: 77},
                 accent: "rgba(0,0,0,0.5)",
-                thumbnail: "",
+                thumbnail: "npc-skeleton-portrait.png",
                 screenshots: [
                     'https://i.imgur.com/Pw8uHwB.png',
                     'https://i.imgur.com/V5khBZZ.png'

@@ -90,12 +90,12 @@
                 pillars = [
                     // About
                     new Pillar({
-                        name: 'About Chris',
+                        name: 'Learn about Chris',
                         containerLevel,
                         camera,
                         animSprite: spriteHandler.animSpriteSheet('pillar.json'),
                         x: 63, y: 59,
-                        page: { component: 'About', category: 'page' }
+                        page: { component: 'About' }
                     }),
                 ];
                 Object.entries(works).forEach((category: any) => {
@@ -220,7 +220,7 @@
                     <optgroup label="Pillars">
                         {#each pillars as pillar, i}
                             <!-- {#if pillar.found} -->
-                            <option value={pillar}>{pillar.page.category} / {pillar.name}</option>
+                            <option value={pillar}>{pillar.page.category ? `${pillar.page.category} /` : ''} {pillar.name}</option>
                             <!-- {:else}
                             <option value={pillar}>Unactivated Pillar #{i+1}</option>
                             {/if} -->

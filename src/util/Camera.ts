@@ -27,6 +27,8 @@ export class Camera {
     centerOnWorld(): void {
         this.offset.x = -Math.ceil((this.world.sprite.width - this.app.screen.width) / 2);
         this.offset.y = -Math.ceil((this.world.sprite.height - this.app.screen.height) / 2);
+        // Lock camera within world bounds
+        this.setCameraWithinBounds();
     }
 
     centerOnTarget(targetContainer: any): void {
@@ -39,6 +41,8 @@ export class Camera {
         // Adjust for target width/height
         this.offset.x -= Math.ceil(targetContainer.containerGameObject.width / 2);
         this.offset.y -= Math.ceil(targetContainer.containerGameObject.height / 2);
+        // Lock camera within world bounds
+        this.setCameraWithinBounds();
     }
 
     reset(): void {
@@ -93,6 +97,10 @@ export class Camera {
         this.offset.y += this.netPan.y;
     
         // Lock camera within world bounds
+        this.setCameraWithinBounds();
+    }
+
+    setCameraWithinBounds(): void {
         if (this.offset.x >= 0) { this.offset.x = 0; } // left
         if (this.offset.y >= 0) { this.offset.y = 0; } // top
         const maxOffsetX = this.container.width - this.app.screen.width;
