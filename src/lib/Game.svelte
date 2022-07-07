@@ -20,6 +20,7 @@
     let elemCanvas: HTMLCanvasElement;
 
     // Loading
+    let loadingComplete: boolean = false;
     let loadingAmount: number = 0;
 
     // Game
@@ -64,6 +65,7 @@
         // On Game Loaded
         game.loader.load((loader, resources) => {
             console.log('GAME LOADED');
+            loadingComplete = true;
 
             // Init Sprite Handler
             spriteHandler = new SpriteHandler({ loader: game.loader });
@@ -177,7 +179,7 @@
 </script>
 
 <!-- UI Overlay -->
-{#if loadingAmount < 100}
+{#if !loadingComplete}
 <!-- Loading Text -->
     <section class="fixed top-0 left-0 right-0 bottom-0 z-90 flex justify-center items-center">
         <h2>{loadingAmount.toFixed(0)}% Loaded...</h2>
@@ -191,7 +193,12 @@
         <PageModal />
     {:else}
         <!-- HUD -->
-        <a href="/" class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur" transition:fly|local={{y: -100, duration: 250}}>
+        <a
+            href="/"
+            class="fixed top-0 left-0 z-10 bg-slate-900/90 p-6 rounded-br-xl flex space-x-4 backdrop-blur hover:bg-slate-800/90"
+            transition:fly|local={{y: -100, duration: 250}}
+            title="Go to homepage."
+        >
             <img src="portrait.png" class="ring-2 ring-white aspect-square w-[30px] rounded-full" alt="logo">
             <span class="text-white text-2xl font-bold uppercase">Chris Simmons</span>
         </a>
