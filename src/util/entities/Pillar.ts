@@ -13,9 +13,9 @@ export class Pillar extends GameObject {
 
         // Handle Interaction
         this.containerGameObject.interactive = true;
-        this.containerGameObject.on('pointerover', (e: any) => { this.onPointerOver(e, this); });
-        this.containerGameObject.on('pointerout', (e: any) => { this.onPointerOut(e, this); });
-        this.containerGameObject.on('pointerdown', (e: any) => { this.onPointerDown(e, this); });
+        this.containerGameObject.on('pointerover', () => { this.onPointerOver(); });
+        this.containerGameObject.on('pointerout', () => { this.onPointerOut(); });
+        this.containerGameObject.on('pointerdown', () => { this.onPointerDown(); });
     }
 
     animSpriteSettiongs(): void {
@@ -24,17 +24,18 @@ export class Pillar extends GameObject {
         this.animSprite.height = this.grid.unit(6);
     }
 
-    onPointerOver(event: any, _this: any): void {
+    onPointerOver(): void {
         let filterEffect: any = new PIXI.filters.ColorMatrixFilter();
             filterEffect.brightness(1.3, false);
-        _this.containerGameObject.filters = [filterEffect];
+        this.containerGameObject.filters = [filterEffect];
     }
     
-    onPointerOut(event: any, _this: any): void {
-        _this.containerGameObject.filters = [];
+    onPointerOut(): void {
+        this.containerGameObject.filters = [];
     }
 
-    onPointerDown(event: any, _this: any): void {
+    onPointerDown(): void {
+        this.camera.centerOnTarget(this);
         pageModalStore.set(this.page);
         // Set Found state
         this.found = true;

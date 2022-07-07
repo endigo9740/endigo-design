@@ -9,18 +9,13 @@ export class Camera {
     private startPan: any = {x: 0, y: 0};
     private netPan: any = {x: 0, y: 0};
 
-    private loadTarget: any;
-
     constructor(config: any) {
         this.app = config.app;
         this.container = config.container;
         this.world = config.world;
-        this.loadTarget = config.loadTarget;
     }
 
     init(): void {
-        // Center camera on provided target
-        this.centerOnTarget(this.loadTarget);
         // Handle Interaction
         this.container.interactive = true;
         this.container.on('pointerdown', (e: any) => this.onPointerDown(e));

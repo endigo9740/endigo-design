@@ -12,6 +12,7 @@ export class GameObject {
     public y: number;
 
     private containerLevel: any;
+    public camera: any;
     public pathing: string;
     public dialog: any;
 
@@ -24,6 +25,7 @@ export class GameObject {
         this.y = config.y || 0;
         this.pathing = pathing[config.pathing] || pathing['idle'];
         this.dialog = config.dialog;
+        this.camera = config.camera;
         // Init
         this.init();
     }

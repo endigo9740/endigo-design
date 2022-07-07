@@ -75,16 +75,24 @@
             // Containers
             const containerLevel = new PIXI.Container();
             
-                // Draw World
+                // World
                 world = new World({ container: containerLevel, texture: resources['overworld.png'].texture });
                 world.generate();
 
-                // Draw Pillar
+                // Camera
+                camera = new Camera({ app: game, container: containerLevel, world });
+                camera.init();
+                
+                // Grid
+                grid = new Grid({ container: containerLevel, enabled: false, labeled: false });
+
+                // Pillar
                 pillars = [
                     // About
                     new Pillar({
                         name: 'About Chris',
                         containerLevel,
+                        camera,
                         animSprite: spriteHandler.animSpriteSheet('pillar.json'),
                         x: 63, y: 59,
                         page: { component: 'About', category: 'page' }
@@ -98,6 +106,7 @@
                             new Pillar({
                                 name: project.name,
                                 containerLevel,
+                                camera,
                                 animSprite: spriteHandler.animSpriteSheet('pillar.json'),
                                 x: project.coords.x, y: project.coords.y,
                                 page: { component: 'Work', category: categoryKey, id: project.id }
@@ -106,55 +115,55 @@
                     });
                 });
 
-                // Create NPCs
+                // NPCs
                 npcs = [
                     new Npc({
                         name: 'Chris',
                         containerLevel,
+                        camera,
                         portrait: 'portrait.png',
                         animSprite: spriteHandler.animSpriteSheet('npc-chris.json'),
                         x: 64, y: 71,
-                        pathing: 'left-right',
+                        pathing: 'idle',
                         dialog: `Hello, I'm the Chris. Welcome to my portfolio site! Have a look around. You may interact with ${pillars.length} pillars. Each pillar features one of my portfolio projects. Be sure to try the pillar near me as well. It will help you get to know me.`,
                     }),
                     new Npc({
                         name: 'Melissa',
                         containerLevel,
+                        camera,
                         portrait: 'npc-melissa-portrait.png',
                         animSprite: spriteHandler.animSpriteSheet('npc-melissa.json'),
                         x: 65, y: 73,
                         pathing: 'circle',
-                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
+                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`,
                     }),
-                    // new Npc({
-                    //     name: 'Skeleton',
-                    //     containerLevel,
-                    //     portrait: 'npc-skeleton-portrait.png',
-                    //     animSprite: spriteHandler.animSpriteSheet('npc-skeleton.json'),
-                    //     x: 36, y: 5,
-                    //     pathing: 'left-right',
-                    //     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
-                    // }),
-                    // new Npc({
-                    //     name: 'Marcus',
-                    //     containerLevel,
-                    //     portrait: 'npc-marcus-portrait.png',
-                    //     animSprite: spriteHandler.animSpriteSheet('npc-marcus.json'),
-                    //     x: 9, y: 12,
-                    //     pathing: 'up-down',
-                    //     dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`
-                    // }),
+                    new Npc({
+                        name: 'Skeleton',
+                        containerLevel,
+                        camera,
+                        portrait: 'npc-skeleton-portrait.png',
+                        animSprite: spriteHandler.animSpriteSheet('npc-skeleton.json'),
+                        x: 64, y: 70,
+                        pathing: 'left-right',
+                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`,
+                    }),
+                    new Npc({
+                        name: 'Marcus',
+                        containerLevel,
+                        camera,
+                        portrait: 'npc-marcus-portrait.png',
+                        animSprite: spriteHandler.animSpriteSheet('npc-marcus.json'),
+                        x: 65, y: 78,
+                        pathing: 'up-down',
+                        dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`,
+                    }),
                 ];
-
-                // Draw Grid
-                grid = new Grid({ container: containerLevel, enabled: false, labeled: false });
-
-                // Handle Camera Panning
-                camera = new Camera({ app: game, container: containerLevel, world, loadTarget: pillars[0] });
-                camera.init();
 
             // Add to Stage
             game.stage.addChild(containerLevel);
+
+            // Post Staging
+            camera.centerOnTarget(pillars[0])
 
             // Animation Loop
             game.ticker.add((delta: any) => {

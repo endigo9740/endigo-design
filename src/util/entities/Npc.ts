@@ -6,15 +6,22 @@ export class Npc extends GameObject {
 
     private pathingProgress: number = this.grid.unit(1);
     private pathingIndex: number = 0;
+    private movementAllowed: boolean = true;
 
     constructor(config: any) {
         super(config);
 
         // Handle Interaction
         this.containerGameObject.interactive = true;
-        this.containerGameObject.on('pointerover', (e: any) => { this.onPointerOver(e, this); });
-        this.containerGameObject.on('pointerdown', (e: any) => { this.onPointerDown(e, this); });
-        this.containerGameObject.on('pointerout', (e: any) => { this.onPointerOut(e, this); });
+        this.containerGameObject.on('pointerover', (e: any) => { this.onPointerOver(); });
+        this.containerGameObject.on('pointerdown', (e: any) => { this.onPointerDown(); });
+        this.containerGameObject.on('pointerout', (e: any) => { this.onPointerOut(); });
+
+        // Handle Dialog open state
+        dialogStore.subscribe((d: any) => {
+            this.movementAllowed = d === undefined;
+            this.animSprite.gotoAndStop(0);
+        });
     }
 
     render(): void {
@@ -22,10 +29,11 @@ export class Npc extends GameObject {
     }
 
     movement(): void {
+        if (this.movementAllowed === false) return;
         // Run Current Path
         if (this.pathingProgress >= 0) {
             // Animate
-            if (this.animSprite.playing === false) { this.animSprite.play() } 
+            if (this.animSprite.playing === false) { this.animSprite.play(); } 
             // Pathing
             const currentPath: any = this.pathing[this.pathingIndex];
             switch(currentPath.path) {
@@ -47,22 +55,23 @@ export class Npc extends GameObject {
         }
     }
 
-    onPointerOver(event: any, _this: any): void {
+    onPointerOver(): void {
         let filterEffect: any = new PIXI.filters.ColorMatrixFilter();
             filterEffect.brightness(1.3, false);
-        _this.containerGameObject.filters = [filterEffect];
+        this.containerGameObject.filters = [filterEffect];
     }
 
-    onPointerDown(event: any, _this: any): void {
+    onPointerDown(): void {
+        this.camera.centerOnTarget(this);
         dialogStore.set({
-            name: _this.name,
-            message: _this.dialog,
-            portrait: _this.portrait
+            name: this.name,
+            message: this.dialog,
+            portrait: this.portrait
         });
     }
     
-    onPointerOut(event: any, _this: any): void {
-        _this.containerGameObject.filters = [];
+    onPointerOut(): void {
+        this.containerGameObject.filters = [];
     }
 
 }
