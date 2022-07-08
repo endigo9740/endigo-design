@@ -2,13 +2,12 @@
     import * as PIXI from 'pixi.js';
     import { onMount } from 'svelte';
 
-    // UI
-    import ProgressBar from './ProgressBar.svelte';
-    import Dialog from './Dialog.svelte';
+    // Game Data
+    import { works } from '$lib/works';
+
+    // Stores
     import { dialogStore } from '$lib/DialogStore';
-    import PageModal from './PageModal.svelte';
     import { pageModalStore } from '$lib/PageModalStore';
-    import Hud from './Hud.svelte';
 
     // Game Classes
     import { SpriteHandler } from '$util/SpriteHandler';
@@ -18,8 +17,11 @@
     import { Camera } from '$util/Camera';
     import { Grid } from '$util/Grid';
 
-    // Game Data
-    import { works } from '$lib/works';
+    // UI Components
+    import ProgressBar from './ProgressBar.svelte';
+    import Dialog from './Dialog.svelte';
+    import PageModal from './PageModal.svelte';
+    import Hud from './Hud.svelte';
 
     let elemCanvas: HTMLCanvasElement;
 

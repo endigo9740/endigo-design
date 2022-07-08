@@ -1,6 +1,6 @@
 <script lang="ts">
-    import Nav from "$lib/Nav.svelte";
-    import Footer from "$lib/Footer.svelte";
+    import Nav from "$lib/components/Nav.svelte";
+    import Footer from "$lib/components/Footer.svelte";
 
     // Compact modal display for game
     export let compact: boolean = false;
