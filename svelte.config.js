@@ -27,7 +27,6 @@ const config = {
 		},
 		alias: {
 			$lib: 'src/lib',
-			$util: 'src/util',
 			$routes: 'src/routes',
 		},
 		vite: {

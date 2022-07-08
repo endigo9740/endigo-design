@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { works } from '$lib/works';
+    import { works } from '$lib/data/works';
 
     export let compact: boolean = false;
 	export let category: string;

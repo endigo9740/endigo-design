@@ -3,18 +3,18 @@
     import { onMount } from 'svelte';
 
     // Game Data
-    import { works } from '$lib/works';
+    import { works } from '$lib/data/works';
 
     // Stores
     import { dialogStore, pageModalStore } from '$lib/stores';
 
     // Game Classes
-    import { SpriteHandler } from '$util/SpriteHandler';
-    import { World } from '$util/World';  
-    import { Npc } from '$util/entities/Npc';  
-    import { Pillar } from '$util/entities/Pillar';
-    import { Camera } from '$util/Camera';
-    import { Grid } from '$util/Grid';
+    import { SpriteHandler } from '$lib/game/SpriteHandler';
+    import { World } from '$lib/game/World';  
+    import { Npc } from '$lib/game/objects/Npc';  
+    import { Pillar } from '$lib/game/objects/Pillar';
+    import { Camera } from '$lib/game/Camera';
+    import { Grid } from '$lib/game/Grid';
 
     // UI Components
     import ProgressBar from './ProgressBar.svelte';

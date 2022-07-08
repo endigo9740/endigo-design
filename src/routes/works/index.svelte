@@ -1,7 +1,7 @@
 <script lang="ts">
     import Nav from "$lib/components/Nav.svelte";
     import Footer from "$lib/components/Footer.svelte";
-    import { works } from "$lib/works";
+    import { works } from "$lib/data/works";
 
     const navVisible: boolean = true;
     const worksArr: any[] = Object.entries(works);
