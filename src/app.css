@@ -68,3 +68,15 @@ a { @apply text-white/60 hover:text-white; }
     50%  { transform: translate(0, -15px); }
     100%   { transform: translate(0, 0px); }   
 }
+
+.animFloatSmall {
+    animation-name: floatingSmall;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+@keyframes floatingSmall {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, -5px); }
+    100%   { transform: translate(0, 0px); }   
+}
