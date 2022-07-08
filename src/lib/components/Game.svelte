@@ -74,15 +74,14 @@
             const containerLevel = new PIXI.Container();
             
                 // World
-                world = new World({ container: containerLevel, texture: resources['overworld.png'].texture });
-                world.generate();
+                world = new World({ texture: resources['overworld.png'].texture });
+                containerLevel.addChild(world.sprite);
 
                 // Camera
                 camera = new Camera({ app: game, container: containerLevel, world });
-                camera.init();
                 
                 // Grid
-                grid = new Grid({ container: containerLevel, enabled: false, labeled: false });
+                grid = new Grid({ container: containerLevel, enabled: true, coords: false });
 
                 // GameObjects
                 pillarList = generatePillars({ containerLevel, spriteHandler, camera });

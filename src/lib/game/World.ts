@@ -9,13 +9,14 @@ export class World {
     constructor(config: any) {
         this.container = config.container;
         this.texture = config.texture;
+        // Init
+        this.onInit();
     }
 
-    generate(): void {
+    onInit(): void {
         this.sprite = PIXI.Sprite.from(this.texture);
             this.sprite.width = this.sprite.width;
             this.sprite.height = this.sprite.height;
-        this.container.addChild(this.sprite);
     }
 
 }

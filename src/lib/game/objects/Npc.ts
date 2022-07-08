@@ -1,10 +1,11 @@
 import * as PIXI from 'pixi.js';
 import { GameObject } from './GameObject';
 import { dialogStore } from '$lib/stores';
+import { tile } from '$lib/stores';
 
 export class Npc extends GameObject {
 
-    private pathingProgress: number = this.grid.unit(1);
+    private pathingProgress: number = tile.unit(1);
     private pathingIndex: number = 0;
     private movementAllowed: boolean = true;
     private flippedX: boolean = false;
@@ -32,7 +33,7 @@ export class Npc extends GameObject {
     addShadow(): void {
         const graphicShadow = new PIXI.Graphics();
             graphicShadow.beginFill(0x000000, 0.15);
-            graphicShadow.drawEllipse(this.grid.unit(1), this.grid.unit(1)*2.5, this.grid.unit(1)/2, this.grid.unit(1)/4);
+            graphicShadow.drawEllipse(tile.unit(1), tile.unit(1)*2.5, tile.unit(1)/2, tile.unit(1)/4);
             graphicShadow.endFill();
             graphicShadow.filters = [new PIXI.filters.BlurFilter(5)];
         // Add to Level Container
@@ -41,8 +42,8 @@ export class Npc extends GameObject {
 
     animSpriteSettings(): void {
         this.animSprite.animationSpeed = 0.15;
-        this.animSprite.width = this.grid.unit(2);
-        this.animSprite.height = this.grid.unit(3);
+        this.animSprite.width = tile.unit(2);
+        this.animSprite.height = tile.unit(3);
     }
 
     render(): void {
@@ -79,7 +80,7 @@ export class Npc extends GameObject {
     }
 
     triggerNextPath(): void {
-        this.pathingProgress = this.grid.unit(1);
+        this.pathingProgress = tile.unit(1);
         (this.pathingIndex+1) >= this.pathing.length ? this.pathingIndex = 0 :  this.pathingIndex++;
     }
 
@@ -89,11 +90,11 @@ export class Npc extends GameObject {
             if (this.flippedX === true) {
                 // Flip Left
                 this.containerGameObject.scale.x *= -1
-                this.containerGameObject.x += this.grid.unit(2);
+                this.containerGameObject.x += tile.unit(2);
             } else {
                 // Flip Right
                 this.containerGameObject.scale.x = 1;
-                this.containerGameObject.x -= this.grid.unit(2);
+                this.containerGameObject.x -= tile.unit(2);
             }
         }
     }

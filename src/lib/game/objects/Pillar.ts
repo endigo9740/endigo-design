@@ -1,6 +1,7 @@
 import * as PIXI from 'pixi.js';
 import { GameObject } from './GameObject';
 import { pageModalStore } from '$lib/stores';
+import { tile } from '$lib/stores';
 
 export class Pillar extends GameObject {
 
@@ -20,8 +21,8 @@ export class Pillar extends GameObject {
 
     animSpriteSettings(): void {
         this.animSprite.animationSpeed = 0.3;
-        this.animSprite.width = this.grid.unit(3);
-        this.animSprite.height = this.grid.unit(6);
+        this.animSprite.width = tile.unit(3);
+        this.animSprite.height = tile.unit(6);
     }
 
     onPointerOver(): void {

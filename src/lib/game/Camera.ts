@@ -1,3 +1,5 @@
+import { tile } from "$lib/stores";
+
 export class Camera {
     public offset: any = {x: 0, y: 0};
     
@@ -13,9 +15,11 @@ export class Camera {
         this.app = config.app;
         this.container = config.container;
         this.world = config.world;
+        // Init
+        this.onInit();
     }
 
-    init(): void {
+    onInit(): void {
         // Handle Interaction
         this.container.interactive = true;
         this.container.on('pointerdown', (e: any) => this.onPointerDown(e));
@@ -32,9 +36,9 @@ export class Camera {
     }
 
     centerOnTarget(targetContainer: any): void {
-        // Set to target container grid position
-        this.offset.x = -Math.ceil(targetContainer.x * (16*3));
-        this.offset.y = -Math.ceil(targetContainer.y * (16*3));
+        // Set to target container position
+        this.offset.x = -Math.ceil(targetContainer.x * tile.unit(1));
+        this.offset.y = -Math.ceil(targetContainer.y * tile.unit(1));
         // Adjust for screen width/height
         this.offset.x += Math.ceil(this.app.screen.width / 2);
         this.offset.y += Math.ceil(this.app.screen.height / 2);
