@@ -79,7 +79,7 @@
                 containerLevel.addChild(world.sprite);
 
                 // Camera
-                camera = new Camera({ app: game, container: containerLevel, world });
+                camera = new Camera({ app: game, container: containerLevel });
                 
                 // Grid
                 grid = new Grid({ container: containerLevel, enabled: false, coords: false, texture: resources['grid.png'].texture });
@@ -93,7 +93,7 @@
             game.stage.addChild(containerLevel);
 
             // Post Staging
-            camera.centerOnTarget(npcList[0])
+            camera.centerOnContainer(npcList[0])
 
             // Animation Loop
             game.ticker.add((delta: any) => {
@@ -122,7 +122,7 @@
     {:else if $pageModalStore !== undefined}
         <PageModal />
     {:else}
-        <!-- <Hud {camera} {pillarList} {npcList} /> -->
+        <Hud {camera} {pillarList} {npcList} />
     {/if}
 {/if}
 

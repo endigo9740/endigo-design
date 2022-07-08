@@ -106,7 +106,7 @@ export class Npc extends GameObject {
     }
 
     onPointerDown(): void {
-        this.camera.centerOnTarget(this);
+        this.camera.centerOnContainer(this);
         dialogStore.set({
             name: this.name,
             message: this.dialog,

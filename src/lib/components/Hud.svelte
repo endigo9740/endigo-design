@@ -6,7 +6,7 @@
     export let npcList: any;
 
     let selectedTarget: any;
-    function centerOnTarget(): void { camera.centerOnTarget(selectedTarget); }
+    function centerOnContainer(): void { camera.centerOnContainer(selectedTarget); }
 </script>
 
 <!-- Branding -->
@@ -28,7 +28,7 @@
     <label for="selection">
 
         {#if pillarList}
-        <select name="selection" id="selection" class="max-w-[120px] text-center" bind:value={selectedTarget} on:change={() => {centerOnTarget()}}>
+        <select name="selection" id="selection" class="max-w-[120px] text-center" bind:value={selectedTarget} on:change={() => {centerOnContainer()}}>
             <option disabled>Navigate</option>
             <optgroup label="Pillars">
                 {#each pillarList as pillar, i}

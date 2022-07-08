@@ -5,110 +5,72 @@ export class Camera {
     
     private app: any;
     private container: any;
-    private world: any;
 
-    private isDragging: boolean = false;
-    private startPan: any = {x: 0, y: 0};
-    private netPan: any = {x: 0, y: 0};
+    private lastPos: any = null;
 
     constructor(config: any) {
         this.app = config.app;
         this.container = config.container;
-        this.world = config.world;
         // Init
         this.onInit();
     }
 
     onInit(): void {
-        // Handle Interaction
+        // Enable interactivity
         this.container.interactive = true;
+        // Handle dragging events
         this.container.on('pointerdown', (e: any) => this.onPointerDown(e));
         this.container.on('pointerup', () => this.onPointerUp());
-        this.container.on('pointerout', () => this.onPointerOut());
+        this.container.on('pointerout', () => this.onPointerUp());
         this.container.on('pointermove', (e: any) => this.onPointerMove(e));
     }
 
-    centerOnWorld(): void {
-        this.offset.x = -Math.ceil((this.world.sprite.width - this.app.screen.width) / 2);
-        this.offset.y = -Math.ceil((this.world.sprite.height - this.app.screen.height) / 2);
-        // Lock camera within world bounds
-        this.setCameraWithinBounds();
-    }
-
-    centerOnTarget(targetContainer: any): void {
-        // Set to target container position
-        this.offset.x = -Math.ceil(targetContainer.x * tile.unit(1));
-        this.offset.y = -Math.ceil(targetContainer.y * tile.unit(1));
-        // Adjust for screen width/height
-        this.offset.x += Math.ceil(this.app.screen.width / 2);
-        this.offset.y += Math.ceil(this.app.screen.height / 2);
-        // Adjust for target width/height
-        this.offset.x -= Math.ceil(targetContainer.containerGameObject.width / 2);
-        this.offset.y -= Math.ceil(targetContainer.containerGameObject.height / 2);
-        // Lock camera within world bounds
-        this.setCameraWithinBounds();
-    }
-
-    reset(): void {
-        this.startPan = {x: 0, y: 0};
-        this.netPan = {x: 0, y: 0};
-    }
+    // Event Handlers ---
+    // Source: https://embed.plnkr.co/II6lgj511fsQ7l0QCoRi/
 
     onPointerDown(e: any): void {
         // console.log('pointerdown', e);
-        this.startPan = {
-            x: e.data.global.x - this.offset.x,
-            y: e.data.global.y - this.offset.y
-        };
-        this.isDragging = true;
+        this.lastPos = { x: e.data.originalEvent.offsetX, y: e.data.originalEvent.offsetY };
     }
 
     onPointerUp(): void {
-        // console.log('pointerup', e);
-        this.isDragging = false;
-        this.reset();
-    }
-
-    onPointerOut(): void {
-        // console.log('pointerout', e);
-        this.isDragging = false;
-        this.reset();
+        // console.log('onPointerUp');
+        this.lastPos = null;
     }
 
     onPointerMove(e: any): void {
-        // console.log('pointermove', e);
-    
-        // Only proceed if dragging
-        if (!this.isDragging) { return; }
-    
-        // Get current mouse position
-        let currentX = e.data.global.x - this.offset.x;
-        let currentY = e.data.global.y - this.offset.y;
-    
-        // Distance the mouse has moved since the last move event
-        let distanceX: number = currentX - this.startPan.x;
-        let distanceY: number = currentY - this.startPan.y;
-    
-        // Reset the vars for next move event
-        this.startPan = {x: currentX, y: currentY};
-    
-        // Accumulate the net panning done
-        this.netPan.x += distanceX;
-        this.netPan.y += distanceY;
-    
-        // Update Offset X/Y
-        this.offset.x += this.netPan.x;
-        this.offset.y += this.netPan.y;
-    
-        // Lock camera within world bounds
-        this.setCameraWithinBounds();
+        if(this.lastPos) {
+            // console.log('onPointerMove', e);
+            this.offset.x += (e.data.originalEvent.offsetX - this.lastPos.x);
+            this.offset.y += (e.data.originalEvent.offsetY - this.lastPos.y);  
+            this.lastPos = { x: e.data.originalEvent.offsetX, y: e.data.originalEvent.offsetY };
+            // Keep camera within world bounds
+            this.adjustForWorldBounds();
+        }
     }
 
-    setCameraWithinBounds(): void {
-        if (this.offset.x >= 0) { this.offset.x = 0; } // left
-        if (this.offset.y >= 0) { this.offset.y = 0; } // top
+    // Utilities ---
+
+    centerOnContainer(targetContainer: any): void {
+        // Set to target container position
+        this.offset.x = -Math.round(targetContainer.x * tile.unit(1));
+        this.offset.y = -Math.round(targetContainer.y * tile.unit(1));
+        // Adjust for app screen width/height
+        this.offset.x += Math.round(this.app.screen.width / 2);
+        this.offset.y += Math.round(this.app.screen.height / 2);
+        // Adjust for target width/height
+        this.offset.x -= Math.round(targetContainer.containerGameObject.width / 2);
+        this.offset.y -= Math.round(targetContainer.containerGameObject.height / 2);
+        // Keep camera within world bounds
+        this.adjustForWorldBounds();
+    }
+
+    adjustForWorldBounds(): void {
         const maxOffsetX = this.container.width - this.app.screen.width;
         const maxOffsetY = this.container.height - this.app.screen.height;
+        // Per Boundry
+        if (this.offset.x >= 0) { this.offset.x = 0; } // left
+        if (this.offset.y >= 0) { this.offset.y = 0; } // top
         if (this.offset.x <= -maxOffsetX) { this.offset.x = -maxOffsetX; } // right
         if (this.offset.y <= -maxOffsetY) { this.offset.y = -maxOffsetY; } // bottom
     }

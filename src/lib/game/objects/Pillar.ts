@@ -36,7 +36,7 @@ export class Pillar extends GameObject {
     }
 
     onPointerDown(): void {
-        this.camera.centerOnTarget(this);
+        this.camera.centerOnContainer(this);
         pageModalStore.set(this.page);
         // Set Found state
         this.found = true;
