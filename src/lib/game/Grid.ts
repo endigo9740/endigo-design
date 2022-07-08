@@ -3,13 +3,15 @@ import { tile } from '$lib/stores';
 
 export class Grid {
     private container: any;
+    private texture: any;
     public enabled: boolean = false;
     public coords: boolean = false;
 
     constructor(config: any) {
+        this.container = config.container || null;
+        this.texture = config.texture || null;
         this.enabled = config.enabled || false;
         this.coords = config.coords || false;
-        this.container = config.container || null;
         // Generate Custom Bitmap Font
         PIXI.BitmapFont.from('EndigoFont', { fill: "#FFFFFF", fontSize: 10, fontWeight: 'bold' });
         // Init
@@ -24,8 +26,7 @@ export class Grid {
     // Renders a visible grid at the exact tile unit size
     // TODO: repalce with graphic->texture using http://pixijs.download/dev/docs/PIXI.Extract.html
     renderGrid(): void {
-        const textureCell = PIXI.Texture.from('grid.png');
-        const tilingCell = new PIXI.TilingSprite(textureCell, this.container.width, this.container.height);
+        const tilingCell = new PIXI.TilingSprite(this.texture, this.container.width, this.container.height);
             tilingCell.alpha = 0.25;
         this.container.addChild(tilingCell);
     }

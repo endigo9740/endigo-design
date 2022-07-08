@@ -51,6 +51,7 @@
 
         // Load Game Resources
         [
+            'grid.png',
             'overworld.png',
             'npc-chris.json',
             'npc-melissa.json',
@@ -81,7 +82,7 @@
                 camera = new Camera({ app: game, container: containerLevel, world });
                 
                 // Grid
-                grid = new Grid({ container: containerLevel, enabled: true, coords: false });
+                grid = new Grid({ container: containerLevel, enabled: true, coords: false, texture: resources['grid.png'].texture });
 
                 // GameObjects
                 pillarList = generatePillars({ containerLevel, spriteHandler, camera });
