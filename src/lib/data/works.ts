@@ -2,6 +2,7 @@ const testHtml: string = `
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet libero eu dolor pharetra volutpat ac et libero. Nunc finibus blandit pharetra. Nunc interdum dui ac orci pharetra, sit amet porta augue cursus. Nam sem odio, elementum at lacus vel, auctor ultrices ligula. Vestibulum dapibus metus enim, ac porta nibh molestie at. Cras luctus nisl lorem, vel porttitor tellus aliquam eget. Proin in bibendum diam, sed luctus neque. Nullam enim nibh, porta ullamcorper ipsum ac, semper laoreet arcu. Cras eu est magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi libero felis, iaculis non gravida ac, dignissim at nibh. Vivamus ac massa luctus orci scelerisque egestas quis non magna. Vestibulum eros velit, suscipit et tristique eu, fermentum ut diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis mattis commodo vulputate. Donec sollicitudin ex purus.
 </p>
 <p>Phasellus sollicitudin mattis tempor. Integer rutrum erat elit, vel consectetur nibh congue id. Donec eu maximus dolor. Nullam nisl lorem, consectetur vel elit eget, malesuada laoreet nulla. Vestibulum lobortis purus at vestibulum laoreet. Vestibulum ipsum leo, ullamcorper ac congue fermentum, rutrum nec nunc. Duis leo neque, tempor nec dolor quis, placerat luctus justo. Nunc ultrices ex sed neque facilisis sagittis. Morbi sodales nec erat at consequat. Sed convallis ex velit, quis maximus tortor posuere in. Vestibulum iaculis risus maximus eros interdum, suscipit ultrices felis mattis. Etiam venenatis, nulla eu ornare imperdiet, leo leo scelerisque enim, ut pharetra odio tellus efficitur lectus. Nullam sit amet metus sed ipsum lacinia hendrerit. Fusce pellentesque hendrerit ipsum.</p>
+</p>
 `;
 
 export const works: any = {
@@ -12,7 +13,8 @@ export const works: any = {
             {
                 id: "skeleton",
                 name: "Skeleton",
-                details: testHtml,
+                details: `A fully-featured Svelte UI component library featuring tight integration of Tailwind and its conventions, Skeleton was originally created for internal uses at Brain & Bones during our migration from Angular to Svelte. I realized it would be a net positive to open source the project to the community. As such, we’re aiming to release and allow open contributions soon. The library provides a host of fully-featured components, and supports both themes and dark mode. Skeleton was originally inspired by component libraries such as Mantine in the React ecosystem.`,
+                technology: `Svelte/Kit, Tailwind, Vite, Typescript, Vitest/Testing Library, Highlight.js`,
                 url: 'https://skeleton.brainandbonesllc.com/',
                 coords: {x: 15, y: 77},
                 accent: "rgba(0,0,0,0.5)",
@@ -26,6 +28,7 @@ export const works: any = {
                 id: "branding",
                 name: "Branding & Identity",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 coords: {x: 29, y: 101},
                 accent: "rgba(0,0,0,0.5)",
@@ -36,6 +39,7 @@ export const works: any = {
                 id: "helm",
                 name: "The Helm",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 coords: {x: 51, y: 90},
                 accent: "rgba(0,0,0,0.5)",
@@ -46,6 +50,7 @@ export const works: any = {
                 id: "speed-trivia",
                 name: "Speed Trivia Branding",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 coords: {x: 72, y: 111},
                 accent: "rgba(0,0,0,0.5)",
@@ -56,6 +61,7 @@ export const works: any = {
                 id: "speed-trivia-game",
                 name: "Speed Trivia Game",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 coords: {x: 113, y: 102},
                 accent: "rgba(0,0,0,0.5)",
@@ -72,6 +78,7 @@ export const works: any = {
                 id: "branding",
                 name: "Branding & Identity",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 coords: {x: 14, y: 36},
                 accent: "rgba(0,0,0,0.5)",
@@ -81,6 +88,7 @@ export const works: any = {
             {
                 id: "overwolf",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 name: "Overwolf",
                 coords: {x: 43, y: 8},
@@ -92,6 +100,7 @@ export const works: any = {
                 id: "homebase",
                 name: "Homebase",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 coords: {x: 48, y: 31},
                 accent: "rgba(0,0,0,0.5)",
@@ -101,6 +110,7 @@ export const works: any = {
             {
                 id: "playerhq",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 name: "PlayerHQ",
                 coords: {x: 81, y: 11},
@@ -111,6 +121,7 @@ export const works: any = {
             {
                 id: "arcade",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 name: "Arcade",
                 coords: {x: 90, y: 37},
@@ -121,6 +132,7 @@ export const works: any = {
             {
                 id: "speedleague",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 name: "Speedleague",
                 coords: {x: 113, y: 10},
@@ -138,6 +150,7 @@ export const works: any = {
                 id: "minirl",
                 name: "Minirl",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 coords: {x: 86, y: 69},
                 accent: "rgba(0,0,0,0.5)",
@@ -148,6 +161,7 @@ export const works: any = {
                 id: "elden-ring-planner",
                 name: "Elden Ring Planner",
                 details: testHtml,
+                technology: ``,
                 url: null,
                 coords: {x: 110, y: 56},
                 accent: "rgba(0,0,0,0.5)",

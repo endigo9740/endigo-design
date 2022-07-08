@@ -1,17 +1,10 @@
 <script lang="ts">
-import { onMount } from 'svelte';
-
+    import { onMount } from 'svelte';
     import { fly } from 'svelte/transition';
+    import { menuStore } from '$lib/stores';
 
-    export let camera: any;
-    export let pillarList: any;
-    export let npcList: any;
-
-    // Camera Center on Target
-    let selectedTarget: any;
-    function centerOnContainer(): void {
-        camera.centerOnContainer(selectedTarget);
-    }
+    // Toggle Menu Modal
+    function toggleMenu(): void { menuStore.set(true); }
 
     // Music Player
     let elemAudio: HTMLAudioElement;
@@ -46,30 +39,12 @@ import { onMount } from 'svelte';
 </a>
 
 <!-- Controls -->
-<nav class="fixed bottom-0 right-0 z-50 bg-slate-900/90 p-6 rounded-tl-xl space-x-4 backdrop-blur" transition:fly|local={{y: 100, duration: 250}}>
+<nav class="fixed bottom-0 right-0 z-50 bg-slate-900/90 p-6 rounded-tl-xl backdrop-blur space-x-4" transition:fly|local={{y: 100, duration: 250}}>
 
-    <!-- Navigation -->
-    {#if pillarList}
-    <select name="selection" id="selection" class="max-w-[120px] text-center" bind:value={selectedTarget} on:change={() => {centerOnContainer()}}>
-        <option disabled>Navigate</option>
-        <optgroup label="Pillars">
-            {#each pillarList as pillar, i}
-                <!-- {#if pillar.found} -->
-                <option value={pillar}>{pillar.page.category ? `${pillar.page.category} /` : ''} {pillar.name}</option>
-                <!-- {:else}
-                <option value={pillar}>Unactivated Pillar #{i+1}</option>
-                {/if} -->
-            {/each}
-        </optgroup>
-        <optgroup label="Characters">
-            {#each npcList as npc}
-            <option value={npc}>{npc.name}</option>
-            {/each}
-        </optgroup>
-    </select>
-    {/if}
+    <!-- Menu -->
+    <button type="button" class="btn-hollow" on:click={() => { toggleMenu(); }}>Menu</button>
 
-    <!-- Music Toggle -->
+    <!-- Toggle Music -->
     <button type="button" class="btn-hollow" on:click={() => { onToggleMusic(); }}>
         <div class:animFloatSmall={musicPlaying}>♫</div>
     </button>

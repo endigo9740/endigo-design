@@ -55,6 +55,10 @@ a { @apply text-white/60 hover:text-white; }
     image-rendering: crisp-edges;
 }
 
+.shim { @apply fixed top-0 left-0 right-0 bottom-0 z-40 p-4 flex justify-center items-center; }
+.bg-glass { @apply bg-slate-900/[0.9] backdrop-blur-sm; }
+.window { @apply border-2 border-black/30 rounded-xl shadow-2xl; }
+
 /* Animations --- */
 
 .animFloat {

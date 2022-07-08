@@ -20,10 +20,11 @@
     import ProgressBar from './ProgressBar.svelte';
     import Dialog from './Dialog.svelte';
     import PageModal from './PageModal.svelte';
+    import Menu from './Menu.svelte';
     import Hud from './Hud.svelte';
 
     // Stores
-    import { dialogStore, pageModalStore } from '$lib/stores';
+    import { dialogStore, pageModalStore, menuStore } from '$lib/stores';
 
     let elemCanvas: HTMLCanvasElement;
     const loading: any = {amount: 0, complete: false};
@@ -121,8 +122,10 @@
         <Dialog />
     {:else if $pageModalStore !== undefined}
         <PageModal />
+    {:else if $menuStore === true}
+        <Menu {camera} {pillarList} {npcList} />
     {:else}
-        <Hud {camera} {pillarList} {npcList} />
+        <Hud/>
     {/if}
 {/if}
 

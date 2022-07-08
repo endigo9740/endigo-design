@@ -11,22 +11,24 @@
 
 <!-- Page -->
 {#if work}
-<main class="page grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-0 items-center h-full min-h-[640px] lg:overflow-hidden">
+<main class="page grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-0 items-center h-full min-h-[640px]">
     
     <!-- Info -->
     <section class="col-span-1 h-full p-4 space-y-10 lg:overflow-y-auto">
-        
-        {#if !compact}
-            <a href="/works" class="block text-xl p-2">&larr; Back</a>
-        {/if}
-        
-        <img src={`../../${work.thumbnail}`} class="image-crisp w-20 h-auto" alt="thumbnail">
+        <!-- Back Button -->
+        {#if !compact}<a href="/works" class="block text-xl p-2">&larr; Back</a>{/if}
+        <!-- Thumbnail -->
+        {#if work.thumbnail}<img src={`../../${work.thumbnail}`} class="image-crisp w-20 h-auto" alt="thumbnail">{/if}
+        <!-- Header -->
         <header class="space-y-2">
             <h2 class="text-sm text-white/70 uppercase">{categoryLabel}</h2>
             <h1 class="section-label text-4xl">{work.name}</h1>
         </header>
+        <!-- Actions -->
         <a href={work.url} class="inline-block btn btn-hollow" target="_blank">Launch</a>
+        <!-- Details -->
         <div>{@html work.details}</div>
+        <p class="text-xs text-cyan-500">{work.technology || 'Tech not available.'}</p>
     </section>
 
     <!-- Media -->

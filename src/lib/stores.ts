@@ -10,3 +10,4 @@ export const tile: any = {
 // Writables
 export const dialogStore: Writable<any> = writable(undefined);
 export const pageModalStore: Writable<any> = writable(undefined);
+export const menuStore: Writable<boolean> = writable(false);
