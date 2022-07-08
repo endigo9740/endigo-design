@@ -121,7 +121,7 @@
     {:else if $pageModalStore !== undefined}
         <PageModal />
     {:else}
-        <Hud {camera} {pillarList} {npcList} />
+        <!-- <Hud {camera} {pillarList} {npcList} /> -->
     {/if}
 {/if}
 
