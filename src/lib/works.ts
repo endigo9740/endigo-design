@@ -18,8 +18,8 @@ export const works: any = {
                 accent: "rgba(0,0,0,0.5)",
                 thumbnail: "npc-skeleton-portrait.png",
                 screenshots: [
-                    'https://i.imgur.com/Pw8uHwB.png',
-                    'https://i.imgur.com/V5khBZZ.png'
+                    {src: 'https://i.imgur.com/Pw8uHwB.png'},
+                    {caption: 'Showing off a button component.', src: 'https://i.imgur.com/V5khBZZ.png'}
                 ],
             },
             {

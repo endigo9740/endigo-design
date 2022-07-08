@@ -23,14 +23,14 @@ export const pathing: any = {
     ],
 
     "circle": [
+        {path: 'wait', delay: 4000},
         {path: 'right'},
-        {path: 'wait', delay: 10000},
+        {path: 'wait', delay: 6000},
         {path: 'down'},
         {path: 'wait', delay: 4000},
         {path: 'left'},
-        {path: 'wait', delay: 10000},
+        {path: 'wait', delay: 6000},
         {path: 'up'},
-        {path: 'wait', delay: 4000},
     ]
 
 };

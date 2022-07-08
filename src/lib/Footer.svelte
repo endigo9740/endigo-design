@@ -7,8 +7,8 @@
     <a href="/">Contact Me</a>
     <nav class="flex justify-center items-center space-x-4">
         <a href="/">Github</a>
+        <a href="/">LinkedIn</a>
         <a href="/">Twitter</a>
-        <a href="/">Medium</a>
     </nav>
 </footer>
 {/if}

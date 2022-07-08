@@ -11,9 +11,9 @@
 	}
 </script>
 <script lang=ts>
-    import Details from './Embed.svelte';
+    import Embed from './Embed.svelte';
     export let category: string;
 	export let id: string;
 </script>
 
-<Details {category} {id} />
+<Embed {category} {id} />

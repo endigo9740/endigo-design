@@ -7,7 +7,7 @@
 
 {#if $dialogStore !== undefined}
 <section
-    class="fixed left-4 right-4 bottom-10 z-20 max-w-[1440px] mx-auto bg-slate-900/[0.9] border-2 border-black/30 p-8 rounded-xl flex items-start space-x-8"
+    class="fixed left-4 right-4 bottom-10 z-20 max-w-[1440px] mx-auto bg-slate-900/[0.9] backdrop-blur-sm border-2 border-black/30 p-8 rounded-xl flex items-start space-x-8"
     transition:fly={{y: 200, duration: 150}}
 >
 

@@ -21,7 +21,7 @@
 
     <!-- Window -->
     <div
-        class="w-[90%] h-full max-h-[85%] bg-slate-900/[0.9] border-2 border-black/30 rounded-xl shadow-2xl m-10 overflow-hidden"
+        class="w-[90%] h-full max-h-[85%] bg-slate-900/[0.9] border-2 border-black/30 backdrop-blur-sm rounded-xl shadow-2xl m-10 overflow-hidden"
         transition:scale={{start: 0.5, duration: 250}}
     >
 
