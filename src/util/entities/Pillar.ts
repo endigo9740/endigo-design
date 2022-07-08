@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { GameObject } from './GameObject';
-import { pageModalStore } from '$lib/PageModalStore';
+import { pageModalStore } from '$lib/stores';
 
 export class Pillar extends GameObject {
 

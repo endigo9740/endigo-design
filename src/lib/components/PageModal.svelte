@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import { fade, scale } from 'svelte/transition';
 
-    import { pageModalStore } from "../PageModalStore";
+    import { pageModalStore } from "../stores";
 
     import About from "$routes/about.svelte";
     import Work from "$routes/works/[category]/Embed.svelte";

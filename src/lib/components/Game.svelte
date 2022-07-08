@@ -6,8 +6,7 @@
     import { works } from '$lib/works';
 
     // Stores
-    import { dialogStore } from '$lib/DialogStore';
-    import { pageModalStore } from '$lib/PageModalStore';
+    import { dialogStore, pageModalStore } from '$lib/stores';
 
     // Game Classes
     import { SpriteHandler } from '$util/SpriteHandler';

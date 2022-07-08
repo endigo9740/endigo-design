@@ -1,6 +1,6 @@
 <script lang="ts">
     import { fly } from 'svelte/transition';
-    import { dialogStore } from "../DialogStore";
+    import { dialogStore } from "../stores";
 
     function dismiss(): void { dialogStore.set(undefined) }
 </script>

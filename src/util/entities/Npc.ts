@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { GameObject } from './GameObject';
-import { dialogStore } from '$lib/DialogStore';
+import { dialogStore } from '$lib/stores';
 
 export class Npc extends GameObject {
 
