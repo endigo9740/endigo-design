@@ -1,4 +1,5 @@
 import { tile } from "$lib/stores";
+import { lerp, clamp, invlerp, range } from "./utils";
 
 export class Camera {
     public offset: any = {x: 0, y: 0};
@@ -68,11 +69,8 @@ export class Camera {
     adjustForWorldBounds(): void {
         const maxOffsetX = this.container.width - this.app.screen.width;
         const maxOffsetY = this.container.height - this.app.screen.height;
-        // Per Boundry
-        if (this.offset.x >= 0) { this.offset.x = 0; } // left
-        if (this.offset.y >= 0) { this.offset.y = 0; } // top
-        if (this.offset.x <= -maxOffsetX) { this.offset.x = -maxOffsetX; } // right
-        if (this.offset.y <= -maxOffsetY) { this.offset.y = -maxOffsetY; } // bottom
+        this.offset.x = clamp(this.offset.x, -maxOffsetX, 0); // left/right
+        this.offset.y = clamp(this.offset.y, -maxOffsetY, 0); // top/bottom
     }
 
 }
