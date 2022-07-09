@@ -3,26 +3,20 @@
     import { fly } from 'svelte/transition';
     import { menuStore } from '$lib/stores';
 
-    // Toggle Menu Modal
+    export let elemAudio: HTMLAudioElement;
+
+    // Nav Menu
     function toggleMenu(): void { menuStore.set(true); }
 
-    // Music Player
-    let elemAudio: HTMLAudioElement;
+    // Music
     let musicPlaying: boolean = false;
-    onMount(() => {
-        elemAudio.pause();
-        elemAudio.volume = 0.5;
-    });
+    onMount(() => { setPlayingState(); });
     function onToggleMusic(): void {
         elemAudio.paused === true ? elemAudio.play() : elemAudio.pause();
-        musicPlaying = !elemAudio.paused;
+        setPlayingState();
     }
+    function setPlayingState(): void { musicPlaying = !elemAudio.paused; }
 </script>
-
-<!-- Music -->
-<audio bind:this={elemAudio} hidden autoplay loop preload="auto" class="fixed left-4 bottom-4 z-20">
-    <source src="http://cdn.endigodesign.com.s3-us-east-2.amazonaws.com/endigo_design/portfolio/music.mp3" type="audio/mpeg">
-</audio>
 
 <!-- Branding -->
 <a

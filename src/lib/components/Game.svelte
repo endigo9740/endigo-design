@@ -26,6 +26,7 @@
     // Stores
     import { dialogStore, pageModalStore, menuStore } from '$lib/stores';
 
+    let elemAudio: HTMLAudioElement;
     let elemCanvas: HTMLCanvasElement;
     const loading: any = {amount: 0, complete: false};
 
@@ -39,6 +40,10 @@
     let pillarList: Pillar[] = [];
 
     onMount(() => {
+
+        // Audio
+        elemAudio.pause();
+        elemAudio.volume = 0.5;
 
         // Pixi.js Settings
         PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
@@ -114,6 +119,11 @@
     });
 </script>
 
+<!-- Music -->
+<audio bind:this={elemAudio} loop preload="auto" hidden>
+    <source src="http://cdn.endigodesign.com.s3-us-east-2.amazonaws.com/endigo_design/portfolio/music.mp3" type="audio/mpeg">
+</audio>
+
 <!-- UI Overlay -->
 {#if loading.complete === false}
     <ProgressBar amount={loading.amount} />
@@ -125,7 +135,7 @@
     {:else if $menuStore === true}
         <Menu {camera} {pillarList} {npcList} />
     {:else}
-        <Hud/>
+        <Hud {elemAudio} />
     {/if}
 {/if}
 

@@ -33,8 +33,8 @@
             <!-- Characters -->
             <div class="flex-[40%] space-y-4">
                 <div class="bg-black/20 border border-white/10 rounded flex items-center space-x-4 p-5">
-                    <p>Interested in learning more about Chris? Check out the main pillar in the middle of this world.</p>
-                    <button type="button" class="btn-hollow whitespace-nowrap" on:click={()=>{centerOnContainer(pillarList[0])}}>Visit Pillar</button>
+                    <p>Interested in learning more about Chris? Check out the featured pillar near the middle of the map.</p>
+                    <button type="button" class="btn-hollow whitespace-nowrap" on:click={()=>{centerOnContainer(pillarList[0])}}>Go!</button>
                 </div>
                 <h4 class="section-label !mb-0">Characters</h4>
                 <p>Select a character jump direction to them.</p>
