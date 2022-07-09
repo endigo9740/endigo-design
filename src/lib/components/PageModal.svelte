@@ -28,7 +28,12 @@
         <!-- Top Bar -->
         <header class="flex-none bg-black/50 p-4 flex justify-between items-center">
             <p class="text-xs uppercase">{$pageModalStore.component === 'Work' ? 'Project' : $pageModalStore.component}</p>
-            <button type="button" class="btn-hollow" on:click={closeModal}>Close</button>
+            <nav class="space-x-6">
+                {#if $pageModalStore.component === 'Work'}
+                <a href={`/works/${$pageModalStore.category}/${$pageModalStore.id}`} target="_blank">Full Page</a>
+                {/if}
+                <button type="button" class="btn-hollow" on:click={closeModal}>Close</button>
+            </nav>
         </header>
 
         <!-- Content -->
