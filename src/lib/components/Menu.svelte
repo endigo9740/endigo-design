@@ -6,7 +6,7 @@
     export let npcList: any;
 
     function centerOnContainer(target: any): void {
-        camera.centerOnContainer(target);
+        camera.centerOnContainer(target, true);
         close();
     }
 

@@ -100,18 +100,21 @@
             game.stage.addChild(containerLevel);
 
             // Post Staging
-            camera.centerOnContainer(npcList[0])
+            camera.centerOnContainer(npcList[0], false)
 
             // Animation Loop
             game.ticker.add((delta: any) => {
 
                 // Move containerLevel based on camera position
-                if (containerLevel.position.x !== camera.offset.x) { containerLevel.position.x = camera.offset.x };
-                if (containerLevel.position.y !== camera.offset.y) { containerLevel.position.y = camera.offset.y };
+                if (containerLevel.position.x !== camera.position.x) { containerLevel.position.x = camera.position.x };
+                if (containerLevel.position.y !== camera.position.y) { containerLevel.position.y = camera.position.y };
 
                 // Render GameObjects
                 pillarList.forEach(pillar => pillar.render());
                 npcList.forEach(npc => npc.render());
+
+                // Render Camera
+                camera.render();
                 
             });
 
