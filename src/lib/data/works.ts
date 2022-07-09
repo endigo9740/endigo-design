@@ -128,7 +128,7 @@ export const works: any = {
                     {src: baseUrl+'/img/projects/jr_overwolf/002.png', caption: 'Tournament Details'},
                     {src: baseUrl+'/img/projects/jr_overwolf/003.png', caption: 'Login View'},
                     {src: baseUrl+'/img/projects/jr_overwolf/008.jpg', caption: 'The app At Dreamhack Dallas 2019'},
-                    {src: baseUrl+'/img/projects/jr_overwolf/009.jpg', caption: 'The leaderboard standsings at Dreamhack'}
+                    {src: baseUrl+'/img/projects/jr_overwolf/009.jpg', caption: 'The leaderboard standings at Dreamhack Dallas 2019'}
                 ],
             },
             {

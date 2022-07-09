@@ -37,7 +37,7 @@
                     <button type="button" class="btn-hollow whitespace-nowrap" on:click={()=>{centerOnContainer(pillarList[0])}}>Go!</button>
                 </div>
                 <h4 class="section-label !mb-0">Characters</h4>
-                <p>Select a character jump direction to them.</p>
+                <p>Select a character to jump to them.</p>
                 <nav class="grid grid-cols-2 gap-1">
                     {#each npcList as npc}
                     <li class="bg-black/50 text-xs p-4 flex flex-col items-center cursor-pointer hover:bg-white/20" on:click={()=>{centerOnContainer(npc)}}>
@@ -50,8 +50,8 @@
 
             <!-- Pillars -->
             <div class="flex-[60%] space-y-4">
-                <h4 class="section-label !mb-0">Pillars</h4>
-                <p>Your goal is to activate all pillars!</p>
+                <h4 class="section-label !mb-0">Project Pillars</h4>
+                <p>Select a pillar to jump to it. Any pillars you activate will display here.</p>
                 <nav class="grid grid-cols-2 gap-4">
                     {#each pillarList as pillar, i}
                     {#if i > 0}

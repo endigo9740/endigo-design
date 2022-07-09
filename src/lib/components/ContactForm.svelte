@@ -11,19 +11,19 @@
 		<div id="mc_embed_signup_scroll" class="space-y-4">
 			<label class="mc-field-group" for="mce-EMAIL">
 				<span for="mce-EMAIL">Email Address</span>
-				<input type="email" placeholder="Enter your email" value="" name="EMAIL" class="required email" id="mce-EMAIL" />
+				<input type="email" placeholder="How can I get in touch?" value="" name="EMAIL" class="required email" id="mce-EMAIL" />
 			</label>
 			<label class="mc-field-group" for="mce-FNAME">
 				<span for="mce-FNAME">First Name </span>
-				<input type="text" placeholder="Enter your first name" value="" name="FNAME" class="" id="mce-FNAME" />
+				<input type="text" placeholder="What should I call you?" value="" name="FNAME" class="" id="mce-FNAME" />
 			</label>
 			<label class="mc-field-group" for="mce-SUBJECT">
 				<span for="mce-SUBJECT">Subject </span>
-				<input type="text" placeholder="Provide an email subject" value="" name="SUBJECT" class="" id="mce-SUBJECT" />
+				<input type="text" placeholder="What's this about?" value="" name="SUBJECT" class="" id="mce-SUBJECT" />
 			</label>
 			<label class="mc-field-group" for="mce-MESSAGE">
 				<span for="mce-MESSAGE">Message </span>
-				<textarea rows="5" type="text" placeholder="What are you contacting me about?" value="" name="MESSAGE" class="" id="mce-MESSAGE" />
+				<textarea rows="5" type="text" placeholder="Let me know how I can help..." value="" name="MESSAGE" class="" id="mce-MESSAGE" />
 			</label>
 			<div id="mce-responses" class="clear foot">
 				<div class="response" id="mce-error-response" style="display:none" />

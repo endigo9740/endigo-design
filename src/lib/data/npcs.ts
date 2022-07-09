@@ -10,7 +10,7 @@ export const generateNpcs: any = (config: any) => {
             animSprite: config.spriteHandler.animSpriteSheet('npc-chris.json'),
             x: 64, y: 68,
             pathing: 'left-right',
-            dialog: `Hello, I'm the Chris. Welcome to my interactive portfolio gallery! Have a look around. Each pillar features information about me or one of my projects. Once activated you'll see the pillar come to life. Try the one just north of me to get started! You goal is to find all pillars. Good luck!`,
+            dialog: `Hello, I'm the Chris. Welcome to my interactive portfolio gallery! Have a look around. Each pillar represents a project I've contributed to. Once activated you'll see the pillar animate and come to life. Try the pillar just north of me to learn who I am and what I do.`,
         }),
         new Npc({
             name: 'Melissa',
@@ -20,7 +20,7 @@ export const generateNpcs: any = (config: any) => {
             animSprite: config.spriteHandler.animSpriteSheet('npc-melissa.json'),
             x: 65, y: 73,
             pathing: 'circle',
-            dialog: `Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi nostrum iste odio magni adipisci ad dolore quaerat sint enim error laboriosam consequuntur soluta, labore quidem autem architecto, deserunt, corrupti qui!`,
+            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! Click the MENU button at the bottom right if you get lost.`,
         }),
     ]
 };
