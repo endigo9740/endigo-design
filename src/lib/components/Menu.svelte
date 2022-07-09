@@ -28,10 +28,14 @@
         </header>
 
         <!-- Content -->
-        <div class="p-4 grid grid-cols-2 gap-4 overflow-y-auto">
+        <div class="p-4 flex space-x-4 overflow-y-auto">
         
             <!-- Characters -->
-            <div class="space-y-4">
+            <div class="flex-[40%] space-y-4">
+                <div class="bg-black/20 border border-white/10 rounded flex items-center space-x-4 p-5">
+                    <p>Interested in learning more about Chris? Check out the main pillar in the middle of this world.</p>
+                    <button type="button" class="btn-hollow whitespace-nowrap" on:click={()=>{centerOnContainer(pillarList[0])}}>Visit Pillar</button>
+                </div>
                 <h4 class="section-label !mb-0">Characters</h4>
                 <p>Select a character jump direction to them.</p>
                 <nav class="grid grid-cols-2 gap-1">
@@ -45,14 +49,15 @@
             </div>
 
             <!-- Pillars -->
-            <div class="space-y-4">
+            <div class="flex-[60%] space-y-4">
                 <h4 class="section-label !mb-0">Pillars</h4>
-                <p>Your goal is to unlock all pillars!</p>
+                <p>Your goal is to activate all pillars!</p>
                 <nav class="grid grid-cols-2 gap-4">
                     {#each pillarList as pillar, i}
-                    <li class="bg-black/50 text-xs px-4 py-2 flex items-center space-x-4 rounded-xl cursor-pointer hover:bg-white/20" on:click={()=>{centerOnContainer(pillar)}}>
-                        <img src="pillar-thumbnail.png" class="w-10 aspect-square rounded-xl my-2" alt="portrait">
-                        <div class="flex-auto space-y-1">
+                    {#if i > 0}
+                    <li class="bg-black/50 text-xs px-4 py-3 flex items-center space-x-4 rounded-xl cursor-pointer hover:bg-white/20" on:click={()=>{centerOnContainer(pillar)}}>
+                        <img src="pillar-thumbnail.png" class="w-9 aspect-square rounded" class:opacity-30={!pillar.found} alt="portrait">
+                        <div class="flex-auto space-y-0">
                             <p class="text-xs capitalize">{pillar.page.category.replaceAll('-',' ') || ''}</p>
                             <span class="block text-base font-bold">{pillar.name}</span>
                         </div>
@@ -60,6 +65,7 @@
                         <div class="font-bold text-emerald-500 uppercase">Active</div>
                         {/if}
                     </li>
+                    {/if}
                     {/each}
                 </nav>
             </div>
