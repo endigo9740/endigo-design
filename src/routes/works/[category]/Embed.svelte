@@ -41,7 +41,7 @@
         <!-- Video -->
         {#each work.videos as video}
             <div class="w-full">
-                <iframe src={video.src} class="w-full aspect-video bg-black/30 border border-black/30 shadow-xl rounded-xl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src={video.src} class="w-full aspect-video bg-black/30 border border-black/30 shadow-xl rounded-xl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
                 {#if video.caption}<caption class="block mt-3 text-xs text-center opacity-60">{@html video.caption}</caption>{/if}
             </div>
         {/each}

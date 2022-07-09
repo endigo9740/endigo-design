@@ -53,7 +53,7 @@
         game = new PIXI.Application({
             view: elemCanvas,
             resizeTo: document.body,
-            backgroundColor: 0x141414
+            backgroundColor: 0x141414,
         });
 
         // Load Game Resources

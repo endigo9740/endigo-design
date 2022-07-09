@@ -101,7 +101,7 @@ export class Camera {
         if (this.endPosition[axis] !== null) {
             // Use inverse linear interpolation to determine progress between start/end
             // This includes a clamp to prevent overshooting the target, will return 0-100%
-            const progressRemaining = invlerp(this.endPosition[axis], this.startPosition[axis], this.position[axis]) * 100; // orig
+            const progressRemaining = invlerp(this.endPosition[axis], this.startPosition[axis], this.position[axis]) * 100;
             if (progressRemaining === 0) {
                 // Move complete - clear and adjust for bounds
                 this.startPosition[axis] = null;
