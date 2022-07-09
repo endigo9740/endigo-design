@@ -59,6 +59,49 @@ a { @apply text-white/60 hover:text-white; }
 .bg-glass { @apply bg-slate-900/[0.9] backdrop-blur-sm; }
 .window { @apply border-2 border-black/30 rounded-xl shadow-2xl; }
 
+/* --- Forms --- */
+
+fieldset { @apply block; }
+
+/* Inputs */
+[type="text"],
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"], 
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+    @apply w-full text-white bg-slate-900/[0.5] backdrop-blur-sm border-slate-700 rounded-lg shadow-sm focus:border-cyan-500 focus:ring-cyan-500;
+}
+
+/* Selectable */
+[type="checkbox"],
+[type="radio"] {
+    @apply border-slate-500 rounded text-cyan-600 focus:ring-cyan-500;
+}
+
+/* Invalid - https://www.bram.us/2021/01/28/form-validation-you-want-notfocusinvalid-not-invalid/ */
+input:not(:focus):not(:placeholder-shown):invalid {
+    @apply bg-rose-300 border-rose-500;
+}
+
+/* Placeholders */
+input::-moz-placeholder, textarea::-moz-placeholder { @apply text-slate-400; }
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { @apply text-slate-400; }
+input::placeholder, textarea::placeholder { @apply text-slate-400; }
+
+/* Labels */
+label { @apply block overflow-visible; }
+label span, legend { @apply block text-slate-700 dark:text-slate-300 text-sm mb-2; }
+
 /* Animations --- */
 
 .animFloat {

@@ -9,7 +9,6 @@
     const navigation: any = [
         {label: 'Works', href: '/works', target: null},
         {label: 'About', href: '/about', target: null},
-        {label: 'Blog', href: 'https://medium.com/@endigo9740', target: '_blank'},
     ];
 
     afterNavigate(() => { currentPageStore.set($page.url.pathname); });
@@ -17,7 +16,8 @@
 
 {#if enabled}
 <section class="sticky top-0 w-full z-10 bg-black/20 border-b border-white/10 p-4 py-6 flex justify-between items-center backdrop-blur-xl">
-    <a href="/" class="flex space-x-4">
+    <a href="/" class="flex items-center space-x-4">
+        <img src="logo.png" class="w-[32px] h-[32px]" alt="logo">
         <span class="block text-white font-bold uppercase">Endigo Design</span>
     </a>
     <nav class="space-x-6 uppercase font-bold">

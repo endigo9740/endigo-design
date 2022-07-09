@@ -1,8 +1,9 @@
 <script lang="ts">
     import Nav from "$lib/components/Nav.svelte";
     import Footer from "$lib/components/Footer.svelte";
+    import ContactForm from "$lib/components/ContactForm.svelte";
 
-    // Compact modal display for game
+    // Adjusts page layout for page modal
     export let compact: boolean = false;
 </script>
 
@@ -16,10 +17,13 @@
 
         <!-- Bio -->
         <section class="space-y-4">
-            <h2 class="section-label">My Story</h2>
+            <h2 class="section-label">About Chris</h2>
             <div class="flex items-start space-x-10">
                 <!-- Portrait -->
-                <img src="portrait.png" class="flex-none aspect-square w-[200px] rounded-full" alt="portrait"/>
+                <div class="flex-none w-[200px] text-center space-y-6">
+                    <img src="portrait.png" class="w-full aspect-square rounded-full" alt="portrait"/>
+                    <a href="http://bit.ly/1obS62s" class="inline-block btn btn-hollow" target="_blank">View Resume</a>
+                </div>
                 <!-- Details -->
                 <div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet libero eu dolor pharetra volutpat ac et libero. Nunc finibus blandit pharetra. Nunc interdum dui ac orci pharetra, sit amet porta augue cursus. Nam sem odio, elementum at lacus vel, auctor ultrices ligula. Vestibulum dapibus metus enim, ac porta nibh molestie at. Cras luctus nisl lorem, vel porttitor tellus aliquam eget. Proin in bibendum diam, sed luctus neque. Nullam enim nibh, porta ullamcorper ipsum ac, semper laoreet arcu. Cras eu est magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi libero felis, iaculis non gravida ac, dignissim at nibh. Vivamus ac massa luctus orci scelerisque egestas quis non magna. Vestibulum eros velit, suscipit et tristique eu, fermentum ut diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis mattis commodo vulputate. Donec sollicitudin ex purus.
@@ -33,7 +37,7 @@
         <!-- Contact -->
         <section>
             <h2 class="section-label">Contact</h2>
-            <p>Contact information coming soon.</p>
+            <ContactForm />
         </section>
 
         <!-- Footer -->
