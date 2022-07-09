@@ -1,7 +1,6 @@
 <script lang="ts">
+    import { fade } from 'svelte/transition';
     export let amount: number = 0;
 </script>
 
-<section class="fixed top-0 left-0 right-0 bottom-0 z-90 flex justify-center items-center">
-    <span>{amount}%</span>
-</section>
+<section class="fixed left-4 bottom-4 z-90 text-2xl font-bold" transition:fade|local={{duration: 250}}>{amount}%</section>

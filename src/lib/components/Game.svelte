@@ -1,6 +1,7 @@
 <script lang="ts">
     import * as PIXI from 'pixi.js';
     import { onMount } from 'svelte';
+    import { fade } from 'svelte/transition';
 
     // Data
     import { generateNpcs } from '$lib/data/npcs';
@@ -127,6 +128,7 @@
 <!-- UI Overlay -->
 {#if loading.complete === false}
     <ProgressBar amount={loading.amount} />
+    <div class="fixed top-0 left-0 right-0 bottom-0 z-10 bg-slate-900" transition:fade|local={{duration: 1200}}></div>
 {:else}
     {#if $dialogStore !== undefined}
         <Dialog />
