@@ -20,7 +20,7 @@ export const generateNpcs: any = (config: any) => {
             animSprite: config.spriteHandler.animSpriteSheet('npc-melissa.json'),
             x: 65, y: 73,
             pathing: 'circle',
-            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! Click the MENU button at the bottom right if you get lost.`,
+            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! Tap the <strong>MENU</strong> button at the bottom left if you get lost, or hit the <strong>♫</strong> button to listen to some some relaxing jams.`,
         }),
     ]
 };

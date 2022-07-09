@@ -14,7 +14,7 @@
     <!-- Text -->
     <div class="flex-auto space-y-6">
         <h3>{$dialogStore.name}</h3>
-        <p class="text-xl">{$dialogStore.message}</p>
+        <p class="text-xl">{@html $dialogStore.message}</p>
         <!-- Actions -->
         <nav>
             <button type="button" class="btn-hollow" on:click={dismiss}>Okay, got it!</button>
