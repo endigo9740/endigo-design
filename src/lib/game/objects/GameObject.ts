@@ -1,59 +1,74 @@
 import * as PIXI from 'pixi.js';
-import { pathing } from '$lib/data/pathing';
 import { tile } from '$lib/stores';
 
 export class GameObject {
-    
-    // References
-    public containerLevel: any;
-    public camera: any;
 
-    // Inherent Settings
     public name: string;
-    public containerGameObject: any;
-    public portrait: string;
-    public animSprite: PIXI.AnimatedSprite;
-    public x: number;
-    public y: number;
-    public pathing: string;
-    public dialog: any;
+    public loader: any;
+    public resource: string;
+
+    public animatedSprite: PIXI.AnimatedSprite;
+    public animatedSpriteSettings: any = {
+        animationSpeed: 0.15,
+        width: 1,
+        height: 1
+    };
+    
+    public container: PIXI.Container = new PIXI.Container();
+    public containerSettings: any = {
+        x: 0,
+        y: 0,
+        width: 1,
+        height: 1
+    };
 
     constructor(config: any) {
-        // ---
-        this.containerLevel = config.containerLevel;
-        this.camera = config.camera;
-        // ---
-        this.name = config.name || 'MissingName';
-        this.portrait = config.portrait;
-        this.animSprite = config.animSprite;
-        this.x = config.x || 0;
-        this.y = config.y || 0;
-        this.pathing = pathing[config.pathing] || pathing['idle'];
-        this.dialog = config.dialog;
-        // --
-        this.onInit();
+        this.name = config.name || 'DefaultName';
+        this.loader = config.loader;
+        this.resource = config.resource;
+        // Animated Sprite
+        this.animatedSprite = this.loadAnimatedSpriteSheet();
+        this.animatedSpriteSettings = { ...this.animatedSpriteSettings, ...config.animatedSpriteSettings};
+        this.applyAnimatedSpriteSettings();
+        // Container
+        this.containerSettings = { ...this.containerSettings, ...config.containerSettings};
+        this.applyContainerSettings();
+        // Add Animated Sprite to Container
+        this.container.addChild(this.animatedSprite);
     }
 
-    onInit(): void {
-        this.animSpriteSettings();
-        this.gameContainerSettings();
+    // Animated Sprite Sheet ---
+    
+    loadAnimatedSpriteSheet(): PIXI.AnimatedSprite {
+        let sheet: any[] = this.loader.resources[this.resource].spritesheet.textures;
+        return new PIXI.AnimatedSprite(Object.values(sheet));
+    }
+    
+    // Should be - w: 144, h: 288
+    applyAnimatedSpriteSettings(): void {
+        // Convert select values to tile units
+        this.animatedSpriteSettings.width = tile.unit(this.animatedSpriteSettings.width);
+        this.animatedSpriteSettings.height = tile.unit(this.animatedSpriteSettings.height);
+        // Apply settings
+        for (const key in this.animatedSpriteSettings) {
+            // @ts-ignore
+            this.animatedSprite[key] = this.animatedSpriteSettings[key];
+        }
     }
 
-    animSpriteSettings(): void {
-        this.animSprite.animationSpeed = 0.15;
-        this.animSprite.width = tile.unit(1);
-        this.animSprite.height = tile.unit(1);
-    }
-
-    gameContainerSettings(): void {
-        this.containerGameObject = new PIXI.Container();
-        this.containerGameObject.x = tile.unit(this.x);
-        this.containerGameObject.y = tile.unit(this.y);
-        this.containerGameObject.width = tile.unit(1);
-        this.containerGameObject.height = tile.unit(1);
-        this.containerGameObject.addChild(this.animSprite);
-        // Add to Level Container
-        this.containerLevel.addChild(this.containerGameObject);
+    // Container ---
+    
+    applyContainerSettings(): void {
+        // Convert select values to tile units
+        this.containerSettings.x = tile.unit(this.containerSettings.x);
+        this.containerSettings.y = tile.unit(this.containerSettings.y);
+        this.containerSettings.width = tile.unit(this.containerSettings.width);
+        this.containerSettings.height = tile.unit(this.containerSettings.height);
+        // Apply settings
+        for (const key in this.containerSettings) {
+            // @ts-ignore
+            this.container[key] = this.containerSettings[key];
+        }
     }
 
 }

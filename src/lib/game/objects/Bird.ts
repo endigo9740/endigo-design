@@ -10,30 +10,30 @@ export class Bird extends GameObject {
 
     constructor(config: any) {
         super(config);
-        this.birdSettings();
+        this.onInit();
     }
-    
-    birdSettings(): void {
+
+    onInit(): void {
         // Enable pivot point visualization
         if (this.debug === true) { this.drawDebugRect(); }
         // Adjust Pivot Point
-        this.containerGameObject.pivot.x = tile.unit(1)/2;
-        this.containerGameObject.pivot.y = tile.unit(1)/2;
+        this.container.pivot.x = tile.unit(0.5);
+        this.container.pivot.y = tile.unit(0.5);
         // Extend circle radius
-        this.animSprite.x += tile.unit(1) * this.radius;
+        this.animatedSprite.x += tile.unit(this.radius);
         // Play animation immediately
-        this.animSprite.play();
+        this.animatedSprite.play();
     }
-
+    
     drawDebugRect(): void {
         const graphicPivotPoint = new PIXI.Graphics();
             graphicPivotPoint.beginFill(0xff0000);
             graphicPivotPoint.drawRect(0, 0, tile.unit(1), tile.unit(1));
-        this.containerGameObject.addChild(graphicPivotPoint);
+        this.container.addChild(graphicPivotPoint);
     }
     
     render(): void {
-        this.containerGameObject.rotation += this.speed;
+        this.container.rotation += this.speed;
     }
 
 }

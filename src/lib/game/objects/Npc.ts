@@ -1,112 +1,104 @@
 import * as PIXI from 'pixi.js';
-import { GameObject } from './GameObject';
-import { dialogStore } from '$lib/stores';
 import { tile } from '$lib/stores';
+import { GameObject } from './GameObject';
+import { presetPaths } from '$lib/data/preset-paths';
+import { cameraStore } from '$lib/stores';
+import { dialogStore } from '$lib/stores';
 
 export class Npc extends GameObject {
 
-    private pathingProgress: number = tile.unit(1);
-    private pathingIndex: number = 0;
-    private movementAllowed: boolean = true;
-    private flippedX: boolean = false;
-    private waiting: boolean = false;
+    public portrait: string;
+    public dialog: string;
+
+    private path: any;
+    private pathProgress: number = tile.unit(1);
+    private pathIndex: number = 0;
+    private flipX: boolean = false;
+    private isWaiting: boolean = false;
+    private animationsPaused: boolean = true;
 
     constructor(config: any) {
+        // Hardcoded
+        config.animatedSpriteSettings = { animationSpeed: 0.15, width: 2, height: 3, ...config.animatedSpriteSettings };
+        config.containerSettings = { width: 2, height: 3, ...config.containerSettings };
         super(config);
-
+        // NPC Settings
+        this.path = presetPaths[config.path] || presetPaths['idle'];
+        this.portrait = config.portrait || 'portrait.png';
+        this.dialog = config.dialog || 'DefaultText';
         // Handle Interaction
-        this.containerGameObject.interactive = true;
-        this.containerGameObject.on('pointerover', (e: any) => { this.onPointerOver(); });
-        this.containerGameObject.on('pointerdown', (e: any) => { this.onPointerDown(); });
-        this.containerGameObject.on('pointerout', (e: any) => { this.onPointerOut(); });
-
+        this.container.interactive = true;
+        this.container.on('pointerover', (e: any) => { this.onPointerOver(); });
+        this.container.on('pointerdown', (e: any) => { this.onPointerDown(); });
+        this.container.on('pointerout', (e: any) => { this.onPointerOut(); });
         // Handle Dialog open state
-        dialogStore.subscribe((d: any) => {
-            this.movementAllowed = d === undefined;
-            this.animSprite.gotoAndStop(0);
-        });
-
-        // Shadow
+        dialogStore.subscribe((d: any) => { this.animationsPaused = d === undefined; });
+        // Draw shadow with graphic
         this.addShadow();
     }
 
-    addShadow(): void {
-        const graphicShadow = new PIXI.Graphics();
-            graphicShadow.beginFill(0x000000, 0.15);
-            graphicShadow.drawEllipse(tile.unit(1), tile.unit(1)*2.5, tile.unit(1)/2, tile.unit(1)/4);
-            graphicShadow.endFill();
-            graphicShadow.filters = [new PIXI.filters.BlurFilter(5)];
-        // Add to Level Container
-        this.containerGameObject.addChild(graphicShadow);
-    }
-
-    animSpriteSettings(): void {
-        this.animSprite.animationSpeed = 0.15;
-        this.animSprite.width = tile.unit(2);
-        this.animSprite.height = tile.unit(3);
-    }
-
-    render(): void {
-        if (this.pathing.length > 0) { this.movement(); }
-    }
+    // Handle Pathing Movement ---
 
     movement(): void {
-        if (this.waiting) return;
-        if (this.movementAllowed === false) return;
+        if (this.path.length <= 0) return;
+        if (this.isWaiting) return;
+        if (this.animationsPaused === false) { this.animatedSprite.gotoAndStop(0); return };
         // Run Current Path
-        if (this.pathingProgress >= 0) {
+        if (this.pathProgress >= 0) {
             // Animate
-            if (this.animSprite.playing === false) { this.animSprite.play(); } 
+            if (this.animatedSprite.playing === false) { this.animatedSprite.play(); } 
             // Pathing
-            const currentPath: any = this.pathing[this.pathingIndex];
+            const currentPath: any = this.path[this.pathIndex];
             switch(currentPath.path) {
-                case 'up': this.containerGameObject.y -= 1; break;
-                case 'left': this.containerGameObject.x -= 1; this.toggleFlip(true); break;
-                case 'down': this.containerGameObject.y += 1; break;
-                case 'right': this.containerGameObject.x += 1; this.toggleFlip(false); break;
+                case 'up': this.container.y -= 1; break;
+                case 'left': this.container.x -= 1; this.toggleFlip(true); break;
+                case 'down': this.container.y += 1; break;
+                case 'right': this.container.x += 1; this.toggleFlip(false); break;
                 case 'wait':
-                    this.waiting = true;
-                    this.animSprite.gotoAndStop(0);
+                    this.isWaiting = true;
+                    this.animatedSprite.gotoAndStop(0);
                     setTimeout(() => {
-                        this.waiting = false;
+                        this.isWaiting = false;
                         this.triggerNextPath();
                     }, currentPath.delay);
                     break;
             }
-            this.pathingProgress -= 1;
+            this.pathProgress -= 1;
         }
         // Switch to Next Path
-        if (this.pathingProgress <= 0) { this.triggerNextPath(); }
+        if (this.pathProgress <= 0) { this.triggerNextPath(); }
     }
 
     triggerNextPath(): void {
-        this.pathingProgress = tile.unit(1);
-        (this.pathingIndex+1) >= this.pathing.length ? this.pathingIndex = 0 :  this.pathingIndex++;
+        this.pathProgress = tile.unit(1);
+        (this.pathIndex+1) >= this.path.length ? this.pathIndex = 0 :  this.pathIndex++;
     }
 
     toggleFlip(newValue: boolean): void {
-        if (this.flippedX !== newValue) {
-            this.flippedX = newValue;
-            if (this.flippedX === true) {
+        if (this.flipX !== newValue) {
+            this.flipX = newValue;
+            if (this.flipX === true) {
                 // Flip Left
-                this.containerGameObject.scale.x *= -1
-                this.containerGameObject.x += tile.unit(2);
+                this.container.scale.x *= -1
+                this.container.x += tile.unit(2);
             } else {
                 // Flip Right
-                this.containerGameObject.scale.x = 1;
-                this.containerGameObject.x -= tile.unit(2);
+                this.container.scale.x = 1;
+                this.container.x -= tile.unit(2);
             }
         }
     }
 
+    // Handle Input ---
+
     onPointerOver(): void {
         let filterEffect: any = new PIXI.filters.ColorMatrixFilter();
             filterEffect.brightness(1.3, false);
-        this.containerGameObject.filters = [filterEffect];
+        this.container.filters = [filterEffect];
     }
 
     onPointerDown(): void {
-        this.camera.centerOnContainer(this, true);
+        cameraStore.set({target: this, animate: true}); // TODO: implement this
         // Clear prior, set new
         dialogStore.set(undefined);
         dialogStore.set({
@@ -117,7 +109,25 @@ export class Npc extends GameObject {
     }
     
     onPointerOut(): void {
-        this.containerGameObject.filters = [];
+        this.container.filters = [];
+    }
+
+    // Draw Shadow ---
+
+    addShadow(): void {
+        const graphicShadow = new PIXI.Graphics();
+            graphicShadow.beginFill(0x000000, 0.15);
+            graphicShadow.drawEllipse(tile.unit(1), tile.unit(1)*2.5, tile.unit(1)/2, tile.unit(1)/4);
+            graphicShadow.endFill();
+            graphicShadow.filters = [new PIXI.filters.BlurFilter(5)];
+        // Add to Level Container
+        this.container.addChild(graphicShadow);
+    }
+
+    // Render ---
+
+    render(): void {
+        this.movement();
     }
 
 }

@@ -3,17 +3,17 @@
     import { onMount } from 'svelte';
     import { fade } from 'svelte/transition';
 
-    // Data
-    import { generateNpcs } from '$lib/data/npcs';
-    import { generatePillars } from '$lib/data/pillars';
-
     // Types
-    import type { Npc } from '$lib/game/objects/Npc';
     import type { Pillar } from '$lib/game/objects/Pillar';
     import type { Bird } from '$lib/game/objects/Bird';
+    import type { Npc } from '$lib/game/objects/Npc';
+
+    // Data Lists
+    import { pillarsList } from '$lib/data/pillars-list';
+    import { npcsList } from '$lib/data/npcs-list';
+    import { birdsList } from '$lib/data/birds-list';
 
     // Game Classes
-    import { SpriteHandler } from '$lib/game/SpriteHandler';
     import { World } from '$lib/game/World';  
     import { Camera } from '$lib/game/Camera';
     import { Grid } from '$lib/game/Grid';
@@ -26,8 +26,7 @@
     import Hud from './Hud.svelte';
 
     // Stores
-    import { dialogStore, pageModalStore, menuStore } from '$lib/stores';
-import { generateBirds } from '$lib/data/birds';
+    import { dialogStore, pageModalStore, menuStore, cameraStore } from '$lib/stores';
 
     let elemAudio: HTMLAudioElement;
     let elemCanvas: HTMLCanvasElement;
@@ -35,13 +34,12 @@ import { generateBirds } from '$lib/data/birds';
 
     // Game Elements
     let game: PIXI.Application;
-    let spriteHandler: SpriteHandler;
     let world: World;
     let camera: Camera;
     let grid: Grid;
-    let npcList: Npc[] = [];
-    let pillarList: Pillar[] = [];
-    let birdList: Bird[] = [];
+    let pillarsArr: Pillar[] = [];
+    let npcsListArr: Npc[] = [];
+    let birdListArr: Bird[] = [];
 
     onMount(() => {
 
@@ -79,9 +77,6 @@ import { generateBirds } from '$lib/data/birds';
             // console.log('GAME LOADED');
             loading.complete = true;
 
-            // Init Sprite Handler
-            spriteHandler = new SpriteHandler({ loader: game.loader });
-
             // Containers
             const containerLevel = new PIXI.Container();
             
@@ -95,17 +90,21 @@ import { generateBirds } from '$lib/data/birds';
                 // Grid
                 grid = new Grid({ container: containerLevel, enabled: false, coords: false, texture: resources['grid.png'].texture });
 
-                // GameObjects
-                pillarList = generatePillars({ containerLevel, spriteHandler, camera });
-                npcList = generateNpcs({ containerLevel, spriteHandler, camera });
-                birdList = generateBirds({ containerLevel, spriteHandler, camera });
+                // Instantiate GameObjects
+                pillarsArr = pillarsList({loader: game.loader});
+                npcsListArr = npcsList({loader: game.loader});
+                birdListArr = birdsList({loader: game.loader});
 
+                // Add GameObjects to Level Container
+                pillarsArr.forEach((pillar: Pillar) => { containerLevel.addChild(pillar.container); })
+                npcsListArr.forEach((npc: Npc) => { containerLevel.addChild(npc.container); })
+                birdListArr.forEach((bird: Bird) => { containerLevel.addChild(bird.container); })
 
             // Add to Stage
             game.stage.addChild(containerLevel);
 
             // Post Staging
-            camera.centerOnContainer(npcList[0], false)
+            cameraStore.set({target: npcsListArr[0], animate: false});
 
             // Animation Loop
             game.ticker.add((delta: any) => {
@@ -115,9 +114,8 @@ import { generateBirds } from '$lib/data/birds';
                 if (containerLevel.position.y !== camera.position.y) { containerLevel.position.y = camera.position.y };
 
                 // Render GameObjects
-                pillarList.forEach(pillar => pillar.render());
-                npcList.forEach(npc => npc.render());
-                birdList.forEach(bird => bird.render());
+                birdListArr.forEach((bird: Bird) => { bird.render(); })
+                npcsListArr.forEach((npc: Npc) => npc.render());
 
                 // Render Camera
                 camera.render();
@@ -144,7 +142,7 @@ import { generateBirds } from '$lib/data/birds';
     {:else if $pageModalStore !== undefined}
         <PageModal />
     {:else if $menuStore === true}
-        <Menu {camera} {pillarList} {npcList} />
+        <Menu {camera} pillarList={pillarsArr} npcList={npcsListArr} />
     {:else}
         <Hud {elemAudio} />
     {/if}

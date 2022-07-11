@@ -1,48 +1,47 @@
 import * as PIXI from 'pixi.js';
 import { GameObject } from './GameObject';
+import { cameraStore } from '../../stores';
 import { pageModalStore } from '$lib/stores';
-import { tile } from '$lib/stores';
 
 export class Pillar extends GameObject {
 
-    public page: any;
     public found: boolean = false;
+    public page: any = {
+        component: 'Work',
+        category: null,
+        id: null
+    };
 
     constructor(config: any) {
+        // Merge and overwrite Inherited Config Settings
+        config.resource = 'pillar.json';
+        config.animatedSpriteSettings = { animationSpeed: 0.3, width: 3, height: 6, ...config.animatedSpriteSettings };
+        config.containerSettings = { width: 3, height: 6, ...config.containerSettings };
         super(config);
-        this.page = config.page || { component: 'About' };
-
-        // Handle Interaction
-        this.containerGameObject.interactive = true;
-        this.containerGameObject.on('pointerover', () => { this.onPointerOver(); });
-        this.containerGameObject.on('pointerout', () => { this.onPointerOut(); });
-        this.containerGameObject.on('pointerdown', () => { this.onPointerDown(); });
-    }
-
-    animSpriteSettings(): void {
-        this.animSprite.animationSpeed = 0.3;
-        this.animSprite.width = tile.unit(3);
-        this.animSprite.height = tile.unit(6);
+        // Unique Pillar Config Settings
+        this.page = { ...this.page, ...config.page};
+        // Handle Input
+        this.container.interactive = true;
+        this.container.on('pointerover', () => { this.onPointerOver(); });
+        this.container.on('pointerout', () => { this.onPointerOut(); });
+        this.container.on('pointerdown', () => { this.onPointerDown(); });
     }
 
     onPointerOver(): void {
         let filterEffect: any = new PIXI.filters.ColorMatrixFilter();
             filterEffect.brightness(1.3, false);
-        this.containerGameObject.filters = [filterEffect];
+        this.container.filters = [filterEffect];
     }
     
     onPointerOut(): void {
-        this.containerGameObject.filters = [];
+        this.container.filters = [];
     }
 
     onPointerDown(): void {
-        this.camera.centerOnContainer(this, true);
+        cameraStore.set({target: this, animate: true}); // TODO: implement in camera class
         pageModalStore.set(this.page);
-        // Set Found state
         this.found = true;
-        this.animSprite.play();
+        this.animatedSprite.play();
     }
-
-    render(): void {}
 
 }

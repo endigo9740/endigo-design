@@ -1,4 +1,4 @@
-export const pathing: any = {
+export const presetPaths: any = {
 
     "idle": [],
 
