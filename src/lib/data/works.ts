@@ -233,7 +233,7 @@ export const works: any = {
                 ],
                 technology: 'Unity Game Engine, Android Studio, Xcode',
                 url: 'http://minirlgame.com/',
-                coords: {x: 86, y: 69},
+                coords: {x: 87, y: 65},
                 accent: 'rgba(0,0,0,0.5)',
                 thumbnail: '',
                 videos: [
@@ -256,7 +256,7 @@ export const works: any = {
                 ],
                 technology: 'Svelte/Kit, AWS (CDN via S3+Cloudfront), Github Pages',
                 url: null,
-                coords: {x: 110, y: 56},
+                coords: {x: 112, y: 43},
                 accent: 'rgba(0,0,0,0.5)',
                 thumbnail: '',
                 videos: [],

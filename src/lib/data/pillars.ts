@@ -11,7 +11,7 @@ export const generatePillars: any = (config: any) => {
             containerLevel: config.containerLevel,
             camera: config.camera,
             animSprite: config.spriteHandler.animSpriteSheet(resourceName),
-            x: 63, y: 59,
+            x: 49, y: 59,
             page: { component: 'About', category: '', id: '' }
         })
     ];
