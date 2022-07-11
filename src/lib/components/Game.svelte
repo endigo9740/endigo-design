@@ -10,6 +10,7 @@
     // Types
     import type { Npc } from '$lib/game/objects/Npc';
     import type { Pillar } from '$lib/game/objects/Pillar';
+    import type { Bird } from '$lib/game/objects/Bird';
 
     // Game Classes
     import { SpriteHandler } from '$lib/game/SpriteHandler';
@@ -26,6 +27,7 @@
 
     // Stores
     import { dialogStore, pageModalStore, menuStore } from '$lib/stores';
+import { generateBirds } from '$lib/data/birds';
 
     let elemAudio: HTMLAudioElement;
     let elemCanvas: HTMLCanvasElement;
@@ -39,6 +41,7 @@
     let grid: Grid;
     let npcList: Npc[] = [];
     let pillarList: Pillar[] = [];
+    let birdList: Bird[] = [];
 
     onMount(() => {
 
@@ -63,6 +66,7 @@
             'npc-chris.json',
             'npc-melissa.json',
             'pillar.json',
+            'critter-bird.json',
         ].forEach(r => { game.loader.add(r); });
 
         // Loading Lifecycle
@@ -93,7 +97,8 @@
 
                 // GameObjects
                 pillarList = generatePillars({ containerLevel, spriteHandler, camera });
-                npcList = generateNpcs({ spriteHandler, containerLevel, camera });
+                npcList = generateNpcs({ containerLevel, spriteHandler, camera });
+                birdList = generateBirds({ containerLevel, spriteHandler, camera });
 
 
             // Add to Stage
@@ -112,6 +117,7 @@
                 // Render GameObjects
                 pillarList.forEach(pillar => pillar.render());
                 npcList.forEach(npc => npc.render());
+                birdList.forEach(bird => bird.render());
 
                 // Render Camera
                 camera.render();
