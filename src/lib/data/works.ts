@@ -99,7 +99,7 @@ export const works: any = {
                 ],
                 technology: 'Sketch, Photoshop, Angular (website)',
                 url: null,
-                coords: {x: 14, y: 36},
+                coords: {x: 14, y: 34},
                 accent: 'rgba(0,0,0,0.5)',
                 thumbnail: '',
                 videos: [
@@ -182,7 +182,7 @@ export const works: any = {
                 technology: 'Android Studio, Raspberry Pi, Angular',
                 url: null,
                 name: 'Arcade',
-                coords: {x: 90, y: 37},
+                coords: {x: 13, y: 9},
                 accent: 'rgba(0,0,0,0.5)',
                 thumbnail: '',
                 videos: [

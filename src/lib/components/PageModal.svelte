@@ -21,7 +21,7 @@
 
     <!-- Window -->
     <div
-        class="bg-glass window w-[90%] h-full max-h-[85%] m-10 flex flex-col"
+        class="bg-glass window w-[90%] max-w-[1440px] h-full max-h-[85%] m-10 flex flex-col"
         transition:scale={{start: 0.5, duration: 300}}
     >
 
