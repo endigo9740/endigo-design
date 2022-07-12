@@ -21,7 +21,7 @@ pre { @apply bg-black/30 p-4; }
 pre+pre { @apply mt-4; }
 
 button, .btn, button { @apply text-white text-base font-bold uppercase p-2; }
-    .btn-hollow { @apply bg-white/10 ring-2 ring-white/60 py-2 px-5 hover:bg-white/20 hover:ring-white shadow-xl rounded-sm; }
+    .btn-hollow { @apply bg-white/10 ring-2 ring-white/60 py-2 px-5 hover:bg-white/20 hover:ring-white shadow-xl rounded-sm whitespace-nowrap; }
 
 select {
     @apply bg-white/10 ring-2 ring-white/60 p-2 hover:bg-white/20 hover:ring-white shadow-xl rounded-sm appearance-none;
