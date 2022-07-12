@@ -2,8 +2,6 @@ import * as PIXI from 'pixi.js';
 import { tile } from '$lib/stores';
 
 export class Grid {
-    public static instance: Grid;
-
     private container: any;
     private texture: any;
     public enabled: boolean = false;
@@ -18,11 +16,6 @@ export class Grid {
         PIXI.BitmapFont.from('EndigoFont', { fill: "#FFFFFF", fontSize: 10, fontWeight: 'bold' });
         // Init
         this.onInit();
-    }
-
-    public static getInstance(config: any): Grid {
-        if (!Grid.instance) { Grid.instance = new Grid(config); }
-        return Grid.instance;
     }
 
     onInit(): void {

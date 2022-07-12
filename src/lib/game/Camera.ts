@@ -2,8 +2,6 @@ import { clamp, invlerp } from "./utils";
 import { cameraStore } from './../stores';
 
 export class Camera {
-    public static instance: Camera;
-
     private app: any;
     private container: any;
 
@@ -22,11 +20,6 @@ export class Camera {
         this.container = config.container;
         // Init
         this.onInit();
-    }
-
-    public static getInstance(config: any): Camera {
-        if (!Camera.instance) { Camera.instance = new Camera(config); }
-        return Camera.instance;
     }
 
     onInit(): void {

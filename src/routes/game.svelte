@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Game from "$lib/components/Game.svelte";
+    import GameCanvas from "$lib/components/GameCanvas.svelte";
 </script>
 
-<Game></Game>
+<GameCanvas />

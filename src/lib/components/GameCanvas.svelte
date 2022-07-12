@@ -3,7 +3,7 @@
     import { onDestroy, onMount } from 'svelte';
     import { fade } from 'svelte/transition';
 
-    // Types
+    // GameObject Entities
     import type { Pillar } from '$lib/game/objects/Pillar';
     import type { Bird } from '$lib/game/objects/Bird';
     import type { Npc } from '$lib/game/objects/Npc';
@@ -82,15 +82,15 @@
             // Containers
             containerLevel = new PIXI.Container();
 
-                // World Singleton
-                world = World.getInstance({ texture: resources['overworld.png'].texture });
+                // World
+                world = new World({ texture: resources['overworld.png'].texture });
                 containerLevel.addChild(world.sprite);
 
-                // Camera Singleton
-                camera = Camera.getInstance({ app: game, container: containerLevel });
+                // Camera
+                camera = new Camera({ app: game, container: containerLevel });
                 
-                // Grid Singleton
-                grid = Grid.getInstance({ container: containerLevel, enabled: false, coords: false, texture: resources['grid.png'].texture });
+                // Grid
+                grid = new Grid({ container: containerLevel, enabled: false, coords: false, texture: resources['grid.png'].texture });
 
                 // Instantiate GameObjects
                 pillarsArr = pillarsList({loader: game.loader});
@@ -142,7 +142,7 @@
 <!-- UI Overlay -->
 {#if loading.complete === false}
     <ProgressBar amount={loading.amount} />
-    <div class="fixed top-0 left-0 right-0 bottom-0 z-10 bg-slate-900" transition:fade|local={{duration: 1200}}></div>
+    <div class="fixed top-0 left-0 right-0 bottom-0 z-10 bg-slate-900" transition:fade|local={{duration: 500}}></div>
 {:else}
     {#if $dialogStore !== undefined}
         <Dialog />

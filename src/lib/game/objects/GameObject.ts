@@ -1,3 +1,5 @@
+// This is the core class for which all entities extend. Controls core features of entities.
+
 import * as PIXI from 'pixi.js';
 import { tile } from '$lib/stores';
 
