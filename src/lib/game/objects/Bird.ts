@@ -5,11 +5,13 @@ import { GameObject } from "./GameObject";
 export class Bird extends GameObject {
 
     public debug: boolean = false;
-    public radius: number = 12;
-    public speed: number = 0.015;
+    public radius: number;
+    public speed: number;
 
     constructor(config: any) {
         super(config);
+        this.radius = config.radius || 12;
+        this.speed = config.speed || 0.015
         this.onInit();
     }
 

@@ -10,7 +10,7 @@
     // Data Lists
     import { pillarsList } from '$lib/data/pillars-list';
     import { npcsList } from '$lib/data/npcs-list';
-    import { birdsList, catsList, slimesList } from '$lib/data/critters-list';
+    import { birdsList, catsList, slimesList, crabsList } from '$lib/data/critters-list';
 
     // Game Classes
     import { World } from '$lib/game/World';  
@@ -40,9 +40,10 @@
     let pillars: Pillar[] = [];
     let npcs: Npc[] = [];
     let critters: any = {
-        birds: [],
         slimes: [],
-        cats: []
+        cats: [],
+        crabs: [],
+        birds: [], // last
     };
 
     onMount(() => {
@@ -72,6 +73,7 @@
             'critter-bird.json',
             'critter-slime.json',
             'critter-layla.json',
+            'critter-crab.json',
         ].forEach(r => { game.loader.add(r); });
 
         // Loading Lifecycle
@@ -100,9 +102,10 @@
                 // Instantiate GameObjects
                 pillars = pillarsList({loader: game.loader});
                 npcs = npcsList({loader: game.loader});
-                critters.birds = birdsList({loader: game.loader});
                 critters.slimes = slimesList({loader: game.loader});
                 critters.cats = catsList({loader: game.loader, containerLevel, camera});
+                critters.crabs = crabsList({loader: game.loader});
+                critters.birds = birdsList({loader: game.loader}); // last
 
                 // Add GameObjects to Level Container
                 pillars.forEach((pillar: Pillar) => { containerLevel.addChild(pillar.container); })

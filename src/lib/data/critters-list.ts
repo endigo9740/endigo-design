@@ -1,20 +1,25 @@
 import { Bird } from '$lib/game/objects/Bird';
 import { Slime } from '$lib/game/objects/Slime';
 import { Cat } from '$lib/game/objects/Cat';
+import { Crab } from '$lib/game/objects/Crab';
 
 // Birds
-const birdCoords = [
-	{x: 50, y: 63},
+const birdConfigs = [
+	{containerSettings: {x: 10, y: 55}, radius: 12, speed: 0.015},
+	{containerSettings: {x: 15, y: 57}, radius: 9, speed: 0.02},
+	{containerSettings: {x: 12, y: 60}, radius: 6, speed: 0.025},
 ];
 export const birdsList: any = (config: any) => {
 	const birdsArr: Bird[] = [];
-	birdCoords.forEach((xyCoords: any, i: number) => {
+	birdConfigs.forEach((birdConfig: any, i: number) => {
 		birdsArr.push(
 			new Bird({
 				name: `Bird ${i+1}`,
 				loader: config.loader,
 				resource: 'critter-bird.json',
-				containerSettings: xyCoords
+				containerSettings: birdConfig.containerSettings,
+				radius: birdConfig.radius,
+				speed: birdConfig.speed
 			})
 		);
 	});
@@ -22,15 +27,15 @@ export const birdsList: any = (config: any) => {
 };
 
 // Slimes
-const slimeCoords = [
-	{x: 55, y: 68},
-	{x: 55, y: 69},
-	{x: 55, y: 70},
+const slimesCoords = [
+	{x: 30, y: 17},
+	{x: 60, y: 33},
+	{x: 80, y: 20},
 ];
 export const slimesList: any = (config: any) => {
-	const slimeArr: Slime[] = [];
-	slimeCoords.forEach((xyCoords: any, i: number) => {
-		slimeArr.push(
+	const slimesArr: Slime[] = [];
+	slimesCoords.forEach((xyCoords: any, i: number) => {
+		slimesArr.push(
 			new Slime({
 				name: `Slime ${i+1}`,
 				loader: config.loader,
@@ -39,7 +44,7 @@ export const slimesList: any = (config: any) => {
 			})
 		);
 	});
-	return slimeArr;
+	return slimesArr;
 };
 
 // Cats
@@ -57,3 +62,24 @@ export const catsList: any = (config: any) => {
 		})
 	];
 }
+
+// Crabs
+const crabsCoords = [
+	{x: 33, y: 82},
+	{x: 64, y: 83},
+	{x: 104, y: 85},
+];
+export const crabsList: any = (config: any) => {
+	const crabsArr: Crab[] = [];
+	crabsCoords.forEach((xyCoords: any, i: number) => {
+		crabsArr.push(
+			new Crab({
+				name: `Slime ${i+1}`,
+				loader: config.loader,
+				resource: 'critter-crab.json',
+				containerSettings: xyCoords
+			})
+		);
+	});
+	return crabsArr;
+};
