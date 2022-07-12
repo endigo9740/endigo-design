@@ -78,17 +78,4 @@ export class GameObject {
         }
     }
 
-    // Shadows
-
-    // addShadow(): void {
-    //     if (!this.shadow) return;
-    //     const graphicShadow = new PIXI.Graphics();
-    //         // graphicShadow.beginFill(0x000000, 0.2);
-    //         graphicShadow.beginFill(0xFF0000, 1);
-    //         graphicShadow.drawEllipse(this.animatedSprite.width/2, this.animatedSprite.height - tile.unit(0.3), this.animatedSprite.width/3.5, tile.unit(0.25));
-    //         graphicShadow.endFill();
-    //         graphicShadow.filters = [new PIXI.filters.BlurFilter(5)];
-    //     this.container.addChildAt(graphicShadow, 0);
-    // }
-
 }

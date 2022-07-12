@@ -74,6 +74,7 @@
   "frameTags": [
   ],
   "layers": [
+   { "name": "shadow", "opacity": 21, "blendMode": "normal" },
    { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
   ],
   "slices": [

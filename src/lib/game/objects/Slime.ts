@@ -1,4 +1,3 @@
-import { randomRangeWhole } from './../utils';
 import { GameObject } from './GameObject';
 import { randomRangeDecimal } from '../utils';
 import { tile } from '$lib/stores';
