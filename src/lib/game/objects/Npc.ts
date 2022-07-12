@@ -8,14 +8,17 @@ import { dialogStore } from '$lib/stores';
 export class Npc extends GameObject {
 
     public portrait: string;
-    public dialog: string;
 
+    // Dialog
+    public dialog: string;
+    private dialogVisible: boolean = true;
+
+    // Pathing
     private path: any;
     private pathProgress: number = tile.unit(1);
     private pathIndex: number = 0;
-    private flipX: boolean = false;
     private isWaiting: boolean = false;
-    private animationsPaused: boolean = true;
+    private currentScaleX: boolean = false;
 
     constructor(config: any) {
         // Hardcoded
@@ -25,14 +28,22 @@ export class Npc extends GameObject {
         // NPC Settings
         this.path = presetPaths[config.path] || presetPaths['idle'];
         this.portrait = config.portrait || 'portrait.png';
-        this.dialog = config.dialog || 'DefaultText';
+        this.dialog = config.dialog || 'DefaultDialogText';
+        // Init
+        this.onInit();
+    }
+
+    onInit(): void {
         // Handle Interaction
         this.container.interactive = true;
         this.container.on('pointerover', (e: any) => { this.onPointerOver(); });
         this.container.on('pointerdown', (e: any) => { this.onPointerDown(); });
         this.container.on('pointerout', (e: any) => { this.onPointerOut(); });
         // Handle Dialog open state
-        dialogStore.subscribe((d: any) => { this.animationsPaused = d === undefined; });
+        dialogStore.subscribe((d: any) => {
+            this.dialogVisible = d === undefined;
+            this.animatedSprite.gotoAndStop(0);
+        });
         // Draw shadow with graphic
         this.addShadow();
     }
@@ -40,9 +51,8 @@ export class Npc extends GameObject {
     // Handle Pathing Movement ---
 
     movement(): void {
-        if (this.path.length <= 0) return;
+        if (!this.dialogVisible) return;
         if (this.isWaiting) return;
-        if (this.animationsPaused === false) { this.animatedSprite.gotoAndStop(0); return };
         // Run Current Path
         if (this.pathProgress >= 0) {
             // Animate
@@ -75,9 +85,9 @@ export class Npc extends GameObject {
     }
 
     toggleFlip(newValue: boolean): void {
-        if (this.flipX !== newValue) {
-            this.flipX = newValue;
-            if (this.flipX === true) {
+        if (this.currentScaleX !== newValue) {
+            this.currentScaleX = newValue;
+            if (this.currentScaleX === true) {
                 // Flip Left
                 this.container.scale.x *= -1
                 this.container.x += tile.unit(2);
@@ -98,8 +108,8 @@ export class Npc extends GameObject {
     }
 
     onPointerDown(): void {
-        cameraStore.set({target: this, animate: true}); // TODO: implement this
-        // Clear prior, set new
+        cameraStore.set({target: this, animate: true});
+        // Remove existing dialog and replace with this dialog
         dialogStore.set(undefined);
         dialogStore.set({
             name: this.name,
@@ -116,11 +126,10 @@ export class Npc extends GameObject {
 
     addShadow(): void {
         const graphicShadow = new PIXI.Graphics();
-            graphicShadow.beginFill(0x000000, 0.15);
-            graphicShadow.drawEllipse(tile.unit(1), tile.unit(1)*2.5, tile.unit(1)/2, tile.unit(1)/4);
+            graphicShadow.beginFill(0x000000, 0.2);
+            graphicShadow.drawEllipse(tile.unit(1), tile.unit(2.5), tile.unit(0.5), tile.unit(0.25));
             graphicShadow.endFill();
             graphicShadow.filters = [new PIXI.filters.BlurFilter(5)];
-        // Add to Level Container
         this.container.addChild(graphicShadow);
     }
 

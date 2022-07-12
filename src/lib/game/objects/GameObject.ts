@@ -27,7 +27,7 @@ export class GameObject {
         this.loader = config.loader;
         this.resource = config.resource;
         // Animated Sprite
-        this.animatedSprite = this.loadAnimatedSpriteSheet();
+        this.animatedSprite = this.createAnimatedSpritesheet();
         this.animatedSpriteSettings = { ...this.animatedSpriteSettings, ...config.animatedSpriteSettings};
         this.applyAnimatedSpriteSettings();
         // Container
@@ -39,7 +39,7 @@ export class GameObject {
 
     // Animated Sprite Sheet ---
     
-    loadAnimatedSpriteSheet(): PIXI.AnimatedSprite {
+    createAnimatedSpritesheet(): PIXI.AnimatedSprite {
         let sheet: any[] = this.loader.resources[this.resource].spritesheet.textures;
         return new PIXI.AnimatedSprite(Object.values(sheet));
     }

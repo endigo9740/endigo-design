@@ -38,7 +38,7 @@ export class Pillar extends GameObject {
     }
 
     onPointerDown(): void {
-        cameraStore.set({target: this, animate: true}); // TODO: implement in camera class
+        cameraStore.set({target: this, animate: true});
         pageModalStore.set(this.page);
         this.found = true;
         this.animatedSprite.play();
