@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js';
 
 export class World {
+    public static instance: World;
+
     public texture: any;
     public sprite: any;
 
@@ -11,6 +13,11 @@ export class World {
         this.texture = config.texture;
         // Init
         this.onInit();
+    }
+
+    public static getInstance(config: any): World {
+        if (!World.instance) { World.instance = new World(config); }
+        return World.instance;
     }
 
     onInit(): void {

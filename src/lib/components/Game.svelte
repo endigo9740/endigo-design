@@ -1,6 +1,6 @@
 <script lang="ts">
     import * as PIXI from 'pixi.js';
-    import { onMount } from 'svelte';
+    import { onDestroy, onMount } from 'svelte';
     import { fade } from 'svelte/transition';
 
     // Types
@@ -34,6 +34,7 @@
 
     // Game Elements
     let game: PIXI.Application;
+    let containerLevel: PIXI.Container;
     let world: World;
     let camera: Camera;
     let grid: Grid;
@@ -56,6 +57,7 @@
             resizeTo: document.body,
             backgroundColor: 0x141414,
         });
+        if (game === null) return;
 
         // Load Game Resources
         [
@@ -78,17 +80,17 @@
             loading.complete = true;
 
             // Containers
-            const containerLevel = new PIXI.Container();
-            
-                // World
-                world = new World({ texture: resources['overworld.png'].texture });
+            containerLevel = new PIXI.Container();
+
+                // World Singleton
+                world = World.getInstance({ texture: resources['overworld.png'].texture });
                 containerLevel.addChild(world.sprite);
 
-                // Camera
-                camera = new Camera({ app: game, container: containerLevel });
+                // Camera Singleton
+                camera = Camera.getInstance({ app: game, container: containerLevel });
                 
-                // Grid
-                grid = new Grid({ container: containerLevel, enabled: false, coords: false, texture: resources['grid.png'].texture });
+                // Grid Singleton
+                grid = Grid.getInstance({ container: containerLevel, enabled: false, coords: false, texture: resources['grid.png'].texture });
 
                 // Instantiate GameObjects
                 pillarsArr = pillarsList({loader: game.loader});
@@ -124,6 +126,11 @@
 
         });
         
+    });
+
+    onDestroy(() => {
+        // Helps prevent slowdown from restarting/HMR
+        if (game !== undefined) game.stop();
     });
 </script>
 
