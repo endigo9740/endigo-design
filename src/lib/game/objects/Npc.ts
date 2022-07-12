@@ -44,8 +44,6 @@ export class Npc extends GameObject {
             this.dialogVisible = d === undefined;
             this.animatedSprite.gotoAndStop(0);
         });
-        // Draw shadow with graphic
-        this.addShadow();
     }
 
     // Handle Pathing ---
@@ -113,17 +111,6 @@ export class Npc extends GameObject {
     
     onPointerOut(): void {
         this.container.filters = [];
-    }
-
-    // Draw Shadow ---
-
-    addShadow(): void {
-        const graphicShadow = new PIXI.Graphics();
-            graphicShadow.beginFill(0x000000, 0.2);
-            graphicShadow.drawEllipse(tile.unit(1), tile.unit(2.5), tile.unit(0.5), tile.unit(0.25));
-            graphicShadow.endFill();
-            graphicShadow.filters = [new PIXI.filters.BlurFilter(5)];
-        this.container.addChild(graphicShadow);
     }
 
     // Render ---

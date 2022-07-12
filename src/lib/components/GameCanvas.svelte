@@ -10,7 +10,7 @@
     // Data Lists
     import { pillarsList } from '$lib/data/pillars-list';
     import { npcsList } from '$lib/data/npcs-list';
-    import { birdsList } from '$lib/data/critters-list';
+    import { birdsList, slimesList } from '$lib/data/critters-list';
 
     // Game Classes
     import { World } from '$lib/game/World';  
@@ -41,6 +41,7 @@
     let npcs: Npc[] = [];
     let critters: any = {
         birds: [],
+        slimes: [],
     };
 
     onMount(() => {
@@ -68,6 +69,7 @@
             'npc-melissa.json',
             'pillar.json',
             'critter-bird.json',
+            'critter-slime.json',
         ].forEach(r => { game.loader.add(r); });
 
         // Loading Lifecycle
@@ -97,6 +99,7 @@
                 pillars = pillarsList({loader: game.loader});
                 npcs = npcsList({loader: game.loader});
                 critters.birds = birdsList({loader: game.loader});
+                critters.slimes = slimesList({loader: game.loader});
 
                 // Add GameObjects to Level Container
                 pillars.forEach((pillar: Pillar) => { containerLevel.addChild(pillar.container); })
@@ -112,7 +115,9 @@
             cameraStore.set({target: npcs[0], animate: false}); // npc 0 = Chris
 
             // Animation Loop
+            let elapsed = 0.0;
             game.ticker.add((delta: any) => {
+                elapsed += delta;
 
                 // Move containerLevel based on camera position
                 if (containerLevel.position.x !== camera.position.x) { containerLevel.position.x = camera.position.x };
@@ -121,7 +126,7 @@
                 // Render GameObjects
                 npcs.forEach((npc: Npc) => npc.render());
                 Object.values(critters).forEach((critterArr: any) => {
-                    critterArr.forEach((c: any) => { c.render(); })
+                    critterArr.forEach((c: any) => { c.render(elapsed); })
                 });
 
                 // Render Camera
