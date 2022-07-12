@@ -145,7 +145,7 @@
 </audio>
 
 <!-- UI Overlay -->
-{#if loading.complete === false}
+{#if !loading.complete}
     <ProgressBar amount={loading.amount} />
     <div class="fixed top-0 left-0 right-0 bottom-0 z-10 bg-slate-900" transition:fade|local={{duration: 500}}></div>
 {:else}
@@ -154,7 +154,7 @@
     {:else if $pageModalStore !== undefined}
         <PageModal />
     {:else if $menuStore === true}
-        <Menu {camera} pillarList={pillars} npcList={npcs} />
+        <Menu {camera} {pillars} {npcs} />
     {:else}
         <Hud {elemAudio} />
     {/if}

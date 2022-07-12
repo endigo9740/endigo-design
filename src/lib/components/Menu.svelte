@@ -2,8 +2,8 @@
     import { menuStore } from '$lib/stores';
 
     export let camera: any;
-    export let pillarList: any;
-    export let npcList: any;
+    export let pillars: any;
+    export let npcs: any;
 
     function centerOnContainer(target: any): void {
         camera.centerOnContainer(target, true);
@@ -15,7 +15,7 @@
     }
 </script>
 
-{#if pillarList}
+{#if pillars}
 <section class="shim">
 
     <!-- Window -->
@@ -34,12 +34,12 @@
             <div class="flex-[40%] space-y-4">
                 <div class="bg-black/20 border border-white/10 rounded flex items-center space-x-4 p-5">
                     <p>Interested in learning more about Chris? Check out the featured pillar near the middle of the map.</p>
-                    <button type="button" class="btn-hollow whitespace-nowrap" on:click={()=>{centerOnContainer(pillarList[0])}}>Go!</button>
+                    <button type="button" class="btn-hollow whitespace-nowrap" on:click={()=>{centerOnContainer(pillars[0])}}>Go!</button>
                 </div>
                 <h4 class="section-label !mb-0">Characters</h4>
                 <p>Select a character to jump to them.</p>
                 <nav class="grid grid-cols-2 gap-1">
-                    {#each npcList as npc}
+                    {#each npcs as npc}
                     <li class="bg-black/50 text-xs p-4 flex flex-col items-center cursor-pointer hover:bg-white/20" on:click={()=>{centerOnContainer(npc)}}>
                         <img src={npc.portrait} class="w-full aspect-square rounded-xl" alt="portrait">
                         <h6 class="mt-2">{npc.name}</h6>
@@ -53,7 +53,7 @@
                 <h4 class="section-label !mb-0">Project Pillars</h4>
                 <p>Select a pillar to jump to it. Any pillars you activate will display here.</p>
                 <nav class="grid grid-cols-2 gap-4">
-                    {#each pillarList as pillar, i}
+                    {#each pillars as pillar, i}
                     {#if i > 0}
                     <li class="bg-black/50 text-xs px-4 py-3 flex items-center space-x-4 rounded-xl cursor-pointer hover:bg-white/20" on:click={()=>{centerOnContainer(pillar)}}>
                         <img src="pillar-thumbnail.png" class="w-9 aspect-square rounded" class:opacity-30={!pillar.found} alt="portrait">
