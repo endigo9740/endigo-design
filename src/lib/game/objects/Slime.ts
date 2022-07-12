@@ -32,6 +32,7 @@ export class Slime extends GameObject {
 
     mirrorSpriteOnX(newScale: number): void {
         if (this.animatedSprite.scale.x !== newScale) {
+            const amount = this.animatedSprite.width / tile.unit(1);
             this.animatedSprite.scale.x = newScale * 3; // why 3?
         }
     }

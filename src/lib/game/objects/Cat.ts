@@ -10,7 +10,7 @@ export class Cat extends GameObject {
     private camera: any;
 
     constructor(config: any) {
-        config.animatedSpriteSettings = { width: 2, height: 2, ...config.animatedSpriteSettings };
+        config.animatedSpriteSettings = { animationSpeed: 0.05, width: 2, height: 2, ...config.animatedSpriteSettings };
         config.containerSettings = { width: 2, height: 2, ...config.containerSettings };
         super(config);
         this.portrait = config.portrait;
@@ -21,6 +21,7 @@ export class Cat extends GameObject {
     }
 
     onInit(): void {
+        this.animatedSprite.play();
         // Flip sprite to follow pointer
         this.containerLevel.on('pointermove', (e: any) => { this.followPointer(e); });
         // Handle Interaction
@@ -45,7 +46,7 @@ export class Cat extends GameObject {
 
     mirrorSpriteOnX(newScale: number): void {
         if (this.animatedSprite.scale.x !== newScale) {
-            this.animatedSprite.scale.x = newScale * 3; // 3?
+            this.animatedSprite.scale.x = newScale * 3; // why 3?
         }
     }
 
