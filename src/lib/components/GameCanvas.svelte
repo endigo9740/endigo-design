@@ -129,7 +129,7 @@
     });
 
     onDestroy(() => {
-        // Helps prevent slowdown from restarting/HMR
+        // Helps memory leak issues
         if (game !== undefined) game.stop();
     });
 </script>
