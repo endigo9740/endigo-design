@@ -5,7 +5,6 @@
 
     // GameObject Entities
     import type { Pillar } from '$lib/game/objects/Pillar';
-    import type { Bird } from '$lib/game/objects/Bird';
     import type { Npc } from '$lib/game/objects/Npc';
 
     // Data Lists
@@ -38,9 +37,9 @@
     let world: World;
     let camera: Camera;
     let grid: Grid;
-    let pillarsArr: Pillar[] = [];
-    let npcsListArr: Npc[] = [];
-    let crittersArrs: any = {
+    let pillars: Pillar[] = [];
+    let npcs: Npc[] = [];
+    let critters: any = {
         birds: [],
     };
 
@@ -95,22 +94,22 @@
                 grid = new Grid({ container: containerLevel, enabled: false, coords: false, texture: resources['grid.png'].texture });
 
                 // Instantiate GameObjects
-                pillarsArr = pillarsList({loader: game.loader});
-                npcsListArr = npcsList({loader: game.loader});
-                crittersArrs.birds = birdsList({loader: game.loader});
+                pillars = pillarsList({loader: game.loader});
+                npcs = npcsList({loader: game.loader});
+                critters.birds = birdsList({loader: game.loader});
 
                 // Add GameObjects to Level Container
-                pillarsArr.forEach((pillar: Pillar) => { containerLevel.addChild(pillar.container); })
-                npcsListArr.forEach((npc: Npc) => { containerLevel.addChild(npc.container); })
-                Object.values(crittersArrs).forEach((critterArr: any) => {
-                    critterArr.forEach((c: Bird) => { containerLevel.addChild(c.container); })
+                pillars.forEach((pillar: Pillar) => { containerLevel.addChild(pillar.container); })
+                npcs.forEach((npc: Npc) => { containerLevel.addChild(npc.container); })
+                Object.values(critters).forEach((critterArr: any) => {
+                    critterArr.forEach((c: any) => { containerLevel.addChild(c.container); })
                 });
 
             // Add to Stage
             game.stage.addChild(containerLevel);
 
             // Post Staging
-            cameraStore.set({target: npcsListArr[0], animate: false});
+            cameraStore.set({target: npcs[0], animate: false}); // npc 0 = Chris
 
             // Animation Loop
             game.ticker.add((delta: any) => {
@@ -120,9 +119,9 @@
                 if (containerLevel.position.y !== camera.position.y) { containerLevel.position.y = camera.position.y };
 
                 // Render GameObjects
-                npcsListArr.forEach((npc: Npc) => npc.render());
-                Object.values(crittersArrs).forEach((critterArr: any) => {
-                    critterArr.forEach((c: Bird) => { c.render(); })
+                npcs.forEach((npc: Npc) => npc.render());
+                Object.values(critters).forEach((critterArr: any) => {
+                    critterArr.forEach((c: any) => { c.render(); })
                 });
 
                 // Render Camera
@@ -155,7 +154,7 @@
     {:else if $pageModalStore !== undefined}
         <PageModal />
     {:else if $menuStore === true}
-        <Menu {camera} pillarList={pillarsArr} npcList={npcsListArr} />
+        <Menu {camera} pillarList={pillars} npcList={npcs} />
     {:else}
         <Hud {elemAudio} />
     {/if}
