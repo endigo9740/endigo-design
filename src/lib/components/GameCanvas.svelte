@@ -11,7 +11,7 @@
     // Data Lists
     import { pillarsList } from '$lib/data/pillars-list';
     import { npcsList } from '$lib/data/npcs-list';
-    import { birdsList } from '$lib/data/birds-list';
+    import { birdsList } from '$lib/data/critters-list';
 
     // Game Classes
     import { World } from '$lib/game/World';  
@@ -40,7 +40,9 @@
     let grid: Grid;
     let pillarsArr: Pillar[] = [];
     let npcsListArr: Npc[] = [];
-    let birdListArr: Bird[] = [];
+    let crittersArrs: any = {
+        birds: [],
+    };
 
     onMount(() => {
 
@@ -95,12 +97,14 @@
                 // Instantiate GameObjects
                 pillarsArr = pillarsList({loader: game.loader});
                 npcsListArr = npcsList({loader: game.loader});
-                birdListArr = birdsList({loader: game.loader});
+                crittersArrs.birds = birdsList({loader: game.loader});
 
                 // Add GameObjects to Level Container
                 pillarsArr.forEach((pillar: Pillar) => { containerLevel.addChild(pillar.container); })
                 npcsListArr.forEach((npc: Npc) => { containerLevel.addChild(npc.container); })
-                birdListArr.forEach((bird: Bird) => { containerLevel.addChild(bird.container); })
+                Object.values(crittersArrs).forEach((critterArr: any) => {
+                    critterArr.forEach((c: Bird) => { containerLevel.addChild(c.container); })
+                });
 
             // Add to Stage
             game.stage.addChild(containerLevel);
@@ -116,8 +120,10 @@
                 if (containerLevel.position.y !== camera.position.y) { containerLevel.position.y = camera.position.y };
 
                 // Render GameObjects
-                birdListArr.forEach((bird: Bird) => { bird.render(); })
                 npcsListArr.forEach((npc: Npc) => npc.render());
+                Object.values(crittersArrs).forEach((critterArr: any) => {
+                    critterArr.forEach((c: Bird) => { c.render(); })
+                });
 
                 // Render Camera
                 camera.render();
