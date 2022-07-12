@@ -48,54 +48,47 @@ export class Npc extends GameObject {
         this.addShadow();
     }
 
-    // Handle Pathing Movement ---
+    // Handle Pathing ---
 
-    movement(): void {
+    pathing(): void {
         if (!this.dialogVisible) return;
         if (this.isWaiting) return;
-        // Run Current Path
-        if (this.pathProgress >= 0) {
-            // Animate
-            if (this.animatedSprite.playing === false) { this.animatedSprite.play(); } 
-            // Pathing
-            const currentPath: any = this.path[this.pathIndex];
-            switch(currentPath.path) {
-                case 'up': this.container.y -= 1; break;
-                case 'left': this.container.x -= 1; this.toggleFlip(true); break;
-                case 'down': this.container.y += 1; break;
-                case 'right': this.container.x += 1; this.toggleFlip(false); break;
-                case 'wait':
-                    this.isWaiting = true;
-                    this.animatedSprite.gotoAndStop(0);
-                    setTimeout(() => {
-                        this.isWaiting = false;
-                        this.triggerNextPath();
-                    }, currentPath.delay);
-                    break;
-            }
-            this.pathProgress -= 1;
-        }
-        // Switch to Next Path
-        if (this.pathProgress <= 0) { this.triggerNextPath(); }
+        // Execute current path, else switch to next path
+        this.pathProgress >= 0 ? this.handleMovement() : this.nextPath();
     }
 
-    triggerNextPath(): void {
+    handleMovement(): void {
+        // Animate while moving
+        if (this.animatedSprite.playing === false) { this.animatedSprite.play(); } 
+        // Determine direction to move
+        const currentPath: any = this.path[this.pathIndex];
+        switch(currentPath.path) {
+            case 'up': this.container.y -= 1; break;
+            case 'left': this.container.x -= 1; this.mirrorSpriteOnX(-1); break;
+            case 'down': this.container.y += 1; break;
+            case 'right': this.container.x += 1; this.mirrorSpriteOnX(1); break;
+            case 'wait': this.waitOnDelay(currentPath); break
+        }
+        this.pathProgress -= 1;
+    }
+
+    waitOnDelay(currentPath: any): void {
+        this.isWaiting = true;
+        this.animatedSprite.gotoAndStop(0);
+        setTimeout(() => {
+            this.isWaiting = false;
+            this.nextPath();
+        }, currentPath.delay);
+    }
+
+    nextPath(): void {
         this.pathProgress = tile.unit(1);
         (this.pathIndex+1) >= this.path.length ? this.pathIndex = 0 :  this.pathIndex++;
     }
 
-    toggleFlip(newValue: boolean): void {
-        if (this.currentScaleX !== newValue) {
-            this.currentScaleX = newValue;
-            if (this.currentScaleX === true) {
-                // Flip Left
-                this.container.scale.x *= -1
-                this.container.x += tile.unit(2);
-            } else {
-                // Flip Right
-                this.container.scale.x = 1;
-                this.container.x -= tile.unit(2);
-            }
+    mirrorSpriteOnX(newScale: number): void {
+        if (this.animatedSprite.scale.x !== newScale) {
+            this.animatedSprite.scale.x = newScale * 3; // why 3?
         }
     }
 
@@ -136,7 +129,7 @@ export class Npc extends GameObject {
     // Render ---
 
     render(): void {
-        this.movement();
+        this.pathing();
     }
 
 }

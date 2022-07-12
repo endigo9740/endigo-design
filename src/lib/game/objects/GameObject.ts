@@ -56,6 +56,11 @@ export class GameObject {
             // @ts-ignore
             this.animatedSprite[key] = this.animatedSpriteSettings[key];
         }
+        // Adjust anchor point to center
+        this.animatedSprite.anchor.x = 0.5;
+        this.animatedSprite.anchor.y = 0.5;
+        this.animatedSprite.x += this.animatedSprite.width / 2;
+        this.animatedSprite.y += this.animatedSprite.height / 2;
     }
 
     // Container ---
