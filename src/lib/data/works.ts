@@ -1,10 +1,3 @@
-const testHtml: string = `
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet libero eu dolor pharetra volutpat ac et libero. Nunc finibus blandit pharetra. Nunc interdum dui ac orci pharetra, sit amet porta augue cursus. Nam sem odio, elementum at lacus vel, auctor ultrices ligula. Vestibulum dapibus metus enim, ac porta nibh molestie at. Cras luctus nisl lorem, vel porttitor tellus aliquam eget. Proin in bibendum diam, sed luctus neque. Nullam enim nibh, porta ullamcorper ipsum ac, semper laoreet arcu. Cras eu est magna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Morbi libero felis, iaculis non gravida ac, dignissim at nibh. Vivamus ac massa luctus orci scelerisque egestas quis non magna. Vestibulum eros velit, suscipit et tristique eu, fermentum ut diam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis mattis commodo vulputate. Donec sollicitudin ex purus.
-</p>
-<p>Phasellus sollicitudin mattis tempor. Integer rutrum erat elit, vel consectetur nibh congue id. Donec eu maximus dolor. Nullam nisl lorem, consectetur vel elit eget, malesuada laoreet nulla. Vestibulum lobortis purus at vestibulum laoreet. Vestibulum ipsum leo, ullamcorper ac congue fermentum, rutrum nec nunc. Duis leo neque, tempor nec dolor quis, placerat luctus justo. Nunc ultrices ex sed neque facilisis sagittis. Morbi sodales nec erat at consequat. Sed convallis ex velit, quis maximus tortor posuere in. Vestibulum iaculis risus maximus eros interdum, suscipit ultrices felis mattis. Etiam venenatis, nulla eu ornare imperdiet, leo leo scelerisque enim, ut pharetra odio tellus efficitur lectus. Nullam sit amet metus sed ipsum lacinia hendrerit. Fusce pellentesque hendrerit ipsum.</p>
-</p>
-`;
-
 const baseUrl: string = `https://endigodesign.com`;
 
 export const works: any = {
@@ -22,7 +15,7 @@ export const works: any = {
                 url: 'https://skeleton.brainandbonesllc.com/',
                 coords: {x: 15, y: 77},
                 accent: '#111827',
-                thumbnail: 'logos/bb-skeleton.png',
+                thumbnail: 'works/bb-skeleton.png',
                 videos: [],
                 screenshots: [
                     {src: 'https://i.imgur.com/Pw8uHwB.png'},
@@ -39,7 +32,7 @@ export const works: any = {
                 url: 'https://www.brainandbonesllc.com/',
                 coords: {x: 29, y: 101},
                 accent: '#34d399',
-                thumbnail: 'logos/bb-logo.png',
+                thumbnail: 'works/bb-logo.png',
                 videos: [],
                 screenshots: [],
             },
@@ -53,8 +46,7 @@ export const works: any = {
                 url: 'https://admin.speedtriviagame.com/',
                 coords: {x: 51, y: 90},
                 accent: '#818cf8',
-                // thumbnail: 'logos/bb-helm.png',
-                thumbnail: 'logos/bb-helm.png',
+                thumbnail: 'works/bb-helm.png',
                 videos: [],
                 screenshots: [],
             },
@@ -68,7 +60,7 @@ export const works: any = {
                 url: 'https://www.speedtriviagame.com/',
                 coords: {x: 72, y: 111},
                 accent: '#8b5cf6',
-                thumbnail: 'logos/bb-speed-trivia.png',
+                thumbnail: 'works/bb-speed-trivia.png',
                 videos: [],
                 screenshots: [],
             },
@@ -88,7 +80,7 @@ export const works: any = {
                 url: null,
                 coords: {x: 14, y: 34},
                 accent: '#dc334a',
-                thumbnail: 'logos/jr-logo.png',
+                thumbnail: 'works/jr-logo.png',
                 videos: [
                     {src: 'https://www.youtube.com/embed/0ah2zZQ6xHc'}
                 ],
@@ -108,7 +100,7 @@ export const works: any = {
                 url: 'https://www.overwolf.com/app/Jackpot_Rising_Inc-Jackpot_Rising',
                 coords: {x: 43, y: 8},
                 accent: '#27223e',
-                thumbnail: 'logos/jr-overwolf.png',
+                thumbnail: 'works/jr-overwolf.png',
                 videos: [],
                 screenshots: [
                     {src: baseUrl+'/img/projects/jr_overwolf/001.png', caption: 'Tournament List'},
@@ -128,7 +120,7 @@ export const works: any = {
                 name: 'Arcade',
                 coords: {x: 13, y: 9},
                 accent: '#dc334a',
-                thumbnail: 'logos/jr-arcade.png',
+                thumbnail: 'works/jr-arcade.png',
                 videos: [
                     {src: 'https://www.youtube.com/embed/MsQ7q6vdTOo'}
                 ],
@@ -147,7 +139,7 @@ export const works: any = {
                 url: null,
                 coords: {x: 48, y: 31},
                 accent: '#1d2d3f',
-                thumbnail: 'logos/jr-homebase.png',
+                thumbnail: 'works/jr-homebase.png',
                 videos: [],
                 screenshots: [
                     {src: baseUrl+'/img/projects/jr_homebase/001.png', caption: 'Login View'},
@@ -168,7 +160,7 @@ export const works: any = {
                 url: null,
                 coords: {x: 81, y: 11},
                 accent: '#00e2fa',
-                thumbnail: 'logos/jr-playerhq.png',
+                thumbnail: 'works/jr-playerhq.png',
                 videos: [],
                 screenshots: [
                     {src: baseUrl+'/img/projects/jr_playerhq/001.png', caption: 'Active list of tournaments'},
@@ -190,7 +182,7 @@ export const works: any = {
                 url: 'https://www.tixr.com/groups/speedleague',
                 coords: {x: 113, y: 10},
                 accent: '#a92a55',
-                thumbnail: 'logos/jr-speedleague.png',
+                thumbnail: 'works/jr-speedleague.png',
                 videos: [],
                 screenshots: [
                     {src: baseUrl+'/img/projects/speedleague/001.png', caption: 'The in-game overlay UI'},
@@ -222,7 +214,7 @@ export const works: any = {
                 url: 'http://minirlgame.com/',
                 coords: {x: 87, y: 65},
                 accent: '#5a253f',
-                thumbnail: 'logos/gaming-minirl.png',
+                thumbnail: 'works/gaming-minirl.png',
                 videos: [
                     {src: 'https://www.youtube.com/embed/34FzHsNFN1g', caption: 'The launch trailer'},
                 ],
@@ -245,7 +237,7 @@ export const works: any = {
                 url: null,
                 coords: {x: 112, y: 43},
                 accent: '#202018',
-                thumbnail: 'logos/gaming-er-planner.png',
+                thumbnail: 'works/gaming-er-planner.png',
                 videos: [],
                 screenshots: [],
             },

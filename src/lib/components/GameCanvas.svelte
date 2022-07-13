@@ -67,19 +67,22 @@
         [
             'grid.png',
             'overworld.png',
-            'npc-chris.json',
-            'npc-melissa.json',
-            'pillar.json',
-            'critter-bird.json',
-            'critter-slime.json',
-            'critter-layla.json',
-            'critter-crab.json',
+            'entities/pillar.json',
+            'entities/npcs/npc-chris.json',
+            'entities/npcs/npc-melissa.json',
+            'entities/critters/critter-bird.json',
+            'entities/critters/critter-slime.json',
+            'entities/critters/critter-layla.json',
+            'entities/critters/critter-crab.json',
         ].forEach(r => { game.loader.add(r); });
 
         // Loading Lifecycle
         // https://pixijs.download/release/docs/PIXI.Loader.html
         game.loader.onProgress.add((loader, resources) => { loading.amount = Math.ceil(loader.progress);  });
-        game.loader.onError.add((loader, resources) => { window.location.href = '/works'; }); // redirect
+        game.loader.onError.add((loader, resources) => {
+            console.error('Error: failed to load game', loader, resources);
+            // window.location.href = '/works'; // redirect
+        });
         
         // On Game Loaded
         game.loader.load((loader, resources) => {

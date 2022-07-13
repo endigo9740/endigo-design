@@ -16,7 +16,7 @@ export const birdsList: any = (config: any) => {
 			new Bird({
 				name: `Bird ${i+1}`,
 				loader: config.loader,
-				resource: 'critter-bird.json',
+				resource: 'entities/critters/critter-bird.json',
 				containerSettings: birdConfig.containerSettings,
 				radius: birdConfig.radius,
 				speed: birdConfig.speed
@@ -39,7 +39,7 @@ export const slimesList: any = (config: any) => {
 			new Slime({
 				name: `Slime ${i+1}`,
 				loader: config.loader,
-				resource: 'critter-slime.json',
+				resource: 'entities/critters/critter-slime.json',
 				containerSettings: xyCoords
 			})
 		);
@@ -53,8 +53,8 @@ export const catsList: any = (config: any) => {
 		new Cat({
 			name: 'Layla',
 			loader: config.loader,
-			resource: 'critter-layla.json',
-			portrait: 'critter-layla-portrait.png',
+			resource: 'entities/critters/critter-layla.json',
+			portrait: 'entities/critters/critter-layla-portrait.png',
 			dialog: `Meow! I'm Layla and I'm sleepy. I might take a nap soon.`,
 			containerSettings: {x: 58, y: 63},
 			containerLevel: config.containerLevel,
@@ -76,7 +76,7 @@ export const crabsList: any = (config: any) => {
 			new Crab({
 				name: `Slime ${i+1}`,
 				loader: config.loader,
-				resource: 'critter-crab.json',
+				resource: 'entities/critters/critter-crab.json',
 				containerSettings: xyCoords
 			})
 		);

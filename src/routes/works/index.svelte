@@ -33,7 +33,6 @@
                     <!-- Projects Grid -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-1">
                         <!-- Project -->
-                        <!-- crisp -->
                         {#each work.projects as project}
                             <a
                                 href={`/works/${key}/${project.id}`}

@@ -14,7 +14,7 @@ export class Pillar extends GameObject {
 
     constructor(config: any) {
         // Merge and overwrite Inherited Config Settings
-        config.resource = 'pillar.json';
+        config.resource = 'entities/pillar.json';
         config.animatedSpriteSettings = { animationSpeed: 0.3, width: 3, height: 6, ...config.animatedSpriteSettings };
         config.containerSettings = { width: 3, height: 6, ...config.containerSettings };
         super(config);
