@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { fade, scale } from 'svelte/transition';
+    import { scale } from 'svelte/transition';
 
     import { pageModalStore } from "../stores";
 
@@ -20,10 +20,7 @@
 <section class="shim">
 
     <!-- Window -->
-    <div
-        class="bg-glass window w-full h-full flex flex-col"
-        transition:scale={{start: 0.5, duration: 300}}
-    >
+    <div class="bg-glass window w-full h-full flex flex-col" transition:scale={{start: 0.75, duration: 300}}>
 
         <!-- Top Bar -->
         <header class="flex-none bg-black/50 p-4 flex justify-between items-center">

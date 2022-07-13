@@ -1,7 +1,7 @@
 <script lang="ts">
-    import { menuStore, cameraStore, tile } from '$lib/stores';
+    import { scale } from 'svelte/transition';
+    import { menuStore, cameraStore } from '$lib/stores';
     import { works } from '$lib/data/works';
-
     import Map from './Map.svelte';
 
     export let pillars: any;
@@ -34,7 +34,7 @@
 <section class="shim">
 
     <!-- Window -->
-    <div class="bg-glass window w-full h-full flex flex-col overflow-hidden">
+    <div class="bg-glass window w-full h-full flex flex-col overflow-hidden" transition:scale={{start: 0.75, duration: 300}}>
 
         <!-- Header -->
         <header class="flex-none bg-black/50 p-4 flex justify-between items-center">

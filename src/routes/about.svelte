@@ -8,10 +8,10 @@
 
     // Contact Sources
     const sources: any[] = [
-        {name: 'Github', url: "https://github.com/endigo9740", color: '#333333'},
         {name: 'Twitter', url: "https://twitter.com/endigodesign", color: '#1da1f2'},
-        {name: 'Medium', url: "https://medium.com/@endigo9740", color: '#00ab6c'},
+        {name: 'Github', url: "https://github.com/endigo9740", color: '#333333'},
         {name: 'LinkedIn', url: "https://www.linkedin.com/in/chris-simmons-8a523a23/", color: '#0077b5'},
+        {name: 'Medium', url: "https://medium.com/@endigo9740", color: '#00ab6c'},
     ];
 </script>
 
@@ -53,7 +53,6 @@
                     {#each sources as source}
                     <a href={source.url} target="_blank" class="block w-[250px] btn btn-hollow">{source.name}</a>
                     {/each}
-                    <a href="mailto:gundamx9740@gmail.com" class="block w-[250px] btn btn-hollow text-cente">Email</a>
                 </nav>
             </div>
         </section>
