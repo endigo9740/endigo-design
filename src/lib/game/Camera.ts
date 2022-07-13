@@ -13,7 +13,7 @@ export class Camera {
     // Camera Transition
     private startPosition: any = {x: null, y: null};
     private endPosition: any = {x: null, y: null};
-    private cameraSpeed: number = 40;
+    private cameraSpeed: number = 50;
 
     constructor(config: any) {
         this.app = config.app;
@@ -47,6 +47,8 @@ export class Camera {
                         break;
                 default: console.error('Unknown cameraStore type'); break;
             }
+            // Clear
+            cameraStore.set(undefined);
         });
     }
 

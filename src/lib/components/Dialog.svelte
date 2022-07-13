@@ -9,7 +9,7 @@
 <section class="bg-glass window fixed left-4 right-4 bottom-10 z-20 max-w-[1200px] mx-auto p-6 flex items-center space-x-8" transition:fly={{y: 500, duration: 150}}>
 
     <!-- Portrait -->
-    <img src={$dialogStore.portrait} class="flex-none image-crisp w-16 md:w-[160px] -mt-14 aspect-square border border-white rounded-xl shadow-xl" alt="portrait">
+    <img src={$dialogStore.portrait} class="flex-none crisp w-16 md:w-[160px] -mt-14 aspect-square border border-white rounded-xl shadow-xl" alt="portrait">
 
     <!-- Text -->
     <div class="flex-auto space-y-2">

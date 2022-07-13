@@ -13,7 +13,7 @@
     pillars.forEach((p: any) => {
         coordsPillars.push({
             x: Math.round(p.container.x / tile.unit(1)),
-            y: Math.round(p.container.y / tile.unit(1)) + 4
+            y: Math.round(p.container.y / tile.unit(1)) + 4 // pillar base
         });
     });
     
@@ -68,7 +68,7 @@
             image.onload = () => {
                 if (ctx === null) return;
                 ctx.save();
-                    ctx.filter = 'brightness(0.5)';
+                    ctx.filter = 'brightness(0.75)';
                     ctx.drawImage(image, 0, 0, image.width, image.height);
                 ctx.restore()
                 renderPoints();

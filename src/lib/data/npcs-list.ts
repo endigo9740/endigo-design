@@ -12,7 +12,7 @@ export const npcsList: any = (config: any) => {
                 x: 51,
                 y: 69
             },
-            portrait: 'portrait.png',
+            portrait: 'npc-chris-portrait.png',
             dialog: `Hello, I'm the Chris. Welcome to my interactive portfolio gallery! Have a look around. Each pillar represents a project I've contributed to. Once activated you'll see the pillar animate and come to life. Try the pillar just north of me to learn who I am and what I do.`,
             path: 'left-right',
         }),

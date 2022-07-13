@@ -48,7 +48,7 @@ a { @apply text-white/60 hover:text-white; }
 
 .section-label { @apply text-cyan-500 uppercase pb-4 mb-10 border-b border-cyan-500; }
 
-.image-crisp {
+.crisp {
     image-rendering: -moz-crisp-edges;
     image-rendering: -webkit-crisp-edges;
     image-rendering: pixelated;
@@ -79,7 +79,7 @@ fieldset { @apply block; }
 [multiple],
 textarea,
 select {
-    @apply w-full text-white bg-slate-900/[0.5] backdrop-blur-sm border-slate-700 rounded-lg shadow-sm focus:border-cyan-500 focus:ring-cyan-500;
+    @apply w-full text-white bg-slate-900/[0.5] backdrop-blur-sm border-2 border-slate-700 rounded-lg shadow-lg focus:border-cyan-500 focus:ring-cyan-500;
 }
 
 /* Selectable */

@@ -46,7 +46,7 @@
         <div class="flex-auto block lg:flex overflow-auto lg:overflow-hidden">
 
             <!-- Map -->
-            <div class="flex-none lg:flex-[50%] bg-black/30 p-4 flex items-center">
+            <div class="flex-none lg:flex-[50%] bg-black/30 border-r border-white/10 p-4 flex items-center">
                 <Map {pillars} {npcs} />
             </div>
 
@@ -56,6 +56,7 @@
                 <!-- People -->
                 <section class="space-y-4">
                     <h2 class="text-cyan-500">People</h2>
+                    <p>Chat with Chris or a few people he's worked with over the years.</p>
                     <nav class="grid grid-cols-4 gap-2">
                         {#each npcs as npc}
                         <li
@@ -80,10 +81,10 @@
                             <!-- Per Each Project -->
                             {#each category.projects as project}
                             <li
-                                class="bg-black/30 p-4 rounded cursor-pointer hover:bg-pink-500 flex items-center space-x-4"
+                                class="bg-black/30 p-1 rounded cursor-pointer flex items-center space-x-4 group hover:bg-pink-500"
                                 on:click={()=>{naviateToPillar(project)}}
                             >
-                                <img src="pillar-thumbnail.png" class="w-[64px] aspect-square rounded" alt="portrait">
+                                <img src={`../../${project.thumbnail}`} class="w-[64px] aspect-square rounded group-hover:grayscale group-hover:contrast-120" style:background-color={project.accent} alt="thumbnail">
                                 <span class="text-base font-bold">{project.name}</span>
                                 <!-- TODO: need to cross reference 'pillars' data -->
                                 <!-- {#if pillar.found}<div class="font-bold uppercase">Found</div>{/if} -->

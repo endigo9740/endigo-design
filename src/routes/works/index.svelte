@@ -31,19 +31,20 @@
                     <!-- Label -->
                     <h2 class="section-label">{work.label}</h2>
                     <!-- Projects Grid -->
-                    <div class="grid grid-cols-3 gap-1">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-1">
                         <!-- Project -->
+                        <!-- crisp -->
                         {#each work.projects as project}
-                        <a href={`/works/${key}/${project.id}`} class="aspect-square flex justify-center items-center" style:background-color={project.accent}>
-                            {#if project.thumbnail}
-                            <div class="flex flex-col items-center space-y-4">
-                                <img src={project.thumbnail} class="image-crisp w-[200%] h-[200%]" alt="thumbnail">
-                                <p class="font-bold">{project.name}</p>
-                            </div>
-                            {:else}
-                            <p class="font-bold">{project.name}</p>
-                            {/if}
-                        </a>
+                            <a
+                                href={`/works/${key}/${project.id}`}
+                                class="bg-black aspect-square overflow-hidden shadow group"
+                                style:background-color={project.accent}
+                            >
+                                <img class="cell group-hover:-translate-y-full" src={project.thumbnail} alt="thumbnail">
+                                <div class="cell flex justify-center items-center group-hover:-translate-y-full">
+                                    <h6 class="drop-shadow-xl">{project.name}</h6>
+                                </div>
+                            </a>
                         {/each}
                     </div>
                 </div>
@@ -56,3 +57,7 @@
     </div>
 
 </main>
+
+<style lang="postcss">
+    .cell { @apply w-full aspect-square transition-all duration-[150]; }
+</style>

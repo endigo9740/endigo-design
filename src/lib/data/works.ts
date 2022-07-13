@@ -21,8 +21,8 @@ export const works: any = {
                 technology: `Svelte/Kit, Tailwind, Vite, Typescript, Vitest/Testing Library, Highlight.js`,
                 url: 'https://skeleton.brainandbonesllc.com/',
                 coords: {x: 15, y: 77},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#111827',
+                thumbnail: 'logos/bb-skeleton.png',
                 videos: [],
                 screenshots: [
                     {src: 'https://i.imgur.com/Pw8uHwB.png'},
@@ -31,15 +31,15 @@ export const works: any = {
             },
             {
                 id: 'branding',
-                name: 'Branding & Identity',
+                name: 'Branding',
                 details: [
                     'Over the course of two years, I was the lead on all branding, marketing, and development at Brain & Bones. This included multiple web apps and services, various marketing initiatives, as well as establishing the complete brand guidelines and visual identity for both the company and their products.'
                 ],
                 technology: 'Svelte/Kit (website), Sketch (UI/UX), Notion (Guidelines)',
                 url: 'https://www.brainandbonesllc.com/',
                 coords: {x: 29, y: 101},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#34d399',
+                thumbnail: 'logos/bb-logo.png',
                 videos: [],
                 screenshots: [],
             },
@@ -52,36 +52,23 @@ export const works: any = {
                 technology: 'Angular, Angular Material, RxJS, Typescript, Chart.js, Moment',
                 url: 'https://admin.speedtriviagame.com/',
                 coords: {x: 51, y: 90},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#818cf8',
+                // thumbnail: 'logos/bb-helm.png',
+                thumbnail: 'logos/bb-helm.png',
                 videos: [],
                 screenshots: [],
             },
             {
                 id: 'speed-trivia',
-                name: 'Speed Trivia Branding',
-                details: [
-                    'One of my core responsibilities at Brain & Bones was designing and implementing various products, websites, services, and marketing materials. This included the brand guidelines, logo, color palette, and other visual elements for Speed Trivia.'
-                ],
-                technology: 'Svelte/Kit (website), Sketch (UI/UX), Notion (Guidelines)',
-                url: 'https://www.speedtriviagame.com/',
-                coords: {x: 72, y: 111},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
-                videos: [],
-                screenshots: [],
-            },
-            {
-                id: 'speed-trivia-game',
-                name: 'Speed Trivia Game',
+                name: 'Speed Trivia',
                 details: [
                     `Speed Trivia was the first in the series of planned games for the Brain & Bones engagement platform. It harnessed the popularity of casual games to allow companies and individuals to connect with their customers, followers, and employees. This was the first project I spearheaded during my time at Brain & Bones. The product is a fully interactive web-based game, featuring fast paced trivia and leaderboards. It was built completely from the ground up using modern web technology. It's a fully responsive PWA that works on any web-connected device.`
                 ],
-                technology: 'Angular, Angular Material, RxJS, Typescript, Moment, Anime.js',
-                url: 'https://game.speedtriviagame.com/g/Ke2rvMJo68',
-                coords: {x: 113, y: 102},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                technology: 'Angular/RxJS (game), Svelte/Kit (Website), Typescript, Moment, Anime.js',
+                url: 'https://www.speedtriviagame.com/',
+                coords: {x: 72, y: 111},
+                accent: '#8b5cf6',
+                thumbnail: 'logos/bb-speed-trivia.png',
                 videos: [],
                 screenshots: [],
             },
@@ -93,15 +80,15 @@ export const works: any = {
         projects: [
             {
                 id: 'branding',
-                name: 'Branding & Identity',
+                name: 'Branding',
                 details: [
                     'Jackpot Rising was a tournament platform that integrated into games of all types, including hardcore, casual/mobile, and even real world arcade devices. The platform allowed users to compete against each other in progressive eSports-esque tournaments for real money, prizes, and digital goods. During my three years at Jackpot Rising, I managed the majority of the company’s branding, UX, product design, and led several key projects and initiatives.'
                 ],
                 technology: 'Sketch, Photoshop, Angular (website)',
                 url: null,
                 coords: {x: 14, y: 34},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#dc334a',
+                thumbnail: 'logos/jr-logo.png',
                 videos: [
                     {src: 'https://www.youtube.com/embed/0ah2zZQ6xHc'}
                 ],
@@ -120,8 +107,8 @@ export const works: any = {
                 technology: 'Vue, Vuetify, Overwolf',
                 url: 'https://www.overwolf.com/app/Jackpot_Rising_Inc-Jackpot_Rising',
                 coords: {x: 43, y: 8},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#27223e',
+                thumbnail: 'logos/jr-overwolf.png',
                 videos: [],
                 screenshots: [
                     {src: baseUrl+'/img/projects/jr_overwolf/001.png', caption: 'Tournament List'},
@@ -129,6 +116,25 @@ export const works: any = {
                     {src: baseUrl+'/img/projects/jr_overwolf/003.png', caption: 'Login View'},
                     {src: baseUrl+'/img/projects/jr_overwolf/008.jpg', caption: 'The app At Dreamhack Dallas 2019'},
                     {src: baseUrl+'/img/projects/jr_overwolf/009.jpg', caption: 'The leaderboard standings at Dreamhack Dallas 2019'}
+                ],
+            },
+            {
+                id: 'arcade',
+                details: [
+                    'One of my key efforts at Jackpot Rising included integrating our tournament platform with physical game cabinets, including skeeball, basketball, and mini-golf. I designed and implemented the on-screen UI and connection mechanisms, powered by Android Things running on a Raspberry Pi unit. Players could walk up to the device, sign into a web-based client, scan a QR code, and then immediately start playing the game. The web client featured a WebGL-based camera and utilized websockets to sync to the device. Some arcade devices were featured at Dreamhack Dallas 2019 and Cattle Baron’s Ball.'
+                ],
+                technology: 'Android Studio, Raspberry Pi, Angular',
+                url: null,
+                name: 'Arcade',
+                coords: {x: 13, y: 9},
+                accent: '#dc334a',
+                thumbnail: 'logos/jr-arcade.png',
+                videos: [
+                    {src: 'https://www.youtube.com/embed/MsQ7q6vdTOo'}
+                ],
+                screenshots: [
+                    {src: baseUrl+'/img/projects/jr_arcade/001.jpg', caption: 'The skeeball device'},
+                    {src: baseUrl+'/img/projects/jr_arcade/002a.png', caption: 'The puttskee device'}
                 ],
             },
             {
@@ -140,8 +146,8 @@ export const works: any = {
                 technology: 'Angular, Angular Material, Moment, Chart.js',
                 url: null,
                 coords: {x: 48, y: 31},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#1d2d3f',
+                thumbnail: 'logos/jr-homebase.png',
                 videos: [],
                 screenshots: [
                     {src: baseUrl+'/img/projects/jr_homebase/001.png', caption: 'Login View'},
@@ -161,8 +167,8 @@ export const works: any = {
                 technology: 'Angular, Angular Material, Moment, Chart.js',
                 url: null,
                 coords: {x: 81, y: 11},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#00e2fa',
+                thumbnail: 'logos/jr-playerhq.png',
                 videos: [],
                 screenshots: [
                     {src: baseUrl+'/img/projects/jr_playerhq/001.png', caption: 'Active list of tournaments'},
@@ -175,25 +181,6 @@ export const works: any = {
                 ],
             },
             {
-                id: 'arcade',
-                details: [
-                    'One of my key efforts at Jackpot Rising included integrating our tournament platform with physical game cabinets, including skeeball, basketball, and mini-golf. I designed and implemented the on-screen UI and connection mechanisms, powered by Android Things running on a Raspberry Pi unit. Players could walk up to the device, sign into a web-based client, scan a QR code, and then immediately start playing the game. The web client featured a WebGL-based camera and utilized websockets to sync to the device. Some arcade devices were featured at Dreamhack Dallas 2019 and Cattle Baron’s Ball.'
-                ],
-                technology: 'Android Studio, Raspberry Pi, Angular',
-                url: null,
-                name: 'Arcade',
-                coords: {x: 13, y: 9},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
-                videos: [
-                    {src: 'https://www.youtube.com/embed/MsQ7q6vdTOo'}
-                ],
-                screenshots: [
-                    {src: baseUrl+'/img/projects/jr_arcade/001.jpg', caption: 'The skeeball device'},
-                    {src: baseUrl+'/img/projects/jr_arcade/002a.png', caption: 'The puttskee device'}
-                ],
-            },
-            {
                 id: 'speedleague',
                 name: 'Speedleague',
                 details: [
@@ -202,8 +189,8 @@ export const works: any = {
                 technology: 'Unreal Game Engine, Unity Game Engine, Sketch, Photoshop',
                 url: 'https://www.tixr.com/groups/speedleague',
                 coords: {x: 113, y: 10},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#a92a55',
+                thumbnail: 'logos/jr-speedleague.png',
                 videos: [],
                 screenshots: [
                     {src: baseUrl+'/img/projects/speedleague/001.png', caption: 'The in-game overlay UI'},
@@ -234,8 +221,8 @@ export const works: any = {
                 technology: 'Unity Game Engine, Android Studio, Xcode',
                 url: 'http://minirlgame.com/',
                 coords: {x: 87, y: 65},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#5a253f',
+                thumbnail: 'logos/gaming-minirl.png',
                 videos: [
                     {src: 'https://www.youtube.com/embed/34FzHsNFN1g', caption: 'The launch trailer'},
                 ],
@@ -257,8 +244,8 @@ export const works: any = {
                 technology: 'Svelte/Kit, AWS (CDN via S3+Cloudfront), Github Pages',
                 url: null,
                 coords: {x: 112, y: 43},
-                accent: 'rgba(0,0,0,0.5)',
-                thumbnail: '',
+                accent: '#202018',
+                thumbnail: 'logos/gaming-er-planner.png',
                 videos: [],
                 screenshots: [],
             },
