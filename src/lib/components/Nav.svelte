@@ -33,5 +33,5 @@
 {/if}
 
 <style lang="postcss">
-    .active { @apply text-white underline underline-offset-[7px] decoration-rose-400; }
+    .active { @apply text-white underline underline-offset-[7px] decoration-pink-500; }
 </style>

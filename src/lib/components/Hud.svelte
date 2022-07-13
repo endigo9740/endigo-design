@@ -35,8 +35,8 @@
 <!-- Controls -->
 <nav class="fixed bottom-0 right-0 z-50 bg-slate-900/90 p-6 rounded-tl-xl backdrop-blur space-x-4" transition:fly|local={{y: 100, duration: 250}}>
 
-    <!-- Menu -->
-    <button type="button" class="btn-hollow" on:click={() => { toggleMenu(); }}>Menu</button>
+    <!-- Menu: Navigate -->
+    <button type="button" class="btn-hollow" on:click={() => { toggleMenu(); }}>Navigate</button>
 
     <!-- Toggle Music -->
     <button type="button" class="btn-hollow" on:click={() => { onToggleMusic(); }}>

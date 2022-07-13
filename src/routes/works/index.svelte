@@ -19,7 +19,7 @@
         <header class="flex justify-center items-center py-20">
             <div class="text-center space-y-2 drop-shadow-lg">
                 <img src="logo.png" class="animFloat mx-auto" alt="logo">
-                <h1 class="text-7xl md:text-9xl font-normal">Hi, I'm <span class="text-rose-400 font-bold">Chris</span></h1>
+                <h1 class="text-7xl md:text-9xl font-normal">Hi, I'm <span class="text-pink-500 font-bold">Chris</span></h1>
                 <p class="text-xs md:text-lg text-white/50 font-bold drop-shadow-xl md:translate-x-12">Developer, designer, UX, game maker, and more.</p>
             </div>
         </header>
@@ -49,9 +49,12 @@
                 </div>
             {/each}
         </section>
-        
+
         <!-- Footer -->
-        <Footer />
+        <footer class="flex justify-between items-center text-xs border-t border-slate-800 py-10">
+            <span class="opacity-30">The portfolio Chris Simmons. All rights reserved.</span>
+            <a href="/about" class="btn btn-hollow">Get in Touch</a>
+        </footer>
 
     </div>
 

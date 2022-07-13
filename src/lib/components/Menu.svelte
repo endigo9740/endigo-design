@@ -31,14 +31,14 @@
     }
 </script>
 
-<section class="shim !p-4 lg:!p-8">
+<section class="shim">
 
     <!-- Window -->
     <div class="bg-glass window w-full h-full flex flex-col overflow-hidden">
 
         <!-- Header -->
         <header class="flex-none bg-black/50 p-4 flex justify-between items-center">
-            <p class="text-xs uppercase">Menu</p>
+            <p class="text-xs uppercase">Navigate</p>
             <button type="button" class="btn-hollow" on:click={close}>Close</button>
         </header>
 

@@ -5,6 +5,14 @@
 
     // Adjusts page layout for page modal
     export let compact: boolean = false;
+
+    // Contact Sources
+    const sources: any[] = [
+        {name: 'Github', url: "https://github.com/endigo9740", color: '#333333'},
+        {name: 'Twitter', url: "https://twitter.com/endigodesign", color: '#1da1f2'},
+        {name: 'Medium', url: "https://medium.com/@endigo9740", color: '#00ab6c'},
+        {name: 'LinkedIn', url: "https://www.linkedin.com/in/chris-simmons-8a523a23/", color: '#0077b5'},
+    ];
 </script>
 
 <main class="page">
@@ -21,7 +29,7 @@
             <div class="flex items-start space-x-10">
                 <!-- Portrait -->
                 <div class="flex-none w-[200px] text-center space-y-6">
-                    <img src="npc-chris-portrait.png" class="w-full aspect-square rounded-full shadow-xl" alt="portrait"/>
+                    <img src="entities/npcs/npc-chris-portrait.png" class="w-full aspect-square rounded-full shadow-xl" alt="portrait"/>
                     <a href="http://bit.ly/1obS62s" class="inline-block btn btn-hollow" target="_blank">View Resume</a>
                 </div>
                 <!-- Details -->
@@ -37,7 +45,17 @@
         <!-- Contact -->
         <section>
             <h2 class="section-label">Contact</h2>
-            <ContactForm />
+            <div class="flex justify-center space-x-10">
+                <div class="flex-auto">
+                    <ContactForm />
+                </div>
+                <nav class="flex-none mt-8 space-y-6">
+                    {#each sources as source}
+                    <a href={source.url} target="_blank" class="block w-[250px] btn btn-hollow">{source.name}</a>
+                    {/each}
+                    <a href="mailto:gundamx9740@gmail.com" class="block w-[250px] btn btn-hollow text-cente">Email</a>
+                </nav>
+            </div>
         </section>
 
         <!-- Footer -->
