@@ -34,7 +34,7 @@
 <section class="shim">
 
     <!-- Window -->
-    <div class="bg-glass window w-full h-full flex flex-col overflow-hidden" transition:scale={{start: 0.75, duration: 300}}>
+    <div class="bg-glass window w-full h-full flex flex-col overflow-hidden max-w-[1920px]" transition:scale={{start: 0.75, duration: 300}}>
 
         <!-- Header -->
         <header class="flex-none bg-black/50 p-4 flex justify-between items-center">

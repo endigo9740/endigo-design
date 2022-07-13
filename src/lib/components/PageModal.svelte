@@ -20,7 +20,7 @@
 <section class="shim">
 
     <!-- Window -->
-    <div class="bg-glass window w-full h-full flex flex-col" transition:scale={{start: 0.75, duration: 300}}>
+    <div class="bg-glass window w-full h-full flex flex-col max-w-[1920px]" transition:scale={{start: 0.75, duration: 300}}>
 
         <!-- Top Bar -->
         <header class="flex-none bg-black/50 p-4 flex justify-between items-center">
