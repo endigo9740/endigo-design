@@ -1,12 +1,28 @@
 <script lang="ts">
-    import { menuStore } from '$lib/stores';
+    import { menuStore, cameraStore, tile } from '$lib/stores';
+    import { works } from '$lib/data/works';
 
-    export let camera: any;
+    import Map from './Map.svelte';
+
     export let pillars: any;
     export let npcs: any;
 
-    function centerOnContainer(target: any): void {
-        camera.centerOnContainer(target, true);
+    const worksArr: any[] = Object.values(works);
+
+    function navigateToNpc(target: any): void {
+        cameraStore.set({type: 'entity', target, animate: true});
+        close();
+    }
+
+    function naviateToPillar(project: any): void {
+        cameraStore.set({
+            type: 'coords',
+            x: project.coords.x,
+            y: project.coords.y + 2, // pillar base
+            targetHeight: 1,
+            targetWidth: 1,
+            animate: true
+        });
         close();
     }
 
@@ -15,59 +31,69 @@
     }
 </script>
 
-{#if pillars}
-<section class="shim">
+<section class="shim !p-8">
 
     <!-- Window -->
-    <div class="bg-glass window w-[80%] max-h-[85%] flex flex-col">
+    <div class="bg-glass window w-full h-full flex flex-col overflow-hidden">
 
-        <!-- Top Bar -->
+        <!-- Header -->
         <header class="flex-none bg-black/50 p-4 flex justify-between items-center">
-            <p class="text-xs uppercase">Navigation</p>
+            <p class="text-xs uppercase">Menu</p>
             <button type="button" class="btn-hollow" on:click={close}>Close</button>
         </header>
 
-        <!-- Content -->
-        <div class="p-4 flex space-x-4 overflow-y-auto">
-        
-            <!-- Characters -->
-            <div class="flex-[40%] space-y-4">
-                <div class="bg-black/20 border border-white/10 rounded flex items-center space-x-4 p-5">
-                    <p>Interested in learning more about Chris? Check out the featured pillar near the middle of the map.</p>
-                    <button type="button" class="btn-hollow whitespace-nowrap" on:click={()=>{centerOnContainer(pillars[0])}}>Go!</button>
-                </div>
-                <h4 class="section-label !mb-0">Characters</h4>
-                <p>Select a character to jump to them.</p>
-                <nav class="grid grid-cols-2 gap-1">
-                    {#each npcs as npc}
-                    <li class="bg-black/50 text-xs p-4 flex flex-col items-center cursor-pointer hover:bg-white/20" on:click={()=>{centerOnContainer(npc)}}>
-                        <img src={npc.portrait} class="w-full aspect-square rounded-xl" alt="portrait">
-                        <h6 class="mt-2">{npc.name}</h6>
-                    </li>
-                    {/each}
-                </nav>
+        <!-- Body -->
+        <div class="flex-auto flex overflow-hidden">
+
+            <!-- Map -->
+            <div class="flex-[50%] bg-black/30 p-4 flex items-center">
+                <Map {pillars} {npcs} />
             </div>
 
-            <!-- Pillars -->
-            <div class="flex-[60%] space-y-4">
-                <h4 class="section-label !mb-0">Project Pillars</h4>
-                <p>Select a pillar to jump to it. Any pillars you activate will display here.</p>
-                <nav class="grid grid-cols-2 gap-4">
-                    {#each pillars as pillar, i}
-                    {#if i > 0}
-                    <li class="bg-black/50 text-xs px-4 py-3 flex items-center space-x-4 rounded-xl cursor-pointer hover:bg-white/20" on:click={()=>{centerOnContainer(pillar)}}>
-                        <img src="pillar-thumbnail.png" class="w-9 aspect-square rounded" class:opacity-30={!pillar.found} alt="portrait">
-                        <div class="flex-auto space-y-0">
-                            <p class="text-xs capitalize">{pillar.page.category.replaceAll('-',' ') || ''}</p>
-                            <span class="block text-base font-bold">{pillar.name}</span>
-                        </div>
-                        {#if pillar.found}
-                        <div class="font-bold text-emerald-500 uppercase">Active</div>
-                        {/if}
-                    </li>
-                    {/if}
+            <!-- Points of Interest -->
+            <div class="flex-[50%] p-4 overflow-x-auto space-y-4">
+
+                <!-- People -->
+                <section class="space-y-4">
+                    <h2 class="text-cyan-500">People</h2>
+                    <nav class="grid grid-cols-4 gap-2">
+                        {#each npcs as npc}
+                        <li
+                            class="bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:bg-cyan-500"
+                            on:click={()=>{navigateToNpc(npc)}}
+                        >
+                            <img src={npc.portrait} class="w-full aspect-square rounded" alt="portrait">
+                            <h6 class="mt-3 mb-2">{npc.name}</h6>
+                        </li>
+                        {/each}
+                    </nav>
+                </section>
+
+                <!-- Works -->
+                <section class="space-y-4">
+                    <h2 class="text-pink-500">Works</h2>
+                    <p>Each pillar represent a project Chris has created or contributed to.</p>
+                    <!-- Per Each Category -->
+                    {#each Object.values(worksArr) as category, i}
+                        <h4>{category.label}</h4>
+                        <nav class="list-none grid grid-cols-2 gap-4">
+                            <!-- Per Each Project -->
+                            {#each category.projects as project}
+                            <li
+                                class="bg-black/30 p-4 rounded cursor-pointer hover:bg-pink-500 flex items-center space-x-4"
+                                on:click={()=>{naviateToPillar(project)}}
+                            >
+                                <img src="pillar-thumbnail.png" class="w-[64px] aspect-square rounded" alt="portrait">
+                                <span class="text-base font-bold">{project.name}</span>
+                                <!-- TODO: need to cross reference 'pillars' data -->
+                                <!-- {#if pillar.found}<div class="font-bold uppercase">Found</div>{/if} -->
+                            </li>
+                            {/each}
+                        </nav>
                     {/each}
-                </nav>
+                </section>
+
+
             </div>
 
         </div>
@@ -75,4 +101,3 @@
     </div>
 
 </section>
-{/if}

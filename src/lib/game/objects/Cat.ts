@@ -60,7 +60,7 @@ export class Cat extends GameObject {
     }
 
     onPointerDown(): void {
-        cameraStore.set({target: this, animate: true});
+        cameraStore.set({type: 'entity', target: this, animate: true});
         // Remove existing dialog and replace with this dialog
         dialogStore.set(undefined);
         dialogStore.set({

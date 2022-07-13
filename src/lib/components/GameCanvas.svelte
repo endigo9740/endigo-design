@@ -118,7 +118,7 @@
             game.stage.addChild(containerLevel);
 
             // Post Staging
-            cameraStore.set({target: npcs[0], animate: false}); // npc 0 = Chris
+            cameraStore.set({type: 'entity', target: npcs[0], animate: false}); // npcs Chris
 
             // Animation Loop
             let elapsed = 0.0;
@@ -165,7 +165,7 @@
     {:else if $pageModalStore !== undefined}
         <PageModal />
     {:else if $menuStore === true}
-        <Menu {camera} {pillars} {npcs} />
+        <Menu {pillars} {npcs} />
     {:else}
         <Hud {elemAudio} />
     {/if}

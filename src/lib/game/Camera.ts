@@ -1,5 +1,5 @@
 import { clamp, invlerp } from "./utils";
-import { cameraStore } from './../stores';
+import { cameraStore, tile } from './../stores';
 
 export class Camera {
     private app: any;
@@ -31,9 +31,22 @@ export class Camera {
         this.container.on('pointerout', () => this.onPointerUp());
         this.container.on('pointermove', (e: any) => this.onPointerMove(e));
         // Center on Provided Targets
-        cameraStore.subscribe((cs: any) => {
-            if (cs === undefined) return;
-            this.centerOnContainer(cs.target, cs.animate);
+        cameraStore.subscribe((val: any) => {
+            if (val === undefined) return;
+            // Bus based on type
+            switch (val.type) {
+                case ('entity'): this.centerOnGameObject({target: val.target, animate: val.animate}); break;
+                case ('coords'):
+                        this.centerOnCoords({
+                            x: val.x * tile.unit(1),
+                            y: val.y * tile.unit(1),
+                            targetHeight: val.targetHeight * tile.unit(1),
+                            targetWidth: val.targetWidth * tile.unit(1),
+                            animate: val.animate
+                        });
+                        break;
+                default: console.error('Unknown cameraStore type'); break;
+            }
         });
     }
 
@@ -69,20 +82,30 @@ export class Camera {
         this.position.y = clamp(this.position.y, -maxPosY, 0); // top/bottom
     }
 
-    centerOnContainer(target: any, animate: boolean): void {
+    centerOnGameObject(settings: any): void {
+        this.centerOnCoords({
+            x: settings.target.container.x,
+            y: settings.target.container.y,
+            targetWidth: settings.target.container.width,
+            targetHeight: settings.target.container.height,
+            animate: settings.animate
+        });
+    }
+
+    centerOnCoords(settings: any): void {
         let targetX: number;
         let targetY: number;
         // Set to target container position
-        targetX = -Math.round(target.container.x);
-        targetY = -Math.round(target.container.y);
+        targetX = -Math.round(settings.x);
+        targetY = -Math.round(settings.y);
         // Adjust for app screen width/height
         targetX += Math.round(this.app.screen.width / 2);
         targetY += Math.round(this.app.screen.height / 2);
-        // Adjust for target width/height
-        targetX -= Math.round(target.container.width / 2);
-        targetY -= Math.round(target.container.height / 2);
+        // Adjust for midpoint of target's width/height
+        targetX -= Math.round(settings.targetHeight / 2);
+        targetY -= Math.round(settings.targetWidth / 2);
         // Keep camera within world bounds
-        if (animate) {
+        if (settings.animate) {
             this.setTargetPositionCoords(targetX, targetY);
         } else {
             this.position = {x: targetX, y: targetY};
