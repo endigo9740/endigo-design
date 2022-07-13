@@ -31,7 +31,7 @@
     }
 </script>
 
-<section class="shim !p-8">
+<section class="shim !p-4 lg:!p-8">
 
     <!-- Window -->
     <div class="bg-glass window w-full h-full flex flex-col overflow-hidden">
@@ -43,15 +43,15 @@
         </header>
 
         <!-- Body -->
-        <div class="flex-auto flex overflow-hidden">
+        <div class="flex-auto block lg:flex overflow-auto lg:overflow-hidden">
 
             <!-- Map -->
-            <div class="flex-[50%] bg-black/30 p-4 flex items-center">
+            <div class="flex-none lg:flex-[50%] bg-black/30 p-4 flex items-center">
                 <Map {pillars} {npcs} />
             </div>
 
             <!-- Points of Interest -->
-            <div class="flex-[50%] p-4 overflow-x-auto space-y-4">
+            <div class="flex-none lg:flex-[50%] p-4 overflow-x-auto space-y-8">
 
                 <!-- People -->
                 <section class="space-y-4">
@@ -69,10 +69,10 @@
                     </nav>
                 </section>
 
-                <!-- Works -->
+                <!-- Pillars -->
                 <section class="space-y-4">
-                    <h2 class="text-pink-500">Works</h2>
-                    <p>Each pillar represent a project Chris has created or contributed to.</p>
+                    <h2 class="text-pink-500">Pillars</h2>
+                    <p>Each represents a project Chris has created or contributed to.</p>
                     <!-- Per Each Category -->
                     {#each Object.values(worksArr) as category, i}
                         <h4>{category.label}</h4>
