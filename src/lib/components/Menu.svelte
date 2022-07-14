@@ -84,7 +84,7 @@
                                 class="bg-black/30 p-1 rounded cursor-pointer flex items-center space-x-4 group hover:bg-pink-500"
                                 on:click={()=>{naviateToPillar(project)}}
                             >
-                                <img src={`../../${project.thumbnail}`} class="w-[64px] aspect-square rounded group-hover:grayscale group-hover:contrast-120" style:background-color={project.accent} alt="thumbnail">
+                                <img src={`${project.thumbnail}`} class="w-[64px] aspect-square rounded group-hover:grayscale group-hover:contrast-120" style:background-color={project.accent} alt="thumbnail">
                                 <span class="text-base font-bold">{project.name}</span>
                                 <!-- TODO: need to cross reference 'pillars' data -->
                                 <!-- {#if pillar.found}<div class="font-bold uppercase">Found</div>{/if} -->

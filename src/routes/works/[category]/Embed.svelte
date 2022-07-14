@@ -19,7 +19,7 @@
         {#if !compact}<a href="/works" class="block text-xl p-2 -translate-x-2">&larr; Back</a>{/if}
         <!-- Thumbnail -->
         {#if work.thumbnail}
-        <img src={`../../${work.thumbnail}`} class="w-[200px] h-auto rounded" style:background-color={work.accent} alt="thumbnail">
+        <img src={work.thumbnail} class="w-[200px] h-auto rounded shadow-xl" style:background-color={work.accent} alt="thumbnail">
         {/if}
         <!-- Header -->
         <header class="space-y-2">

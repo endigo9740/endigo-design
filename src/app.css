@@ -46,7 +46,7 @@ a { @apply text-white/60 hover:text-white cursor-pointer; }
 .page {  @apply w-full h-full overflow-x-auto; }
 .page-wrap { @apply w-full max-w-[1440px] mx-auto p-4; }
 
-.section-label { @apply text-cyan-500 uppercase mb-10 border-b border-cyan-500; }
+.section-label { @apply text-cyan-500 uppercase pb-2 mb-10 border-b border-cyan-500; }
 
 .crisp {
     image-rendering: -moz-crisp-edges;

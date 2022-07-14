@@ -1,4 +1,4 @@
-const baseUrl: string = `https://endigodesign.com`;
+const cdnBaseUrl: string = 'http://cdn.endigodesign.com.s3-us-east-2.amazonaws.com/endigo_design/portfolio';
 
 export const works: any = {
 
@@ -15,11 +15,14 @@ export const works: any = {
                 url: 'https://skeleton.brainandbonesllc.com/',
                 coords: {x: 15, y: 77},
                 accent: '#111827',
-                thumbnail: 'works/bb-skeleton.png',
+                thumbnail: `${cdnBaseUrl}/works/bb-skeleton.png`,
                 videos: [],
                 screenshots: [
-                    {src: 'https://i.imgur.com/Pw8uHwB.png'},
-                    {caption: 'Showing off a button component.', src: 'https://i.imgur.com/V5khBZZ.png'}
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/skeleton/001.png`}, // caption: ''
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/skeleton/002.png`},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/skeleton/003.png`},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/skeleton/004.png`},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/skeleton/005.png`},
                 ],
             },
             {
@@ -32,9 +35,14 @@ export const works: any = {
                 url: 'https://www.brainandbonesllc.com/',
                 coords: {x: 29, y: 101},
                 accent: '#34d399',
-                thumbnail: 'works/bb-logo.png',
+                thumbnail: `${cdnBaseUrl}/works/bb-logo.png`,
                 videos: [],
-                screenshots: [],
+                screenshots: [
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/001.png`, caption: 'The company logo'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/002.png`, caption: 'The brand colors'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/003.png`, caption: 'Font and Typography'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/004.png`, caption: 'The company website'},
+                ],
             },
             {
                 id: 'helm',
@@ -46,9 +54,14 @@ export const works: any = {
                 url: 'https://admin.speedtriviagame.com/',
                 coords: {x: 51, y: 90},
                 accent: '#818cf8',
-                thumbnail: 'works/bb-helm.png',
+                thumbnail: `${cdnBaseUrl}/works/bb-helm.png`,
                 videos: [],
-                screenshots: [],
+                screenshots: [
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/001.png`, caption: 'The quiz selection'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/002.png`, caption: 'The quiz metrics dashboard'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/003.png`, caption: 'Attached quiz media'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/004.png`, caption: 'Browsing organizations'},
+                ],
             },
             {
                 id: 'speed-trivia',
@@ -60,9 +73,17 @@ export const works: any = {
                 url: 'https://www.speedtriviagame.com/',
                 coords: {x: 72, y: 111},
                 accent: '#4c1d95',
-                thumbnail: 'works/bb-speed-trivia.png',
+                thumbnail: `${cdnBaseUrl}/works/bb-speed-trivia.png`,
                 videos: [],
-                screenshots: [],
+                screenshots: [
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/001.png`, caption: 'The promotional marketing website'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/002.png`, caption: 'The company logo'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/003.png`, caption: 'Speed Trivia game main menu'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/004.png`, caption: 'Game start screen. The rocket and moon oribit the planet!'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/005.png`, caption: 'Core trivia gameplay on desktop'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/006.png`, caption: 'The live leaderboard standings'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/007.png`, caption: 'Advertisements created for Speed Trivia'},
+                ],
             },
         ]
     },
@@ -80,14 +101,14 @@ export const works: any = {
                 url: null,
                 coords: {x: 14, y: 34},
                 accent: '#dc334a',
-                thumbnail: 'works/jr-logo.png',
+                thumbnail: `${cdnBaseUrl}/works/jr-logo.png`,
                 videos: [
                     {src: 'https://www.youtube.com/embed/0ah2zZQ6xHc'}
                 ],
                 screenshots: [
-                    {src: baseUrl+'/img/projects/jr_brand/001.png', caption: 'The comapny website'},
-                    {src: baseUrl+'/img/projects/jr_brand/002.png', caption: 'The Jackpot Rising logo and brand colors'},
-                    {src: baseUrl+'/img/projects/jr_brand/006.jpg', caption: 'Branded shirts for staff'}
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/branding/001.png`, caption: 'The comapny website'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/branding/002.png`, caption: 'The Jackpot Rising logo and brand colors'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/branding/003.png`, caption: 'Branded shirts for staff'}
                 ],
             },
             {
@@ -100,14 +121,14 @@ export const works: any = {
                 url: 'https://www.overwolf.com/app/Jackpot_Rising_Inc-Jackpot_Rising',
                 coords: {x: 43, y: 8},
                 accent: '#27223e',
-                thumbnail: 'works/jr-overwolf.png',
+                thumbnail: `${cdnBaseUrl}/works/jr-overwolf.png`,
                 videos: [],
                 screenshots: [
-                    {src: baseUrl+'/img/projects/jr_overwolf/001.png', caption: 'Tournament List'},
-                    {src: baseUrl+'/img/projects/jr_overwolf/002.png', caption: 'Tournament Details'},
-                    {src: baseUrl+'/img/projects/jr_overwolf/003.png', caption: 'Login View'},
-                    {src: baseUrl+'/img/projects/jr_overwolf/008.jpg', caption: 'The app At Dreamhack Dallas 2019'},
-                    {src: baseUrl+'/img/projects/jr_overwolf/009.jpg', caption: 'The leaderboard standings at Dreamhack Dallas 2019'}
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/001.png`, caption: 'Tournament List'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/002.png`, caption: 'Tournament Details'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/003.png`, caption: 'Login View'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/008.png`, caption: 'The app At Dreamhack Dallas 2019'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/009.png`, caption: 'The leaderboard standings at Dreamhack Dallas 2019'}
                 ],
             },
             {
@@ -120,13 +141,13 @@ export const works: any = {
                 name: 'Arcade',
                 coords: {x: 13, y: 9},
                 accent: '#dc334a',
-                thumbnail: 'works/jr-arcade.png',
+                thumbnail: `${cdnBaseUrl}/works/jr-arcade.png`,
                 videos: [
                     {src: 'https://www.youtube.com/embed/MsQ7q6vdTOo'}
                 ],
                 screenshots: [
-                    {src: baseUrl+'/img/projects/jr_arcade/001.jpg', caption: 'The skeeball device'},
-                    {src: baseUrl+'/img/projects/jr_arcade/002a.png', caption: 'The puttskee device'}
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/arcade/001.png`, caption: 'The skeeball device'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/arcade/002.png`, caption: 'The puttskee device'}
                 ],
             },
             {
@@ -139,15 +160,15 @@ export const works: any = {
                 url: null,
                 coords: {x: 48, y: 31},
                 accent: '#1d2d3f',
-                thumbnail: 'works/jr-homebase.png',
+                thumbnail: `${cdnBaseUrl}/works/jr-homebase.png`,
                 videos: [],
                 screenshots: [
-                    {src: baseUrl+'/img/projects/jr_homebase/001.png', caption: 'Login View'},
-                    {src: baseUrl+'/img/projects/jr_homebase/002.png', caption: 'Deashboard and Active Stats'},
-                    {src: baseUrl+'/img/projects/jr_homebase/003.png', caption: 'Organizations and Properties'},
-                    {src: baseUrl+'/img/projects/jr_homebase/004.png', caption: 'Tournaments List'},
-                    {src: baseUrl+'/img/projects/jr_homebase/005.png', caption: 'Tournament Form'},
-                    {src: baseUrl+'/img/projects/jr_homebase/006.png', caption: 'A sample of UI components from the mockup'}
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/001.png`, caption: 'Login View'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/002.png`, caption: 'Deashboard and Active Stats'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/003.png`, caption: 'Organizations and Properties'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/004.png`, caption: 'Tournaments List'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/005.png`, caption: 'Tournament Form'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/006.png`, caption: 'A sample of UI components from the mockup'}
                 ],
             },
             {
@@ -160,16 +181,18 @@ export const works: any = {
                 url: null,
                 coords: {x: 81, y: 11},
                 accent: '#00e2fa',
-                thumbnail: 'works/jr-playerhq.png',
+                thumbnail: `${cdnBaseUrl}/works/jr-playerhq.png`,
                 videos: [],
                 screenshots: [
-                    {src: baseUrl+'/img/projects/jr_playerhq/001.png', caption: 'Active list of tournaments'},
-                    {src: baseUrl+'/img/projects/jr_playerhq/001a.png', caption: 'Tournament details and leaderboard'},
-                    {src: baseUrl+'/img/projects/jr_playerhq/002.png', caption: 'List of available games'},
-                    {src: baseUrl+'/img/projects/jr_playerhq/002a.png', caption: 'The game details view'},
-                    {src: baseUrl+'/img/projects/jr_playerhq/004.png', caption: 'Support View'},
-                    {src: baseUrl+'/img/projects/jr_playerhq/005.png', caption: 'Account and fund management'},
-                    {src: baseUrl+'/img/projects/jr_playerhq/006.png', caption: 'Early mockup of the PlayerHQ app'}
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/playerhq/001.png`, caption: 'Active list of tournaments'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/playerhq/002.png`, caption: 'Tournament details and leaderboard'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/playerhq/003.png`, caption: 'List of available games'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/playerhq/004.png`, caption: 'The game details view'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/playerhq/005.png`, caption: 'Support View'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/playerhq/006.png`, caption: 'Account and fund management'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/playerhq/007.png`, caption: 'Early mockup of the PlayerHQ app'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/playerhq/007.png`, caption: 'Early mockup of the PlayerHQ app'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/playerhq/008.png`}
                 ],
             },
             {
@@ -182,18 +205,18 @@ export const works: any = {
                 url: 'https://www.tixr.com/groups/speedleague',
                 coords: {x: 113, y: 10},
                 accent: '#f54d78',
-                thumbnail: 'works/jr-speedleague.png',
+                thumbnail: `${cdnBaseUrl}/works/jr-speedleague.png`,
                 videos: [],
                 screenshots: [
-                    {src: baseUrl+'/img/projects/speedleague/001.png', caption: 'The in-game overlay UI'},
-                    {src: baseUrl+'/img/projects/speedleague/002.png', caption: 'Main Menu'},
-                    {src: baseUrl+'/img/projects/speedleague/003.png', caption: 'Track Selection'},
-                    {src: baseUrl+'/img/projects/speedleague/004.png', caption: 'Vehical selection and customization'},
-                    {src: baseUrl+'/img/projects/speedleague/005.png', caption: 'An tntro cinematic for the Tucson map'},
-                    {src: baseUrl+'/img/projects/speedleague/006.png', caption: 'Pause Menu'},
-                    {src: baseUrl+'/img/projects/speedleague/007.png', caption: 'Race Results'},
-                    {src: baseUrl+'/img/projects/speedleague/008.png', caption: 'Loading Screen'},
-                    {src: baseUrl+'/img/projects/speedleague/009.png', caption: 'Game Settings'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/speedleague/001.png`, caption: 'The in-game overlay UI'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/speedleague/002.png`, caption: 'Main Menu'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/speedleague/003.png`, caption: 'Track Selection'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/speedleague/004.png`, caption: 'Vehical selection and customization'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/speedleague/005.png`, caption: 'An tntro cinematic for the Tucson map'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/speedleague/006.png`, caption: 'Pause Menu'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/speedleague/007.png`, caption: 'Race Results'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/speedleague/008.png`, caption: 'Loading Screen'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/speedleague/009.png`, caption: 'Game Settings'},
                 ],
             },
         ]
@@ -214,17 +237,17 @@ export const works: any = {
                 url: 'http://minirlgame.com/',
                 coords: {x: 87, y: 65},
                 accent: '#5a253f',
-                thumbnail: 'works/gaming-minirl.png',
+                thumbnail: `${cdnBaseUrl}/works/gaming-minirl.png`,
                 videos: [
                     {src: 'https://www.youtube.com/embed/34FzHsNFN1g', caption: 'The launch trailer'},
                 ],
                 screenshots: [
-                    {src: baseUrl+'/img/projects/minirl/001.png', caption: 'The promotional website'},
-                    {src: baseUrl+'/img/projects/minirl/002.png', caption: 'Grass World'},
-                    {src: baseUrl+'/img/projects/minirl/003.png', caption: 'Cave World'},
-                    {src: baseUrl+'/img/projects/minirl/004.png', caption: 'Snow World'},
-                    {src: baseUrl+'/img/projects/minirl/005.png', caption: 'Space World'},
-                    {src: baseUrl+'/img/projects/minirl/006.png', caption: 'Fire World'}
+                    {src: `${cdnBaseUrl}/screenshots/gaming/minirl/001.png`, caption: 'The promotional website'},
+                    {src: `${cdnBaseUrl}/screenshots/gaming/minirl/002.png`, caption: 'Grass World'},
+                    {src: `${cdnBaseUrl}/screenshots/gaming/minirl/003.png`, caption: 'Cave World'},
+                    {src: `${cdnBaseUrl}/screenshots/gaming/minirl/004.png`, caption: 'Snow World'},
+                    {src: `${cdnBaseUrl}/screenshots/gaming/minirl/005.png`, caption: 'Space World'},
+                    {src: `${cdnBaseUrl}/screenshots/gaming/minirl/006.png`, caption: 'Fire World'}
                 ],
             },
             {
@@ -237,9 +260,12 @@ export const works: any = {
                 url: 'https://endigo9740.github.io/elden-ring-planner',
                 coords: {x: 112, y: 43},
                 accent: '#202018',
-                thumbnail: 'works/gaming-er-planner.png',
+                thumbnail: `${cdnBaseUrl}/works/gaming-er-planner.png`,
                 videos: [],
-                screenshots: [],
+                screenshots: [
+                    {src: `${cdnBaseUrl}/screenshots/gaming/elden-ring-planner/001.png`, caption: 'Your selected gear'},
+                    {src: `${cdnBaseUrl}/screenshots/gaming/elden-ring-planner/002.png`, caption: 'Browsing available armaments'},
+                ],
             },
         ]
     },
