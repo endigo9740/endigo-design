@@ -59,7 +59,7 @@ export const works: any = {
                 technology: 'Angular/RxJS (game), Svelte/Kit (Website), Typescript, Moment, Anime.js',
                 url: 'https://www.speedtriviagame.com/',
                 coords: {x: 72, y: 111},
-                accent: '#8b5cf6',
+                accent: '#4c1d95',
                 thumbnail: 'works/bb-speed-trivia.png',
                 videos: [],
                 screenshots: [],
@@ -181,7 +181,7 @@ export const works: any = {
                 technology: 'Unreal Game Engine, Unity Game Engine, Sketch, Photoshop',
                 url: 'https://www.tixr.com/groups/speedleague',
                 coords: {x: 113, y: 10},
-                accent: '#a92a55',
+                accent: '#f54d78',
                 thumbnail: 'works/jr-speedleague.png',
                 videos: [],
                 screenshots: [
@@ -234,7 +234,7 @@ export const works: any = {
                     'I’m a long time fan of FromSoft games (Dark Souls, Bloodborne, Sekiro, etc). Their latest release, Elden Ring, is a sprawling action RPG that’s found massive success since release. This app is a FOSS web app created over the course of about 2-3 days. It allows players to visually browse and plan their character’s armor, weapons, and more. My announcement garnered the attention of several prominent members of the “Souls/Borne” community, and garnered around 115k impressions within the first week.'
                 ],
                 technology: 'Svelte/Kit, AWS (CDN via S3+Cloudfront), Github Pages',
-                url: null,
+                url: 'https://endigo9740.github.io/elden-ring-planner',
                 coords: {x: 112, y: 43},
                 accent: '#202018',
                 thumbnail: 'works/gaming-er-planner.png',

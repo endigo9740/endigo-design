@@ -13,7 +13,7 @@ export class Camera {
     // Camera Transition
     private startPosition: any = {x: null, y: null};
     private endPosition: any = {x: null, y: null};
-    private cameraSpeed: number = 50;
+    private cameraSpeed: number = 25;
 
     constructor(config: any) {
         this.app = config.app;

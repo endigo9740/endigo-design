@@ -40,7 +40,7 @@
                                 style:background-color={project.accent}
                             >
                                 <img class="cell group-hover:-translate-y-full" src={project.thumbnail} alt="thumbnail">
-                                <div class="cell flex justify-center items-center group-hover:-translate-y-full">
+                                <div class="cell flex justify-center items-center group-hover:-translate-y-full cursor-pointer">
                                     <h6 class="drop-shadow-xl">{project.name}</h6>
                                 </div>
                             </a>
