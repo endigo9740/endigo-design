@@ -59,7 +59,7 @@ export const catsList: any = (config: any) => {
 			resource: 'entities/critters/critter-layla.json',
 			portrait: 'entities/critters/critter-layla-portrait.png',
 			dialog: `Meow! I'm Layla and I'm sleepy. I might take a nap soon.`,
-			containerSettings: {x: 58, y: 63},
+			containerSettings: {x: 58, y: 62},
 			containerLevel: config.containerLevel,
 			camera: config.camera,
 		})
