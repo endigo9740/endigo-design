@@ -58,13 +58,14 @@ export class Npc extends GameObject {
     handleMovement(): void {
         // Animate while moving
         if (this.animatedSprite.playing === false) { this.animatedSprite.play(); } 
-        // Determine direction to move
+        // Determine direction to move and texture rotation
+        // https://pixijs.io/examples/#/textures/texture-rotate.js
         const currentPath: any = this.path[this.pathIndex];
         switch(currentPath.path) {
             case 'up': this.container.y -= 1; break;
-            case 'left': this.container.x -= 1; this.mirrorSpriteOnX(-1); break;
+            case 'left': this.container.x -= 1; this.animatedSprite.texture.rotate = 12; break;
             case 'down': this.container.y += 1; break;
-            case 'right': this.container.x += 1; this.mirrorSpriteOnX(1); break;
+            case 'right': this.container.x += 1; this.animatedSprite.texture.rotate = 0; break;
             case 'wait': this.waitOnDelay(currentPath); break
         }
         this.pathProgress -= 1;
@@ -82,12 +83,6 @@ export class Npc extends GameObject {
     nextPath(): void {
         this.pathProgress = tile.unit(1);
         (this.pathIndex+1) >= this.path.length ? this.pathIndex = 0 :  this.pathIndex++;
-    }
-
-    mirrorSpriteOnX(newScale: number): void {
-        if (this.animatedSprite.scale.x !== newScale) {
-            this.animatedSprite.scale.x = newScale * 3; // why 3?
-        }
     }
 
     // Handle Input ---
