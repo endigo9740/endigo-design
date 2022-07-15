@@ -9,7 +9,7 @@ export const works: any = {
                 id: 'skeleton',
                 name: 'Skeleton',
                 details: [
-                    'A fully-featured Svelte UI component library featuring tight integration of Tailwind and its conventions, Skeleton was originally created for internal uses at Brain & Bones during our migration from Angular to Svelte. I realized it would be a net positive to open source the project to the community. As such, we’re aiming to release and allow open contributions soon. The library provides a host of fully-featured components, and supports both themes and dark mode. Skeleton was originally inspired by component libraries such as Mantine in the React ecosystem.'
+                    'A fully-featured Svelte UI component library featuring tight integration of Tailwind and its conventions, Skeleton was originally created for internal uses at Brain & Bones during our migration from Angular to Svelte. I realized it would be a net positive to open source the project to the community. As such, we’re aiming to release and allow open source contributions soon. The library provides a host of fully-featured components, and supports both themes and dark mode. Skeleton was originally inspired by component libraries such as Mantine in the React ecosystem.'
                 ],
                 technology: `Svelte/Kit, Tailwind, Vite, Typescript, Vitest/Testing Library, Highlight.js`,
                 url: 'https://skeleton.brainandbonesllc.com/',

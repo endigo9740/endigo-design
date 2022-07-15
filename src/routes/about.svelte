@@ -8,9 +8,9 @@
 
     // Contact Sources
     const sources: any[] = [
-        {name: 'Twitter', url: "https://twitter.com/endigodesign", color: '#1da1f2'},
         {name: 'Github', url: "https://github.com/endigo9740", color: '#333333'},
         {name: 'LinkedIn', url: "https://www.linkedin.com/in/chris-simmons-8a523a23/", color: '#0077b5'},
+        {name: 'Twitter', url: "https://twitter.com/endigodesign", color: '#1da1f2'},
         {name: 'Medium', url: "https://medium.com/@endigo9740", color: '#00ab6c'},
     ];
 </script>
@@ -34,10 +34,11 @@
                 </div>
                 <!-- Details -->
                 <div>
-                    <p>Hello and welcome to my portfolio! Here you can find a showcase of some of my best work. I’m a seasoned developer, designer, and game maker and have been lucky enough to work in these fields professionally for a little over 20 years. My interests were sparked early, in high school, learning programming with Visual Basic, and creating graphics and posters using some of the earliest versions of Corel Paint and Photoshop. I’ve been a gamer even longer, receiving my first Nintendo (NES) console during Christmas as a kid. I fondly remember turning on Mario and just feeling like I was seeing something magic. Something fun and interactive that was totally new but extremely exciting!</p>
-                    <p>Many years later that spark is still there, and I still game, build, and design for fun in my free time. I’ve worked in a broad variety of industries, from photography, to a major corporate media office, to brief stint at a design agency. All before finding my niche in the startup world. I’ve had the privilege to work with some really talented and passionate individuals helping create platforms and services that meld the power of gaming with real products that help customers of all types.</p>
-                    <p>My strengths are not just in knowing how to write code, or how to create appealing graphics, but in solving real world problems. Listening and learning what people really need, whether they know how to express it or not. Then deliver the best results and experience I can. If you’re trying to build a game, reach an audience, improve the UX of a service, or trot a new path in the software world, I can help!</p>
-                    <p>I’m now looking for my next big thing, especially if it involves development and gaming! If you have a product or service that you think I might be a good fit for, please contact me and let me know how I can help. I look forward to hearing from you!</p>
+                    <p>Hello and welcome! Here you’ll find a showcase of some of my best work. I’m a seasoned developer, designer, and game maker, having worked professionally in these fields for just over 20 years. I’m primarily self taught in these disciplines, but still take time to research, tinker, and learn more every day.</p>
+                    <p>I discovered my passion for programming and design while attending classes for Visual Basic and Photoshop in high school. However my love of gaming has been nearly ever present. Starting when I received my first console, a classic Nintendo Entertainment System, as a kid. I still remember the magic of picking up that controller and making Mario run and jump on the screen - though only occasionally to his untimely death.</p>
+                    <p>My passion has fueled a lifelong journey, culminating in a career path within a broad spectrum of industries. I’ve held critical roles in everything from a photography studio, to major corporate media, to even a prominent design agency - all before finding a niche in the startup world. I’ve had the privilege to work with extremely passionate and talented individuals, helping build platforms and services that meld the power of gaming and the web.</p>
+                    <p>I feel my strength lies not just in writing code or design UI, but in solving real world problems. I pride myself in my ability to listen, learn, and determine what folks truly need. Providing solutions at every step of the way, from concept to execution. Whether you’re trying to build a game, engage an audience, or carve a new path in the software or gaming world. My skill and expertise are here to help!</p>
+                    <p>Currently I’m searching for my “next big thing”, with an obvious focus on gaming or gaming adjacent services. If you think I may be a good fit for your team, please feel free to reach out. Let's build something great together!</p>
                 </div>
             </div>
         </section>
