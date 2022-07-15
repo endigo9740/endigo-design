@@ -2,23 +2,7 @@ import { works } from '$lib/data/works';
 import { Pillar } from '$lib/game/objects/Pillar';
 
 export const pillarsList: any = (config: any) => {
-    const pillarArr: Pillar[] = [
-        // ********************
-        new Pillar({
-            name: 'About Chris',
-            loader: config.loader,
-            containerSettings: {
-                x: 49,
-                y: 59,
-            },
-            page: {
-                component: 'About',
-                category: '',
-                id: ''
-            }
-        })
-        // ********************
-    ];
+    const pillarArr: Pillar[] = [];
 
     // Constrct one pillar per work
     Object.entries(works).forEach((category: any) => {

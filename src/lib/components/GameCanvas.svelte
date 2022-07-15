@@ -5,10 +5,12 @@
 
     // GameObject Entities
     import type { Pillar } from '$lib/game/objects/Pillar';
+    import type { Monument } from '$lib/game/objects/Monument';
     import type { Npc } from '$lib/game/objects/Npc';
 
     // Data Lists
     import { pillarsList } from '$lib/data/pillars-list';
+    import { monumentsList } from '$lib/data/monuments-list';
     import { npcsList } from '$lib/data/npcs-list';
     import { birdsList, catsList, slimesList, crabsList } from '$lib/data/critters-list';
 
@@ -38,6 +40,7 @@
     let camera: Camera;
     let grid: Grid;
     let pillars: Pillar[] = [];
+    let monuments: Monument[] = [];
     let npcs: Npc[] = [];
     let critters: any = {
         slimes: [],
@@ -68,6 +71,7 @@
             'grid.png',
             'overworld.png',
             'entities/pillar.json',
+            'entities/monument.json',
             'entities/npcs/npc-chris.json',
             'entities/npcs/npc-melissa.json',
             'entities/critters/critter-bird.json',
@@ -104,6 +108,7 @@
 
                 // Instantiate GameObjects
                 pillars = pillarsList({loader: game.loader});
+                monuments = monumentsList({loader: game.loader});
                 npcs = npcsList({loader: game.loader});
                 critters.slimes = slimesList({loader: game.loader});
                 critters.cats = catsList({loader: game.loader, containerLevel, camera});
@@ -112,6 +117,7 @@
 
                 // Add GameObjects to Level Container
                 pillars.forEach((pillar: Pillar) => { containerLevel.addChild(pillar.container); })
+                monuments.forEach((monument: Monument) => { containerLevel.addChild(monument.container); })
                 npcs.forEach((npc: Npc) => { containerLevel.addChild(npc.container); })
                 Object.values(critters).forEach((critterArr: any) => {
                     critterArr.forEach((c: any) => { containerLevel.addChild(c.container); })

@@ -3,22 +3,17 @@ import { GameObject } from './GameObject';
 import { cameraStore } from '$lib/stores';
 import { pageModalStore } from '$lib/stores';
 
-export class Pillar extends GameObject {
+export class Monument extends GameObject {
 
-    public found: boolean = false;
-    public page: any = {
-        component: 'Work',
-        category: null,
-        id: null
-    };
+    public page: any = { component: 'About', category: null, id: null };
 
     constructor(config: any) {
         // Merge and overwrite Inherited Config Settings
-        config.resource = 'entities/pillar.json';
-        config.animatedSpriteSettings = { animationSpeed: 0.4, width: 3, height: 6, ...config.animatedSpriteSettings };
+        config.resource = 'entities/monument.json';
+        config.animatedSpriteSettings = { animationSpeed: 0.05, width: 3, height: 6, ...config.animatedSpriteSettings };
         config.containerSettings = { width: 3, height: 6, ...config.containerSettings };
         super(config);
-        // Unique Pillar Config Settings
+        // Unique Monument Config Settings
         this.page = { ...this.page, ...config.page};
         // Handle Input
         this.container.interactive = true;
@@ -40,8 +35,7 @@ export class Pillar extends GameObject {
     onPointerDown(): void {
         cameraStore.set({type: 'entity', target: this, animate: true});
         pageModalStore.set(this.page);
-        this.found = true;
-        this.animatedSprite.play();
+        this.animatedSprite.gotoAndStop(1);
     }
 
 }
