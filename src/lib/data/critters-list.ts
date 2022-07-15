@@ -2,6 +2,7 @@ import { Bird } from '$lib/game/objects/Bird';
 import { Slime } from '$lib/game/objects/Slime';
 import { Cat } from '$lib/game/objects/Cat';
 import { Crab } from '$lib/game/objects/Crab';
+import { Jellyfish } from '$lib/game/objects/Jellyfish';
 
 // Birds
 const birdConfigs = [
@@ -74,7 +75,7 @@ export const crabsList: any = (config: any) => {
 	crabsCoords.forEach((xyCoords: any, i: number) => {
 		crabsArr.push(
 			new Crab({
-				name: `Slime ${i+1}`,
+				name: `Crab ${i+1}`,
 				loader: config.loader,
 				resource: 'entities/critters/critter-crab.json',
 				containerSettings: xyCoords
@@ -82,4 +83,25 @@ export const crabsList: any = (config: any) => {
 		);
 	});
 	return crabsArr;
+};
+
+// Jellfish
+const jellyfishCoords = [
+	{x: 89, y: 68},
+	{x: 108, y: 62},
+	{x: 117, y: 46},
+];
+export const jellyfishList: any = (config: any) => {
+	const jellyfishArr: Jellyfish[] = [];
+	jellyfishCoords.forEach((xyCoords: any, i: number) => {
+		jellyfishArr.push(
+			new Jellyfish({
+				name: `Jellyfish ${i+1}`,
+				loader: config.loader,
+				resource: 'entities/critters/critter-jellyfish.json',
+				containerSettings: xyCoords
+			})
+		);
+	});
+	return jellyfishArr;
 };
