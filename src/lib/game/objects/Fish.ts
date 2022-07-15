@@ -2,17 +2,20 @@ import { GameObject } from './GameObject';
 import { randomRangeDecimal } from '../utils';
 import { tile } from '$lib/stores';
 
-export class Crab extends GameObject {
+export class Fish extends GameObject {
 
     private randomCosX: number = randomRangeDecimal(0.75, 1.25);
+    private randomSinY: number = randomRangeDecimal(1, 1.2);
     private lastPosX: number = 0;
 
     constructor(config: any) {
         // Hardcoded
         config.animatedSpriteSettings = {
-            animationSpeed: randomRangeDecimal(0.1, 0.12),
+            animationSpeed: randomRangeDecimal(0.12, 0.14),
+            width: 1, height: 2,
             ...config.animatedSpriteSettings
         };
+        config.containerSettings = { width: 1, height: 2, ...config.containerSettings };
         // ---
         super(config);
         this.onInit();
@@ -24,6 +27,7 @@ export class Crab extends GameObject {
 
     movement(elapsed: number): void {
         this.animatedSprite.x = tile.unit(1.5) + Math.cos(elapsed/tile.unit(this.randomCosX)) * tile.unit(1.5);
+        this.animatedSprite.y = tile.unit(1.5) + Math.sin(elapsed/tile.unit(this.randomSinY)) * tile.unit(1.5);
         this.lastPosX >= this.animatedSprite.x ? this.mirrorSpriteOnX(-1) : this.mirrorSpriteOnX(1);
         this.lastPosX = this.animatedSprite.x;
     }

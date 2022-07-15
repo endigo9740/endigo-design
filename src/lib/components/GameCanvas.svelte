@@ -12,7 +12,7 @@
     import { pillarsList } from '$lib/data/pillars-list';
     import { monumentsList } from '$lib/data/monuments-list';
     import { npcsList } from '$lib/data/npcs-list';
-    import { birdsList, catsList, slimesList, crabsList, jellyfishList } from '$lib/data/critters-list';
+    import { birdsList, catsList, slimesList, crabsList, jellyfishList, frogsList, fishList } from '$lib/data/critters-list';
 
     // Game Classes
     import { World } from '$lib/game/World';  
@@ -47,6 +47,8 @@
         cats: [],
         crabs: [],
         jellyfish: [],
+        frogs: [],
+        fish: [],
         birds: [], // last
     };
 
@@ -80,6 +82,8 @@
             'entities/critters/critter-layla.json',
             'entities/critters/critter-crab.json',
             'entities/critters/critter-jellyfish.json',
+            'entities/critters/critter-frog.json',
+            'entities/critters/critter-fish.json',
         ].forEach(r => { game.loader.add(r); });
 
         // Loading Lifecycle
@@ -116,6 +120,8 @@
                 critters.cats = catsList({loader: game.loader, containerLevel, camera});
                 critters.crabs = crabsList({loader: game.loader});
                 critters.jellyfish = jellyfishList({loader: game.loader});
+                critters.frogs = frogsList({loader: game.loader});
+                critters.fish = fishList({loader: game.loader});
                 critters.birds = birdsList({loader: game.loader}); // last
 
                 // Add GameObjects to Level Container

@@ -2,7 +2,7 @@ import { GameObject } from './GameObject';
 import { randomRangeDecimal } from '../utils';
 import { tile } from '$lib/stores';
 
-export class Crab extends GameObject {
+export class Frog extends GameObject {
 
     private randomCosX: number = randomRangeDecimal(0.75, 1.25);
     private lastPosX: number = 0;
@@ -10,9 +10,10 @@ export class Crab extends GameObject {
     constructor(config: any) {
         // Hardcoded
         config.animatedSpriteSettings = {
-            animationSpeed: randomRangeDecimal(0.1, 0.12),
+            animationSpeed: randomRangeDecimal(0.15, 0.17),
             ...config.animatedSpriteSettings
         };
+        config.containerSettings = { ...config.containerSettings };
         // ---
         super(config);
         this.onInit();
