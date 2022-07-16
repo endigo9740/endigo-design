@@ -3,4 +3,6 @@
     export let amount: number = 0;
 </script>
 
-<section class="fixed left-4 bottom-4 z-90 text-2xl font-bold" transition:fade|local={{duration: 250}}>{amount}%</section>
+<section class="fixed z-50 w-full h-full flex justify-center items-center text-cyan-500 text-4xl font-bold" transition:fade|local={{duration: 250}}>
+    <h2>{amount || '1'}%</h2>
+</section>

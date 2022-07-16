@@ -95,7 +95,8 @@
         game.loader.onProgress.add((loader, resources) => { loading.amount = Math.ceil(loader.progress);  });
         game.loader.onError.add((loader, resources) => {
             console.error('Error: failed to load game', loader, resources);
-            // window.location.href = '/works'; // redirect
+            alert('Something went wrong when attempting to load the game site. Redirecting you to the traditional site instead. Sorry about that!');
+            window.location.href = '/works'; // redirect
         });
         
         // On Game Loaded
@@ -148,8 +149,9 @@
             // Add to Stage
             game.stage.addChild(containerLevel);
 
-            // Post Staging
+            // On game launch, lock camera on Chris and start dialog.
             cameraStore.set({type: 'entity', target: npcs[0], animate: false}); // npcs Chris
+            // setTimeout(() => { npcs[0].onPointerDown(); }, 1000);
 
             // Animation Loop
             let elapsed = 0.0;
@@ -196,7 +198,7 @@
 <!-- UI Overlay -->
 {#if !loading.complete}
     <ProgressBar amount={loading.amount} />
-    <div class="fixed top-0 left-0 right-0 bottom-0 z-10 bg-slate-900" transition:fade|local={{duration: 500}}></div>
+    <div class="fixed top-0 left-0 right-0 bottom-0 z-10 bg-slate-900/70" transition:fade|local={{duration: 500}}></div>
 {:else}
     {#if $dialogStore !== undefined}
         <Dialog />

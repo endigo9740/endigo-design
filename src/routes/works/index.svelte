@@ -16,10 +16,10 @@
         <div class="page-wrap space-y-20">
 
         <!-- Hero -->
-        <header class="flex justify-center items-center py-20">
+        <header class="flex justify-center items-center py-4 md:py-10 lg:py-20">
             <div class="text-center space-y-2 drop-shadow-lg">
                 <img src="logo.png" class="animFloat mx-auto" alt="logo">
-                <h1 class="text-7xl md:text-9xl font-normal">Hi, I'm <span class="text-pink-500 font-bold">Chris</span></h1>
+                <h1 class="text-5xl md:text-7xl lg:text-9xl font-normal">Hi, I'm <span class="text-pink-500 font-bold">Chris</span></h1>
                 <p class="text-xs md:text-lg text-white/50 font-bold drop-shadow-xl md:translate-x-12">Developer, designer, UX, game maker, and more.</p>
             </div>
         </header>

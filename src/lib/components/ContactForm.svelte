@@ -8,7 +8,7 @@
 		target="_blank"
 		novalidate
 	>
-		<div id="mc_embed_signup_scroll" class="space-y-4">
+		<div id="mc_embed_signup_scroll" class="space-y-3">
 			<label class="mc-field-group" for="mce-EMAIL">
 				<span for="mce-EMAIL">Email Address</span>
 				<input type="email" placeholder="How can I get in touch?" value="" name="EMAIL" class="required email" id="mce-EMAIL" />
@@ -33,7 +33,7 @@
 			<div style="position: absolute; left: -5000px;" aria-hidden="true">
 				<input type="text" name="b_8de29d4932317fb291688afd6_a2003ce4c2" tabindex="-1" value="" />
 			</div>
-			<div class="optionalParent flex justify-end">
+			<div class="optionalParent pt-4">
 				<div class="clear foot">
                     <button
                         type="submit"
@@ -41,7 +41,7 @@
                         name="subscribe"
                         id="mc-embedded-subscribe"
                         class="btn btn-hollow"
-                    >Contact Me</button>
+                    >Submit</button>
 				</div>
 			</div>
 		</div>

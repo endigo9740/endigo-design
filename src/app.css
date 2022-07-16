@@ -37,7 +37,7 @@ h4 { @apply text-xl md:text-2xl font-bold; }
 h5 { @apply text-lg md:text-xl font-bold; }
 h6 { @apply text-base md:text-lg font-bold; }
 
-p { @apply text-white/70; }
+p { @apply text-base text-white/70; }
 p+p { @apply mt-4; }
 a { @apply text-white/60 hover:text-white cursor-pointer; }
 

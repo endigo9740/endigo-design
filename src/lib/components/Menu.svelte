@@ -85,7 +85,7 @@
                     <!-- Per Each Category -->
                     {#each Object.values(worksArr) as category, i}
                         <h4>{category.label}</h4>
-                        <nav class="list-none grid grid-cols-2 gap-4">
+                        <nav class="list-none grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Per Each Project -->
                             {#each category.projects as project}
                             <li

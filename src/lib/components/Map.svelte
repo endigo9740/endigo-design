@@ -35,6 +35,7 @@
 
         // Set 2D Context
         const ctx = elemCanvas.getContext('2d');
+        if (ctx) ctx.imageSmoothingEnabled = false;
 
         // Search for matching x/y coordinates, returns true on match
         function coordMatch(arr: any[], x: number, y: number): boolean {
@@ -64,7 +65,7 @@
 
         // Map Image
         const image = new Image(elemCanvas.width, elemCanvas.height);
-            image.src = 'overworld.png';
+            image.src = 'overworld-mini.png';
             image.onload = () => {
                 if (ctx === null) return;
                 ctx.save();

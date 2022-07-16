@@ -21,7 +21,7 @@
 <!-- Branding -->
 <a
     href="/"
-    class="fixed top-0 left-0 z-10 bg-slate-900/50 p-6 rounded-br-xl flex items-center space-x-4 backdrop-blur hover:bg-slate-800/50"
+    class="bg-slate-900/40 backdrop-blur-md fixed top-0 left-0 z-10 p-6 rounded-br-xl flex items-center space-x-4 hover:bg-slate-500/50"
     transition:fly|local={{y: -100, duration: 250}}
     title="Go to homepage."
 >
@@ -33,7 +33,7 @@
 </a>
 
 <!-- Controls -->
-<nav class="fixed bottom-0 right-0 z-50 bg-slate-900/50 p-4 rounded-tl-xl backdrop-blur space-x-4" transition:fly|local={{y: 100, duration: 250}}>
+<nav class="bg-slate-900/40 backdrop-blur-md fixed bottom-0 right-0 z-50 p-4 rounded-tl-xl space-x-4" transition:fly|local={{y: 100, duration: 250}}>
 
     <!-- Menu: Navigate -->
     <button type="button" class="btn-hollow" on:click={() => { toggleMenu(); }}>Navigate</button>
