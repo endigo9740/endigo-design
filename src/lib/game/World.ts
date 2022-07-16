@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js';
+import { tile } from '$lib/stores';
 
 export class World {
     public texture: any;
@@ -11,8 +12,8 @@ export class World {
 
     onInit(): void {
         this.sprite = PIXI.Sprite.from(this.texture);
-            this.sprite.width = this.sprite.width;
-            this.sprite.height = this.sprite.height;
+            this.sprite.width = this.sprite.width * tile.zoom;
+            this.sprite.height = this.sprite.height * tile.zoom;
     }
 
 }

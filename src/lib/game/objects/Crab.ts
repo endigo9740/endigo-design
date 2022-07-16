@@ -1,16 +1,16 @@
-import { GameObject } from './GameObject';
-import { randomRangeDecimal } from '../utils';
+import { GameObject } from '$lib/game/objects/GameObject';
+import { randomFromArray } from '$lib/game/utils';
 import { tile } from '$lib/stores';
 
 export class Crab extends GameObject {
 
-    private randomCosX: number = randomRangeDecimal(0.75, 1.25);
+    private randomCosX: number = randomFromArray([0.8, 1]);
     private lastPosX: number = 0;
 
     constructor(config: any) {
         // Hardcoded
         config.animatedSpriteSettings = {
-            animationSpeed: randomRangeDecimal(0.1, 0.12),
+            animationSpeed: randomFromArray([0.1, 0.11, 0.12]),
             ...config.animatedSpriteSettings
         };
         // ---
@@ -24,14 +24,13 @@ export class Crab extends GameObject {
 
     movement(elapsed: number): void {
         this.animatedSprite.x = tile.unit(1.5) + Math.cos(elapsed/tile.unit(this.randomCosX)) * tile.unit(1.5);
-        this.lastPosX >= this.animatedSprite.x ? this.mirrorSpriteOnX(-1) : this.mirrorSpriteOnX(1);
+        this.lastPosX >= this.animatedSprite.x ? this.mirrorX(12) : this.mirrorX(0); // 0: default, 12: flip X
         this.lastPosX = this.animatedSprite.x;
     }
 
-    mirrorSpriteOnX(newScale: number): void {
-        if (this.animatedSprite.scale.x !== newScale) {
-            const amount = this.animatedSprite.width / tile.unit(1);
-            this.animatedSprite.scale.x = newScale * 3; // why 3?
+    mirrorX(val: number): void {
+        if (this.animatedSprite.texture.rotate !== val) {
+            this.animatedSprite.texture.rotate = val
         }
     }
 

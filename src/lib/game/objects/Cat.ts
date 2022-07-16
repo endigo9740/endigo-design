@@ -9,6 +9,8 @@ export class Cat extends GameObject {
     private containerLevel: any;
     private camera: any;
 
+    private directionX: number = 0; // 0: default, 12: flip X
+
     constructor(config: any) {
         config.animatedSpriteSettings = { animationSpeed: 0.05, width: 2, height: 2, ...config.animatedSpriteSettings };
         config.containerSettings = { width: 2, height: 2, ...config.containerSettings };
@@ -34,26 +36,14 @@ export class Cat extends GameObject {
     // Follow Pointer ---
     
     followPointer(e: any): void {
-        const mouseX = Math.floor(e.data.global.x / tile.unit(1));
-        const catPosX = Math.floor(this.container.position.x / tile.unit(1));
-        const cameraX = Math.floor(this.camera.position.x / tile.unit(1));
-        if (mouseX - cameraX <= catPosX) {
-            this.mirrorSpriteOnX(1);
-        } else {
-            this.mirrorSpriteOnX(-1);
-        }
-    }
-
-    mirrorSpriteOnX(newScale: number): void {
-        if (this.animatedSprite.scale.x !== newScale) {
-            this.animatedSprite.scale.x = newScale * 3; // why 3?
-        }
+        const mousePositionX = Math.round(e.data.global.x);
+        const catPositionX = this.container.position.x + this.camera.position.x;
+        this.directionX = mousePositionX < catPositionX ? 0 : 12; // 0: default, 12: flip X
     }
 
     // Handle Interaction
 
     onPointerOver(): void {
-        console.log('hover event');
         let filterEffect: any = new PIXI.filters.ColorMatrixFilter();
             filterEffect.brightness(1.3, false);
         this.container.filters = [filterEffect];
@@ -74,6 +64,9 @@ export class Cat extends GameObject {
         this.container.filters = [];
     }
 
-    render(): void {}
+    render(): void {
+        // Ensure the X direction is applied continously since the sprite animates (texture changes)
+        this.animatedSprite.texture.rotate = this.directionX;
+    }
 
 }

@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import { menuStore, cameraStore, tile } from "$lib/stores";
 
-    export let zoom = 3;
+    export let zoom = 4;
     export let pillars: any;
     export let npcs: any;
     
@@ -65,7 +65,7 @@
 
         // Map Image
         const image = new Image(elemCanvas.width, elemCanvas.height);
-            image.src = 'overworld-mini.png';
+            image.src = 'overworld.png';
             image.onload = () => {
                 if (ctx === null) return;
                 ctx.save();

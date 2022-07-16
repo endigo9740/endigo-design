@@ -5,6 +5,8 @@ import { tile } from '$lib/stores';
 
 export class GameObject {
 
+    private debug: boolean = false;
+
     public name: string;
     public loader: any;
     public resource: string;
@@ -36,7 +38,17 @@ export class GameObject {
         this.containerSettings = { ...this.containerSettings, ...config.containerSettings};
         this.applyContainerSettings();
         // Add Animated Sprite to Container
+        if (this.debug) { this.drawContainerBounds(); }
         this.container.addChild(this.animatedSprite);
+    }
+
+    drawContainerBounds(): void {
+        // Draw Rect
+        let boundsGraphic = new PIXI.Graphics();
+        boundsGraphic.beginFill(0xff0000, 0.5);
+            boundsGraphic.drawRect(0, 0, this.containerSettings.width, this.containerSettings.height);
+        // Add it to the stage to render
+        this.container.addChild(boundsGraphic);
     }
 
     // Animated Sprite Sheet ---

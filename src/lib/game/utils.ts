@@ -13,9 +13,12 @@ export const invlerp: any = (start: number, end: number, val: number) => clamp((
 export const range = (x1: number, y1: number, x2: number, y2: number, val: number) => lerp(x2, y2, invlerp(x1, y1, val));
 
 // Randomization
-export const randomRangeWhole: any = (min: number, max: number) => {
+export const randomRangeWhole: any = (min: number, max: number): number => {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-export const randomRangeDecimal: any = (min: number, max: number) => {
+export const randomRangeDecimal: any = (min: number, max: number): number => {
     return Math.random() * (max - min + min) + min;
+}
+export const randomFromArray: any = (arr: any[]): number => {
+    return arr[randomRangeWhole(0,arr.length-1)]
 }

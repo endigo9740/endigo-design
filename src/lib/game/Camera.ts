@@ -27,8 +27,8 @@ export class Camera {
         this.container.interactive = true;
         // Handle dragging events
         this.container.on('pointerdown', (e: any) => this.onPointerDown(e));
-        this.container.on('pointerup', () => this.onPointerUp());
-        this.container.on('pointerout', () => this.onPointerUp());
+        this.container.on('pointerup', (e: any) => this.onPointerUp(e));
+        this.container.on('pointerout', (e: any) => this.onPointerUp(e));
         this.container.on('pointermove', (e: any) => this.onPointerMove(e));
         // Center on Provided Targets
         cameraStore.subscribe((val: any) => {
@@ -56,21 +56,21 @@ export class Camera {
     // Source: https://embed.plnkr.co/II6lgj511fsQ7l0QCoRi/
 
     onPointerDown(e: any): void {
-        // console.log('pointerdown', e);
-        this.lastDragPosition = { x: e.data.originalEvent.offsetX, y: e.data.originalEvent.offsetY };
+        // console.log('-pointerdown-', e);
+        this.lastDragPosition = { x: e.data.global.x, y: e.data.global.y };
     }
 
-    onPointerUp(): void {
-        // console.log('onPointerUp');
+    onPointerUp(e: any): void {
+        // console.log('-onPointerUp-', e);
         this.lastDragPosition = null;
     }
 
     onPointerMove(e: any): void {
         if(this.lastDragPosition) {
             // console.log('onPointerMove', e);
-            this.position.x += Math.round(e.data.originalEvent.offsetX - this.lastDragPosition.x);
-            this.position.y += Math.round(e.data.originalEvent.offsetY - this.lastDragPosition.y); 
-            this.lastDragPosition = { x: e.data.originalEvent.offsetX, y: e.data.originalEvent.offsetY };
+            this.position.x += Math.round(e.data.global.x - this.lastDragPosition.x);
+            this.position.y += Math.round(e.data.global.y - this.lastDragPosition.y); 
+            this.lastDragPosition = { x: e.data.global.x, y: e.data.global.y };
             this.adjustForWorldBounds();
         }
     }

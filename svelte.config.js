@@ -32,9 +32,7 @@ const config = {
 		vite: {
 			// per: https://github.com/sveltejs/kit/issues/4504#issuecomment-1135338008
 			// NOTE: this must be ON during build, must be OFF during dev
-			// ssr: {
-			// 	noExternal: ['pixi.js']
-			// }
+			// ssr: { noExternal: ['pixi.js'] }
 		}
 	}
 };

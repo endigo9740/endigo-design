@@ -111,6 +111,7 @@
                 world = new World({ texture: resources['overworld.png'].texture });
                 containerLevel.addChild(world.sprite);
 
+
                 // Camera
                 camera = new Camera({ app: game, container: containerLevel });
                 
