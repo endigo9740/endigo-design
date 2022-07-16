@@ -90,8 +90,8 @@ export const crabsList: any = (config: any) => {
 // Jellfish
 const jellyfishCoords = [
 	{x: 89, y: 68},
-	{x: 108, y: 62},
-	{x: 117, y: 46},
+	{x: 108, y: 67},
+	{x: 112, y: 50},
 ];
 export const jellyfishList: any = (config: any) => {
 	const jellyfishArr: Jellyfish[] = [];
