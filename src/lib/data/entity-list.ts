@@ -1,11 +1,52 @@
+import { works } from '$lib/data/works';
 import { randomFromArray } from '$lib/game/utils';
 
+// GameObject
 import { GameObject } from '$lib/game/objects/GameObject';
+
+// Uniques
 import { Bird } from '$lib/game/objects/Bird';
 import { Cat } from '$lib/game/objects/Cat';
 import { Fish } from '$lib/game/objects/Fish';
 
-// Standard Game Objects ---
+// Structures
+import { Monument } from '$lib/game/objects/Monument';
+import { Pillar } from '$lib/game/objects/Pillar';
+
+// GameObjects ---
+
+// NPCs
+export const npcsList: any = (config: any) => {
+    return [
+
+        // Chris
+        new GameObject({
+            name: 'Chris',
+            loader: config.loader,
+            resource: 'entities/npcs/npc-chris.json',
+            portrait: 'entities/npcs/npc-chris-portrait.png',
+            pathName: 'npc-left-right',
+            animatedSpriteSettings: { width: 2, height: 3 },
+            containerSettings: { x: 51, y: 69, width: 2, height: 3 },
+            dialog: `Hello, I'm Chris. Welcome to my interactive portfolio world! Have a look around. Each pillar represents a project I've contributed to:illar you discover will begin flashing. You may also tap the tablet near me to learn my story or get in touch.`,
+            interactive: true
+        }),
+
+        // Melissa
+        new GameObject({
+            name: 'Melissa',
+            loader: config.loader,
+            resource: 'entities/npcs/npc-melissa.json',
+            portrait: 'entities/npcs/npc-melissa-portrait.png',
+            pathName: 'npc-circle',
+            animatedSpriteSettings: { width: 2, height: 3 },
+            containerSettings: { x: 40, y: 60, width: 2, height: 3 },
+            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! Tap the <strong>NAVIGATE</strong> button on your screen if you get lost. It will help you navigate the world. You can also tap the <strong>♫</strong> button to listen to listen to some relaxing jams.`,
+            interactive: true
+        }),
+        
+    ]
+};
 
 // Slimes
 export const slimesList: any = (config: any) => {
@@ -131,9 +172,11 @@ export const frogsList: any = (config: any) => {
 	return critterArr;
 };
 
-// Unique ---
+// Uniques ---
+// There override the default behavior or settings of the standard GameObject
 
 // Cats
+// Follows mouse position left/right
 export const catsList: any = (config: any) => {
 	return [
 		new Cat({
@@ -150,6 +193,7 @@ export const catsList: any = (config: any) => {
 }
 
 // Fish
+// Moves in a figure 8-like path
 // TODO: rework the unique movement system
 export const fishList: any = (config: any) => {
 	const critterArr: Fish[] = [];
@@ -174,6 +218,7 @@ export const fishList: any = (config: any) => {
 };
 
 // Birds
+// Circle a the container anchor point, with a defined radius offset
 export const birdsList: any = (config: any) => {
 	const critterArr: Bird[] = [];
 	const critters = [
@@ -194,4 +239,45 @@ export const birdsList: any = (config: any) => {
 		);
 	});
 	return critterArr;
+};
+
+// Structures ---
+
+// Monuments
+export const monumentsList: any = (config: any) => {
+    return [
+        new Monument({
+            loader: config.loader,
+            containerSettings: { x: 49, y: 59, }
+        })
+    ];
+};
+
+export const pillarsList: any = (config: any) => {
+    const pillarArr: any[] = [];
+
+    // Constrct one pillar per work
+    Object.entries(works).forEach((category: any) => {
+        const [categoryKey, categoryDetails] = category;
+        categoryDetails.projects.forEach((project: any) => {
+            if (!project.coords) { console.error(`${project.name} is missing coordinates.`); return; };
+            pillarArr.push(
+                new Pillar({
+                    name: project.name,
+                    loader: config.loader,
+                    containerSettings: {
+                        x: project.coords.x,
+                        y: project.coords.y,
+                    },
+                    page: {
+                        component: 'Work',
+                        category: categoryKey,
+                        id: project.id
+                    }
+                }),
+            );
+        });
+    });
+
+    return pillarArr;
 };

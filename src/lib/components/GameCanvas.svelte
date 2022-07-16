@@ -3,16 +3,20 @@
     import { onDestroy, onMount } from 'svelte';
     import { fade } from 'svelte/transition';
 
-    // GameObject Entities
+    // Entities Types
     import type { GameObject } from '$lib/game/objects/GameObject';
     import type { Pillar } from '$lib/game/objects/Pillar';
     import type { Monument } from '$lib/game/objects/Monument';
 
-    // Data Lists
-    import { pillarsList } from '$lib/data/pillars-list';
-    import { monumentsList } from '$lib/data/monuments-list';
-    import { npcsList } from '$lib/data/npcs-list';
-    import { birdsList, catsList, slimesList, crabsList, jellyfishList, frogsList, fishList } from '$lib/data/critters-list';
+    // Entities
+    import {
+        // GameObjects
+        npcsList, slimesList, crabsList, jellyfishList, frogsList,
+        // Uniques
+        fishList, catsList, birdsList,
+        // Structures
+        monumentsList, pillarsList
+    } from '$lib/data/entity-list';
 
     // Game Classes
     import { World } from '$lib/game/World';  

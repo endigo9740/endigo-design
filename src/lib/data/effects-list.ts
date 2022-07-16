@@ -1,5 +1,7 @@
 import { EffectDarkness } from "$lib/game/effects/Darkness";
 
+// TODO: make less of these, but bigger to cover a wider area, render below GameObject layers
+
 // Darkness
 const darknessCoords: any = [
     {x: 118, y: 10},
