@@ -9,19 +9,23 @@ export class Fish extends GameObject {
     private lastPosX: number = 0;
 
     constructor(config: any) {
-        // Hardcoded
+
+        // Overwrite GameObject properties
         config.animatedSpriteSettings = {
             animationSpeed: randomRangeDecimal(0.12, 0.14),
-            width: 1, height: 2,
-            ...config.animatedSpriteSettings
+            width: 1,
+            height: 2,
         };
-        config.containerSettings = { width: 1, height: 2, ...config.containerSettings };
-        // ---
+        config.containerSettings = {
+            width: 1,
+            height: 2,
+            ...config.containerSettings
+        };
+
+        // Super
         super(config);
-        this.onInit();
-    }
-    
-    onInit(): void {
+
+        // Play Animation Immediately
         this.animatedSprite.play();
     }
 

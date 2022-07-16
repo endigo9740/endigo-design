@@ -1,16 +1,29 @@
 // This is the core class for which all entities extend. Controls core features of entities.
 
 import * as PIXI from 'pixi.js';
-import { tile } from '$lib/stores';
+import { cameraStore, tile } from '$lib/stores';
+import { presetPaths } from '$lib/data/preset-paths';
+import { dialogStore } from '$lib/stores';
 
 export class GameObject {
 
-    private debug: boolean = false;
+    // Properties ---
+    // WARNING: oder matters, do not change without precaution
 
+    // Common
     public name: string;
     public loader: any;
     public resource: string;
+    public portrait: string;
 
+    // Pathing
+    public pathName: string;
+    public path: any;
+    private pathProgress: number = tile.unit(1);
+    private pathIndex: number = 0;
+    private isWaiting: boolean = false;
+
+    // Animated Sprite
     public animatedSprite: PIXI.AnimatedSprite;
     public animatedSpriteSettings: any = {
         animationSpeed: 0.15,
@@ -18,6 +31,7 @@ export class GameObject {
         height: 1
     };
     
+    // Container
     public container: PIXI.Container = new PIXI.Container();
     public containerSettings: any = {
         x: 0,
@@ -26,10 +40,24 @@ export class GameObject {
         height: 1
     };
 
+    // Dialog
+    public dialog: string;
+    private dialogVisible: boolean = false;
+
+    // Debug
+    private debug: boolean = false;
+
+    // Constructor ---
+
     constructor(config: any) {
-        this.name = config.name || 'DefaultName';
+        // Common
+        this.name = config.name || 'DefaultGameObjectName';
         this.loader = config.loader;
         this.resource = config.resource;
+        this.portrait = config.portrait || 'entities/portrait-default.png';
+        // Pathing
+        this.pathName = config.pathName;
+        this.path = presetPaths[this.pathName || 'idle'];
         // Animated Sprite
         this.animatedSprite = this.createAnimatedSpritesheet();
         this.animatedSpriteSettings = { ...this.animatedSpriteSettings, ...config.animatedSpriteSettings};
@@ -37,15 +65,33 @@ export class GameObject {
         // Container
         this.containerSettings = { ...this.containerSettings, ...config.containerSettings};
         this.applyContainerSettings();
-        // Add Animated Sprite to Container
-        if (this.debug) { this.drawContainerBounds(); }
         this.container.addChild(this.animatedSprite);
+        // Dialog
+        this.dialog = config.dialog || 'Hello, this is the default dialog text.';
+        dialogStore.subscribe((d: any) => {
+            this.dialogVisible = d !== undefined;
+            this.animatedSprite.gotoAndStop(0);
+        });
+        // Interaction
+        this.container.interactive = config.interactive || false;
+        if (this.container.interactive) {
+            this.container.on('pointerover', (e: any) => { this.onPointerOver(); });
+            this.container.on('pointerout', (e: any) => { this.onPointerOut(); });
+            this.container.on('pointerdown', (e: any) => {
+                cameraStore.set({type: 'entity', target: this, animate: true});
+                this.onPointerDown();
+            });
+        }
+        // Debug
+        if (this.debug) { this.drawContainerBounds(); }
     }
+
+    // Debug Methods ---
 
     drawContainerBounds(): void {
         // Draw Rect
         let boundsGraphic = new PIXI.Graphics();
-        boundsGraphic.beginFill(0xff0000, 0.5);
+        boundsGraphic.beginFill(0xbada55, 0.5);
             boundsGraphic.drawRect(0, 0, this.containerSettings.width, this.containerSettings.height);
         // Add it to the stage to render
         this.container.addChild(boundsGraphic);
@@ -88,6 +134,72 @@ export class GameObject {
             // @ts-ignore
             this.container[key] = this.containerSettings[key];
         }
+    }
+
+    // Handle Input ---
+
+    onPointerOver(): void {
+        let filterEffect: any = new PIXI.filters.ColorMatrixFilter();
+            filterEffect.brightness(1.3, false);
+        this.container.filters = [filterEffect];
+    }
+
+    onPointerDown(): void {
+        dialogStore.set(undefined);
+        dialogStore.set({
+            name: this.name,
+            message: this.dialog,
+            portrait: this.portrait
+        });
+    }
+    
+    onPointerOut(): void {
+        this.container.filters = [];
+    }
+
+    // Pathing
+
+    pathing(): void {
+        if (this.dialogVisible) return;
+        if (this.isWaiting) return;
+        // Execute current path, else switch to next path
+        this.pathProgress >= 0 ? this.handleCurrentPathing() : this.nextPath();
+    }
+
+    handleCurrentPathing(): void {
+        // Animate while moving
+        if (this.animatedSprite.playing === false) { this.animatedSprite.play(); } 
+        // Determine direction to move and texture rotation
+        // https://pixijs.io/examples/#/textures/texture-rotate.js
+        const currentPath: any = this.path[this.pathIndex];
+        switch(currentPath.path) {
+            case 'up': this.container.y -= 1; break;
+            case 'left': this.container.x -= 1; this.animatedSprite.texture.rotate = 12; break;
+            case 'down': this.container.y += 1; break;
+            case 'right': this.container.x += 1; this.animatedSprite.texture.rotate = 0; break;
+            case 'wait': this.triggerWaitDelay(currentPath); break
+        }
+        this.pathProgress -= 1;
+    }
+
+    triggerWaitDelay(currentPath: any): void {
+        this.isWaiting = true;
+        this.animatedSprite.gotoAndStop(0);
+        setTimeout(() => {
+            this.isWaiting = false;
+            this.nextPath();
+        }, currentPath.delay);
+    }
+
+    nextPath(): void {
+        this.pathProgress = tile.unit(1);
+        (this.pathIndex+1) >= this.path.length ? this.pathIndex = 0 :  this.pathIndex++;
+    }
+
+    // Rendering
+
+    render(elapsed?: number): void {
+        this.pathing();
     }
 
 }

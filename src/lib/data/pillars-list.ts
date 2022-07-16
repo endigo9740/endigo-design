@@ -2,7 +2,7 @@ import { works } from '$lib/data/works';
 import { Pillar } from '$lib/game/objects/Pillar';
 
 export const pillarsList: any = (config: any) => {
-    const pillarArr: Pillar[] = [];
+    const pillarArr: any[] = [];
 
     // Constrct one pillar per work
     Object.entries(works).forEach((category: any) => {
@@ -18,6 +18,7 @@ export const pillarsList: any = (config: any) => {
                         y: project.coords.y,
                     },
                     page: {
+                        component: 'Work',
                         category: categoryKey,
                         id: project.id
                     }

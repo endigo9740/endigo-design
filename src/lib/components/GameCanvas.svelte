@@ -4,16 +4,15 @@
     import { fade } from 'svelte/transition';
 
     // GameObject Entities
+    import type { GameObject } from '$lib/game/objects/GameObject';
     import type { Pillar } from '$lib/game/objects/Pillar';
     import type { Monument } from '$lib/game/objects/Monument';
-    import type { Npc } from '$lib/game/objects/Npc';
 
     // Data Lists
     import { pillarsList } from '$lib/data/pillars-list';
     import { monumentsList } from '$lib/data/monuments-list';
     import { npcsList } from '$lib/data/npcs-list';
     import { birdsList, catsList, slimesList, crabsList, jellyfishList, frogsList, fishList } from '$lib/data/critters-list';
-    // import { darknessList } from '$lib/data/effects-list';
 
     // Game Classes
     import { World } from '$lib/game/World';  
@@ -42,19 +41,18 @@
     let grid: Grid;
     let pillars: Pillar[] = [];
     let monuments: Monument[] = [];
-    let npcs: Npc[] = [];
+    let npcs: GameObject[] = [];
     let critters: any = {
+        // Game Objects
         slimes: [],
-        cats: [],
         crabs: [],
         jellyfish: [],
         frogs: [],
+        // Unique
         fish: [],
-        birds: [], // last
+        cats: [],
+        birds: [], // keep last
     };
-    // let effects: any = {
-    //     darkeness: []
-    // };
 
     onMount(() => {
 
@@ -118,30 +116,27 @@
                 // Grid
                 grid = new Grid({ container: containerLevel, enabled: false, coords: false, texture: resources['grid.png'].texture });
 
-                // Instantiate Effects
-                // effects.darkeness = darknessList();
-
-                // Add Effect Container to Level Container
-                // Object.values(effects).forEach((fxArr: any) => {
-                //     fxArr.forEach((fx: any) => { containerLevel.addChild(fx.container); })
-                // });
-
-                // Instantiate GameObjects
+                // Instantiate GameObjects ---
                 pillars = pillarsList({loader: game.loader});
                 monuments = monumentsList({loader: game.loader});
+                // NPCs
                 npcs = npcsList({loader: game.loader});
+                // Critters (GameObjects)
                 critters.slimes = slimesList({loader: game.loader});
-                critters.cats = catsList({loader: game.loader, containerLevel, camera});
                 critters.crabs = crabsList({loader: game.loader});
                 critters.jellyfish = jellyfishList({loader: game.loader});
                 critters.frogs = frogsList({loader: game.loader});
+                // Critters (Unique)
+                critters.cats = catsList({loader: game.loader, containerLevel, camera});
                 critters.fish = fishList({loader: game.loader});
-                critters.birds = birdsList({loader: game.loader}); // last
+                critters.birds = birdsList({loader: game.loader}); // keep last
 
                 // Add GameObject Containers to Level Container
                 pillars.forEach((pillar: Pillar) => { containerLevel.addChild(pillar.container); })
                 monuments.forEach((monument: Monument) => { containerLevel.addChild(monument.container); })
-                npcs.forEach((npc: Npc) => { containerLevel.addChild(npc.container); })
+                // NPCs
+                npcs.forEach((npc: GameObject) => { containerLevel.addChild(npc.container); })
+                // Crittters
                 Object.values(critters).forEach((critterArr: any) => {
                     critterArr.forEach((c: any) => { containerLevel.addChild(c.container); })
                 });
@@ -163,18 +158,15 @@
                 if (containerLevel.position.x !== camera.position.x) { containerLevel.position.x = camera.position.x };
                 if (containerLevel.position.y !== camera.position.y) { containerLevel.position.y = camera.position.y };
 
-                // TODO: generate these lists OUTSIDE this animate loop
-
                 // Render GameObjects
-                npcs.forEach((npc: Npc) => npc.render());
+                // NPCs
+                npcs.forEach((npc: GameObject) => npc.render());
+                // Critters
                 Object.values(critters).forEach((critterArr: any) => {
-                    critterArr.forEach((c: any) => { c.render(elapsed); })
+                    critterArr.forEach((c: any) => {
+                        if (c.render()) c.render(elapsed);
+                    })
                 });
-
-                // Render Effects
-                // effects.darkeness.forEach((fx: any) => {
-                //     fx.pixelArr.forEach((pixel: any) => { pixel.render(elapsed); });
-                // });
 
                 // Render Camera
                 camera.render();

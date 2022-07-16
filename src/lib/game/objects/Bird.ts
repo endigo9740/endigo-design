@@ -1,10 +1,8 @@
-import * as PIXI from 'pixi.js';
 import { tile } from "$lib/stores";
 import { GameObject } from "./GameObject";
 
 export class Bird extends GameObject {
 
-    public debug: boolean = false;
     public radius: number;
     public speed: number;
 
@@ -16,8 +14,6 @@ export class Bird extends GameObject {
     }
 
     onInit(): void {
-        // Enable pivot point visualization
-        if (this.debug === true) { this.drawPivotRect(); }
         // Adjust Pivot Point
         this.container.pivot.x = tile.unit(0.5);
         this.container.pivot.y = tile.unit(0.5);
@@ -27,13 +23,7 @@ export class Bird extends GameObject {
         this.animatedSprite.play();
     }
     
-    drawPivotRect(): void {
-        const graphicPivotPoint = new PIXI.Graphics();
-            graphicPivotPoint.beginFill(0xff0000);
-            graphicPivotPoint.drawRect(0, 0, tile.unit(1), tile.unit(1));
-        this.container.addChild(graphicPivotPoint);
-    }
-    
+    // Overwrite GameObject.render()
     render(): void {
         this.container.rotation += this.speed;
     }
