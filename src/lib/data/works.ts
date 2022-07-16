@@ -1,4 +1,4 @@
-const cdnBaseUrl: string = 'http://cdn.endigodesign.com.s3-us-east-2.amazonaws.com/endigo_design/portfolio';
+const cdnBaseUrl: string = 'https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio';
 
 export const works: any = {
 
