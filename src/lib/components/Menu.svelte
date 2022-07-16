@@ -53,20 +53,28 @@
             <!-- Points of Interest -->
             <div class="flex-none lg:flex-[50%] p-4 overflow-x-auto space-y-8">
 
-                <!-- People -->
+                <!-- Characters -->
                 <section class="space-y-4">
-                    <h2 class="text-cyan-500">People</h2>
-                    <p>Chat with Chris or a few people he's worked with over the years.</p>
-                    <nav class="grid grid-cols-4 gap-2">
+                    <h2 class="text-cyan-500">Characters</h2>
+                    <p>Interact and chat with Chris and a few other special guests.</p>
+                    <nav class="grid grid-cols-3 gap-2">
                         {#each npcs as npc}
                         <li
                             class="bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:bg-cyan-500"
                             on:click={()=>{navigateToNpc(npc)}}
                         >
-                            <img src={npc.portrait} class="w-full aspect-square rounded" alt="portrait">
+                            <img src={npc.portrait} class="crisp w-full aspect-square rounded" alt="portrait">
                             <h6 class="mt-3 mb-2">{npc.name}</h6>
                         </li>
                         {/each}
+                        <!-- Hardcode Layla -->
+                        <li
+                            class="bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:bg-cyan-500"
+                            on:click={()=>{ console.log('layla clicked!') }}
+                        >
+                            <img src="entities/critters/critter-layla-portrait.png" class="crisp w-full aspect-square rounded" alt="portrait">
+                            <h6 class="mt-3 mb-2">Layla</h6>
+                        </li>
                     </nav>
                 </section>
 

@@ -13,7 +13,7 @@ export const npcsList: any = (config: any) => {
                 y: 69
             },
             portrait: 'entities/npcs/npc-chris-portrait.png',
-            dialog: `Hello, I'm the Chris. Welcome to my interactive portfolio gallery! Have a look around. Each pillar represents a project I've contributed to. Once activated you'll see the pillar animate and come to life. Try the pillar just north of me to learn who I am and what I do.`,
+            dialog: `Hello, I'm Chris. Welcome to my interactive portfolio world! Have a look around. Each pillar represents a project I've contributed to. Any pillar you discover will begin flashing. You may also tap the tablet north of me, to learn more about me.`,
             path: 'left-right',
         }),
 
@@ -27,7 +27,7 @@ export const npcsList: any = (config: any) => {
                 y: 60
             },
             portrait: 'entities/npcs/npc-melissa-portrait.png',
-            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! Tap the <strong>MENU</strong> button at the bottom left if you get lost, or hit the <strong>♫</strong> button to listen to some some relaxing jams.`,
+            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! Tap the <strong>NAVIGATE</strong> button on your screen if you get lost. It will help you navigate the world. You can also tap the <strong>♫</strong> button to listen to listen to some relaxing jams.`,
             path: 'circle'
         }),
 

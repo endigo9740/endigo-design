@@ -58,7 +58,7 @@ export const catsList: any = (config: any) => {
 			loader: config.loader,
 			resource: 'entities/critters/critter-layla.json',
 			portrait: 'entities/critters/critter-layla-portrait.png',
-			dialog: `Meow! I'm Layla and I'm sleepy. I might take a nap soon.`,
+			dialog: `Meow! I'm Laya the cat. I love to eat and take naps.`,
 			containerSettings: {x: 58, y: 62},
 			containerLevel: config.containerLevel,
 			camera: config.camera,
@@ -130,7 +130,7 @@ export const frogsList: any = (config: any) => {
 	return frogsArr;
 };
 
-// Frogs
+// Fish
 const fishCoords = [
 	{x: 8, y: 98},
 	{x: 34, y: 94},

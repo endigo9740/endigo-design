@@ -29,7 +29,7 @@
             <div class="flex items-start space-x-10">
                 <!-- Portrait -->
                 <div class="flex-none w-[200px] text-center space-y-6">
-                    <img src="entities/npcs/npc-chris-portrait.png" class="w-full aspect-square rounded-full shadow-xl" alt="portrait"/>
+                    <img src="entities/npcs/npc-chris-portrait.png" class="crisp w-full aspect-square rounded-full shadow-xl" alt="portrait"/>
                     <a href="http://bit.ly/1obS62s" class="inline-block btn btn-hollow" target="_blank">View Resume</a>
                 </div>
                 <!-- Details -->
