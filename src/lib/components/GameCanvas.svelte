@@ -150,9 +150,8 @@
             game.stage.addChild(containerLevel);
 
             // On game launch, lock camera on Chris and start dialog.
-            // cameraStore.set({type: 'entity', target: npcs[0], animate: false}); // npcs Chris
-            cameraStore.set({type: 'entity', target: critters.frogs[0], animate: false}); // npcs Chris
-            // setTimeout(() => { npcs[0].onPointerDown(); }, 1000);
+            cameraStore.set({type: 'entity', target: npcs[0], animate: false}); // npcs Chris
+            // setTimeout(() => { npcs[0].onPointerDown(); }, 500);
 
             // Animation Loop
             let elapsed = 0.0;

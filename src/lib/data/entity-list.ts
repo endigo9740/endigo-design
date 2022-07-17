@@ -227,9 +227,13 @@ export const fishList: any = (config: any) => {
 export const birdsList: any = (config: any) => {
 	const critterArr: Bird[] = [];
 	const critters = [
+		// Trio
 		{containerSettings: {x: 10, y: 55}, radius: 12, speed: 0.015},
 		{containerSettings: {x: 15, y: 57}, radius: 9, speed: 0.02},
 		{containerSettings: {x: 12, y: 60}, radius: 6, speed: 0.025},
+		// Individual
+		{containerSettings: {x: 91, y: 45}, radius: 9, speed: 0.02},
+		{containerSettings: {x: 89, y: 42}, radius: 6, speed: 0.025},
 	];
 	critters.forEach((critter: any, i: number) => {
 		critterArr.push(
