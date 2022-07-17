@@ -7,22 +7,41 @@
 This project is the portfolio website for Chris Simmons. It features both modes:
 
 1. An interactive game-like experience. This works similar to 2D top-down perspective RPG games like Zelda or Pokemon.
-2. A traditional website with standard navigation.
+2. A traditional website with standard navigation. Works exactly as you might imagine.
 
 Either method will let you explore and learn more about me and projects I've contributed to. 
 
-## Tech Stack
+## Implementation
 
-### Dev
+### Tech Stack
 
 * [Svelte/Kit](https://kit.svelte.dev/) - frontend framework
 * [Pixi.js](https://pixijs.com/) - canvas/webGL rendering
+* [Tailwind CSS](https://tailwindcss.com/)
 * [Howler.js](https://howlerjs.com/) - audio library
+* [AWS S3](https://aws.amazon.com/s3/) - static hosting
+* [AWS Cloudfront](https://aws.amazon.com/cloudfront/) - CDN (site + assets)
 
 ### Design
 
 * [Aseprite](https://www.aseprite.org/) - for pixel art
 * [Tiled map Editor](https://www.mapeditor.org/) - for tilemap generation
+
+### Project Structure
+
+```
+/static - static assets (images, json, etc)
+/src
+    /lib
+        /components - Svelte components
+        /data - local data, in JSON-like format
+        /game - game classes
+            /effects - for visual game effect
+            /objects - for game objects (entities)
+        store.js - Svelte stores and global state
+    /routes - app page routing
+    app.css - global stylesheet
+```
 
 ## Contact Me
 
