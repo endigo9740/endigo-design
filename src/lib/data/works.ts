@@ -2,6 +2,7 @@ const cdnBaseUrl: string = 'https://d1fp2fj544zz6e.cloudfront.net/endigo_design/
 
 export const works: any = {
 
+    // Brain & Bones
     'brain-&-bones': {
         label: 'Brain & Bones',
         projects: [
@@ -9,9 +10,9 @@ export const works: any = {
                 id: 'skeleton',
                 name: 'Skeleton',
                 details: [
-                    'A fully-featured Svelte UI component library featuring tight integration of Tailwind and its conventions, Skeleton was originally created for internal uses at Brain & Bones during our migration from Angular to Svelte. I realized it would be a net positive to open source the project to the community. As such, we’re aiming to release and allow open source contributions soon. The library provides a host of fully-featured components, and supports both themes and dark mode. Skeleton was originally inspired by component libraries such as Mantine in the React ecosystem.'
+                    'A fully-featured UI component library featuring tight integration between Svelte and Tailwind. Skeleton was originally created for internal uses at Brain & Bones during our migration from Angular to Svelte. I realized it would be a net positive to open source the project to the community. As such, we’re aiming to open source the project and allow contributions soon after release. The library provides a host of powerful components, and supports both themes and dark mode. Skeleton was inspired by ui libraries such as <a href="https://bulma.io/" target="_blank">Bulma</a> and <a href="https://mantine.dev/" target="_blank">Mantine</a>.'
                 ],
-                technology: `Svelte/Kit, Tailwind, Vite, Typescript, Vitest/Testing Library, Highlight.js`,
+                technology: `Svelte/Kit, Tailwind CSS, Typescript, Vite, Vitest, Testing Library, Highlight.js`,
                 url: 'https://skeleton.brainandbonesllc.com/',
                 coords: {x: 113, y: 102},
                 accent: '#111827',
@@ -29,18 +30,18 @@ export const works: any = {
                 id: 'branding',
                 name: 'Branding',
                 details: [
-                    'Over the course of two years, I was the lead on all branding, marketing, and development at Brain & Bones. This included multiple web apps and services, various marketing initiatives, as well as establishing the complete brand guidelines and visual identity for both the company and their products.'
+                    'Over the course of two years, I lead all branding, marketing, and development efforts at Brain & Bones. This included full implementation of multiple web apps and services, various marketing initiatives, as well as establishing the brand guidelines and visual identity for the company and all related products.'
                 ],
-                technology: 'Svelte/Kit (website), Sketch (UI/UX), Notion (Guidelines)',
+                technology: 'Svelte/Kit (website), Sketch (Design/UI/UX), Notion (Guidelines)',
                 url: 'https://www.brainandbonesllc.com/',
                 coords: {x: 29, y: 101},
                 accent: '#34d399',
                 thumbnail: `${cdnBaseUrl}/works/bb-logo.png`,
                 videos: [],
                 screenshots: [
-                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/001.png`, caption: 'The company logo'},
-                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/002.png`, caption: 'The brand colors'},
-                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/003.png`, caption: 'Font and Typography'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/001.png`, caption: 'The Brain & Bones logo'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/002.png`, caption: 'The Brain & Bones brand colors'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/003.png`, caption: 'Font and Typography sets'},
                     {src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/004.png`, caption: 'The company website'},
                 ],
             },
@@ -48,28 +49,28 @@ export const works: any = {
                 id: 'helm',
                 name: 'The Helm',
                 details: [
-                    'The customer-facing web product for the Brain & Bones platform, the Helm allows clients to manage games, tournaments, and monitor game usage and engagement within their organization. I directed all key initiatives of the project, from concept to launch. This included designing and implementing the entirety of the frontend client, providing requirements and assisting our backend developers with architecting the API and data flow, and fielding testing alongside our primary QA engineer.'
+                    'The customer-facing web application for the Brain & Bones platform, the Helm allows clients to manage games, tournaments, and monitor game usage and engagement within their organization. I directed all key initiatives of the project, from concept to launch. This included designing and implementing the frontend client, providing requirements for backend developers, implementing Stripe as the payment gateway, and fielding quality assurance testing alongside our QA engineer.'
                 ],
-                technology: 'Angular, Angular Material, RxJS, Typescript, Chart.js, Moment',
+                technology: 'Angular, Angular Material, RxJS, Typescript, SASS, Stripe, Chart.js, Moment',
                 url: 'https://admin.speedtriviagame.com/',
                 coords: {x: 51, y: 91},
                 accent: '#818cf8',
                 thumbnail: `${cdnBaseUrl}/works/bb-helm.png`,
                 videos: [],
                 screenshots: [
-                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/001.png`, caption: 'The quiz selection'},
-                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/002.png`, caption: 'The quiz metrics dashboard'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/001.png`, caption: 'The quiz selection UI'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/002.png`, caption: 'Quiz metrics dashboard'},
                     {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/003.png`, caption: 'Attached quiz media'},
-                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/004.png`, caption: 'Browsing organizations'},
+                    {src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/004.png`, caption: 'Organization navigation'},
                 ],
             },
             {
                 id: 'speed-trivia',
                 name: 'Speed Trivia',
                 details: [
-                    `Speed Trivia was the first in the series of planned games for the Brain & Bones engagement platform. It harnessed the popularity of casual games to allow companies and individuals to connect with their customers, followers, and employees. This was the first project I spearheaded during my time at Brain & Bones. The product is a fully interactive web-based game, featuring fast paced trivia and leaderboards. It was built completely from the ground up using modern web technology. It's a fully responsive PWA that works on any web-connected device.`
+                    `Speed Trivia was the first in the series of games for the Brain & Bones engagement platform. It harnessed the popularity of casual games to allow companies and individuals to connect with their customers, followers, and employees. This was the first project I spearheaded during my time at Brain & Bones. The product is a fully interactive web-based game, featuring fast paced trivia and real-time leaderboards. It features modern web technology including a fully responsive PWA, and is playable on any web-connected device.`
                 ],
-                technology: 'Angular/RxJS (game), Svelte/Kit (Website), Typescript, Moment, Anime.js',
+                technology: 'Angular/RxJS (game), Svelte/Kit (Website), Typescript, SASS, Moment, Anime.js',
                 url: 'https://www.speedtriviagame.com/',
                 coords: {x: 72, y: 111},
                 accent: '#4c1d95',
@@ -88,6 +89,7 @@ export const works: any = {
         ]
     },
 
+    // Jackpot Rising
     'jackpot-rising': {
         label: 'Jackpot Rising',
         projects: [
@@ -95,7 +97,7 @@ export const works: any = {
                 id: 'branding',
                 name: 'Branding',
                 details: [
-                    'Jackpot Rising was a tournament platform that integrated into games of all types, including hardcore, casual/mobile, and even real world arcade devices. The platform allowed users to compete against each other in progressive eSports-esque tournaments for real money, prizes, and digital goods. During my three years at Jackpot Rising, I managed the majority of the company’s branding, UX, product design, and led several key projects and initiatives.'
+                    'Jackpot Rising was a tournament platform that integrated within games of all types, including hardcore, casual/mobile, and even real world arcade devices. The platform allowed users to compete against each other in progressive eSports-esque tournaments for real money, prizes, and digital goods. During my three years at Jackpot Rising, I managed the majority of the company’s branding, UX, product design, and led several key projects and initiatives.'
                 ],
                 technology: 'Sketch, Photoshop, Angular (website)',
                 url: null,
@@ -115,28 +117,28 @@ export const works: any = {
                 id: 'overwolf',
                 name: 'Overwolf',
                 details: [
-                    'Overwolf provides a middleware solution for tracking game metrics (score, kills, etc.) in real-time for multiple triple-A PC game titles, including Fortnite, CS:GO, and League of Legends. Apps for the Overwolf platform also provide in-game overlays directly in the game (similar to Steam). I was the project lead for this application, which collected metrics for use in competitive tournaments. The application was built using web technology (similar to Electron) and uses data provided by the Ov'
+                    '<a href="https://www.overwolf.com/" target="_blank">Overwolf</a> provides middleware for tracking game metrics (score, kills, etc.) in real-time for multiple triple-A PC game titles. Apps created for the Overwolf platform provide in-game overlays directly in the game (similar to Steam). I was the project lead responsible for creating the Jackpot Rising app, which collected metrics for use in competitive tournaments. The application was built using web technology (similar to Electron) alongside the Overwolf API.'
                 ],
-                technology: 'Vue, Vuetify, Overwolf',
+                technology: 'Vue, Vuetify, SASS, Overwolf',
                 url: 'https://www.overwolf.com/app/Jackpot_Rising_Inc-Jackpot_Rising',
                 coords: {x: 43, y: 8},
-                accent: '#27223e',
+                accent: '#171717',
                 thumbnail: `${cdnBaseUrl}/works/jr-overwolf.png`,
                 videos: [],
                 screenshots: [
-                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/001.png`, caption: 'Tournament List'},
-                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/002.png`, caption: 'Tournament Details'},
-                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/003.png`, caption: 'Login View'},
-                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/008.png`, caption: 'The app At Dreamhack Dallas 2019'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/001.png`, caption: 'Navigating available tournaments'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/002.png`, caption: 'Tournament Details and entry'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/003.png`, caption: 'The login page'},
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/008.png`, caption: 'Dreamhack Dallas 2019'},
                     {src: `${cdnBaseUrl}/screenshots/jackpot-rising/overwolf/009.png`, caption: 'The leaderboard standings at Dreamhack Dallas 2019'}
                 ],
             },
             {
                 id: 'arcade',
                 details: [
-                    'One of my key efforts at Jackpot Rising included integrating our tournament platform with physical game cabinets, including skeeball, basketball, and mini-golf. I designed and implemented the on-screen UI and connection mechanisms, powered by Android Things running on a Raspberry Pi unit. Players could walk up to the device, sign into a web-based client, scan a QR code, and then immediately start playing the game. The web client featured a WebGL-based camera and utilized websockets to sync to the device. Some arcade devices were featured at Dreamhack Dallas 2019 and Cattle Baron’s Ball.'
+                    'One of the key efforts at Jackpot Rising included integrating our tournament platform with physical game cabinets, including skeeball, basketball, and mini-golf. I designed and implemented the on-screen UI and connection mechanisms, powered by Android Things running on a Raspberry Pi. Players could walk up to the device, sign into a web-based client, scan a QR code, and then immediately start playing the game. The web client featured a WebGL-based camera and utilized websockets to sync to the device. These arcade devices were featured at Dreamhack Dallas 2019 and the Dallas Cattle Baron’s Ball.'
                 ],
-                technology: 'Android Studio, Raspberry Pi, Angular',
+                technology: 'Android Studio, Raspberry Pi, Angular, Pusher.js',
                 url: null,
                 name: 'Arcade',
                 coords: {x: 13, y: 9},
@@ -154,9 +156,9 @@ export const works: any = {
                 id: 'homebase',
                 name: 'Homebase',
                 details: [
-                    'Homebase was the customer-facing product for the Jackpot Rising platform and primary means for managing tournaments, game, leaderboard prize fulfillment, user moderation, and much more. A web-based PWA, it featured a full role and permission system for large corporations. I led all design and frontend initiatives for the application.'
+                    'Homebase was the customer-facing app for the Jackpot Rising platform and primary means for managing tournaments, leaderboards, prize fulfillment, user moderation, and much more. A web-based PWA, it featured a full role and permission system for large corporations. I was the project lead on this product and led all design and implementation.'
                 ],
-                technology: 'Angular, Angular Material, Moment, Chart.js',
+                technology: 'Angular, Angular Material, Typescript, SASS, Moment, Chart.js',
                 url: null,
                 coords: {x: 48, y: 31},
                 accent: '#1d2d3f',
@@ -168,16 +170,16 @@ export const works: any = {
                     {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/003.png`, caption: 'Organizations and Properties'},
                     {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/004.png`, caption: 'Tournaments List'},
                     {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/005.png`, caption: 'Tournament Form'},
-                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/006.png`, caption: 'A sample of UI components from the mockup'}
+                    {src: `${cdnBaseUrl}/screenshots/jackpot-rising/homebase/006.png`, caption: 'A mock of various UI components'}
                 ],
             },
             {
                 id: 'playerhq',
                 name: 'PlayerHQ',
                 details: [
-                    'The user-facing companion product for the Jackpot Rising platform, PlayerHQ acted as the central HUB for tournaments, leaderboards, games, social features, as well as allowing players to manage their account and funds. The app was spearheaded by myself as a way to merge the company’s web and native mobile clients. It was developed from the ground up as a PWA and included hybrid mobile clients for iOS and Android, the latter of which was created and maintained by myself. It also featured a web-based QR scanner for syncing with Jackpot Rising’s arcade devices. The scanner utilized WebGL and websockets to communicate in real-time between the app clients, server, and physical arcade device.'
+                    'The user-facing companion app for the Jackpot Rising platform, PlayerHQ acted as the central HUB for tournaments, leaderboards, games, social features, as well as allowing players to manage their account and funds. The app was spearheaded by myself and bridged the company’s web and native mobile clients. It was developed from the ground up as a PWA and included hybrid mobile clients for iOS and Android, the latter of which was created and maintained by myself. It also featured a web-based QR scanner for syncing with Jackpot Rising’s arcade devices. The scanner utilized WebGL and websockets to communicate in real-time between the client, server, and physical arcade device.'
                 ],
-                technology: 'Angular, Angular Material, Moment, Chart.js',
+                technology: 'Angular, Angular Material, Typescript, SASS, Android Studio, Pusher.js, Moment, Chart.js',
                 url: null,
                 coords: {x: 81, y: 11},
                 accent: '#00e2fa',
@@ -199,7 +201,7 @@ export const works: any = {
                 id: 'speedleague',
                 name: 'Speedleague',
                 details: [
-                    `Speedleague is an international motorsports league by Red Bull’s Global Rallycross Championship creator Brian Gale. Building on the League's role as a sports organizer for X-Games motorsports and partnered with ESPN, Jackpot Rising took on the challenge of developing a mobile racing video game to help promote and run tournaments at each race, which would be held at locations such as The Bahamas, St. Petersburg, Dubai, and more. I contributed primarily to the UI and UX of the game experience, but also assisted with game development. The game was originally started in Unity, but later ported to the Unreal game engine.`
+                    `Speedleague is an international motorsports league created by Red Bull’s Global Rallycross Championship creator Brian Gale. Building on the League's role as a sports organizer for X-Games motorsports and partnered with ESPN, Jackpot Rising took on the challenge of developing a mobile racing video game to help promote and run tournaments alongside each real world race, which would be held at locations such as The Bahamas, St. Petersburg, Dubai, and more. I designed the UX, implemented the UI, and provided minor contributions to the game development. The game was originally started in Unity, but later ported to the Unreal engine.`
                 ],
                 technology: 'Unreal Game Engine, Unity Game Engine, Sketch, Photoshop',
                 url: 'https://www.tixr.com/groups/speedleague',
@@ -222,6 +224,7 @@ export const works: any = {
         ]
     },
 
+    // Gaming
     'gaming': {
         label: 'Gaming',
         projects: [
@@ -229,11 +232,11 @@ export const works: any = {
                 id: 'minirl',
                 name: 'Minirl',
                 details: [
-                    'Minirl was my first foray into indie game development. In the game you play as Hank, the adorably murderous square boy, as he traverses a variety of worlds full of creepy monsters and overcome dangerous obstacles in search for Minirls - powerful gems that grant power.',
+                    'Minirl was my first foray into indie game development. In the game you play as Hank, the adorably murderous square boy, as he traverses a variety of worlds full of creepy monsters and overcomes dangerous obstacles in search for Minirls - powerful gems that grant power.',
                     'Minirl is a procedurally-generated 2D rogue-lite with puzzle elements, which means a unique experience each time you play. It features accessible gameplay which allows you to dive right into the fun!',
-                    'The game featured audio by Jesse W.D. James and mixed by Paul Lipscomb, whose work has been featured in games such as Destiny 2.'
+                    'Music and sound effects were composed by Jesse W.D. James and mixed by Paul Lipscomb, whose work has been featured in games such as Destiny 2.'
                 ],
-                technology: 'Unity Game Engine, Android Studio, Xcode',
+                technology: 'Unity Game Engine, Android Studio, Xcode, Sketch',
                 url: 'http://minirlgame.com/',
                 coords: {x: 115, y: 61},
                 accent: '#5a253f',
@@ -254,7 +257,7 @@ export const works: any = {
                 id: 'elden-ring-planner',
                 name: 'Elden Ring Planner',
                 details: [
-                    'I’m a long time fan of FromSoft games (Dark Souls, Bloodborne, Sekiro, etc). Their latest release, Elden Ring, is a sprawling action RPG that’s found massive success since release. This app is a FOSS web app created over the course of about 2-3 days. It allows players to visually browse and plan their character’s armor, weapons, and more. My announcement garnered the attention of several prominent members of the “Souls/Borne” community, and garnered around 115k impressions within the first week.'
+                    'I’m a long time fan of FromSoft games (Dark Souls, Bloodborne, Sekiro, etc). Their latest release, <a href="https://en.bandainamcoent.eu/elden-ring/elden-ring" target="_blank">Elden Ring</a>, is a sprawling action RPG that’s found massive success since release. I created this simple FOSS web app over the course of about 2-3 days. It allows players to visually browse and plan their character’s armor, armaments, and more. My <a href="https://twitter.com/endigodesign/status/1537950064215089153" target="_blank">Twitter announcement</a> garnered the attention of several prominent members of the “Souls/Borne” community, and attracted over 100k impressions within the first week.'
                 ],
                 technology: 'Svelte/Kit, AWS (CDN via S3+Cloudfront), Github Pages',
                 url: 'https://endigo9740.github.io/elden-ring-planner',
