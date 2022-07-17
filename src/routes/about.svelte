@@ -46,7 +46,7 @@
 
         
         <!-- Footer -->
-        <Footer enabled={!compact} />
+        <Footer />
     </div>
 
 </main>

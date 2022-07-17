@@ -41,7 +41,7 @@ export const npcsList: any = (config: any) => {
             pathName: 'npc-circle',
             animatedSpriteSettings: { width: 2, height: 3 },
             containerSettings: { x: 40, y: 60, width: 2, height: 3 },
-            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! Tap the <strong>NAVIGATE</strong> button on your screen if you get lost. It will help you navigate the world. You can also tap the <strong>♫</strong> button to listen to listen to some relaxing jams.`,
+            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! If you get lost, simply tap the <strong class="text-pink-500">NAVIGATE</strong> button. This will help you navigate the between characters and projects.`,
             interactive: true
         }),
         
@@ -54,7 +54,7 @@ export const slimesList: any = (config: any) => {
 	const critters: any[] = [
 		{x: 30, y: 17},
 		{x: 60, y: 33},
-		{x: 80, y: 20},
+		{x: 84, y: 20},
 	];
 	critters.forEach((critter: any, i: number) => {
 		critterArr.push(
@@ -116,7 +116,7 @@ export const jellyfishList: any = (config: any) => {
 	const critterArr: GameObject[] = [];
 	const critterConfig: any[] = [
 		{x: 89, y: 68},
-		{x: 108, y: 67},
+		{x: 108, y: 65},
 		{x: 112, y: 50},
 	];
 	critterConfig.forEach((critter: any, i: number) => {
@@ -125,7 +125,12 @@ export const jellyfishList: any = (config: any) => {
 				name: `Jellyfish ${i+1}`,
 				loader: config.loader,
 				resource: 'entities/critters/critter-jellyfish.json',
-				pathName: 'critter-up-down',
+				pathName: randomFromArray([
+					'critter-up-down',
+					'critter-circle-cw',
+					'critter-circle-ccw',
+					'critter-lr-sm',
+				]),
 				animatedSpriteSettings: {
 					animationSpeed: randomFromArray([0.1, 0.11, 0.12]),
 					width: 1, height: 2,
@@ -184,7 +189,7 @@ export const catsList: any = (config: any) => {
 			loader: config.loader,
 			resource: 'entities/critters/critter-layla.json',
 			portrait: 'entities/critters/critter-layla-portrait.png',
-			dialog: `Meow! I'm Laya the cat. I love to eat and take naps.`,
+			dialog: `Meow! I'm Layla the cat. Chris and Melissa are my humans. If you would like to hear some relaxing tunes while you explore, tap the <strong class="text-pink-500">♫</strong> button.`,
 			containerSettings: {x: 58, y: 62},
 			containerLevel: config.containerLevel,
 			camera: config.camera,

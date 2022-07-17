@@ -14,13 +14,13 @@
             <a href="/game" class="bg-black/30 text-xs p-1 pb-4 flex flex-col items-center rounded cursor-pointer hover:bg-cyan-500">
                 <h5 class="text-white my-3">Game</h5>
                 <img class="w-[400px] rounded" src="intro-game.png" alt="Game">
-                <p class="mt-4 max-w-[320px]">An interactive game-like experience. Best for modern devices and connections.</p>
+                <p class="mt-4 max-w-[320px]">Interactive game-like experience, for modern devices and fast connections.</p>
             </a>
             <!-- Traditional -->
             <a href="/works" class="bg-black/30 text-xs p-1 pb-4 flex flex-col items-center rounded cursor-pointer hover:bg-pink-500">
                 <h5 class="text-white my-3">Traditional</h5>
                 <img class="w-[400px] rounded" src="intro-traditional.png" alt="Traditional">
-                <p class="mt-4 max-w-[320px]">A tradition website experience. Works well on all devices or connections.</p>
+                <p class="mt-4 max-w-[320px]">A traditional website experience. Great for all devices and connections.</p>
             </a>
         </nav>
     </div>

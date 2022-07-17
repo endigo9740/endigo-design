@@ -30,6 +30,7 @@ export class GameObject {
         width: 1,
         height: 1
     };
+    public textureRotation: number = 0;
     
     // Container
     public container: PIXI.Container = new PIXI.Container();
@@ -163,7 +164,7 @@ export class GameObject {
         if (this.dialogVisible) return;
         if (this.isWaiting) return;
         // Execute current path, else switch to next path
-        this.pathProgress >= 0 ? this.handleCurrentPathing() : this.nextPath();
+        if (this.pathProgress > 0) { this.handleCurrentPathing(); } else { this.nextPath(); }
     }
 
     handleCurrentPathing(): void {
@@ -172,33 +173,56 @@ export class GameObject {
         // Determine direction to move and texture rotation
         // https://pixijs.io/examples/#/textures/texture-rotate.js
         const currentPath: any = this.path[this.pathIndex];
-        switch(currentPath.path) {
-            case 'up': this.container.y -= 1; break;
-            case 'left': this.container.x -= 1; this.animatedSprite.texture.rotate = 12; break;
-            case 'down': this.container.y += 1; break;
-            case 'right': this.container.x += 1; this.animatedSprite.texture.rotate = 0; break;
-            case 'wait': this.triggerWaitDelay(currentPath); break
+        if (currentPath.direction === 'up') {
+            this.container.y -= 1;
+        } else if (currentPath.direction === 'left') {
+            // this.animatedSprite.texture.rotate = 12;
+            this.mirrorAxisX(-1);
+            this.container.x -= 1;
+        } else if (currentPath.direction === 'down') {
+            this.container.y += 1;
+        } else if (currentPath.direction === 'right') {
+            // this.animatedSprite.texture.rotate = 0;
+            this.mirrorAxisX(1);
+            this.container.x += 1;
+        } else if (currentPath.direction === 'wait') {
+            this.handleWait(currentPath.delay);
+        } else {
+            console.error('ERROR: unknown pathing direction');
         }
+        // Update progress amount
         this.pathProgress -= 1;
     }
 
-    triggerWaitDelay(currentPath: any): void {
+    mirrorAxisX(newScale: number): void {
+        if (this.container.scale.x !== newScale) {
+            if (newScale === -1) { this.container.scale.x *= -1; } else { this.container.scale.x = 1; }
+            this.container.x -= this.container.width;
+        }
+    }
+
+    handleWait(delay: number): void {
         this.isWaiting = true;
         this.animatedSprite.gotoAndStop(0);
         setTimeout(() => {
             this.isWaiting = false;
+            this.pathProgress = 0;
             this.nextPath();
-        }, currentPath.delay);
+        }, delay);
     }
 
     nextPath(): void {
+        if (this.pathProgress > 0) { return; }
+        // Loop to next path array value
+        (this.pathIndex+1) >= this.path.length ? this.pathIndex = 0 : this.pathIndex++;
+        // Fuel path prorgression meter
         this.pathProgress = tile.unit(1);
-        (this.pathIndex+1) >= this.path.length ? this.pathIndex = 0 :  this.pathIndex++;
     }
 
     // Rendering
 
     render(elapsed?: number): void {
+        // if (elapsed && Math.floor(elapsed) % 2 === 0) { return; } // slow speed
         this.pathing();
     }
 

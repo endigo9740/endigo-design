@@ -6,19 +6,20 @@
 
     export let pillars: any;
     export let npcs: any;
+    export let cats: any;
 
     const worksArr: any[] = Object.values(works);
 
-    function navigateToNpc(target: any): void {
-        cameraStore.set({type: 'entity', target, animate: true});
+    function navigateTo(entity: any): void {
+        cameraStore.set({type: 'entity', entity, animate: true});
         close();
     }
 
     function naviateToPillar(project: any): void {
         cameraStore.set({
             type: 'coords',
-            x: project.coords.x,
-            y: project.coords.y + 2, // pillar base
+            x: project.coords.x + 2, // focus on
+            y: project.coords.y + 3, // pillar base
             targetHeight: 1,
             targetWidth: 1,
             animate: true
@@ -58,23 +59,26 @@
                     <h2 class="text-cyan-500">Characters</h2>
                     <p>Interact and chat with Chris and a few other special guests.</p>
                     <nav class="grid grid-cols-3 gap-2">
+                        <!-- NPCs -->
                         {#each npcs as npc}
                         <li
                             class="bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:bg-cyan-500"
-                            on:click={()=>{navigateToNpc(npc)}}
+                            on:click={()=>{navigateTo(npc)}}
                         >
                             <img src={npc.portrait} class="crisp w-full aspect-square rounded" alt="portrait">
                             <h6 class="mt-3 mb-2">{npc.name}</h6>
                         </li>
                         {/each}
-                        <!-- Hardcode Layla -->
+                        <!-- Layla -->
+                        {#each cats as cat}
                         <li
                             class="bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:bg-cyan-500"
-                            on:click={()=>{ console.log('layla clicked!') }}
+                            on:click={()=>{navigateTo(cat)}}
                         >
-                            <img src="entities/critters/critter-layla-portrait.png" class="crisp w-full aspect-square rounded" alt="portrait">
-                            <h6 class="mt-3 mb-2">Layla</h6>
+                            <img src={cat.portrait} class="crisp w-full aspect-square rounded" alt="portrait">
+                            <h6 class="mt-3 mb-2">{cat.name}</h6>
                         </li>
+                        {/each}
                     </nav>
                 </section>
 

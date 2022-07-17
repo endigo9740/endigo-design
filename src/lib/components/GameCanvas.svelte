@@ -150,7 +150,8 @@
             game.stage.addChild(containerLevel);
 
             // On game launch, lock camera on Chris and start dialog.
-            cameraStore.set({type: 'entity', target: npcs[0], animate: false}); // npcs Chris
+            // cameraStore.set({type: 'entity', target: npcs[0], animate: false}); // npcs Chris
+            cameraStore.set({type: 'entity', target: critters.frogs[0], animate: false}); // npcs Chris
             // setTimeout(() => { npcs[0].onPointerDown(); }, 1000);
 
             // Animation Loop
@@ -164,11 +165,11 @@
 
                 // Render GameObjects
                 // NPCs
-                npcs.forEach((npc: GameObject) => npc.render());
+                npcs.forEach((npc: GameObject) => npc.render(elapsed));
                 // Critters
                 Object.values(critters).forEach((critterArr: any) => {
                     critterArr.forEach((c: any) => {
-                        if (c.render()) c.render(elapsed);
+                        if (c.render) c.render(elapsed);
                     })
                 });
 
@@ -202,7 +203,7 @@
     {:else if $pageModalStore !== undefined}
         <PageModal />
     {:else if $menuStore === true}
-        <Menu {pillars} {npcs} />
+        <Menu {pillars} {npcs} cats={critters.cats} />
     {:else}
         <Hud {elemAudio} />
     {/if}

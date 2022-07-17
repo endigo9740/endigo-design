@@ -44,6 +44,7 @@ export class Fish extends GameObject {
     }
 
     render(elapsed: number): void {
+        if (elapsed && Math.floor(elapsed) % 2 === 0) { return; }
         this.movement(elapsed);
     }
 
