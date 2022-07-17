@@ -13,11 +13,10 @@
 
     // Music
     let musicPlaying: boolean = false;
-    function musicIsPlaying(): void { musicPlaying = music.playing(); }
-    function musicPlay(): void { music.play(); musicIsPlaying(); }
-    function musicPause(): void { music.pause(); musicIsPlaying(); }
+    function musicPlay(): void { music.play(); musicPlaying = true; }
+    function musicPause(): void { music.pause(); musicPlaying = false; }
     function musicNext(): void { music.nextTrack(); }
-    onMount(() => { musicIsPlaying(); });
+    onMount(() => { musicPlaying = music.playing(); });
     $: if($navigating) musicPause();
 </script>
 
