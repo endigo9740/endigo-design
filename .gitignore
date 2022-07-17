@@ -10,3 +10,4 @@ node_modules
 # These should exist only on the CDN
 /static/screenshots
 /static/works
+/static/music

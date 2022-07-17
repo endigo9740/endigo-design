@@ -28,7 +28,7 @@ export const npcsList: any = (config: any) => {
             pathName: 'npc-left-right',
             animatedSpriteSettings: { width: 2, height: 3 },
             containerSettings: { x: 51, y: 69, width: 2, height: 3 },
-            dialog: `Hello, I'm Chris. Welcome to my interactive portfolio world! Have a look around. Each pillar represents a project I've contributed to:illar you discover will begin flashing. You may also tap the tablet near me to learn my story or get in touch.`,
+            dialog: `Hello, I'm Chris. Welcome to my interactive portfolio world! Have a look around. Each pillar represents a project I've contributed to. Once you've found a pillar it will begin to flash. You may also tap the tablet near me to learn my story or get in touch.`,
             interactive: true
         }),
 

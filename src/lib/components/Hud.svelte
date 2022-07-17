@@ -2,20 +2,20 @@
     import { onMount } from 'svelte';
     import { fly } from 'svelte/transition';
     import { menuStore } from '$lib/stores';
+    import { Music } from '$lib/game/Music';
 
-    export let elemAudio: HTMLAudioElement;
+    const music: Music = Music.getInstance();
 
     // Nav Menu
     function toggleMenu(): void { menuStore.set(true); }
 
-    // Music
+    // Music -- TODO: move to core game component (GameCanvas)
     let musicPlaying: boolean = false;
-    onMount(() => { setPlayingState(); });
-    function onToggleMusic(): void {
-        elemAudio.paused === true ? elemAudio.play() : elemAudio.pause();
-        setPlayingState();
-    }
-    function setPlayingState(): void { musicPlaying = !elemAudio.paused; }
+    function musicIsPlaying(): void { musicPlaying = music.playing(); }
+    function musicPlay(): void { music.play(); musicIsPlaying(); }
+    function musicPause(): void { music.pause(); musicIsPlaying(); }
+    function musicNext(): void { music.nextTrack(); }
+    onMount(() => { musicIsPlaying(); });
 </script>
 
 <!-- Branding -->
@@ -38,9 +38,17 @@
     <!-- Menu: Navigate -->
     <button type="button" class="btn-hollow" on:click={() => { toggleMenu(); }}>Navigate</button>
 
-    <!-- Toggle Music -->
-    <button type="button" class="btn-hollow" on:click={() => { onToggleMusic(); }}>
-        <div class:animFloatSmall={musicPlaying}>♫</div>
-    </button>
+    <!-- Music Controls -->
+    {#if !musicPlaying}
+        <!-- Play -->
+        <button type="button" class="btn-hollow" on:click={() => { musicPlay(); }} title="Play Music">♫</button>
+    {:else}
+    <div class="inline-flex space-x-3">
+        <!-- Pause -->
+        <button type="button" class="btn-hollow" on:click={() => { musicPause(); }} title="Pause Music">| |</button>
+        <!-- Next -->
+        <button type="button" class="btn-hollow" on:click={() => { musicNext(); }} title="Next Track">&#9654;</button>
+    </div>
+    {/if}
 
 </nav>
