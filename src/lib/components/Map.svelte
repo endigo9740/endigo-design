@@ -113,8 +113,11 @@
 </script>
 
 <!-- Minimap Canvas -->
-<canvas
-    bind:this={elemCanvas}
-    id="game"
-    class="w-full aspect-square cursor-pointer rounded-xl shadow-xl"
-></canvas>
+<section class="w-full flex flex-col justify-center items-center space-y-4">
+    <p>Tap the map to navigate anywhere instantly.</p>
+    <canvas
+        bind:this={elemCanvas}
+        id="game"
+        class="w-[90%] aspect-square mx-auto cursor-pointer rounded-xl shadow-xl"
+    ></canvas>
+</section>

@@ -1,6 +1,8 @@
 <script lang="ts">
     import { onMount } from 'svelte';
+    import { navigating } from '$app/stores';
     import { fly } from 'svelte/transition';
+
     import { menuStore } from '$lib/stores';
     import { Music } from '$lib/game/Music';
 
@@ -9,13 +11,14 @@
     // Nav Menu
     function toggleMenu(): void { menuStore.set(true); }
 
-    // Music -- TODO: move to core game component (GameCanvas)
+    // Music
     let musicPlaying: boolean = false;
     function musicIsPlaying(): void { musicPlaying = music.playing(); }
     function musicPlay(): void { music.play(); musicIsPlaying(); }
     function musicPause(): void { music.pause(); musicIsPlaying(); }
     function musicNext(): void { music.nextTrack(); }
     onMount(() => { musicIsPlaying(); });
+    $: if($navigating) musicPause();
 </script>
 
 <!-- Branding -->

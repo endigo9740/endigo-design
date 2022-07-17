@@ -4,7 +4,7 @@
 
     <div class="p-4 space-y-4 md:space-y-8">
         <header>
-            <img src="logo.png" class="animFloat mx-auto py-6" alt="logo">
+            <img src="logo.png" class="animFloat w-[100px] md:w-auto mx-auto py-6" alt="logo">
             <h2 class="uppercase">Endigo Design</h2>
             <p class="text-sm">The portfolio of Chris Simmons</p>
         </header>
@@ -14,7 +14,7 @@
             <a href="/game" class="bg-black/30 text-xs p-1 pb-4 flex flex-col items-center rounded cursor-pointer hover:bg-cyan-500">
                 <h5 class="text-white my-3">Game</h5>
                 <img class="w-[400px] rounded" src="intro-game.png" alt="Game">
-                <p class="mt-4 max-w-[320px]">Interactive game-like experience, for modern devices and fast connections.</p>
+                <p class="mt-4 max-w-[320px]">An interactive game-like experience, for modern devices and fast connections.</p>
             </a>
             <!-- Traditional -->
             <a href="/works" class="bg-black/30 text-xs p-1 pb-4 flex flex-col items-center rounded cursor-pointer hover:bg-pink-500">

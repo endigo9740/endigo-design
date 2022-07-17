@@ -7,6 +7,16 @@
     import About from "$routes/about.svelte";
     import Work from "$routes/works/[category]/Embed.svelte";
 
+
+    let copyMessage = 'Copy URL';
+    function onCopyUrl(): void {
+        const urlText: string = `https://endigodesign.com/works/${$pageModalStore.category}/${$pageModalStore.id}`;
+        navigator.clipboard.writeText(urlText).then(() => {
+            copyMessage = '👍 Copied!';
+            setTimeout(() => { copyMessage = 'Copy URL'; }, 3000);
+        });
+    }
+
     onMount(() => {
         document.addEventListener('keydown', (e: any) => {
             if (e.key === 'Escape'){ closeModal(); }
@@ -27,7 +37,7 @@
             <p class="text-xs uppercase">{$pageModalStore.component === 'Work' ? 'Project' : $pageModalStore.component}</p>
             <nav class="space-x-6">
                 {#if $pageModalStore.component === 'Work'}
-                <a href={`/works/${$pageModalStore.category}/${$pageModalStore.id}`} target="_blank">Full Page</a>
+                <button type="button" class="opacity-60" on:click={() => { onCopyUrl(); }}>{copyMessage}</button>
                 {/if}
                 <button type="button" class="btn-hollow" on:click={closeModal}>Close</button>
             </nav>

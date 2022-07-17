@@ -41,7 +41,7 @@ export const npcsList: any = (config: any) => {
             pathName: 'npc-circle',
             animatedSpriteSettings: { width: 2, height: 3 },
             containerSettings: { x: 40, y: 60, width: 2, height: 3 },
-            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! If you get lost, simply tap the <strong class="text-pink-500">Navigate Button</strong>. This will help you navigate the between characters and projects.`,
+            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! If you get lost, simply tap the <strong class="text-pink-500">Navigate Button</strong>. This will help you quickly and easily navigate the between available characters and projects.`,
             interactive: true
         }),
         
@@ -189,7 +189,7 @@ export const catsList: any = (config: any) => {
 			loader: config.loader,
 			resource: 'entities/critters/critter-layla.json',
 			portrait: 'entities/critters/critter-layla-portrait.png',
-			dialog: `Meow! I'm Layla the cat. Chris and Melissa are my humans. If you would like some relaxing tunes while you explore then tap the <strong class="text-pink-500">♫ Button</strong>.`,
+			dialog: `Meow! I'm Layla the cat. Chris and Melissa are my humans. Try the <strong class="text-pink-500">♫ Button</strong> to hear some chill tunes while you explore this world.`,
 			containerSettings: {x: 58, y: 62},
 			containerLevel: config.containerLevel,
 			camera: config.camera,

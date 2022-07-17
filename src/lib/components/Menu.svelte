@@ -11,7 +11,7 @@
     const worksArr: any[] = Object.values(works);
 
     function navigateTo(entity: any): void {
-        cameraStore.set({type: 'entity', entity, animate: true});
+        cameraStore.set({type: 'entity', target: entity, animate: true});
         close();
     }
 
@@ -57,7 +57,7 @@
                 <!-- Characters -->
                 <section class="space-y-4">
                     <h2 class="text-cyan-500">Characters</h2>
-                    <p>Interact and chat with Chris and a few other special guests.</p>
+                    <p>Shown in <strong class="text-cyan-500">blue</strong>. Interact and chat with Chris and other special guests.</p>
                     <nav class="grid grid-cols-3 gap-2">
                         <!-- NPCs -->
                         {#each npcs as npc}
@@ -85,7 +85,7 @@
                 <!-- Pillars -->
                 <section class="space-y-4">
                     <h2 class="text-pink-500">Pillars</h2>
-                    <p>Each represents a project Chris has created or contributed to.</p>
+                    <p>Shown in <strong class="text-pink-500">pink</strong>, each represents a project Chris has created or contributed to</p>
                     <!-- Per Each Category -->
                     {#each Object.values(worksArr) as category, i}
                         <h4>{category.label}</h4>
