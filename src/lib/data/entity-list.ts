@@ -28,7 +28,7 @@ export const npcsList: any = (config: any) => {
             pathName: 'npc-left-right',
             animatedSpriteSettings: { width: 2, height: 3 },
             containerSettings: { x: 51, y: 69, width: 2, height: 3 },
-            dialog: `Hello, I'm Chris. Welcome to my interactive portfolio world! Have a look around. Each pillar represents a project I've contributed to. Once you've found a pillar it will begin to flash. You may also tap the tablet near me to learn my story or get in touch.`,
+            dialog: `Hello, I'm Chris. Welcome to my interactive portfolio world! Have a look around. Each pillar represents a project I've contributed to. Each pillar will flash when discovered. Also try the <strong class="text-pink-500">Stone Tablet</strong> nearby to learn my story.`,
             interactive: true
         }),
 
@@ -41,7 +41,7 @@ export const npcsList: any = (config: any) => {
             pathName: 'npc-circle',
             animatedSpriteSettings: { width: 2, height: 3 },
             containerSettings: { x: 40, y: 60, width: 2, height: 3 },
-            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! If you get lost, simply tap the <strong class="text-pink-500">NAVIGATE</strong> button. This will help you navigate the between characters and projects.`,
+            dialog: `Hi, I'm Chris' girlfriend. I'm here to help! If you get lost, simply tap the <strong class="text-pink-500">Navigate Button</strong>. This will help you navigate the between characters and projects.`,
             interactive: true
         }),
         
@@ -189,7 +189,7 @@ export const catsList: any = (config: any) => {
 			loader: config.loader,
 			resource: 'entities/critters/critter-layla.json',
 			portrait: 'entities/critters/critter-layla-portrait.png',
-			dialog: `Meow! I'm Layla the cat. Chris and Melissa are my humans. If you would like to hear some relaxing tunes while you explore, tap the <strong class="text-pink-500">♫</strong> button.`,
+			dialog: `Meow! I'm Layla the cat. Chris and Melissa are my humans. If you would like some relaxing tunes while you explore then tap the <strong class="text-pink-500">♫ Button</strong>.`,
 			containerSettings: {x: 58, y: 62},
 			containerLevel: config.containerLevel,
 			camera: config.camera,
