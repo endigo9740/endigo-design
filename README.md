@@ -4,7 +4,7 @@
 
 ## About the Project
 
-This project is the portfolio website for Chris Simmons. It features both modes:
+This project is the portfolio website for Chris Simmons. It features two display modes:
 
 1. An interactive game-like experience. This works similar to 2D top-down perspective RPG games like Zelda or Pokemon.
 2. A traditional website with standard navigation. Works exactly as you might imagine.
