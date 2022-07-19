@@ -30,7 +30,7 @@ export const works: any = {
                 id: 'branding',
                 name: 'Branding',
                 details: [
-                    'Over the course of two years, I lead all branding, marketing, and development efforts at Brain & Bones. This included full implementation of multiple web apps and services, various marketing initiatives, as well as establishing the brand guidelines and visual identity for the company and all related products.'
+                    'Over the course of two years, I led all development and design efforts for Brain & Bones. This included managing a small team of developers while implementing the core SaaS platform, management and user-facing web apps, as well as the Speed Trivia game client. I was responsible for managing all brand guidelines within the company and handled UX and visual identity for each product.'
                 ],
                 technology: 'Svelte/Kit (website), Sketch (Design/UI/UX), Notion (Guidelines)',
                 url: 'https://www.brainandbonesllc.com/',
