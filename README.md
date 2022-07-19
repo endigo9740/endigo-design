@@ -1,6 +1,7 @@
 # Endigo Design
 
-[View the Live Site](https://endigodesign.com/)
+* [View the Live Site](https://endigodesign.com/)
+* [Dev Blog](https://medium.com/@endigo9740/my-new-portfolio-d93c2153644b)
 
 ## About the Project
 
