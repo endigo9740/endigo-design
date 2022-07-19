@@ -4,7 +4,7 @@ import { Howl } from 'howler';
 export class Music {
     private static instance: Music;
 
-    private cdnBaseUrl: string = 'https://cdn.endigodesign.com.s3-us-east-2.amazonaws.com/endigo_design/portfolio/music';
+    private cdnBaseUrl: string = '/music';
     private Channel: any;
     private currentIndex: number = 0;
     private tracks: any[] = [
