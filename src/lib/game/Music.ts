@@ -4,7 +4,7 @@ import { Howl } from 'howler';
 export class Music {
     private static instance: Music;
 
-    private cdnBaseUrl: string = 'http://cdn.endigodesign.com.s3-us-east-2.amazonaws.com/endigo_design/portfolio'; // cloud.mp3
+    private cdnBaseUrl: string = 'https://cdn.endigodesign.com.s3-us-east-2.amazonaws.com/endigo_design/portfolio/music';
     private Channel: any;
     private currentIndex: number = 0;
     private tracks: any[] = [
@@ -30,10 +30,11 @@ export class Music {
 
     setChannel(): void {
         this.Channel = new Howl({
-            src: [`${this.cdnBaseUrl}/music/${this.tracks[this.currentIndex]}`],
+            src: [`${this.cdnBaseUrl}/${this.tracks[this.currentIndex]}`],
             html5: true,
             volume: 0.5,
-            onend: () => { this.nextTrack(); }
+            onend: () => { this.nextTrack(); },
+            onloaderror: (id, err) => { throw new Error(`${id}: ${err}`); },
         });
     }
 
