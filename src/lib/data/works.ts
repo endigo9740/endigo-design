@@ -10,9 +10,11 @@ export const works: any = {
                 id: 'skeleton',
                 name: 'Skeleton',
                 details: [
-                    `A fully-featured UI component library featuring tight integration between Svelte and Tailwind. Skeleton was originally created for internal uses at Brain & Bones during our migration from Angular to Svelte. It is currently in process of being released as free and open source software for anyone to contribute to within the development community. The library provides a host of powerful components, and supports both themes and dark mode. Skeleton was inspired by UI libraries such as <a href="https://bulma.io/" target="_blank">Bulma</a> and <a href="https://mantine.dev/" target="_blank">Mantine</a>.`
+                    `I am the creator and lead contributor to Skeleton, a fully featuret UI component library, featuring tight integration between <a href="https://svelte.dev/" target="_blank">Svelte</a> and <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>. In short, the library utilizes Tailwind’s utility class-based design system to quickly and easily customize and extend the look and feel of each component. Paired with Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for any size project.`,
+                    `The library covers everything from simple buttons and tabs to more complex and interactive elements, such as data tables and popup dialog modals. It includes built-in support for both themes and dark mode, while providing access to bleeding edge features such as SVG filters.`,
+                    `Check out the <a href="https://skeleton.brainandbonesllc.com/docs/why" target="_blank">Why Skeleton</a> section on the documentation site to learn more about what it is, how it was built, and what problems it solves.`,
                 ],
-                technology: `Svelte/Kit, Tailwind CSS, Typescript, Vite, Vitest, Testing Library, Highlight.js`,
+                technology: `Svelte/Kit, Tailwind CSS, Typescript, Vite, Vitest, Testing Library, NPM, Highlight.js`,
                 url: 'https://skeleton.brainandbonesllc.com/',
                 coords: {x: 113, y: 102},
                 accent: '#111827',
