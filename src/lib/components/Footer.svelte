@@ -1,9 +1,9 @@
 <script lang="ts">
     const socialLinks: any[] = [
-        {name: 'Github', url: "https://github.com/endigo9740", color: '#333333'},
-        {name: 'LinkedIn', url: "https://www.linkedin.com/in/chris-simmons-8a523a23/", color: '#0077b5'},
-        {name: 'Twitter', url: "https://twitter.com/endigodesign", color: '#1da1f2'},
-        {name: 'Medium', url: "https://medium.com/@endigo9740", color: '#00ab6c'},
+        {name: 'Github', url: "https://github.com/endigo9740"},
+        {name: 'LinkedIn', url: "https://www.linkedin.com/in/chris-simmons-8a523a23/"},
+        {name: 'Twitter', url: "https://twitter.com/endigodesign"},
+        {name: 'Blog', url: "https://dev.to/endigo9740"},
     ];
 </script>
 
