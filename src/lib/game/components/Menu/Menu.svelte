@@ -46,13 +46,15 @@
 	<div class="flex-none lg:flex-[50%] p-4 overflow-x-auto space-y-8">
 		<!-- Characters -->
 		<section class="space-y-4">
-			<h2 class="text-cyan-500">Characters</h2>
-			<p>Shown in <strong class="text-cyan-500">blue</strong>. Interact and chat with Chris and other special guests.</p>
+			<h2>Characters</h2>
+			<p>
+				Shown in <span class="badge variant-filled-secondary">blue</span> - interact and chat with Chris and other special guests.
+			</p>
 			<nav class="grid grid-cols-3 gap-2">
 				<!-- NPCs -->
 				{#each npcs as npc}
 					<li
-						class="bg-white/30 dark:bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:!bg-pink-500"
+						class="bg-white/30 dark:bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:!bg-secondary-500"
 						on:click={() => {
 							navigateTo(npc);
 						}}
@@ -65,7 +67,7 @@
 				<!-- Layla -->
 				{#each cats as cat}
 					<li
-						class="bg-white/30 dark:bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:!bg-pink-500"
+						class="bg-white/30 dark:bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:!bg-secondary-500"
 						on:click={() => {
 							navigateTo(cat);
 						}}
@@ -80,17 +82,18 @@
 
 		<!-- Pillars -->
 		<section class="space-y-4">
-			<h2 class="text-pink-500">Pillars</h2>
-			<p>Shown in <strong class="text-pink-500">pink</strong>, each represents a project Chris has created or contributed to</p>
+			<h2>Pillars</h2>
+			<p>
+				Shown in <span class="badge variant-filled-primary">pink</span> - each represents a project Chris has created or contributed to
+			</p>
 			<!-- Per Each Category -->
 			{#each Object.values(worksArr) as category, i}
 				<h4>{category.label}</h4>
 				<nav class="list-none grid grid-cols-1 md:grid-cols-2 gap-4">
 					<!-- Per Each Project -->
 					{#each category.projects as project}
-						<!-- class="bg-black/30 p-1 rounded cursor-pointer flex items-center space-x-4 group hover:bg-pink-500" -->
 						<div
-							class="card bg-white/30 dark:bg-black/30 p-1 rounded cursor-pointer grid grid-cols-[64px_1fr] gap-4 place-items-center hover:!bg-cyan-500"
+							class="card bg-white/30 dark:bg-black/30 p-1 rounded cursor-pointer grid grid-cols-[64px_1fr] gap-4 place-items-center hover:!bg-primary-500"
 							on:click={() => {
 								naviateToPillar(project);
 							}}

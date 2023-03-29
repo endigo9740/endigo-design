@@ -3,7 +3,7 @@
 <section class="flex flex-col justify-start md:justify-center items-center w-full h-full space-y-4 text-center">
 	<div class="p-4 space-y-4 md:space-y-8">
 		<header>
-			<img src="./images/logo.png" class="animFloat w-[100px] md:w-auto mx-auto py-6" alt="logo" />
+			<img src="/images/logo.png" class="invert-[0.9] dark:invert-0 animFloat w-[100px] md:w-auto mx-auto py-6" alt="logo" />
 			<h2 class="uppercase">Endigo Design</h2>
 			<span class="text-sm opacity-75">The portfolio of Chris Simmons</span>
 		</header>

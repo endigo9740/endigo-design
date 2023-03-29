@@ -33,7 +33,7 @@
 					<p>{@html detailsParagraph}</p>
 				{/each}
 			</div>
-			<small class="block text-xs text-cyan-500">{work.technology || 'Tech not available.'}</small>
+			<small class="block text-xs opacity-75">{work.technology || 'Tech not available.'}</small>
 		</section>
 
 		<!-- Media -->

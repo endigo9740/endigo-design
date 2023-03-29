@@ -44,9 +44,9 @@
 	transition:fly|local={{ y: -100, duration: 250 }}
 	title="Go to homepage."
 >
-	<img src="./images/logo.png" class="w-[40px] h-[40px]" alt="logo" />
+	<img src="/images/logo.png" class="invert-[0.9] dark:invert-0 w-[40px] h-[40px]" alt="logo" />
 	<div>
-		<span class="block text-white text-2xl font-bold uppercase">Endigo Design</span>
+		<span class="block text-2xl font-bold uppercase">Endigo Design</span>
 		<span class="block text-xs opacity-70">The portfolio of Chris Simmons</span>
 	</div>
 </a>
@@ -59,7 +59,7 @@
 	<!-- Menu: Navigate -->
 	<button
 		type="button"
-		class="btn variant-ghost"
+		class="btn variant-filled"
 		on:click={() => {
 			toggleMenu();
 		}}>Navigate</button
@@ -70,7 +70,7 @@
 		<!-- Play -->
 		<button
 			type="button"
-			class="btn variant-ghost"
+			class="btn variant-filled"
 			on:click={() => {
 				musicPlay();
 			}}
@@ -81,7 +81,7 @@
 			<!-- Pause -->
 			<button
 				type="button"
-				class="btn variant-ghost"
+				class="btn variant-filled"
 				on:click={() => {
 					musicPause();
 				}}
@@ -90,7 +90,7 @@
 			<!-- Next -->
 			<button
 				type="button"
-				class="btn variant-ghost"
+				class="btn variant-filled"
 				on:click={() => {
 					musicNext();
 				}}

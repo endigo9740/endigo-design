@@ -27,7 +27,7 @@ export const npcsList: any = (config: any) => {
 			pathName: 'npc-left-right',
 			animatedSpriteSettings: { width: 2, height: 3 },
 			containerSettings: { x: 51, y: 69, width: 2, height: 3 },
-			dialog: `Hello, I'm Chris. Welcome to my interactive portfolio! Here you're free to explore a virtual world of my own creation. You can tap and drag to move around. Try the <strong class="text-pink-500">Stone Tablet</strong> nearby to learn more about me, or intereact with any <strong class="text-pink-500">Pillar</strong> to view details about the vast array of projects I've contributed to.`,
+			dialog: `Hello, I'm Chris. Welcome to my interactive portfolio! Here you're free to explore a virtual world of my own creation. You can tap and drag to move around. Try the <strong class="text-primary-500">Stone Tablet</strong> nearby to learn more about me, or intereact with any <strong class="text-primary-500">Pillar</strong> to view details about the vast array of projects I've contributed to.`,
 			interactive: true
 		}),
 
@@ -40,7 +40,7 @@ export const npcsList: any = (config: any) => {
 			pathName: 'npc-circle',
 			animatedSpriteSettings: { width: 2, height: 3 },
 			containerSettings: { x: 40, y: 60, width: 2, height: 3 },
-			dialog: `Hi, I'm Chris' girlfriend. I'm here to help! If you get lost, simply tap the <strong class="text-pink-500">Navigate Button</strong>. This will help you quickly and easily navigate the between available characters and projects.`,
+			dialog: `Hi, I'm Chris' girlfriend. I'm here to help! If you get lost, simply tap the <strong class="text-primary-500">Navigate Button</strong>. This will help you quickly and easily navigate the between available characters and projects.`,
 			interactive: true
 		})
 	];
@@ -178,7 +178,7 @@ export const catsList: any = (config: any) => {
 			loader: config.loader,
 			resource: 'entities/critters/critter-layla.json',
 			portrait: 'entities/critters/critter-layla-portrait.png',
-			dialog: `Meow! I'm Layla the cat. Chris and Melissa are my humans. Try the <strong class="text-pink-500">♫ Button</strong> to hear some chill tunes while you explore this world.`,
+			dialog: `Meow! I'm Layla the cat. Chris and Melissa are my humans. Try the <strong class="text-primary-500">♫ Button</strong> to hear some chill tunes while you explore this world.`,
 			containerSettings: { x: 58, y: 62 },
 			containerLevel: config.containerLevel,
 			camera: config.camera

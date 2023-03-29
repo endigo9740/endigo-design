@@ -8,7 +8,7 @@
 	<div class="col-span-2 flex flex-col items-center space-y-8">
 		<img
 			src="/entities/npcs/npc-chris-portrait.png"
-			class="crisp bg-cyan-500 w-full max-w-[250px] aspect-square rounded-full shadow-xl"
+			class="crisp bg-secondary-500 w-full max-w-[250px] aspect-square rounded-full shadow-xl"
 			alt="portrait"
 		/>
 		<a href="http://bit.ly/1obS62s" class="inline-block btn variant-soft hover:variant-filled-primary" target="_blank">View Resume</a>

@@ -4,8 +4,11 @@
 	import '@skeletonlabs/skeleton/styles/all.css';
 	import '../app.postcss';
 	// Skeleton
-	import { Modal } from '@skeletonlabs/skeleton';
+	import { Modal, autoModeWatcher } from '@skeletonlabs/skeleton';
 </script>
+
+<!-- Set light/dark mode based on OS preference -->
+<svelte:head>{@html `<script>${autoModeWatcher.toString()} autoModeWatcher();</script>`}</svelte:head>
 
 <Modal />
 <slot />
