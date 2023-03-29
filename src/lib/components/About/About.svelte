@@ -41,8 +41,8 @@
 			here to help!
 		</p>
 		<p>
-			Currently I’m searching for my “next big thing”, with a focus on gaming or gaming adjacent services. If you think I may be a good fit
-			for your team, please feel free to reach out. Let's build something great together!
+			I'm currently serving as the core maintainer of <a href="https://skeleton.dev/" target="_blank" rel="noreferrer">Skeleton</a>, a UI
+			toolkit for Svelte and Tailwind.
 		</p>
 	</section>
 

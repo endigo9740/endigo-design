@@ -15,6 +15,6 @@
 				<a class="btn btn-sm hover:variant-filled-primary" href={site.url} target="_blank">{site.name}</a>
 			{/each}
 		</nav>
-		<a class="btn btn-sm hover:variant-filled-secondary" href="mailto:gundamx9740@gmail.com">Email</a>
+		<a class="btn btn-sm hover:variant-filled-secondary" href="mailto:chris@skeleton.dev">Email</a>
 	</div>
 </footer>
