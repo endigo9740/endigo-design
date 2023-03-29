@@ -1,68 +1,22 @@
-# Endigo Design
+# create-svelte
 
-* [View the Live Site](https://endigodesign.com/)
-* [Dev Blog](https://medium.com/@endigo9740/my-new-portfolio-d93c2153644b)
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## About the Project
+## Creating a project
 
-This project is the portfolio website for Chris Simmons. It features two display modes:
+If you're seeing this, you've probably already done this step. Congrats!
 
-1. An interactive game-like experience. This works similar to 2D top-down perspective RPG games like Zelda or Pokemon.
-2. A traditional website with standard navigation. Works exactly as you might imagine.
+```bash
+# create a new project in the current directory
+npm create svelte@latest
 
-Either method will let you explore and learn more about me and projects I've contributed to. 
-
-## Implementation
-
-### Tech Stack
-
-* [Svelte/Kit](https://kit.svelte.dev/) - frontend framework
-* [Pixi.js](https://pixijs.com/) - canvas/webGL rendering
-* [Tailwind CSS](https://tailwindcss.com/)
-* [Howler.js](https://howlerjs.com/) - audio library
-* [AWS S3](https://aws.amazon.com/s3/) - static hosting
-* [AWS Cloudfront](https://aws.amazon.com/cloudfront/) - CDN (site + assets)
-
-### Design
-
-* [Aseprite](https://www.aseprite.org/) - for pixel art
-* [Tiled map Editor](https://www.mapeditor.org/) - for tilemap generation
-
-### Project Structure
-
-```
-/static - static assets (images, json, etc)
-/src
-    /lib
-        /components - Svelte components
-        /data - local data, in JSON-like format
-        /game - game classes
-            /effects - for visual game effect
-            /objects - for game objects (entities)
-        store.js - Svelte stores and global state
-    /routes - app page routing
-    app.css - global stylesheet
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
 
-## Contact Me
+## Developing
 
-If you're trying to get in touch with me, try any of the methods listed below.
-
-* [Github](https://github.com/endigo9740)
-* [LinkedIn](https://www.linkedin.com/in/chris-simmons-8a523a23/)
-* [Twitter](https://twitter.com/endigodesign)
-* [Medium](https://medium.com/@endigo9740)
-* [Email](gundamx9740@gmail.com)
-
-## Attribution
-
-* [Music by Bensmir - via Itch.io](https://bensmir.itch.io/lofi-beats-vol1)
-
----
-
-## Developement
-
-Start a Local Server
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
@@ -71,17 +25,14 @@ npm run dev
 npm run dev -- --open
 ```
 
-To build for Production
+## Building
+
+To create a production version of your app:
 
 ```bash
 npm run build
 ```
 
-> NOTE: check the notes in `svelte.config.js` if you run into build errors.
+You can preview the production build with `npm run preview`.
 
-To run a preview server of the build:
-
-```bash
-npm run build
-npm run preview
-```
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.

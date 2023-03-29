@@ -6,8 +6,5 @@ node_modules
 .env
 .env.*
 !.env.example
-
-# These should exist only on the CDN
-/static/screenshots
-/static/works
-/static/music
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
