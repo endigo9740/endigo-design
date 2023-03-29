@@ -53,7 +53,7 @@
 
 <!-- Controls -->
 <nav
-	class="card variant-glass fixed bottom-0 right-0 z-50 p-4 rounded-none rounded-tl-xl space-x-4"
+	class="card variant-glass fixed bottom-0 right-0 z-10 p-4 rounded-none rounded-tl-xl space-x-4"
 	transition:fly|local={{ y: 100, duration: 250 }}
 >
 	<!-- Menu: Navigate -->

@@ -36,10 +36,11 @@
 	// UI Components
 	import ProgressBar from '$lib/game/components/ProgressBar/ProgressBar.svelte';
 	import Hud from '$lib/game/components/Hud/Hud.svelte';
+	import Dialog from '../Dialog/Dialog.svelte';
 
 	// Stores
 	// dialogStore, pageModalStore, menuStore,
-	import { cameraStore, entitiesStore } from '$lib/game/stores';
+	import { cameraStore, dialogStore, entitiesStore } from '$lib/game/stores';
 
 	let elemCanvas: HTMLCanvasElement;
 	const loading: any = { amount: 0, complete: false };
@@ -217,6 +218,8 @@
 		class="fixed top-0 left-0 right-0 bottom-0 z-10 bg-surface-500/80 dark:bg-surface-900/80"
 		transition:fade|local={{ duration: 500 }}
 	/>
+{:else if $dialogStore !== undefined}
+	<Dialog />
 {:else if $modalStore.length === 0}
 	<Hud />
 {/if}

@@ -9,7 +9,7 @@
 
 {#if $dialogStore !== undefined}
 	<section
-		class="bg-glass window fixed left-4 right-4 bottom-4 max-w-[1200px] mx-auto md:grid grid-cols-5 gap-8 p-4 space-y-4 md:space-y-0"
+		class="card fixed left-4 right-4 bottom-4 max-w-[1200px] mx-auto md:grid grid-cols-5 gap-8 p-4 space-y-4 md:space-y-0"
 		transition:fly={{ y: 500, duration: 150 }}
 	>
 		<!-- Portrait -->
@@ -29,7 +29,7 @@
 
 		<!-- Actions -->
 		<nav class="col-span-1 flex justify-center items-center">
-			<button type="button" class="btn-hollow" on:click={dismiss}>Okay, got it!</button>
+			<button type="button" class="btn variant-filled" on:click={dismiss}>Okay, got it!</button>
 		</nav>
 	</section>
 {/if}
