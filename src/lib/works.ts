@@ -2,14 +2,14 @@ const cdnBaseUrl: string = 'https://d1fp2fj544zz6e.cloudfront.net/endigo_design/
 
 export const works: any = {
 	// Skeleton Labs
-	'skeleton-labs': {
-		label: 'Skeleton labs',
+	cityhive: {
+		label: 'CityHive',
 		projects: [
 			{
-				id: 'skeleton',
-				name: 'Skeleton',
+				id: 'cms',
+				name: 'CMS',
 				details: [
-					`I am the creator and core maintainer for Skeleton - an open source UI toolkit and component library featuring tight integration between <a href="https://svelte.dev/" target="_blank">Svelte</a> and <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.`,
+					`I am a lead full stack engineer in the product team at CityHive. An e-commerce platform for the wine, beer, and spirits industry`,
 					`In short, the library utilizes Tailwind’s utility class-based design system to quickly and easily customize and extend the look and feel of each component. Paired with Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for any size project.`,
 					`The library covers everything from simple buttons and tabs to more complex and interactive elements, such as modals, dialogs, and popups. It includes built-in support for both themes and dark mode, while providing access to bleeding edge features such as SVG filters.`,
 					`Skeleton is hugely popular, with over 20k+ downloads a month, 1.6k+ stars on GitHub, and 1k+ memebers on Discord. While promoting Skeleton, I've appeared on episodes of the <a href="https://www.youtube.com/watch?v=2OnJYCXJPK4" target="_blank">Svelte Sirens</a>, the <a href="https://podrocket.logrocket.com/skeleton?ref=skeleton.ghost.io" target="_blank">Logrocket Podcast</a>, as well as our <a href="https://www.youtube.com/playlist?list=PLJtgPDPrJYAuDISpNrarLCjVInKknDCcA" target="_blank">Skeleton launch event</a>.`

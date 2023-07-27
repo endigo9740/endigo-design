@@ -7,9 +7,9 @@
 <header class="text-center py-10 md:py-20">
 	<div class="text-center space-y-2 drop-shadow-lg">
 		<img src="/images/logo.png" class="invert-[0.9] dark:invert-0 animFloat mx-auto" alt="logo" />
-		<span class="block text-5xl md:text-7xl lg:text-9xl">Hi, I'm <span class="text-primary-500 font-bold">Chris</span></span>
+		<span class="block text-5xl md:text-7xl lg:text-9xl">Hi, I'm <span class="text-primary-500 font-bold">Ryan</span></span>
 		<span class="block text-xs md:text-lg font-bold opacity-75 drop-shadow-xl md:translate-x-12">
-			Developer, designer, UX, OSS maintainer, and more.
+			Developer, designer, UX, OSS contributor, and more.
 		</span>
 	</div>
 </header>
