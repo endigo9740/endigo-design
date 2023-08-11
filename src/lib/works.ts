@@ -1,7 +1,7 @@
-const cdnBaseUrl: string = 'https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio';
+const cdnBaseUrl = 'https://d234wyh4hwmj0y.cloudfront.net/';
 
-export const works: any = {
-	// Skeleton Labs
+export const works: Record<string, IWorkObject> = {
+	// ch
 	cityhive: {
 		label: 'CityHive',
 		projects: [
@@ -15,7 +15,7 @@ export const works: any = {
 					`Skeleton is hugely popular, with over 20k+ downloads a month, 1.6k+ stars on GitHub, and 1k+ memebers on Discord. While promoting Skeleton, I've appeared on episodes of the <a href="https://www.youtube.com/watch?v=2OnJYCXJPK4" target="_blank">Svelte Sirens</a>, the <a href="https://podrocket.logrocket.com/skeleton?ref=skeleton.ghost.io" target="_blank">Logrocket Podcast</a>, as well as our <a href="https://www.youtube.com/playlist?list=PLJtgPDPrJYAuDISpNrarLCjVInKknDCcA" target="_blank">Skeleton launch event</a>.`
 				],
 				technology: `Svelte/Kit, Tailwind, Vite, Vitest, Testing Library, NPM, Typescript`,
-				url: 'https://skeleton.dev/',
+				url: 'https://www.cityhive.net/retailers/website',
 				coords: { x: 113, y: 102 },
 				accent: '#242c46',
 				thumbnail: `${cdnBaseUrl}/works/sk-logo.png`,
@@ -49,9 +49,9 @@ export const works: any = {
 		]
 	},
 
-	// Brain & Bones
-	'brain-&-bones': {
-		label: 'Brain & Bones',
+	// music related aps
+	'music-related-apps': {
+		label: 'Music Related Apps 🎸',
 		projects: [
 			{
 				id: 'branding',
@@ -300,3 +300,36 @@ export const works: any = {
 		]
 	}
 };
+
+interface IWorkObject {
+	label: string;
+	projects: IProject[];
+}
+
+interface IProject {
+	id: string;
+	name: string;
+	details: string[];
+	technology: string;
+	url: string;
+	coords: ICoords;
+	accent: string;
+	thumbnail: string;
+	videos: IVideo[];
+	screenshots: IScreenshot[];
+}
+
+interface IScreenshot {
+	src: string;
+	caption?: string;
+}
+
+interface IVideo {
+	src: string;
+	caption: string;
+}
+
+interface ICoords {
+	x: number;
+	y: number;
+}
