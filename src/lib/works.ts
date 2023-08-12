@@ -1,13 +1,13 @@
-const cdnBaseUrl = 'https://d234wyh4hwmj0y.cloudfront.net/';
+const cdnBaseUrl = 'https://d234wyh4hwmj0y.cloudfront.net';
 
 export const works: Record<string, IWorkObject> = {
 	// ch
-	cityhive: {
-		label: 'CityHive',
+	2023: {
+		label: '2023',
 		projects: [
 			{
-				id: 'cms',
-				name: 'CMS',
+				id: 'songsterr-downloader',
+				name: 'Songsterr Downloader',
 				details: [
 					`I am a lead full stack engineer in the product team at CityHive. An e-commerce platform for the wine, beer, and spirits industry`,
 					`In short, the library utilizes Tailwind’s utility class-based design system to quickly and easily customize and extend the look and feel of each component. Paired with Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for any size project.`,
@@ -15,43 +15,41 @@ export const works: Record<string, IWorkObject> = {
 					`Skeleton is hugely popular, with over 20k+ downloads a month, 1.6k+ stars on GitHub, and 1k+ memebers on Discord. While promoting Skeleton, I've appeared on episodes of the <a href="https://www.youtube.com/watch?v=2OnJYCXJPK4" target="_blank">Svelte Sirens</a>, the <a href="https://podrocket.logrocket.com/skeleton?ref=skeleton.ghost.io" target="_blank">Logrocket Podcast</a>, as well as our <a href="https://www.youtube.com/playlist?list=PLJtgPDPrJYAuDISpNrarLCjVInKknDCcA" target="_blank">Skeleton launch event</a>.`
 				],
 				technology: `Svelte/Kit, Tailwind, Vite, Vitest, Testing Library, NPM, Typescript`,
-				url: 'https://www.cityhive.net/retailers/website',
+				url: 'https://songsterr-downloader.com',
 				coords: { x: 113, y: 102 },
 				accent: '#242c46',
-				thumbnail: `${cdnBaseUrl}/works/sk-logo.png`,
+				thumbnail: `${cdnBaseUrl}/2023/songsterr-downloader/img_2.png`,
 				videos: [],
 				screenshots: [
-					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton/001.jpg`, caption: 'Homepage - part 1' }, // caption: ''
-					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton/002.jpg`, caption: 'Homepage - part 2' },
-					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton/003.jpg` },
-					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton/004.jpg` },
-					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton/005.jpg`, caption: 'Skeleton branding' }
+					{ src: `${cdnBaseUrl}/2023/songsterr-downloader/demo.gif`, caption: 'Search Functionality' }, // caption: ''
+					{ src: `${cdnBaseUrl}/2023/songsterr-downloader/img_1.png`, caption: 'Homepage' }
 				]
 			},
 			{
-				id: 'skeleton-labs',
-				name: 'Skeleton Labs',
+				id: 'open-tunings',
+				name: 'Open Tunings',
 				details: [
 					`Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs, a new company formed by myself and Trey Weir.`,
 					`Skeleton was created to be open source since day one. It will continue to be free and open source under the MIT license. Skeleton Labs, however, will serve as an commercial extension, handling sponsorship funding and providing premium services alongside the the open source project.`,
 					`Many people understand the challenges faced when funding source developement. To that end, Skeleton Labs will handle all commercial needs for the project and ensure the library can thrive for many years to come.`
 				],
 				technology: `Company, Sponsorship, Marketplace, Commercial Support`,
-				url: 'https://skeletonlabs.co/',
+				url: 'https://open-tunings.com',
 				coords: { x: 0, y: 0 },
 				accent: '#242c46',
-				thumbnail: `${cdnBaseUrl}/works/sk-labs.png`,
+				thumbnail: `${cdnBaseUrl}/2023/open-tunings/img_2.png`,
 				videos: [],
 				screenshots: [
-					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton-labs/001.jpg` } // caption: ''
+					{ src: `${cdnBaseUrl}/2023/open-tunings/create_demo.gif`, caption: 'Create Flow' },
+					{ src: `${cdnBaseUrl}/2023/open-tunings/img_1.png`, caption: 'Home Page' }
 				]
 			}
 		]
 	},
 
 	// music related aps
-	'music-related-apps': {
-		label: 'Music Related Apps 🎸',
+	2022: {
+		label: '2022',
 		projects: [
 			{
 				id: 'branding',
@@ -120,8 +118,8 @@ export const works: Record<string, IWorkObject> = {
 	},
 
 	// Jackpot Rising
-	'jackpot-rising': {
-		label: 'Jackpot Rising',
+	2021: {
+		label: '2021',
 		projects: [
 			{
 				id: 'branding',
@@ -254,8 +252,8 @@ export const works: Record<string, IWorkObject> = {
 	},
 
 	// Gaming
-	gaming: {
-		label: 'Gaming',
+	2020: {
+		label: '2020',
 		projects: [
 			{
 				id: 'minirl',

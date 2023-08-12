@@ -4,8 +4,8 @@
 	<div class="p-4 space-y-4 md:space-y-8">
 		<header>
 			<img src="/images/logo.png" class="invert-[0.9] dark:invert-0 animFloat w-[100px] md:w-auto mx-auto py-6" alt="logo" />
-			<h2 class="uppercase">Endigo Design</h2>
-			<span class="text-sm opacity-75">The portfolio of Chris Simmons</span>
+			<h2 class="uppercase">Become Human</h2>
+			<span class="text-sm opacity-75">The portfolio of Ryan Roberts</span>
 		</header>
 		<p class="!text-xl font-bold">Choose your own adventure...</p>
 		<nav class="grid grid-cols-1 md:grid-cols-2 gap-4">

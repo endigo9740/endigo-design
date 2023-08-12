@@ -12,6 +12,7 @@
 	let { pillars, npcs, cats } = $entitiesStore;
 
 	const worksArr: any[] = Object.values(works);
+	console.log('WORKS', works);
 
 	function navigateTo(entity: any): void {
 		cameraStore.set({ type: 'entity', target: entity, animate: true });

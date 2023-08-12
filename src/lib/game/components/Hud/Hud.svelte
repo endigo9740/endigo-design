@@ -46,7 +46,7 @@
 >
 	<img src="/images/logo.png" class="invert-[0.9] dark:invert-0 w-[40px] h-[40px]" alt="logo" />
 	<div>
-		<span class="block text-2xl font-bold uppercase">Endigo Design</span>
+		<span class="block text-2xl font-bold uppercase">Ryan Roberts.dev</span>
 		<span class="block text-xs opacity-70">The portfolio of Chris Simmons</span>
 	</div>
 </a>
