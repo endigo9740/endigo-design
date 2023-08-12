@@ -9,12 +9,11 @@ export const works: Record<string, IWork> = {
 				id: 'songsterr-downloader',
 				name: 'Songsterr Downloader',
 				details: [
-					`I am a lead full stack engineer in the product team at CityHive. An e-commerce platform for the wine, beer, and spirits industry`,
-					`In short, the library utilizes Tailwind’s utility class-based design system to quickly and easily customize and extend the look and feel of each component. Paired with Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for any size project.`,
-					`The library covers everything from simple buttons and tabs to more complex and interactive elements, such as modals, dialogs, and popups. It includes built-in support for both themes and dark mode, while providing access to bleeding edge features such as SVG filters.`,
-					`Skeleton is hugely popular, with over 20k+ downloads a month, 1.6k+ stars on GitHub, and 1k+ memebers on Discord. While promoting Skeleton, I've appeared on episodes of the <a href="https://www.youtube.com/watch?v=2OnJYCXJPK4" target="_blank">Svelte Sirens</a>, the <a href="https://podrocket.logrocket.com/skeleton?ref=skeleton.ghost.io" target="_blank">Logrocket Podcast</a>, as well as our <a href="https://www.youtube.com/playlist?list=PLJtgPDPrJYAuDISpNrarLCjVInKknDCcA" target="_blank">Skeleton launch event</a>.`
+					`A web app that converts guitar tabs from songsterr.com into Guitar Pro (.gpx) ﬁles. Used by 100's of users daily. Trended on hackernews and reddit`,
+					`Used SvelteKit and web scraping with Node.js + TypeScript to grab links from an exposed API from songsterr.`,
+					`<a href="https://sonsgsterr-downloader.com" target="_blank">Songsterr Downloader</a> is hugely popular, with over 100 downloads per day, a dedicated reddit thread, and many github stars, the potential for growth within this application is huge.`
 				],
-				technology: `Svelte/Kit, Tailwind, Vite, Vitest, Testing Library, NPM, Typescript`,
+				technology: `Svelte/Kit, Node.js, Tailwind, Vite, Vitest, Vercel, NPM, Typescript`,
 				url: 'https://songsterr-downloader.com',
 				coords: { x: 113, y: 102 },
 				accent: '#242c46',
@@ -29,16 +28,16 @@ export const works: Record<string, IWork> = {
 				id: 'open-tunings',
 				name: 'Open Tunings',
 				details: [
-					`Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs, a new company formed by myself and Trey Weir.`,
-					`Skeleton was created to be open source since day one. It will continue to be free and open source under the MIT license. Skeleton Labs, however, will serve as an commercial extension, handling sponsorship funding and providing premium services alongside the the open source project.`,
-					`Many people understand the challenges faced when funding source developement. To that end, Skeleton Labs will handle all commercial needs for the project and ensure the library can thrive for many years to come.`
+					`Open tunings is a website tailored for guitarists and musicians who aspire to find new and alternate ways to tune their guitar.`,
+					`It's a crowd-sourced listing website, where anybody can add a tuning for other guitarists to try. Created a web based instrument with Tone.js, to preview and listen to the way the tuning sounds.`,
+					`Used SvelteKit, MongoDB, Tailwind, Vercel, and more to create this.`
 				],
-				technology: `Company, Sponsorship, Marketplace, Commercial Support`,
+				technology: `SvelteKit, MongoDB, Prisma, TailwindCSS, SkeletonUI, Tone.js, TypeScript, Vercel`,
 				url: 'https://open-tunings.com',
 				coords: { x: 0, y: 0 },
 				accent: '#242c46',
-				thumbnail: `${cdnBaseUrl}/2023/open-tunings/img_2.png`,
-				videos: [],
+				thumbnail: `${cdnBaseUrl}/2023/open-tunings/logo-lg.png`,
+				videos: [{ src: 'https://www.youtube.com/embed/TZe8ozKkOGE', caption: 'Video tech walkthrough!' }],
 				screenshots: [
 					{ src: `${cdnBaseUrl}/2023/open-tunings/create_demo.gif`, caption: 'Create Flow' },
 					{ src: `${cdnBaseUrl}/2023/open-tunings/img_1.png`, caption: 'Home Page' }
@@ -48,15 +47,14 @@ export const works: Record<string, IWork> = {
 				id: 'accountability-texter',
 				name: 'Accountability Texter',
 				details: [
-					`Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs, a new company formed by myself and Trey Weir.`,
-					`Skeleton was created to be open source since day one. It will continue to be free and open source under the MIT license. Skeleton Labs, however, will serve as an commercial extension, handling sponsorship funding and providing premium services alongside the the open source project.`,
-					`Many people understand the challenges faced when funding source developement. To that end, Skeleton Labs will handle all commercial needs for the project and ensure the library can thrive for many years to come.`
+					`A web app to hold you accountable for achieving a goal. Simply enter in a goal that you want to achieve, a target date, and your phone number, and receive an AI generated text x times per day until the target date arrives!`,
+					`Inspired from Pieter Levels, this was an app that I wanted to build for myself to personally use.`
 				],
-				technology: `Company, Sponsorship, Marketplace, Commercial Support`,
+				technology: `SvelteKit, PicoCSS, TypeScript, MongoDB, Prisma, Cloudflare CRON jobs, Twilio`,
 				url: 'https://accountability-texter.vercel.app/start',
 				coords: { x: 0, y: 0 },
 				accent: '#242c46',
-				thumbnail: `${cdnBaseUrl}/2023/accountability-texter/img_1.png`,
+				thumbnail: `${cdnBaseUrl}/2023/accountability-texter/dude.png`,
 				videos: [{ src: 'https://www.youtube.com/embed/kyPzV8m9wQ8', caption: 'Tech Walkthrough' }],
 				screenshots: [{ src: `${cdnBaseUrl}/2023/accountability-texter/img_1.png`, caption: 'Form Flow' }]
 			},
@@ -64,15 +62,14 @@ export const works: Record<string, IWork> = {
 				id: 'superhero-faceoff',
 				name: 'Superhero Faceoff',
 				details: [
-					`Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs, a new company formed by myself and Trey Weir.`,
-					`Skeleton was created to be open source since day one. It will continue to be free and open source under the MIT license. Skeleton Labs, however, will serve as an commercial extension, handling sponsorship funding and providing premium services alongside the the open source project.`,
-					`Many people understand the challenges faced when funding source developement. To that end, Skeleton Labs will handle all commercial needs for the project and ensure the library can thrive for many years to come.`
+					`A simple web app built with Next.js 13, Tailwind, and a superhero API, to search and compare superheroes against each other`,
+					`Mainly built to test Next.js 13 in stable production.`
 				],
-				technology: `Company, Sponsorship, Marketplace, Commercial Support`,
+				technology: `React, Next.js 13, TypeScript, Tailwind, Vercel`,
 				url: 'https://choose-your-superhero.vercel.app/',
 				coords: { x: 0, y: 0 },
 				accent: '#242c46',
-				thumbnail: `${cdnBaseUrl}/2023/superhero-faceoff/thumbnail.png`,
+				thumbnail: `${cdnBaseUrl}/2023/superhero-faceoff/marvel.jpeg`,
 				videos: [],
 				screenshots: [
 					{ src: `${cdnBaseUrl}/2023/superhero-faceoff/img_1.png`, caption: 'Form Flow' },
@@ -91,11 +88,11 @@ export const works: Record<string, IWork> = {
 				details: [
 					'Over the course of two years, I led all development and design efforts for Brain & Bones. This included managing a small team of developers while implementing the core SaaS platform, management and user-facing web apps, as well as the Speed Trivia game client. I was responsible for managing all brand guidelines within the company and handled UX and visual identity for each product.'
 				],
-				technology: 'Svelte/Kit (website), Sketch (Design/UI/UX), Notion (Guidelines)',
-				url: 'https://www.brainandbonesllc.com/',
+				technology: 'Final Cut Pro, YouTube Creator Studio, Logic Pro X',
+				url: 'https://www.youtube.com/channel/UCX3N9NavUuYjBPwVOv5I3Nw',
 				coords: { x: 29, y: 101 },
 				accent: '#34d399',
-				thumbnail: `${cdnBaseUrl}/2022/youtube/thumbnail.png`,
+				thumbnail: `${cdnBaseUrl}/2022/youtube/logo-3.jpeg`,
 				videos: [
 					{ src: 'https://www.youtube.com/embed/TZe8ozKkOGE', caption: 'SvelteKit tutorial 1' },
 					{ src: 'https://www.youtube.com/embed/3ukcPFHLv-k', caption: 'Bun Scripting' },
@@ -114,19 +111,13 @@ export const works: Record<string, IWork> = {
 				url: 'https://bandmates.vercel.app/',
 				coords: { x: 72, y: 111 },
 				accent: '#4c1d95',
-				thumbnail: `${cdnBaseUrl}/2022/bandmates/thumbnail_2.png`,
+				thumbnail: `${cdnBaseUrl}/2022/bandmates/pixel-art.png`,
 				videos: [],
 				screenshots: [
-					{ src: `${cdnBaseUrl}/2022/bandmates/listing.png`, caption: 'The promotional marketing website' },
-					{ src: `${cdnBaseUrl}/2022/bandmates/profile_form.png`, caption: 'The company logo' },
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/003.png`, caption: 'Speed Trivia game main menu' },
-					{
-						src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/004.png`,
-						caption: 'Game start screen. The rocket and moon oribit the planet!'
-					},
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/005.png`, caption: 'Core trivia gameplay on desktop' },
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/006.png`, caption: 'The live leaderboard standings' },
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/speed-trivia/007.png`, caption: 'Advertisements created for Speed Trivia' }
+					{ src: `${cdnBaseUrl}/2022/bandmates/img_1.png`, caption: 'The main page' },
+					{ src: `${cdnBaseUrl}/2022/bandmates/img_2.png`, caption: 'Profile modal view.' },
+					{ src: `${cdnBaseUrl}/2022/bandmates/img_3.png`, caption: 'Edit Profile page' },
+					{ src: `${cdnBaseUrl}/2022/bandmates/img_4.png`, caption: 'Edit Profile page 2, adding social links' }
 				]
 			},
 			{
@@ -139,7 +130,7 @@ export const works: Record<string, IWork> = {
 				url: 'https://github.com/Metaphysics0/humblecompass',
 				coords: { x: 51, y: 91 },
 				accent: '#818cf8',
-				thumbnail: `${cdnBaseUrl}/2022/humblecompass/landing_page.png`,
+				thumbnail: `${cdnBaseUrl}/2022/humblecompass/img_4.png`,
 				videos: [],
 				screenshots: [
 					{ src: `${cdnBaseUrl}/2022/humblecompass/landing_page.png`, caption: 'The Landing Page' },
@@ -228,7 +219,7 @@ export const works: Record<string, IWork> = {
 
 	// Gaming
 	2020: {
-		label: '2020',
+		label: '2020 And Beyond...',
 		projects: [
 			{
 				id: 'old-resume',
@@ -237,7 +228,7 @@ export const works: Record<string, IWork> = {
 					'Jackpot Rising was a tournament platform that integrated within games of all types, including hardcore, casual/mobile, and even real world arcade devices. The platform allowed users to compete against each other in progressive eSports-esque tournaments for real money, prizes, and digital goods. During my three years at Jackpot Rising, I managed the majority of the company’s branding, UX, product design, and led several key projects and initiatives.'
 				],
 				technology: 'Sketch, Photoshop, Angular (website)',
-				url: 'ryanroberts.dev',
+				url: 'https://old-resume.vercel.app/',
 				coords: { x: 14, y: 34 },
 				accent: '#dc334a',
 				thumbnail: `${cdnBaseUrl}/2020/old-resume/thumbnail.png`,

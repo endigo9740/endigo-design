@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ContactForm from '$lib/components/ContactForm/ContactForm.svelte';
+	const RESUME_URL = 'https://bit.ly/3YwyHQG';
 </script>
 
 <!-- Columns -->
@@ -11,7 +12,7 @@
 			class="crisp bg-secondary-500 w-full max-w-[250px] aspect-square rounded-full shadow-xl"
 			alt="portrait"
 		/>
-		<a href="http://bit.ly/1obS62s" class="inline-block btn variant-soft hover:variant-filled-primary" target="_blank">View Resume</a>
+		<a href={RESUME_URL} class="inline-block btn variant-soft hover:variant-filled-primary" target="_blank">View Resume</a>
 	</div>
 
 	<!-- Bio -->
