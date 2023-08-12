@@ -18,7 +18,7 @@
 			<!-- Traditional -->
 			<a href="/works" class="card variant-glass p-2 py-4 space-y-2 shadow hover:variant-filled-secondary">
 				<span class="font-bold text-xl">View Works</span>
-				<img class="w-full max-w-[400px] rounded" src="./images/intro-traditional.png" alt="Traditional" />
+				<img class="w-full max-w-[400px] rounded" src="./images/intro-traditional-1.png" alt="Traditional" />
 				<p class="max-w-[320px] mx-auto">A collection of my recent projects</p>
 			</a>
 		</nav>
