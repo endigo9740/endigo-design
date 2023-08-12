@@ -9,7 +9,7 @@
 		<img src="/images/logo.png" class="invert-[0.9] dark:invert-0 animFloat mx-auto" alt="logo" />
 		<span class="block text-5xl md:text-7xl lg:text-9xl">Hi, I'm <span class="text-primary-500 font-bold">Ryan</span></span>
 		<span class="block text-xs md:text-lg font-bold opacity-75 drop-shadow-xl md:translate-x-12">
-			Developer, musician, UX/UI engineer, Open Source contributor, and more.
+			Developer, musician, athlete, and more.
 		</span>
 	</div>
 </header>

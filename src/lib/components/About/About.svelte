@@ -16,7 +16,7 @@
 
 	<!-- Bio -->
 	<section class="col-span-5 space-y-4">
-		<h2 class="section-header">About Chris</h2>
+		<h2 class="section-header">About Ryan</h2>
 		<p>
 			Hello and welcome! Here you’ll find a showcase of some of my best work. I’m a seasoned developer, designer, and game maker, having
 			worked professionally in these fields for just over 20 years. I’m primarily self taught in these disciplines, but still take time to

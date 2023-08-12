@@ -1,9 +1,8 @@
 <script lang="ts">
 	const socialLinks: any[] = [
-		{ name: 'Github', url: 'https://github.com/endigo9740' },
-		{ name: 'LinkedIn', url: 'https://www.linkedin.com/in/chris-simmons-8a523a23/' },
-		{ name: 'Twitter', url: 'https://twitter.com/endigodesign' },
-		{ name: 'Blog', url: 'https://dev.to/endigo9740' }
+		{ name: 'Github', url: 'https://github.com/Metaphysics0' },
+		{ name: 'LinkedIn', url: 'https://www.linkedin.com/in/ryanroberts0' },
+		{ name: 'Instagram', url: 'https://www.instagram.com/mathrockryan/' }
 	];
 </script>
 
@@ -15,6 +14,6 @@
 				<a class="btn btn-sm hover:variant-filled-primary" href={site.url} target="_blank">{site.name}</a>
 			{/each}
 		</nav>
-		<a class="btn btn-sm hover:variant-filled-secondary" href="mailto:chris@skeleton.dev">Email</a>
+		<a class="btn btn-sm hover:variant-filled-secondary" href="mailto:ryanroberts562@gmail.com">Email</a>
 	</div>
 </footer>

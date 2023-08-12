@@ -1,6 +1,6 @@
 <div id="mc_embed_signup">
 	<form
-		action="https://endigodesign.us9.list-manage.com/subscribe/post?u=8de29d4932317fb291688afd6&amp;id=a2003ce4c2"
+		action="https://gmail.us17.list-manage.com/subscribe/post?u=ca774b8a87d718ca35b2f3411&amp;id=3c26c19da8&amp;f_id=00fc56e0f0"
 		method="post"
 		id="mc-embedded-subscribe-form"
 		name="mc-embedded-subscribe-form"
