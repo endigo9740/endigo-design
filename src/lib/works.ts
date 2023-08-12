@@ -43,17 +43,32 @@ export const works: Record<string, IWorkObject> = {
 					{ src: `${cdnBaseUrl}/2023/open-tunings/create_demo.gif`, caption: 'Create Flow' },
 					{ src: `${cdnBaseUrl}/2023/open-tunings/img_1.png`, caption: 'Home Page' }
 				]
+			},
+			{
+				id: 'accountability-texter',
+				name: 'Accountability Texter',
+				details: [
+					`Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs, a new company formed by myself and Trey Weir.`,
+					`Skeleton was created to be open source since day one. It will continue to be free and open source under the MIT license. Skeleton Labs, however, will serve as an commercial extension, handling sponsorship funding and providing premium services alongside the the open source project.`,
+					`Many people understand the challenges faced when funding source developement. To that end, Skeleton Labs will handle all commercial needs for the project and ensure the library can thrive for many years to come.`
+				],
+				technology: `Company, Sponsorship, Marketplace, Commercial Support`,
+				url: 'https://accountability-texter.vercel.app/start',
+				coords: { x: 0, y: 0 },
+				accent: '#242c46',
+				thumbnail: `${cdnBaseUrl}/2023/accountability-texter/img_1.png`,
+				videos: [{ src: 'https://www.youtube.com/embed/kyPzV8m9wQ8', caption: 'Tech Walkthrough' }],
+				screenshots: [{ src: `${cdnBaseUrl}/2023/accountability-texter/img_1.png`, caption: 'Form Flow' }]
 			}
 		]
 	},
 
-	// music related aps
 	2022: {
 		label: '2022',
 		projects: [
 			{
-				id: 'branding',
-				name: 'Branding',
+				id: 'youtube',
+				name: 'The Coding Den',
 				details: [
 					'Over the course of two years, I led all development and design efforts for Brain & Bones. This included managing a small team of developers while implementing the core SaaS platform, management and user-facing web apps, as well as the Speed Trivia game client. I was responsible for managing all brand guidelines within the company and handled UX and visual identity for each product.'
 				],
@@ -61,32 +76,32 @@ export const works: Record<string, IWorkObject> = {
 				url: 'https://www.brainandbonesllc.com/',
 				coords: { x: 29, y: 101 },
 				accent: '#34d399',
-				thumbnail: `${cdnBaseUrl}/works/bb-logo.png`,
-				videos: [],
-				screenshots: [
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/001.png`, caption: 'The Brain & Bones logo' },
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/002.png`, caption: 'The Brain & Bones brand colors' },
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/003.png`, caption: 'Font and Typography sets' },
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/branding/004.png`, caption: 'The company website' }
-				]
+				thumbnail: `${cdnBaseUrl}/2022/youtube/thumbnail.png`,
+				videos: [
+					{ src: 'https://www.youtube.com/embed/TZe8ozKkOGE', caption: 'SvelteKit tutorial 1' },
+					{ src: 'https://www.youtube.com/embed/3ukcPFHLv-k', caption: 'Bun Scripting' },
+					{ src: 'https://www.youtube.com/embed/5zVln5e-dBQ', caption: 'Developer Productivity Tools' },
+					{ src: 'https://www.youtube.com/embed/yNRvl-38bZM', caption: 'LeetCode Tutorial' }
+				],
+				screenshots: []
 			},
 			{
-				id: 'helm',
-				name: 'The Helm',
+				id: 'humblecompass',
+				name: 'HumbleCompass',
 				details: [
 					'The customer-facing web application for the Brain & Bones platform, the Helm allows clients to manage games, tournaments, and monitor game usage and engagement within their organization. I directed all key initiatives of the project, from concept to launch. This included designing and implementing the frontend client, providing requirements for backend developers, implementing Stripe as the payment gateway, and fielding quality assurance testing alongside our QA engineer.'
 				],
 				technology: 'Angular, Angular Material, RxJS, Typescript, SASS, Stripe, Chart.js, Moment',
-				url: 'https://admin.speedtriviagame.com/',
+				url: 'https://github.com/Metaphysics0/humblecompass',
 				coords: { x: 51, y: 91 },
 				accent: '#818cf8',
-				thumbnail: `${cdnBaseUrl}/works/bb-helm.png`,
+				thumbnail: `${cdnBaseUrl}/2022/humblecompass/landing_page.png`,
 				videos: [],
 				screenshots: [
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/001.png`, caption: 'The quiz selection UI' },
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/002.png`, caption: 'Quiz metrics dashboard' },
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/003.png`, caption: 'Attached quiz media' },
-					{ src: `${cdnBaseUrl}/screenshots/brain-and-bones/helm/004.png`, caption: 'Organization navigation' }
+					{ src: `${cdnBaseUrl}/2022/humblecompass/landing_page.png`, caption: 'The Landing Page' },
+					{ src: `${cdnBaseUrl}/2022/humblecompass/img_1.png`, caption: 'The compass UI' },
+					{ src: `${cdnBaseUrl}/2022/humblecompass/trimmd.gif`, caption: 'The UI flow' },
+					{ src: `${cdnBaseUrl}/2022/humblecompass/landing_page_2.png`, caption: 'Landing Page part 2' }
 				]
 			},
 			{
