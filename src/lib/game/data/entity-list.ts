@@ -244,10 +244,13 @@ export const birdsList: any = (config: any) => {
 // Monuments
 export const monumentsList: any = (config: any) => {
 	return [
-		new Monument({
-			loader: config.loader,
-			containerSettings: { x: 49, y: 59 }
-		})
+		new Monument(
+			{
+				loader: config.loader,
+				containerSettings: { x: 49, y: 59 }
+			},
+			config.modalStore
+		)
 	];
 };
 
@@ -263,19 +266,22 @@ export const pillarsList: any = (config: any) => {
 				return;
 			}
 			pillarArr.push(
-				new Pillar({
-					name: project.name,
-					loader: config.loader,
-					containerSettings: {
-						x: project.coords.x,
-						y: project.coords.y
+				new Pillar(
+					{
+						name: project.name,
+						loader: config.loader,
+						containerSettings: {
+							x: project.coords.x,
+							y: project.coords.y
+						},
+						page: {
+							component: 'Work',
+							category: categoryKey,
+							id: project.id
+						}
 					},
-					page: {
-						component: 'Work',
-						category: categoryKey,
-						id: project.id
-					}
-				})
+					config.modalStore
+				)
 			);
 		});
 	});

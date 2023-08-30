@@ -22,18 +22,18 @@
 			{/if}
 			<!-- Header -->
 			<header class="space-y-2">
-				<span class="font-bold text-sm uppercase opacity-75">{categoryLabel}</span>
-				<h2 class="section-header text-4xl">{work.name}</h2>
+				<h6 class="h6 font-bold uppercase opacity-75">{categoryLabel}</h6>
+				<h2 class="h2 section-header">{work.name}</h2>
 			</header>
 			<!-- Actions -->
-			{#if work.url}<a href={work.url} class="btn variant-filled" target="_blank">Launch</a>{/if}
+			{#if work.url}<a href={work.url} class="btn variant-filled" target="_blank" rel="noreferrer">Launch</a>{/if}
 			<!-- Details -->
 			<div class="space-y-4">
 				{#each work.details as detailsParagraph}
 					<p>{@html detailsParagraph}</p>
 				{/each}
 			</div>
-			<small class="block text-xs opacity-75">{work.technology || 'Tech not available.'}</small>
+			<small class="block text-xs opacity-50">{work.technology || 'Tech not available.'}</small>
 		</section>
 
 		<!-- Media -->

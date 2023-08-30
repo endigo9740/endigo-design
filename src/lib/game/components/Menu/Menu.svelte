@@ -4,7 +4,8 @@
 	import Map from '$lib/game/components/Map/Map.svelte';
 
 	// Skeleton
-	import { modalStore } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	const modalStore = getModalStore();
 
 	// export let pillars: any;
 	// export let npcs: any;
@@ -46,35 +47,33 @@
 	<div class="flex-none lg:flex-[50%] p-4 overflow-x-auto space-y-8">
 		<!-- Characters -->
 		<section class="space-y-4">
-			<h2>Characters</h2>
+			<h2 class="h2">Characters</h2>
 			<p>
-				Shown in <span class="badge variant-filled-secondary">blue</span> - interact and chat with Chris and other special guests.
+				Shown in <span class="badge variant-soft-secondary">blue</span> - interact and chat with Chris and other special guests.
 			</p>
 			<nav class="grid grid-cols-3 gap-2">
 				<!-- NPCs -->
 				{#each npcs as npc}
 					<li
 						class="bg-white/30 dark:bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:!bg-secondary-500"
-						on:click={() => {
-							navigateTo(npc);
-						}}
-						on:keypress
+						
 					>
-						<img src={npc.portrait} class="crisp w-full aspect-square rounded" alt="portrait" />
-						<h6 class="mt-3 mb-2">{npc.name}</h6>
+						<button on:click={() => { navigateTo(npc); }} on:keypress>
+							<img src={npc.portrait} class="crisp w-full aspect-square rounded" alt="portrait" />
+							<h6 class="h6 mt-3 mb-2">{npc.name}</h6>
+						</button>
 					</li>
 				{/each}
 				<!-- Layla -->
 				{#each cats as cat}
 					<li
 						class="bg-white/30 dark:bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:!bg-secondary-500"
-						on:click={() => {
-							navigateTo(cat);
-						}}
-						on:keypress
+						
 					>
-						<img src={cat.portrait} class="crisp w-full aspect-square rounded" alt="portrait" />
-						<h6 class="mt-3 mb-2">{cat.name}</h6>
+						<button on:click={() => { navigateTo(cat); }} on:keypress>
+							<img src={cat.portrait} class="crisp w-full aspect-square rounded" alt="portrait" />
+							<h6 class="h6 mt-3 mb-2">{cat.name}</h6>
+						</button>
 					</li>
 				{/each}
 			</nav>
@@ -82,17 +81,17 @@
 
 		<!-- Pillars -->
 		<section class="space-y-4">
-			<h2>Pillars</h2>
+			<h2 class="h2">Pillars</h2>
 			<p>
-				Shown in <span class="badge variant-filled-primary">pink</span> - each represents a project Chris has created or contributed to
+				Shown in <span class="badge variant-soft-primary">pink</span> - each represents a project Chris has created or contributed to
 			</p>
 			<!-- Per Each Category -->
 			{#each Object.values(worksArr) as category, i}
-				<h4>{category.label}</h4>
+				<h4 class="h4">{category.label}</h4>
 				<nav class="list-none grid grid-cols-1 md:grid-cols-2 gap-4">
 					<!-- Per Each Project -->
 					{#each category.projects as project}
-						<div
+						<button
 							class="card bg-white/30 dark:bg-black/30 p-1 rounded cursor-pointer grid grid-cols-[64px_1fr] gap-4 place-items-center hover:!bg-primary-500"
 							on:click={() => {
 								naviateToPillar(project);
@@ -103,7 +102,7 @@
 							<span class="text-base font-bold">{project.name}</span>
 							<!-- TODO: need to cross reference 'pillars' data -->
 							<!-- {#if pillar.found}<div class="font-bold uppercase">Found</div>{/if} -->
-						</div>
+						</button>
 					{/each}
 				</nav>
 			{/each}

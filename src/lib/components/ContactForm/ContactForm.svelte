@@ -10,7 +10,7 @@
 	>
 		<div id="mc_embed_signup_scroll" class="space-y-3">
 			<label class="label mc-field-group" for="mce-EMAIL">
-				<span>Email Address</span>
+				<span class="text-sm">Email Address</span>
 				<input
 					type="email"
 					placeholder="How can I get in touch?"
@@ -21,15 +21,15 @@
 				/>
 			</label>
 			<label class="label mc-field-group" for="mce-FNAME">
-				<span>First Name </span>
-				<input type="text" placeholder="What should I call you?" value="" name="FNAME" class="input variant-glass" id="mce-FNAME" />
+				<span class="text-sm">First Name </span>
+				<input type="text" placeholder="What's your name?" value="" name="FNAME" class="input variant-glass" id="mce-FNAME" />
 			</label>
 			<label class="label mc-field-group" for="mce-SUBJECT">
-				<span>Subject </span>
+				<span class="text-sm">Subject </span>
 				<input type="text" placeholder="What's this about?" value="" name="SUBJECT" class="input variant-glass" id="mce-SUBJECT" />
 			</label>
 			<label class="label mc-field-group" for="mce-MESSAGE">
-				<span>Message </span>
+				<span class="text-sm">Message </span>
 				<textarea
 					rows="5"
 					placeholder="Let me know how I can help..."

@@ -6,8 +6,9 @@
 	import { Music } from '$lib/game/Music';
 
 	// Skeleton Modals
-	import { modalStore, type ModalComponent, type ModalSettings } from '@skeletonlabs/skeleton';
+	import { getModalStore, type ModalComponent, type ModalSettings } from '@skeletonlabs/skeleton';
 	import ModalNavigate from '$lib/components/Modals/ModalNavigate.svelte';
+	const modalStore = getModalStore();
 
 	const music: Music = Music.getInstance();
 

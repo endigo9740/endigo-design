@@ -4,7 +4,7 @@
 
 <!-- App Bar -->
 <AppBar
-	background="bg-white/5 dark:bg-black/20 backdrop-blur-xl border-b border-surface-900/10 dark:border-surface-50/10"
+	background="bg-white/5 dark:bg-black/10 backdrop-blur-xl dark:border-surface-50/10 shadow"
 	class={$$props.class ?? ''}
 >
 	<svelte:fragment slot="lead">

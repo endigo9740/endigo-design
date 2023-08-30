@@ -2,7 +2,7 @@
 	const socialLinks: any[] = [
 		{ name: 'Github', url: 'https://github.com/endigo9740' },
 		{ name: 'LinkedIn', url: 'https://www.linkedin.com/in/chris-simmons-8a523a23/' },
-		{ name: 'Twitter', url: 'https://twitter.com/endigodesign' },
+		// { name: 'Twitter', url: 'https://twitter.com/endigodesign' },
 		{ name: 'Blog', url: 'https://dev.to/endigo9740' }
 	];
 </script>

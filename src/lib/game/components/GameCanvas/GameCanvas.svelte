@@ -4,7 +4,8 @@
 	import { fade } from 'svelte/transition';
 
 	// Skeleton
-	import { modalStore } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	const modalStore = getModalStore();
 
 	// Entities Types
 	import type { GameObject } from '$lib/game/objects/GameObject';
@@ -129,8 +130,8 @@
 			grid = new Grid({ container: containerLevel, enabled: false, coords: false, texture: resources['grid.png'].texture });
 
 			// Instantiate GameObjects ---
-			pillars = pillarsList({ loader: game.loader });
-			monuments = monumentsList({ loader: game.loader });
+			pillars = pillarsList({ loader: game.loader, modalStore });
+			monuments = monumentsList({ loader: game.loader, modalStore });
 			// NPCs
 			npcs = npcsList({ loader: game.loader });
 			// Critters (GameObjects)

@@ -3,7 +3,8 @@
 	import { cameraStore, tile } from '$lib/game/stores';
 
 	// Skeleton
-	import { modalStore } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	const modalStore = getModalStore();
 
 	export let zoom = 4;
 	export let pillars: any;

@@ -1,5 +1,7 @@
 <script lang="ts">
-	import { AppBar, modalStore } from '@skeletonlabs/skeleton';
+	import { AppBar, getModalStore } from '@skeletonlabs/skeleton';
+
+	const modalStore = getModalStore();
 
 	function onclose(): void {
 		modalStore.close();

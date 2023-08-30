@@ -9,17 +9,18 @@ export const works: any = {
 				id: 'skeleton',
 				name: 'Skeleton',
 				details: [
-					`I am the creator and core maintainer for Skeleton - an open source UI toolkit and component library featuring tight integration between <a href="https://svelte.dev/" target="_blank">Svelte</a> and <a href="https://tailwindcss.com/" target="_blank">Tailwind</a>.`,
-					`In short, the library utilizes Tailwind’s utility class-based design system to quickly and easily customize and extend the look and feel of each component. Paired with Svelte’s powerful component architecture, Skeleton creates customized, responsive, and reactive interfaces for any size project.`,
-					`The library covers everything from simple buttons and tabs to more complex and interactive elements, such as modals, dialogs, and popups. It includes built-in support for both themes and dark mode, while providing access to bleeding edge features such as SVG filters.`,
-					`Skeleton is hugely popular, with over 20k+ downloads a month, 1.6k+ stars on GitHub, and 1k+ memebers on Discord. While promoting Skeleton, I've appeared on episodes of the <a href="https://www.youtube.com/watch?v=2OnJYCXJPK4" target="_blank">Svelte Sirens</a>, the <a href="https://podrocket.logrocket.com/skeleton?ref=skeleton.ghost.io" target="_blank">Logrocket Podcast</a>, as well as our <a href="https://www.youtube.com/playlist?list=PLJtgPDPrJYAuDISpNrarLCjVInKknDCcA" target="_blank">Skeleton launch event</a>.`
+					`I am the creator and core maintainer for <strong>Skeleton</strong> - an open source UI toolkit and component library featuring tight integration between <a class="anchor" href="https://svelte.dev/" target="_blank">Svelte</a> and <a class="anchor" href="https://tailwindcss.com/" target="_blank">Tailwind</a>.`,
+					`The library provides an array of atomic CSS elements, Svelte components, and flexible utility features. Pairing Tailwind's utility classes with Svelte's powered component architecture, Skeleton creates customized, responsive, and reactive interfaces for any size project.`,
+					`Skeleton is hugely popular, with over 60k+ downloads a month, 3.5k+ stars on GitHub, nearly 100 contributors, and 1.5k+ members on Discord.`,
+					`To help promote Skeleton, I've made appearances at <a class="anchor" href="https://www.youtube.com/watch?v=KxK9iA1ktlU" target="_blank">Svelte Summit 2023</a>, <a class="anchor" href="https://www.youtube.com/watch?v=2OnJYCXJPK4" target="_blank">Svelte Sirens</a>, the <a class="anchor" href="https://podrocket.logrocket.com/skeleton?ref=skeleton.ghost.io" target="_blank">Logrocket Podcast</a>, as well as our <a class="anchor" href="https://www.youtube.com/playlist?list=PLJtgPDPrJYAuDISpNrarLCjVInKknDCcA" target="_blank">Skeleton v1 Launch Livestream</a>.`,
+					`Skeleton has been covered by popular Svelte content creators, such as <a class="anchor" href="https://www.youtube.com/watch?v=MaF8kRbHbi0" target="_blank">Geoff Rich</a>, <a class="anchor" href="https://www.youtube.com/watch?v=P_A0qQ7AuK8" target="_blank">Huntabyte</a>, and <a class="anchor" href="https://www.youtube.com/watch?v=O0mNU0maItY" target="_blank">Joy of Code</a>. As well as earning recognition from <a class="anchor" href="https://twitter.com/Rich_Harris/status/1654883813078474755" target="_blank">Rich Harris</a>, the creator of Svelte and SvelteKit.`
 				],
 				technology: `Svelte/Kit, Tailwind, Vite, Vitest, Testing Library, NPM, Typescript`,
 				url: 'https://skeleton.dev/',
 				coords: { x: 113, y: 102 },
 				accent: '#242c46',
 				thumbnail: `${cdnBaseUrl}/works/sk-logo.png`,
-				videos: [],
+				videos: [{ src: 'https://www.youtube.com/embed/tHzVyChDuyo' }],
 				screenshots: [
 					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton/001.jpg`, caption: 'Homepage - part 1' }, // caption: ''
 					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton/002.jpg`, caption: 'Homepage - part 2' },
@@ -30,20 +31,20 @@ export const works: any = {
 			},
 			{
 				id: 'skeleton-labs',
-				name: 'Skeleton Labs',
+				name: 'The Company',
 				details: [
-					`Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs, a new company formed by myself and Trey Weir.`,
-					`Skeleton was created to be open source since day one. It will continue to be free and open source under the MIT license. Skeleton Labs, however, will serve as an commercial extension, handling sponsorship funding and providing premium services alongside the the open source project.`,
-					`Many people understand the challenges faced when funding source developement. To that end, Skeleton Labs will handle all commercial needs for the project and ensure the library can thrive for many years to come.`
+					`Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs. An LLC managed by myself and my business partner Trey Weir.`,
+					`Skeleton Labs, serves as an commercial extension of the open source project, handling sponsorship through services such as GitHub Sponsors, Ko-Fi, and Patreon. As well as providing premium services, such as the recently launched <a class="anchor" href="https://store.skeleton.dev/" target="_blank">Skeleton Store</a>.`,
+					`Many people understand the challenges faced when funding source development. To that end, Skeleton Labs handles all commercial needs for the project to ensure the library can thrive for many years to come.`
 				],
-				technology: `Company, Sponsorship, Marketplace, Commercial Support`,
+				technology: `Company, Sponsorship, Shopify, Support, Consulting`,
 				url: 'https://skeletonlabs.co/',
 				coords: { x: 0, y: 0 },
 				accent: '#242c46',
 				thumbnail: `${cdnBaseUrl}/works/sk-labs.png`,
 				videos: [],
 				screenshots: [
-					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton-labs/001.jpg` } // caption: ''
+					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton-labs/001.png` } // caption: ''
 				]
 			}
 		]
@@ -57,7 +58,7 @@ export const works: any = {
 				id: 'branding',
 				name: 'Branding',
 				details: [
-					'Over the course of two years, I led all development and design efforts for Brain & Bones. This included managing a small team of developers while implementing the core SaaS platform, management and user-facing web apps, as well as the Speed Trivia game client. I was responsible for managing all brand guidelines within the company and handled UX and visual identity for each product.'
+					'Over the course of two years, I led all development and design efforts for Brain & Bones. Serving as VP of Engineering, which included managing a small team of developers. I was tasked with overseeing the core SaaS platform, managing the user-facing web apps, as well as building the Speed Trivia game client. I created all branding and design guidelines, which includes the UX and visual identity for each unique product.'
 				],
 				technology: 'Svelte/Kit (website), Sketch (Design/UI/UX), Notion (Guidelines)',
 				url: 'https://www.brainandbonesllc.com/',
@@ -76,7 +77,7 @@ export const works: any = {
 				id: 'helm',
 				name: 'The Helm',
 				details: [
-					'The customer-facing web application for the Brain & Bones platform, the Helm allows clients to manage games, tournaments, and monitor game usage and engagement within their organization. I directed all key initiatives of the project, from concept to launch. This included designing and implementing the frontend client, providing requirements for backend developers, implementing Stripe as the payment gateway, and fielding quality assurance testing alongside our QA engineer.'
+					'The customer-facing web application for the Brain & Bones platform, the Helm allows clients to manage games, tournaments, and monitor game usage and engagement within their organization. I directed all key initiatives of the project from concept to launch. This included designing and implementing the frontend client, providing requirements for backend developers, implementing Stripe as the payment gateway, and fielding quality assurance testing alongside our QA engineer.'
 				],
 				technology: 'Angular, Angular Material, RxJS, Typescript, SASS, Stripe, Chart.js, Moment',
 				url: 'https://admin.speedtriviagame.com/',
@@ -95,7 +96,7 @@ export const works: any = {
 				id: 'speed-trivia',
 				name: 'Speed Trivia',
 				details: [
-					`Speed Trivia was the first in the series of games for the Brain & Bones engagement platform. It harnessed the popularity of casual games to allow companies and individuals to connect with their customers, followers, and employees. This was the first project I spearheaded during my time at Brain & Bones. The product is a fully interactive web-based game, featuring fast paced trivia and real-time leaderboards. It features modern web technology including a fully responsive PWA, and is playable on any web-connected device.`
+					`Speed Trivia was the first in the series of games for the Brain & Bones engagement platform. It harnesses the popularity of casual games to allow companies and individuals to connect with their customers, followers, and employees. This was the first project I spearheaded during my time at Brain & Bones. The product is a fully interactive web-based game, featuring fast paced trivia and real-time leaderboards. It features modern web technology including a fully responsive PWA, and is playable on any web-connected device.`
 				],
 				technology: 'Angular/RxJS (game), Svelte/Kit (Website), Typescript, SASS, Moment, Anime.js',
 				url: 'https://www.speedtriviagame.com/',
@@ -127,7 +128,7 @@ export const works: any = {
 				id: 'branding',
 				name: 'Branding',
 				details: [
-					'Jackpot Rising was a tournament platform that integrated within games of all types, including hardcore, casual/mobile, and even real world arcade devices. The platform allowed users to compete against each other in progressive eSports-esque tournaments for real money, prizes, and digital goods. During my three years at Jackpot Rising, I managed the majority of the company’s branding, UX, product design, and led several key projects and initiatives.'
+					'Jackpot Rising was a tournament platform that integrated within games of all types, including hardcore, casual/mobile, and even real world arcade devices. The platform allowed users to compete against one another in progressive eSports-esque tournaments for real money, prizes, and digital goods. During my three years at Jackpot Rising, I managed the majority of the company’s branding, UX, product design, and led several key projects and initiatives.'
 				],
 				technology: 'Sketch, Photoshop, Angular (website)',
 				url: null,
@@ -145,7 +146,7 @@ export const works: any = {
 				id: 'overwolf',
 				name: 'Overwolf',
 				details: [
-					'<a href="https://www.overwolf.com/" target="_blank">Overwolf</a> provides middleware for tracking game metrics (score, kills, etc.) in real-time for multiple triple-A PC game titles. Apps created for the Overwolf platform provide in-game overlays directly in the game (similar to Steam). I was the project lead responsible for creating the Jackpot Rising app, which collected metrics for use in competitive tournaments. The application was built using web technology (similar to Electron) alongside the Overwolf API.'
+					'<a class="anchor" href="https://www.overwolf.com/" target="_blank">Overwolf</a> provides middleware for tracking game metrics (score, kills, etc.) in real-time for multiple triple-A PC game titles. Apps created for the Overwolf platform provide in-game overlays directly in the game (similar to Steam). I was the project lead responsible for creating the Jackpot Rising app, which collected metrics for use in competitive tournaments. The application was built using web technology (similar to Electron) alongside the Overwolf API.'
 				],
 				technology: 'Vue, Vuetify, SASS, Overwolf',
 				url: 'https://www.overwolf.com/app/Jackpot_Rising_Inc-Jackpot_Rising',
@@ -284,10 +285,10 @@ export const works: any = {
 				id: 'elden-ring-planner',
 				name: 'Elden Ring Planner',
 				details: [
-					'I’m a long time fan of FromSoft games (Dark Souls, Bloodborne, Sekiro, etc). Their latest release, <a href="https://en.bandainamcoent.eu/elden-ring/elden-ring" target="_blank">Elden Ring</a>, is a sprawling action RPG that’s found massive success since release. I created this simple FOSS web app over the course of about 2-3 days. It allows players to visually browse and plan their character’s armor, armaments, and more. My <a href="https://twitter.com/endigodesign/status/1537950064215089153" target="_blank">Twitter announcement</a> garnered the attention of several prominent members of the “Souls/Borne” community, and attracted over 100k impressions within the first week.'
+					'I’m a long time fan of FromSoft games (Dark Souls, Bloodborne, Sekiro, etc). One of their newest entries, <a class="anchor" href="https://en.bandainamcoent.eu/elden-ring/elden-ring" target="_blank">Elden Ring</a>, is a sprawling action RPG that’s found massive success since release. I created this simple open source web application which allows players to visually browse and plan their character’s armor, armaments, and more. My <a class="anchor" href="https://twitter.com/endigodesign/status/1537950064215089153" target="_blank">Twitter announcement</a> garnered the attention of several prominent members of the FromSoft community members on launch. This was created using an early iteration of my Skeleton UI toolkit.'
 				],
 				technology: 'Svelte/Kit, AWS (CDN via S3+Cloudfront), Github Pages',
-				url: 'https://endigo9740.github.io/elden-ring-planner',
+				url: 'https://elden-ring-planner.vercel.app/',
 				coords: { x: 112, y: 41 },
 				accent: '#202018',
 				thumbnail: `${cdnBaseUrl}/works/gaming-er-planner.png`,
