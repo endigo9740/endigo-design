@@ -1,11 +1,13 @@
 import { GameObject } from './GameObject';
 
 // Modals
-import { modalStore, type ModalComponent, type ModalSettings } from '@skeletonlabs/skeleton';
+import { type ModalComponent, type ModalSettings } from '@skeletonlabs/skeleton';
 import ModalAbout from '$lib/components/Modals/ModalAbout.svelte';
 
 export class Monument extends GameObject {
-	constructor(config: any) {
+	private _modalStore: any;
+
+	constructor(config: any, modalStore: any) {
 		// Overwrite GameObject properties
 		config.resource = 'About Chris';
 		config.resource = 'entities/monument.json';
@@ -24,6 +26,8 @@ export class Monument extends GameObject {
 
 		// Super
 		super(config);
+
+		this._modalStore = modalStore;
 	}
 
 	// Overwrite GameObject.onPointerDown()
@@ -34,7 +38,6 @@ export class Monument extends GameObject {
 
 	triggerModal(): void {
 		const modalComponent: ModalComponent = { ref: ModalAbout };
-		const d: ModalSettings = { type: 'component', component: { ref: ModalAbout } };
-		modalStore.trigger(d);
+		this._modalStore?.trigger({ type: 'component', component: { ref: ModalAbout } });
 	}
 }

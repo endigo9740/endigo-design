@@ -4,7 +4,8 @@
 	import Map from '$lib/game/components/Map/Map.svelte';
 
 	// Skeleton
-	import { modalStore } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	const modalStore = getModalStore();
 
 	// export let pillars: any;
 	// export let npcs: any;

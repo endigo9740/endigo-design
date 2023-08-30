@@ -1,15 +1,15 @@
 import { GameObject } from './GameObject';
-// import { pageModalStore } from '$lib/game/stores';
 
 // Modals
-import { modalStore, type ModalComponent, type ModalSettings } from '@skeletonlabs/skeleton';
+import { type ModalComponent, type ModalSettings } from '@skeletonlabs/skeleton';
 import ModalProject from '$lib/components/Modals/ModalProject.svelte';
 
 export class Pillar extends GameObject {
+	private _modalStore: any;
 	public found: boolean = false;
 	public page: any;
 
-	constructor(config: any) {
+	constructor(config: any, modalStore: any) {
 		// Overwrite GameObject properties
 		config.resource = 'entities/pillar.json';
 		config.animatedSpriteSettings = {
@@ -29,6 +29,7 @@ export class Pillar extends GameObject {
 		super(config);
 
 		// Per Instance Settings
+		this._modalStore = modalStore;
 		this.page = config.page;
 	}
 
@@ -42,7 +43,6 @@ export class Pillar extends GameObject {
 
 	triggerModal(pageData: any): void {
 		const modalComponent: ModalComponent = { ref: ModalProject, props: { data: pageData } };
-		const d: ModalSettings = { type: 'component', component: modalComponent };
-		modalStore.trigger(d);
+		this._modalStore?.trigger({ type: 'component', component: modalComponent });
 	}
 }
