@@ -44,7 +44,7 @@ export const works: any = {
 				thumbnail: `${cdnBaseUrl}/works/sk-labs.png`,
 				videos: [],
 				screenshots: [
-					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton-labs/001.jpg` } // caption: ''
+					{ src: `${cdnBaseUrl}/screenshots/skeleton-labs/skeleton-labs/001.png` } // caption: ''
 				]
 			}
 		]
