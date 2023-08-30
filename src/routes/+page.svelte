@@ -4,10 +4,10 @@
 	<div class="p-4 space-y-4 md:space-y-8">
 		<header>
 			<img src="/images/logo.png" class="invert-[0.9] dark:invert-0 animFloat w-[100px] md:w-auto mx-auto py-6" alt="logo" />
-			<h2 class="uppercase">Endigo Design</h2>
+			<h2 class="h2 uppercase">Endigo Design</h2>
 			<span class="text-sm opacity-75">The portfolio of Chris Simmons</span>
 		</header>
-		<p class="!text-xl font-bold">Choose your own adventure...</p>
+		<h3 class="h3 font-bold">Choose your own adventure...</h3>
 		<nav class="grid grid-cols-1 md:grid-cols-2 gap-4">
 			<!-- Game -->
 			<a href="/game" class="card variant-glass p-2 py-4 space-y-2 shadow hover:variant-filled-primary">
