@@ -56,26 +56,24 @@
 				{#each npcs as npc}
 					<li
 						class="bg-white/30 dark:bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:!bg-secondary-500"
-						on:click={() => {
-							navigateTo(npc);
-						}}
-						on:keypress
+						
 					>
-						<img src={npc.portrait} class="crisp w-full aspect-square rounded" alt="portrait" />
-						<h6 class="h6 mt-3 mb-2">{npc.name}</h6>
+						<button on:click={() => { navigateTo(npc); }} on:keypress>
+							<img src={npc.portrait} class="crisp w-full aspect-square rounded" alt="portrait" />
+							<h6 class="h6 mt-3 mb-2">{npc.name}</h6>
+						</button>
 					</li>
 				{/each}
 				<!-- Layla -->
 				{#each cats as cat}
 					<li
 						class="bg-white/30 dark:bg-black/30 text-xs p-1 flex flex-col items-center rounded cursor-pointer hover:!bg-secondary-500"
-						on:click={() => {
-							navigateTo(cat);
-						}}
-						on:keypress
+						
 					>
-						<img src={cat.portrait} class="crisp w-full aspect-square rounded" alt="portrait" />
-						<h6 class="h6 mt-3 mb-2">{cat.name}</h6>
+						<button on:click={() => { navigateTo(cat); }} on:keypress>
+							<img src={cat.portrait} class="crisp w-full aspect-square rounded" alt="portrait" />
+							<h6 class="h6 mt-3 mb-2">{cat.name}</h6>
+						</button>
 					</li>
 				{/each}
 			</nav>
@@ -93,7 +91,7 @@
 				<nav class="list-none grid grid-cols-1 md:grid-cols-2 gap-4">
 					<!-- Per Each Project -->
 					{#each category.projects as project}
-						<div
+						<button
 							class="card bg-white/30 dark:bg-black/30 p-1 rounded cursor-pointer grid grid-cols-[64px_1fr] gap-4 place-items-center hover:!bg-primary-500"
 							on:click={() => {
 								naviateToPillar(project);
@@ -104,7 +102,7 @@
 							<span class="text-base font-bold">{project.name}</span>
 							<!-- TODO: need to cross reference 'pillars' data -->
 							<!-- {#if pillar.found}<div class="font-bold uppercase">Found</div>{/if} -->
-						</div>
+						</button>
 					{/each}
 				</nav>
 			{/each}

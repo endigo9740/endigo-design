@@ -22,7 +22,7 @@
 			</label>
 			<label class="label mc-field-group" for="mce-FNAME">
 				<span class="text-sm">First Name </span>
-				<input type="text" placeholder="What should I call you?" value="" name="FNAME" class="input variant-glass" id="mce-FNAME" />
+				<input type="text" placeholder="What's your name?" value="" name="FNAME" class="input variant-glass" id="mce-FNAME" />
 			</label>
 			<label class="label mc-field-group" for="mce-SUBJECT">
 				<span class="text-sm">Subject </span>
