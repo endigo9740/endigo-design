@@ -20,7 +20,7 @@
 	<section class="col-span-5 space-y-4">
 		<h2 class="h2 section-header">About Chris</h2>
 		<p>
-			Hello and welcome! Here you’ll find a showcase of some of my most prominant works. I have dedicated the last 20+ years of my life to building a career in professional development, design, and UX. I am primarily self taught in these disciplines, but still take time to research, tinker, and learn more every day.
+			Hello and welcome! Here you’ll find a showcase of some of my most prominent works. I have dedicated the last 20+ years of my life to building a career in professional development, design, and UX. I am primarily self taught in these disciplines, but still take time to research, tinker, and learn more every day.
 		</p>
 		<p>
 			I discovered my passion for programming and design while attending classes for Visual Basic and Photoshop in high school. However my
