@@ -25,7 +25,7 @@
 				<!-- Project -->
 				{#each work.projects as project}
 					<a
-						href={`./works/${key}/${project.id}`}
+						href={`/works/${key}/${project.id}`}
 						class="unstyled aspect-square overflow-hidden shadow group"
 						style:background-color={project.accent}
 					>
