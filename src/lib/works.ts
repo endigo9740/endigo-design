@@ -9,11 +9,11 @@ export const works: any = {
 				id: 'skeleton',
 				name: 'Skeleton',
 				details: [
-					`I am the creator and core maintainer for <strong>Skeleton</strong> - an open source UI toolkit and component library featuring tight integration between <a class="anchor" href="https://svelte.dev/" target="_blank">Svelte</a> and <a class="anchor" href="https://tailwindcss.com/" target="_blank">Tailwind</a>.`,
-					`The library provides an array of atomic CSS elements, Svelte components, and flexible utility features. Pairing Tailwind's utility classes with Svelte's powered component architecture, Skeleton creates customized, responsive, and reactive interfaces for any size project.`,
-					`Skeleton is hugely popular, with over 60k+ downloads a month, 3.5k+ stars on GitHub, nearly 100 contributors, and 1.5k+ members on Discord.`,
+					`I am the creator and core maintainer for Skeleton - an open source UI toolkit for web-based frameworks such as Svelte and React.`,
+					`The library provides an array of atomic CSS elements, feature-rich components, and flexible utility features. Pairing Tailwind's utility classes with a dedicated component system, Skeleton can created customized, responsive, and reactive interfaces for any size project.`,
+					`Skeleton has been very well received, with over 80k+ downloads a month, 4k+ stars on GitHub, over 100+ contributors, and 3k+ members on the community Discord.`,
 					`To help promote Skeleton, I've made appearances at <a class="anchor" href="https://www.youtube.com/watch?v=KxK9iA1ktlU" target="_blank">Svelte Summit 2023</a>, <a class="anchor" href="https://www.youtube.com/watch?v=2OnJYCXJPK4" target="_blank">Svelte Sirens</a>, the <a class="anchor" href="https://podrocket.logrocket.com/skeleton?ref=skeleton.ghost.io" target="_blank">Logrocket Podcast</a>, as well as our <a class="anchor" href="https://www.youtube.com/playlist?list=PLJtgPDPrJYAuDISpNrarLCjVInKknDCcA" target="_blank">Skeleton v1 Launch Livestream</a>.`,
-					`Skeleton has been covered by popular Svelte content creators, such as <a class="anchor" href="https://www.youtube.com/watch?v=MaF8kRbHbi0" target="_blank">Geoff Rich</a>, <a class="anchor" href="https://www.youtube.com/watch?v=P_A0qQ7AuK8" target="_blank">Huntabyte</a>, and <a class="anchor" href="https://www.youtube.com/watch?v=O0mNU0maItY" target="_blank">Joy of Code</a>. As well as earning recognition from <a class="anchor" href="https://twitter.com/Rich_Harris/status/1654883813078474755" target="_blank">Rich Harris</a>, the creator of Svelte and SvelteKit.`
+					`Skeleton has been covered by popular content creators, such as <a class="anchor" href="https://www.youtube.com/watch?v=MaF8kRbHbi0" target="_blank">Geoff Rich</a>, <a class="anchor" href="https://www.youtube.com/watch?v=P_A0qQ7AuK8" target="_blank">Huntabyte</a>, and <a class="anchor" href="https://www.youtube.com/watch?v=O0mNU0maItY" target="_blank">Joy of Code</a>. It has also garnered recognition from <a class="anchor" href="https://twitter.com/Rich_Harris/status/1654883813078474755" target="_blank">Rich Harris</a>, the creator of Svelte and SvelteKit.`
 				],
 				technology: `Svelte/Kit, Tailwind, Vite, Vitest, Testing Library, NPM, Typescript`,
 				url: 'https://skeleton.dev/',
@@ -33,11 +33,11 @@ export const works: any = {
 				id: 'skeleton-labs',
 				name: 'The Company',
 				details: [
-					`Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs. An LLC managed by myself and my business partner Trey Weir.`,
-					`Skeleton Labs, serves as an commercial extension of the open source project, handling sponsorship through services such as GitHub Sponsors, Ko-Fi, and Patreon. As well as providing premium services, such as the recently launched <a class="anchor" href="https://store.skeleton.dev/" target="_blank">Skeleton Store</a>.`,
-					`Many people understand the challenges faced when funding source development. To that end, Skeleton Labs handles all commercial needs for the project to ensure the library can thrive for many years to come.`
+					`Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs. Managed by both myself and my business partner of several years, Trey Weir.`,
+					`Skeleton Labs serves as an commercial extension of the open source project, handling sponsorship through services such as GitHub Sponsors, Ko-Fi, and Patreon. As well as providing premium services and support.`,
+					`Most folks realize the uphill battle when it comes to funding open source projects. To that end, Skeleton Labs handles all commercial needs for the project to ensure the library can continue to thrive for many years to come.`
 				],
-				technology: `Company, Sponsorship, Shopify, Support, Consulting`,
+				technology: `Company, Sponsorship, Ko-Fi, Patreon, Support, Consulting`,
 				url: 'https://skeletonlabs.co/',
 				coords: { x: 0, y: 0 },
 				accent: '#242c46',
