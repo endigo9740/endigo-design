@@ -1,8 +1,58 @@
 ---
 import LayoutRoot from "@layouts/LayoutRoot.astro";
+
+const categories = ["Skeleton", "Brain & Bones", "Jackpot Rising", "Gaming"];
+const works = [1, 2, 3];
 ---
 
 <LayoutRoot>
-  <header>(subheader)</header>
-  <h1>Works</h1>
+  <!-- Hero -->
+  <header
+    class="bg-primary p-4 md:p-6 !pb-0 flex flex-col items-center gap-4 md:gap-6"
+  >
+    <h1 class="max-w-[1200px] mx-auto text-balance text-center">
+      Hi, I’m Chris. I build design systems. Plus UI, UX, games, and more.
+    </h1>
+    <img src="/hero.png" alt="Portrait" />
+  </header>
+  <!-- Main -->
+  <main class="p-4 py-12 md:py-24">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
+        <!-- Heading -->
+        <h2
+          class="h2 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[195px] md:whitespace-nowrap"
+        >
+          <i class="hidden md:inline-block fa-solid fa-arrow-left-long"></i>
+          <span>Works</span>
+        </h2>
+        <!-- Horizontal Rule -->
+        <hr class="hr-vert max-h-[640px]" />
+        <!-- Grid -->
+        <div class="space-y-10">
+          {
+            categories.map((category) => (
+              <section class="space-y-4">
+                <h3 class="h3">
+                  <span class="text-primary font-bold">{"["}</span>
+                  {category}
+                  <span class="text-primary font-bold">{"]"}</span>
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+                  {works.map((item) => (
+                    <a
+                      href={`/works/${item}`}
+                      class="aspect-square bg-white/10 border-[5px] border-white flex justify-center items-center"
+                    >
+                      Work {item}
+                    </a>
+                  ))}
+                </div>
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </main>
 </LayoutRoot>

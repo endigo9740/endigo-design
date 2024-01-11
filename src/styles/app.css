@@ -1,3 +1,43 @@
+/* Global Styles --- */
+
 body {
-  @apply bg-surface text-white;
+  @apply bg-surface text-white overflow-x-hidden;
+}
+
+/* Typography --- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold;
+}
+h1 {
+  @apply text-secondary text-3xl md:text-5xl;
+}
+h2 {
+  @apply text-white text-5xl font-black uppercase;
+}
+h3 {
+  @apply text-white text-3xl font-normal uppercase;
+}
+
+.anchor {
+  @apply opacity-75 hover:opacity-100;
+}
+
+/* Elements --- */
+
+.btn {
+  @apply inline-block bg-secondary text-black px-6 py-2 rounded-tr rounded-bl;
+  @apply hover:brightness-110;
+}
+
+.hr {
+  @apply border-t-2 w-full border-white/10 bg-none;
+}
+.hr-vert {
+  @apply border-l-2 h-full border-white/10 bg-none;
 }
