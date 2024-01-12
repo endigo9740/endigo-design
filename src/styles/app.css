@@ -41,3 +41,13 @@ h3 {
 .hr-vert {
   @apply border-l-2 h-full border-white/10 bg-none;
 }
+
+/* Prose --- */
+/* https://tailwindcss.com/docs/typography-plugin */
+
+.prose hr {
+  @apply hr;
+}
+.prose a {
+  @apply anchor;
+}

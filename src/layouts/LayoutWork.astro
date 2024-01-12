@@ -1,0 +1,77 @@
+---
+import LayoutRoot from "@layouts/LayoutRoot.astro";
+
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+
+const { frontmatter } = Astro.props;
+const cdnBaseUrl: string =
+  "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
+---
+
+<LayoutRoot>
+  <Header />
+  <section class="p-4 py-12 md:py-24">
+    <div
+      class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10"
+    >
+      <header
+        class="sticky top-4 z-10 flex flex-col justify-start items-end gap-4 w-[320px]"
+      >
+        <small class="text-lg uppercase opacity-50">{frontmatter.group}</small>
+        <h2 class="h2">{frontmatter.title}</h2>
+        <img
+          src={cdnBaseUrl + frontmatter.thumbnail}
+          alt={frontmatter.title}
+          class="w-full aspect-square"
+        />
+        <a href="/" class="btn">Launch &rarr;</a>
+      </header>
+      <article class="prose prose-invert max-w-none">
+        <!-- Markdown -->
+        <slot />
+        <hr class="hr" />
+        <!-- Video -->
+        {
+          frontmatter.videos.map((video: any) => (
+            <figure>
+              <iframe
+                src={video.src}
+                class="w-full aspect-video bg-black/30 border border-black/30 shadow-xl"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              />
+              {video.caption && (
+                <span class="block mt-3 text-xs text-center opacity-60">
+                  {video.caption}
+                </span>
+              )}
+            </figure>
+          ))
+        }
+        <hr class="hr" />
+        <!-- Screenshots -->
+        {
+          frontmatter.screenshots.map((screenshot: any) => (
+            <figure>
+              <img
+                src={cdnBaseUrl + screenshot.src}
+                alt={screenshot.caption}
+                class="w-full aspect-auto"
+              />
+              {screenshot.caption && (
+                <span class="block pt-2 text-center text-xs opacity-50">
+                  {screenshot.caption}
+                </span>
+              )}
+            </figure>
+          ))
+        }
+      </article>
+    </div>
+  </section>
+  <Footer />
+</LayoutRoot>

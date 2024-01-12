@@ -1,11 +1,14 @@
 ---
-import LayoutRoot from "@layouts/LayoutRoot.astro";
+import LayoutPage from "@layouts/LayoutPage.astro";
 
-const categories = ["Skeleton", "Brain & Bones", "Jackpot Rising", "Gaming"];
-const works = [1, 2, 3];
+const cdnBaseUrl: string =
+  "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
+const groups = {
+  "Skeleton Labs": await Astro.glob("./works/skeleton-labs/*.md"),
+};
 ---
 
-<LayoutRoot>
+<LayoutPage>
   <!-- Hero -->
   <header
     class="bg-primary p-4 md:p-6 !pb-0 flex flex-col items-center gap-4 md:gap-6"
@@ -18,7 +21,7 @@ const works = [1, 2, 3];
   <!-- Main -->
   <main class="p-4 py-12 md:py-24">
     <div class="container mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-[48px_1fr] gap-4 md:gap-8">
         <!-- Heading -->
         <h2
           class="h2 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[195px] md:whitespace-nowrap"
@@ -26,25 +29,27 @@ const works = [1, 2, 3];
           <i class="hidden md:inline-block fa-solid fa-arrow-left-long"></i>
           <span>Works</span>
         </h2>
-        <!-- Horizontal Rule -->
-        <hr class="hr-vert max-h-[640px]" />
         <!-- Grid -->
         <div class="space-y-10">
+          <!-- <pre>{JSON.stringify(groups, null, 2)}</pre> -->
           {
-            categories.map((category) => (
+            Object.entries(groups).map(([group, works]) => (
               <section class="space-y-4">
                 <h3 class="h3">
                   <span class="text-primary font-bold">{"["}</span>
-                  {category}
+                  {group}
                   <span class="text-primary font-bold">{"]"}</span>
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-                  {works.map((item) => (
+                  {works.map((work: any) => (
                     <a
-                      href={`/works/${item}`}
-                      class="aspect-square bg-white/10 border-[5px] border-white flex justify-center items-center"
+                      href={work.url}
+                      class="aspect-square bg-white/10 border-[10px] border-white flex justify-center items-center"
                     >
-                      Work {item}
+                      <img
+                        src={cdnBaseUrl + work.frontmatter.thumbnail}
+                        alt={work.frontmatter.title}
+                      />
                     </a>
                   ))}
                 </div>
@@ -55,4 +60,4 @@ const works = [1, 2, 3];
       </div>
     </div>
   </main>
-</LayoutRoot>
+</LayoutPage>
