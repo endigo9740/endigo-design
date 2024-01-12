@@ -5,7 +5,16 @@ const cdnBaseUrl: string =
   "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
 const groups = {
   "Skeleton Labs": await Astro.glob("./works/skeleton-labs/*.md"),
+  "Brain & Bones": await Astro.glob("./works/brain-bones/*.md"),
 };
+
+function sortByKey(array: any[], key: string) {
+  return array.sort(function (a, b) {
+    var x = a[key];
+    var y = b[key];
+    return x < y ? -1 : x > y ? 1 : 0;
+  });
+}
 ---
 
 <LayoutPage>
@@ -26,12 +35,11 @@ const groups = {
         <h2
           class="h2 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[195px] md:whitespace-nowrap"
         >
-          <i class="hidden md:inline-block fa-solid fa-arrow-left-long"></i>
+          <i class="!hidden md:!inline-block fa-solid fa-arrow-left-long"></i>
           <span>Works</span>
         </h2>
         <!-- Grid -->
         <div class="space-y-10">
-          <!-- <pre>{JSON.stringify(groups, null, 2)}</pre> -->
           {
             Object.entries(groups).map(([group, works]) => (
               <section class="space-y-4">
@@ -41,17 +49,27 @@ const groups = {
                   <span class="text-primary font-bold">{"]"}</span>
                 </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-                  {works.map((work: any) => (
-                    <a
-                      href={work.url}
-                      class="aspect-square bg-white/10 border-[10px] border-white flex justify-center items-center"
-                    >
-                      <img
-                        src={cdnBaseUrl + work.frontmatter.thumbnail}
-                        alt={work.frontmatter.title}
-                      />
-                    </a>
-                  ))}
+                  {works
+                    .sort(
+                      (a: any, b: any) =>
+                        a.frontmatter.group_id - b.frontmatter.group_id
+                    )
+                    .map((work: any) => (
+                      <a
+                        href={work.url}
+                        class="aspect-square flex justify-center items-center"
+                      >
+                        <figure class="space-y-2">
+                          <img
+                            src={cdnBaseUrl + work.frontmatter.thumbnail}
+                            alt={work.frontmatter.title}
+                          />
+                          <strong class="block text-center">
+                            {work.frontmatter.title}
+                          </strong>
+                        </figure>
+                      </a>
+                    ))}
                 </div>
               </section>
             ))

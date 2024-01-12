@@ -1,9 +1,10 @@
 ---
 layout: "@layouts/LayoutWork.astro"
 # ---
+group_id: 0
 group: Skeleton Labs
 title: Skeleton
-url: https://skeleton.dev/
+website: https://skeleton.dev/
 accent: "#242c46"
 thumbnail: /works/sk-logo.png
 videos: [{ src: "https://www.youtube.com/embed/tHzVyChDuyo" }]
