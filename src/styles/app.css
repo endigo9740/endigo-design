@@ -15,7 +15,7 @@ h6 {
   @apply font-bold;
 }
 h1 {
-  @apply text-secondary text-3xl md:text-5xl;
+  @apply text-secondary text-4xl md:text-6xl;
 }
 h2 {
   @apply text-white text-5xl font-black uppercase;
@@ -31,15 +31,15 @@ h3 {
 /* Elements --- */
 
 .btn {
-  @apply inline-block bg-secondary text-black px-6 py-2 rounded-tr rounded-bl;
+  @apply inline-block bg-secondary text-black px-6 py-2 rounded-tr-lg rounded-bl-lg;
   @apply hover:brightness-110;
 }
 
 .hr {
-  @apply border-t-2 w-full border-white/10 bg-none;
+  @apply border-t-2 w-full border-white/5 bg-none;
 }
 .hr-vert {
-  @apply border-l-2 h-full border-white/10 bg-none;
+  @apply border-l-2 h-full border-white/5 bg-none max-h-[640px];
 }
 
 /* Prose --- */

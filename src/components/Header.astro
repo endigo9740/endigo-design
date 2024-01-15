@@ -1,5 +1,16 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
 
+const links = [
+  { href: "/", label: "Works" },
+  { href: "/about", label: "About" },
+];
+
+function setActiveClass(link: Record<string, string>) {
+  if (link.href === pathname)
+    return "!opacity-100 decoration-white/20 decoration-4 underline underline-offset-4";
+  return;
+}
 ---
 
 <header
@@ -12,11 +23,27 @@
     <a href="/" title="Endigo Design">
       <img class="w-[60px]" src="/logo.png" alt="Endigo Design" />
     </a>
-    <!-- Nav -->
-    <nav class="flex gap-4">
-      <a class="anchor" href="/">Works</a>
-      <a class="anchor" href="/about">About</a>
-    </nav>
+    <!-- Navigation -->
+    {
+      pathname.includes("/works") ? (
+        // Go Back
+        <nav>
+          <a class="anchor" href="/">
+            &larr; Go Back
+          </a>
+        </nav>
+      ) : (
+        // Browse
+        <nav class="flex gap-4">
+          {links.map((link) => (
+            <a href={link.href} class={`anchor ${setActiveClass(link)}`}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )
+    }
+
     <!-- Contact -->
     <a class="btn" href="mailto:chris@skeleton.dev">Let's Talk</a>
   </div>

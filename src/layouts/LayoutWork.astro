@@ -13,17 +13,20 @@ const cdnBaseUrl: string =
   <Header />
   <section class="p-4 py-12 md:py-24">
     <div
-      class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr] gap-10"
+      class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-10"
     >
       <header
         class="flex flex-col justify-start items-start md:items-end gap-4 w-[320px]"
       >
-        <small class="text-lg uppercase opacity-50">{frontmatter.group}</small>
-        <h2 class="h2 md:text-right">{frontmatter.title}</h2>
+        <div class="md:text-right">
+          <small class="text-lg uppercase opacity-50">{frontmatter.group}</small
+          >
+          <h2 class="h2 md:text-right">{frontmatter.title}</h2>
+        </div>
         <img
           src={cdnBaseUrl + frontmatter.thumbnail}
           alt={frontmatter.title}
-          class="w-full aspect-square"
+          class="w-full aspect-square rounded shadow"
           style={{ backgroundColor: frontmatter.accent }}
         />
         {
@@ -34,6 +37,11 @@ const cdnBaseUrl: string =
           )
         }
       </header>
+      <!-- Horz Rule -->
+      <div class="hidden md:block">
+        <hr class="hr-vert" />
+      </div>
+      <!-- Article -->
       <article class="prose prose-invert max-w-none">
         <!-- Markdown -->
         <slot />
@@ -45,7 +53,7 @@ const cdnBaseUrl: string =
               <figure>
                 <iframe
                   src={video.src}
-                  class="w-full aspect-video bg-black/30 border border-black/30 shadow-xl"
+                  class="w-full aspect-video bg-black/30 rounded shadow-xl"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -68,7 +76,7 @@ const cdnBaseUrl: string =
                 <img
                   src={cdnBaseUrl + screenshot.src}
                   alt={screenshot.caption}
-                  class="bg-black/30 w-full aspect-auto"
+                  class="bg-black/30 w-full aspect-auto rounded shadow-xl"
                 />
                 {screenshot.caption && (
                   <span class="block pt-2 text-center text-xs opacity-50">
