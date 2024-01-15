@@ -1,7 +1,7 @@
 ---
 layout: "@layouts/LayoutWork.astro"
 # ---
-group_id: 2
+group_id: 0
 group: Gaming
 title: Portfolio Game
 website: ""

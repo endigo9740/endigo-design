@@ -29,8 +29,4 @@ screenshots:
   ]
 ---
 
-Previously tended by Brain & Bones, Skeleton is now supported by Skeleton Labs. Managed by both myself and my business partner of several years, Trey Weir.
-
-Skeleton Labs serves as an commercial extension of the open source project, handling sponsorship through services such as GitHub Sponsors, Ko-Fi, and Patreon. As well as providing premium services and support.
-
-Most folks realize the uphill battle when it comes to funding open source projects. To that end, Skeleton Labs handles all commercial needs for the project to ensure the library can continue to thrive for many years to come.
+Over the course of two years, I participated in and managed development and design efforts for Brain & Bones. I served as VP of Engineering, which involved managing an extremely talented set of team of developers. Our task was overseeing the core SaaS platform, managing the user-facing web apps, as well as building the Speed Trivia game client. I created all branding and design guidelines, which includes the UX and visual identity for each unique product.

@@ -1,7 +1,7 @@
 ---
 layout: "@layouts/LayoutWork.astro"
 # ---
-group_id: 0
+group_id: 1
 group: Gaming
 title: Minirl
 website: http://minirlgame.com/

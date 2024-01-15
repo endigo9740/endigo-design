@@ -1,7 +1,7 @@
 ---
 layout: "@layouts/LayoutWork.astro"
 # ---
-group_id: 1
+group_id: 2
 group: Gaming
 title: Enden Ring Planner
 website: https://elden-ring-planner.vercel.app/

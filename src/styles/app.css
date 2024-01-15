@@ -21,7 +21,7 @@ h2 {
   @apply text-white text-5xl font-black uppercase;
 }
 h3 {
-  @apply text-white text-3xl font-normal uppercase;
+  @apply text-white text-3xl font-light uppercase;
 }
 
 .anchor {
