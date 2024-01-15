@@ -4,6 +4,10 @@ body {
   @apply bg-surface text-white overflow-x-hidden;
 }
 
+*:focus {
+  @apply outline-2 outline-offset-[5px] outline-white/10;
+}
+
 /* Typography --- */
 
 h1,
@@ -50,4 +54,15 @@ h3 {
 }
 .prose a {
   @apply anchor;
+}
+
+/* Animations --- */
+
+@keyframes anim-cube-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.anim-cube-spin {
+  animation: spin 320ms linear;
 }
