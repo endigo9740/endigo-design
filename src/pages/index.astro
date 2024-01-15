@@ -6,6 +6,8 @@ const cdnBaseUrl: string =
 const groups = {
   "Skeleton Labs": await Astro.glob("./works/skeleton-labs/*.md"),
   "Brain & Bones": await Astro.glob("./works/brain-bones/*.md"),
+  "Jackpot Rising": await Astro.glob("./works/jackpot-rising/*.md"),
+  Gaming: await Astro.glob("./works/gaming/*.md"),
 };
 
 function sortByKey(array: any[], key: string) {
@@ -55,14 +57,13 @@ function sortByKey(array: any[], key: string) {
                         a.frontmatter.group_id - b.frontmatter.group_id
                     )
                     .map((work: any) => (
-                      <a
-                        href={work.url}
-                        class="aspect-square flex justify-center items-center"
-                      >
+                      <a href={work.url}>
                         <figure class="space-y-2">
                           <img
                             src={cdnBaseUrl + work.frontmatter.thumbnail}
                             alt={work.frontmatter.title}
+                            class="w-full aspect-square hover:scale-95 transition-transform"
+                            style={{ backgroundColor: work.frontmatter.accent }}
                           />
                           <strong class="block text-center">
                             {work.frontmatter.title}

@@ -24,10 +24,15 @@ const cdnBaseUrl: string =
           src={cdnBaseUrl + frontmatter.thumbnail}
           alt={frontmatter.title}
           class="w-full aspect-square"
+          style={{ backgroundColor: frontmatter.accent }}
         />
-        <a class="btn" href={frontmatter.website} target="_blank"
-          >Launch &rarr;</a
-        >
+        {
+          frontmatter.website && (
+            <a class="btn" href={frontmatter.website} target="_blank">
+              Launch &rarr;
+            </a>
+          )
+        }
       </header>
       <article class="prose prose-invert max-w-none">
         <!-- Markdown -->
@@ -63,7 +68,7 @@ const cdnBaseUrl: string =
                 <img
                   src={cdnBaseUrl + screenshot.src}
                   alt={screenshot.caption}
-                  class="w-full aspect-auto"
+                  class="bg-black/30 w-full aspect-auto"
                 />
                 {screenshot.caption && (
                   <span class="block pt-2 text-center text-xs opacity-50">

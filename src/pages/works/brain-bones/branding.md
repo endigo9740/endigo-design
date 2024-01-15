@@ -4,7 +4,7 @@ layout: "@layouts/LayoutWork.astro"
 group_id: 0
 group: Brain & Bones
 title: Branding
-website: "https://www.brainandbonesllc.com/"
+website: https://www.brainandbonesllc.com/
 accent: "#34d399"
 thumbnail: /works/bb-logo.png
 videos: []
