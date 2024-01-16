@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
+    "@astrojs/cloudflare": "^8.1.0",
     "@astrojs/tailwind": "^5.1.0",
     "@fortawesome/fontawesome-free": "^6.5.1",
     "astro": "^4.1.1",
