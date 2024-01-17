@@ -41,4 +41,4 @@ screenshots:
   ]
 ---
 
-Speed Trivia was the first in the series of games for the Brain & Bones engagement platform. It harnesses the popularity of casual games to allow companies and individuals to connect with their customers, followers, and employees. This was the first project I spearheaded during my time at Brain & Bones. The product is a fully interactive web-based game, featuring fast paced trivia and real-time leaderboards. It features modern web technology including a fully responsive PWA, and is playable on any web-connected device.
+Speed Trivia was the first in a series of games for the Brain & Bones engagement platform. It harnesses the popularity of casual games to allow companies and individuals to connect with their customers, followers, and employees. This was the first project I spearheaded during my time at Brain & Bones. The product is a fully interactive web-based game, featuring fast paced trivia and real-time leaderboards. It features modern web technology including a fully responsive PWA, and is playable on any web-connected device.

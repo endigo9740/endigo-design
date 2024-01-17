@@ -29,4 +29,4 @@ screenshots:
   ]
 ---
 
-Over the course of two years, I participated in and managed development and design efforts for Brain & Bones. I served as VP of Engineering, which involved managing an extremely talented set of team of developers. Our task was overseeing the core SaaS platform, managing the user-facing web apps, as well as building the Speed Trivia game client. I created all branding and design guidelines, which includes the UX and visual identity for each unique product.
+Over the course of two years, I participated in and managed development and design efforts for Brain & Bones. I served as VP of Engineering, which involved managing an extremely talented team of developers. Our task was overseeing the core SaaS platform, managing the user-facing web apps, as well as building the Speed Trivia game client. I created all branding and design guidelines, which includes the UX and visual identity for each unique product.
