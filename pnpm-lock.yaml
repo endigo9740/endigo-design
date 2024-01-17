@@ -14,9 +14,6 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.0
     version: 5.1.0(astro@4.1.1)(tailwindcss@3.4.1)
-  '@fortawesome/fontawesome-free':
-    specifier: ^6.5.1
-    version: 6.5.1
   astro:
     specifier: ^4.1.1
     version: 4.1.1(typescript@5.3.3)
@@ -697,12 +694,6 @@ packages:
   /@fastify/busboy@2.1.0:
     resolution: {integrity: sha512-+KpH+QxZU7O4675t3mnkQKcZZg56u+K/Ct2K+N2AZYNVK8kyeo/bI18tI8aPm3tvNNRyTWfj6s5tnGNlcbQRsA==}
     engines: {node: '>=14'}
-    dev: false
-
-  /@fortawesome/fontawesome-free@6.5.1:
-    resolution: {integrity: sha512-CNy5vSwN3fsUStPRLX7fUYojyuzoEMSXPl7zSLJ8TgtRfjv24LOnOWKT2zYwaHZCJGkdyRnTmstR0P+Ah503Gw==, tarball: https://npm.fontawesome.com/@fortawesome/fontawesome-free/-/6.5.1/fontawesome-free-6.5.1.tgz}
-    engines: {node: '>=6'}
-    requiresBuild: true
     dev: false
 
   /@iarna/toml@2.2.5:
