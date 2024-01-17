@@ -2,6 +2,10 @@
 
 The portfolio website of Chris Simmons.
 
+## Astro
+
+This project was built with Astro. [Learn more here](https://docs.astro.build).
+
 ## Project Structure
 
 ```text
@@ -25,7 +29,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## Astro
-
-This project was built with Astro. [Learn more here](https://docs.astro.build).
