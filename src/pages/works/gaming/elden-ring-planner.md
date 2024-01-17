@@ -3,7 +3,7 @@ layout: "@layouts/LayoutWork.astro"
 # ---
 group_id: 2
 group: Gaming
-title: Enden Ring Planner
+title: Elden Ring Planner
 website: https://elden-ring-planner.vercel.app/
 accent: "#202018"
 thumbnail: /works/gaming-er-planner.png
