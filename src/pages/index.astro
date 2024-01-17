@@ -27,7 +27,16 @@ function sortByKey(array: any[], key: string) {
     <h1 class="max-w-[1200px] mx-auto text-balance text-center">
       Hi, I’m Chris. I build accessible design systems, UI, UX, games, and more.
     </h1>
-    <img src="/hero.png" alt="Portrait of Chris Simmons" />
+    <img
+      class="md:hidden"
+      src="/hero-mobile.png"
+      alt="Portrait of Chris Simmons"
+    />
+    <img
+      class="hidden md:block"
+      src="/hero.png"
+      alt="Portrait of Chris Simmons"
+    />
   </header>
   <!-- Main -->
   <main class="p-4 py-12 md:py-24">
@@ -37,7 +46,17 @@ function sortByKey(array: any[], key: string) {
         <h2
           class="h2 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[195px] md:whitespace-nowrap"
         >
-          <i class="!hidden md:!inline-block fa-solid fa-arrow-left-long"></i>
+          <svg
+            class="fill-current md:size-9 !hidden md:!inline-block fa-solid fa-arrow-left-long -translate-y-1"
+            xmlns="http://www.w3.org/2000/svg"
+            height="16"
+            width="16"
+            viewBox="0 0 512 512"
+          >
+            <path
+              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"
+            ></path>
+          </svg>
           <span>Works</span>
         </h2>
         <!-- Horz Rule -->
