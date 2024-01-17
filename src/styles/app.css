@@ -1,0 +1,68 @@
+/* Global Styles --- */
+
+body {
+  @apply bg-surface text-white overflow-x-hidden;
+}
+
+*:focus {
+  @apply outline-2 outline-offset-[5px] outline-white/10;
+}
+
+/* Typography --- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold;
+}
+h1 {
+  @apply text-secondary text-4xl md:text-6xl;
+}
+h2 {
+  @apply text-white text-3xl md:text-5xl font-black uppercase;
+}
+h3 {
+  @apply text-white text-xl md:text-3xl font-light uppercase;
+}
+
+.anchor {
+  @apply opacity-75 hover:opacity-100;
+}
+
+/* Elements --- */
+
+.btn {
+  @apply inline-block bg-secondary text-black px-6 py-2 rounded-tr-lg rounded-bl-lg;
+  @apply hover:brightness-110;
+}
+
+.hr {
+  @apply border-t-2 w-full border-white/5 bg-none;
+}
+.hr-vert {
+  @apply border-l-2 h-full border-white/5 bg-none max-h-[640px];
+}
+
+/* Prose --- */
+/* https://tailwindcss.com/docs/typography-plugin */
+
+.prose hr {
+  @apply hr;
+}
+.prose a {
+  @apply anchor;
+}
+
+/* Animations --- */
+
+@keyframes anim-cube-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.anim-cube-spin {
+  animation: spin 320ms linear;
+}

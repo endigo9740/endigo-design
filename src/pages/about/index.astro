@@ -1,0 +1,89 @@
+---
+import LayoutPage from "@layouts/LayoutPage.astro";
+
+const resumeLink =
+  "https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true";
+---
+
+<LayoutPage>
+  <main class="p-4 py-12 md:py-24">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
+        <!-- Heading -->
+        <h2
+          class="h2 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[130px] md:whitespace-nowrap"
+        >
+          <span>About</span>
+        </h2>
+        <!-- Horz Rule -->
+        <div class="hidden md:block">
+          <hr class="hr-vert" />
+        </div>
+        <div class="space-y-10">
+          <!-- Article -->
+          <article class="space-y-4 text-xl">
+            <p>Hi, I'm Chris 👋</p>
+            <p>
+              Welcome to my humble showcase, featuring a few of my most
+              prominent works. I have dedicated the last 20+ years of my life to
+              building a career in professional development, design, and UX. I
+              am primarily self taught in these disciplines, but still take time
+              to research, tinker, and learn more every day.
+            </p>
+            <p>
+              I discovered my passion for programming and design while attending
+              classes for Visual Basic and Photoshop in high school. I'm also a
+              lifelong fan of video games, whhich all began when I received my
+              first console as a kid, a classic Nintendo Entertainment System. I
+              still remember the magic of picking up that controller and making
+              Mario run and jump on the screen - though occasionally to his
+              untimely death.
+            </p>
+            <p>
+              My passion has fueled a lifelong journey, culminating in a career
+              path that includes a broad spectrum of industries, including:
+              photography, corporate media, a digital agency, as well as a
+              number of tech startups - all before landing in my current role as
+              the core maintainer for <a
+                class="anchor"
+                href="https://skeleton.dev/"
+                target="_blank"
+                rel="noreferrer">Skeleton</a
+              >, a web-based UI toolkit. Over the years, I've had the privilage
+              of working alongside some of the most talented and passionate
+              individuals I know, while building platforms for the web, gaminga,
+              and open source.
+            </p>
+            <p>
+              I feel my strength lies not just in writing code or designing
+              interfaces, but in solving real world problems. I pride myself in
+              my ability to listen, learn, and help determine what is really
+              needed for any and all challenges. Providing solutions at every
+              step of the process, from concept to execution. Whether you’re
+              trying to build a web application, engage your audience, or carve
+              a new path in the world. My skills are available to help get you
+              to where you need to be!
+            </p>
+          </article>
+          <hr class="hr" />
+          <header class="flex justify-between items-center">
+            <h3 class="h3">
+              <span class="text-primary font-bold">{"["}</span>
+              <span>Resume</span>
+              <span class="text-primary font-bold">{"]"}</span>
+            </h3>
+            <a href={resumeLink} class="btn" target="_blank">
+              View on <i class="fa-brands fa-google"></i> &rarr;
+            </a>
+          </header>
+          <iframe
+            class="bg-white shadow-xl"
+            width="100%"
+            height="800px"
+            src="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </main>
+</LayoutPage>

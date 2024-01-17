@@ -1,0 +1,54 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+
+const links = [
+  { href: "/", label: "Works" },
+  { href: "/about", label: "About" },
+];
+
+function setActiveClass(link: Record<string, string>) {
+  if (link.href === pathname)
+    return "!opacity-100 decoration-white/20 decoration-4 underline underline-offset-4";
+  return;
+}
+---
+
+<header
+  class="bg-primary border-t-[10px] border-white/20 border-inset p-4 md:p-6"
+>
+  <div
+    class="container mx-auto grid grid-cols-[auto_1fr_auto] gap-4 items-center"
+  >
+    <!-- Logo -->
+    <a href="/" title="Endigo Design">
+      <img
+        class="w-[60px] anim-cube-spin"
+        src="/logo.png"
+        alt="Endigo Design"
+      />
+    </a>
+    <!-- Navigation -->
+    {
+      pathname.includes("/works") ? (
+        // Go Back
+        <nav>
+          <a class="anchor" href="/">
+            &larr; Go Back
+          </a>
+        </nav>
+      ) : (
+        // Browse
+        <nav class="flex gap-4">
+          {links.map((link) => (
+            <a href={link.href} class={`anchor ${setActiveClass(link)}`}>
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )
+    }
+
+    <!-- Contact -->
+    <a class="btn" href="mailto:chris@skeleton.dev">Let's Talk</a>
+  </div>
+</header>
