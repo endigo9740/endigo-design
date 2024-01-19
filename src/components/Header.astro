@@ -8,14 +8,12 @@ const links = [
 
 function setActiveClass(link: Record<string, string>) {
   if (link.href === pathname)
-    return "!opacity-100 decoration-white/20 decoration-4 underline underline-offset-4";
+    return "!opacity-100 decoration-white/50 decoration-4 underline underline-offset-4";
   return;
 }
 ---
 
-<header
-  class="bg-primary border-t-[10px] border-white/20 border-inset p-4 md:p-6"
->
+<header class="bg-primary p-4 md:p-6">
   <div
     class="container mx-auto grid grid-cols-[auto_1fr_auto] gap-4 items-center"
   >
