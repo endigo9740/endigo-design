@@ -28,6 +28,7 @@ const cdnBaseUrl: string =
           alt={frontmatter.title}
           class="w-full aspect-square rounded shadow"
           style={{ backgroundColor: frontmatter.accent }}
+          transition:name={`${frontmatter.thumbnail}-thumbnail`}
         />
         {
           frontmatter.website && (
