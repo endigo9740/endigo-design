@@ -79,6 +79,7 @@ const groups = {
                             alt={work.frontmatter.title}
                             class="w-full aspect-square rounded shadow-xl hover:scale-[98%] hover:shadow transition-transform"
                             style={{ backgroundColor: work.frontmatter.accent }}
+                            transition:name={`${work.frontmatter.thumbnail}-thumbnail`}
                           />
                           <strong class="block text-center">
                             {work.frontmatter.title}

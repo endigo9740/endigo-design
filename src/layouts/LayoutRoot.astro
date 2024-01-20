@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import "@styles/app.css";
 ---
 
@@ -18,6 +19,10 @@ import "@styles/app.css";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Endigo Design | The Portfolio of Chris Simmon</title>
+
+    <!-- Astro View Transitions -->
+    <!-- https://docs.astro.build/en/guides/view-transitions/ -->
+    <ViewTransitions />
   </head>
   <body>
     <slot />
