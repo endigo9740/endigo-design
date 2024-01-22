@@ -4,7 +4,7 @@ layout: "@layouts/LayoutWork.astro"
 group_id: 0
 group: Gaming
 title: Portfolio Game
-website: ""
+website: "https://d2zwgjl5tcwau5.cloudfront.net/"
 accent: "#0f172a"
 thumbnail: /works/gaming-portfolio.png
 videos: []
@@ -34,4 +34,4 @@ screenshots: [
   ]
 ---
 
-In a previous iteration of my portfolio website, I introduced a game-like experience. The aesthetic was inspired by my favorite video games, including Heart Machine's [Hyper Light Drifter](https://www.heartmachine.com/hyper-light-drifter). This paired SvelteKit, Tailwind, and [Skeleton](/works/skeleton-labs/skeleton), and made heavy use of [PixiJS](https://pixijs.com/) to handle the visual and interactive aspects of Canvas and WebGL. Each pixel sprite was hand drawn using [Aseprite](https://www.aseprite.org/), and the overall map was generated using [Tiled](https://www.mapeditor.org/). You could optionally turn on music, which was using [Howler.js](https://howlerjs.com/). I covered the creation of the site in an [in-depth blog post](https://dev.to/endigo9740/my-new-portfolio-3ke6). You may [find the source code here](https://github.com/endigo9740/endigo-design/tree/v1).
+In a previous iteration of this portfolio website, I introduced a game-like experience. The aesthetic was inspired by my favorite video games such as Heart Machine's [Hyper Light Drifter](https://www.heartmachine.com/hyper-light-drifter). This project paired SvelteKit, Tailwind, and [Skeleton](/works/skeleton-labs/skeleton). It also made heavy use of [PixiJS](https://pixijs.com/) to handle the visual and interactive aspects of Canvas and WebGL. Each pixel and sprite was hand drawn using [Aseprite](https://www.aseprite.org/), and the overworld generated using [Tiled](https://www.mapeditor.org/). You could optionally enable music, which used a sound system powered by [Howler.js](https://howlerjs.com/). I covered the creation of the site [in this blog post](https://dev.to/endigo9740/my-new-portfolio-3ke6), and you may [find the source code here](https://github.com/endigo9740/endigo-design/tree/v1).
