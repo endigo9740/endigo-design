@@ -17,7 +17,7 @@ This project was built with Astro. [Learn more here](https://docs.astro.build).
 └── package.json
 ```
 
-## ommands
+## Commands
 
 All commands are run from the root of the project, from a terminal:
 
