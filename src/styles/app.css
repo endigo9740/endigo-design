@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Skeleton */
 @import "@skeletonlabs/skeleton";
 @import "@skeletonlabs/skeleton/optional/presets";
-@import "@skeletonlabs/skeleton/themes/cerberus";
+@import "./cyberpunk";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Overrides */
+
+.btn {
+  border-radius: 0px;
+  border-top-right-radius: var(--radius-md);
+  border-bottom-left-radius: var(--radius-md);
+}
