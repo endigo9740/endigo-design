@@ -1,13 +1,17 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import tailwind from "@astrojs/tailwind";
-import cloudflare from '@astrojs/cloudflare';
+import tailwindcss from "@tailwindcss/vite";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
-
   // Adapter: Cloudflare
-  output: 'server',
+  output: "server",
   adapter: cloudflare(),
+  vite: {
+    plugins: [
+      // https://tailwindcss.com/docs/installation/framework-guides/astro
+      tailwindcss(),
+    ],
+  },
 });
