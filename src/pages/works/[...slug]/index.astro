@@ -1,0 +1,98 @@
+---
+import LayoutPage from "@layouts/LayoutPage.astro";
+
+import { getEntry, render } from 'astro:content';
+
+const cdnBaseUrl: string =
+  "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
+
+const { slug } = Astro.params;
+
+const entry = await getEntry('works', slug!);
+if (!entry) throw new Error(`Could not find ${slug}`);
+
+const { Content } = await render(entry);
+---
+
+<LayoutPage>
+    <section class="p-4 py-12 md:py-24">
+    <div
+      class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-10"
+    >
+      <header
+        class="flex flex-col justify-start items-start md:items-end gap-4 w-[320px]"
+      >
+        <div class="md:text-right">
+          <small class="text-lg capitalize opacity-50">{slug!.split('/')[0].replace('-',' ')}</small>
+          <h2 class="h2 uppercase md:text-right">{entry.data.title}</h2>
+        </div>
+        <img
+          src={cdnBaseUrl + entry.data.thumbnail}
+          alt={entry.data.title}
+          class="w-full aspect-square rounded shadow"
+          style={{ backgroundColor: entry.data.accent }}
+          transition:name={`${entry.data.thumbnail}-thumbnail`}
+        />
+        {
+          entry.data.website && (
+            <a class="btn preset-filled-secondary-500" href={entry.data.website} target="_blank">
+              Launch &rarr;
+            </a>
+          )
+        }
+      </header>
+      <!-- Horz Rule -->
+      <div class="hidden md:block">
+        <hr class="vr" />
+      </div>
+      <!-- Article -->
+      <article class="space-y-10">
+        <!-- Markdown -->
+        <div class="space-y-4">
+          <Content />
+        </div>
+        <hr class="hr" />
+        <!-- Video -->
+        {
+          entry.data.videos.length > 0 &&
+            entry.data.videos.map((video: any) => (
+              <figure>
+                <iframe
+                  src={video.src}
+                  class="w-full aspect-video bg-black/30 rounded shadow-xl"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                  loading="lazy"
+                />
+                {video.caption && (
+                  <span class="block mt-3 text-xs text-center opacity-60">
+                    {video.caption}
+                  </span>
+                )}
+              </figure>
+            ))
+        }
+        <!-- Screenshots -->
+        {
+          entry.data.screenshots.length > 0 &&
+            entry.data.screenshots.map((screenshot: any) => (
+              <figure>
+                <img
+                  src={cdnBaseUrl + screenshot.src}
+                  alt={screenshot.caption}
+                  class="bg-black/30 w-full aspect-auto rounded shadow-xl"
+                />
+                {screenshot.caption && (
+                  <span class="block pt-2 text-center text-xs opacity-50">
+                    {screenshot.caption}
+                  </span>
+                )}
+              </figure>
+            ))
+        }
+      </article>
+    </div>
+  </section>
+</LayoutPage>

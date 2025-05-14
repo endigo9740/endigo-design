@@ -1,8 +1,5 @@
 ---
-layout: "@layouts/LayoutWork.astro"
-# ---
-group_id: 1
-group: Jackpot Rising
+order: 1
 title: Overwolf
 website: https://www.overwolf.com/app/Jackpot_Rising_Inc-Jackpot_Rising
 accent: "#171717"
@@ -32,5 +29,7 @@ screenshots:
     },
   ]
 ---
+
+export const components = componentSet;
 
 [Overwolf](https://www.overwolf.com/) provides middleware for tracking game metrics (score, kills, etc.) in real-time for multiple triple-A PC game titles. Apps created for the Overwolf platform provide in-game overlays directly in the game (similar to Steam). I was the project lead responsible for creating the Jackpot Rising app, which collected metrics for use in competitive tournaments. The application was built using web technology (similar to Electron) alongside the Overwolf API.
