@@ -24,11 +24,17 @@ const works = [
 <LayoutPage>
   <!-- Hero -->
   <header
-    class="bg-primary-500 p-4 md:p-6 !pb-0 flex flex-col items-center gap-4 md:gap-6"
+    class="bg-primary-500 p-4 md:p-6 !pb-0 !pt-10 flex flex-col items-center gap-4 md:gap-6 scanlines"
   >
-    <h1 class="h1 text-secondary-500 max-w-[1200px] mx-auto text-balance text-center">
-      Hi, I’m Chris. I build design systems, accessible UI, video games, and more.
-    </h1>
+    <div class="glitch-container">
+      <p class="text-5xl md:text-6xl lg:text-8xl glitch">
+        <span aria-hidden="true">Chris Simmons</span>
+        Chris Simmons
+        <span aria-hidden="true">Chris Simmons</span>
+      </p>
+    </div>
+    <p class="text-2xl text-balance text-center font-medium heading-font-color dark:heading-font-color-dark">I create design systems, accessible interfaces, games, and more.</p>
+    </div>
     <img
       class="md:hidden"
       src="/hero-mobile.png"
