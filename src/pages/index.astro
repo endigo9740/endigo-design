@@ -1,24 +1,40 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
 
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
 const cdnBaseUrl: string =
   "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
-const groups = {
-  "Skeleton Labs": await Astro.glob("./works/skeleton-labs/*.md"),
-  "Brain & Bones": await Astro.glob("./works/brain-bones/*.md"),
-  "Jackpot Rising": await Astro.glob("./works/jackpot-rising/*.md"),
-  Gaming: await Astro.glob("./works/gaming/*.md"),
-};
+
+async function getCollectionByID(id: string) {
+  return getCollection('works', (data: CollectionEntry<'works'>) => data.id.includes(id));
+}
+
+// Get Works Collections by ID
+const works = [
+  { label: 'Skeleton Labs', entries: await getCollectionByID('skeleton-labs') },
+  { label: 'Brain & Bones', entries: await getCollectionByID('brain-bones') },
+  { label: 'Jackpot Rising', entries: await getCollectionByID('jackpot-rising') },
+  { label: 'Gaming', entries: await getCollectionByID('gaming') },
+];
+
 ---
 
 <LayoutPage>
   <!-- Hero -->
   <header
-    class="bg-primary p-4 md:p-6 !pb-0 flex flex-col items-center gap-4 md:gap-6"
+    class="bg-primary-500 p-4 md:p-6 !pb-0 !pt-10 flex flex-col items-center gap-4 md:gap-6 scanlines"
   >
-    <h1 class="max-w-[1200px] mx-auto text-balance text-center">
-      Hi, I’m Chris. I build design systems, accessible UI, UX, games, and more.
-    </h1>
+    <div class="glitch-container">
+      <p class="text-5xl md:text-6xl lg:text-8xl glitch">
+        <span aria-hidden="true">Chris Simmons</span>
+        Chris Simmons
+        <span aria-hidden="true">Chris Simmons</span>
+      </p>
+    </div>
+    <p class="text-2xl text-balance text-center font-medium heading-font-color dark:heading-font-color-dark">I create design systems, accessible interfaces, games, and more.</p>
+    </div>
     <img
       class="md:hidden"
       src="/hero-mobile.png"
@@ -35,8 +51,8 @@ const groups = {
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
         <!-- Heading -->
-        <h2
-          class="h2 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[195px] md:whitespace-nowrap"
+        <h1
+          class="h1 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[180px] md:whitespace-nowrap"
         >
           <svg
             class="fill-current md:size-9 !hidden md:!inline-block fa-solid fa-arrow-left-long -translate-y-1"
@@ -49,50 +65,42 @@ const groups = {
               d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"
             ></path>
           </svg>
-          <span>Works</span>
-        </h2>
+          <span>WORKS</span>
+        </h1>
         <!-- Horz Rule -->
         <div class="hidden md:block">
-          <hr class="hr-vert" />
+          <hr class="vr" />
         </div>
         <!-- Grid -->
         <div class="space-y-10">
-          {
-            Object.entries(groups).map(([group, works]) => (
-              <section class="space-y-4">
-                <h3 class="h3">
-                  <span class="text-primary font-bold">{"["}</span>
-                  {group}
-                  <span class="text-primary font-bold">{"]"}</span>
-                </h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-                  {works
-                    .sort(
-                      (a: any, b: any) =>
-                        a.frontmatter.group_id - b.frontmatter.group_id
-                    )
-                    .map((work: any) => (
-                      <a href={work.url}>
-                        <figure class="space-y-2">
-                          <img
-                            src={cdnBaseUrl + work.frontmatter.thumbnail}
-                            alt={work.frontmatter.title}
-                            class="w-full aspect-square rounded shadow-xl hover:scale-[98%] hover:shadow transition-transform"
-                            style={{ backgroundColor: work.frontmatter.accent }}
-                            transition:name={`${work.frontmatter.thumbnail}-thumbnail`}
-                          />
-                          <strong class="block text-center">
-                            {work.frontmatter.title}
-                          </strong>
-                        </figure>
-                      </a>
-                    ))}
-                </div>
-              </section>
-            ))
-          }
+          {works.map(work => (
+            <h3 class="h3">
+              <span class="text-primary-500 font-bold">{"["}</span>
+              {work.label}
+              <span class="text-primary-500 font-bold">{"]"}</span>
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+              {work.entries
+                .sort((a: any, b: any) => a.data.order - b.data.order)
+                .map((entry: CollectionEntry<'works'>) => (
+                  <a href={`/works/${entry.id}`}>
+                    <figure class="space-y-2">
+                      <img
+                        src={cdnBaseUrl + entry.data.thumbnail}
+                        alt={entry.data.title}
+                        class="w-full aspect-square rounded shadow-xl hover:scale-[98%] hover:shadow transition-transform"
+                        style={{ backgroundColor: entry.data.accent }}
+                        transition:name={`${entry.data.thumbnail}-thumbnail`}
+                      />
+                      <strong class="block text-center">
+                        {entry.data.title}
+                      </strong>
+                    </figure>
+                  </a>
+                ))}
+            </div>
+          ))}
         </div>
-      </div>
     </div>
   </main>
 </LayoutPage>

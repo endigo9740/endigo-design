@@ -1,8 +1,5 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
-
-const resumeLink =
-  "https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true";
 ---
 
 <LayoutPage>
@@ -10,14 +7,14 @@ const resumeLink =
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
         <!-- Heading -->
-        <h2
-          class="h2 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[130px] md:whitespace-nowrap"
+        <h1
+          class="h1 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[125px] md:whitespace-nowrap"
         >
-          <span>About</span>
-        </h2>
+          <span>ABOUT</span>
+        </h1>
         <!-- Horz Rule -->
         <div class="hidden md:block">
-          <hr class="hr-vert" />
+          <hr class="vr" />
         </div>
         <div class="space-y-10">
           <!-- Article -->
@@ -49,9 +46,9 @@ const resumeLink =
                 href="https://skeleton.dev/"
                 target="_blank"
                 rel="noreferrer">Skeleton</a
-              >, a web-based UI toolkit. Over the years, I've had the privilage
+              >, a web-based component library and opinionated design system. Over the years, I've had the privilage
               of working alongside some of the most talented and passionate
-              individuals I know, while building platforms for the web, gaming,
+              individuals in the industry, while helping building platforms for the web, gaming,
               and open source.
             </p>
             <p>
@@ -61,18 +58,17 @@ const resumeLink =
               needed for any and all challenges. Providing solutions at every
               step of the process, from concept to execution. Whether you’re
               trying to build a web application, engage your audience, or carve
-              a new path in the world. My skills are available to help get you
-              to where you need to be!
+              a new path in the world. My skills can help your project move forward along that journey!
             </p>
           </article>
           <hr class="hr" />
           <header class="flex justify-between items-center">
             <h3 class="h3">
-              <span class="text-primary font-bold">{"["}</span>
+              <span class="text-primary-500 font-bold">{"["}</span>
               <span>Resume</span>
-              <span class="text-primary font-bold">{"]"}</span>
+              <span class="text-primary-500 font-bold">{"]"}</span>
             </h3>
-            <a href={resumeLink} class="btn" target="_blank">
+            <a href="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true" class="btn preset-filled-secondary-500" target="_blank">
               <span>View on</span>
               <svg
                 class="inline-block fill-current size-4 -translate-y-[2px]"

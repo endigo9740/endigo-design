@@ -1,8 +1,5 @@
 ---
-layout: "@layouts/LayoutWork.astro"
-# ---
-group_id: 4
-group: Jackpot Rising
+order: 4
 title: PlayerHQ
 website: ""
 accent: "#00e2fa"
@@ -45,5 +42,7 @@ screenshots:
     { src: /screenshots/jackpot-rising/playerhq/008.png },
   ]
 ---
+
+export const components = componentSet;
 
 Homebase was the customer-facing app for the Jackpot Rising platform and primary means for managing tournaments, leaderboards, prize fulfillment, user The user-facing companion app for the Jackpot Rising platform, PlayerHQ acted as the central HUB for tournaments, leaderboards, games, social features, as well as allowing players to manage their account and funds. The app was spearheaded by myself and bridged the company’s web and native mobile clients. It was developed from the ground up as a PWA and included hybrid mobile clients for iOS and Android, the latter of which was created and maintained by myself. It also featured a web-based QR scanner for syncing with Jackpot Rising’s arcade devices. The scanner utilized WebGL and websockets to communicate in real-time between the client, server, and physical arcade device.

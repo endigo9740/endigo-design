@@ -1,9 +1,9 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import "@styles/app.css";
 ---
 
-<html lang="en">
+<html lang="en" data-theme="cyberpunk" class="dark">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -22,7 +22,7 @@ import "@styles/app.css";
 
     <!-- Astro View Transitions -->
     <!-- https://docs.astro.build/en/guides/view-transitions/ -->
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <slot />

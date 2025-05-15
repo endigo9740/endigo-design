@@ -1,17 +1,21 @@
 ---
-import LayoutRoot from "@layouts/LayoutRoot.astro";
+import LayoutPage from "@layouts/LayoutPage.astro";
 
-import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+import { getEntry, render } from 'astro:content';
 
-const { frontmatter } = Astro.props;
 const cdnBaseUrl: string =
   "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
+
+const { slug } = Astro.params;
+
+const entry = await getEntry('works', slug!);
+if (!entry) throw new Error(`Could not find ${slug}`);
+
+const { Content } = await render(entry);
 ---
 
-<LayoutRoot>
-  <Header />
-  <section class="p-4 py-12 md:py-24">
+<LayoutPage>
+    <section class="p-4 py-12 md:py-24">
     <div
       class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-10"
     >
@@ -19,20 +23,19 @@ const cdnBaseUrl: string =
         class="flex flex-col justify-start items-start md:items-end gap-4 w-[320px]"
       >
         <div class="md:text-right">
-          <small class="text-lg uppercase opacity-50">{frontmatter.group}</small
-          >
-          <h2 class="h2 md:text-right">{frontmatter.title}</h2>
+          <small class="text-lg capitalize opacity-50">{slug!.split('/')[0].replace('-',' ')}</small>
+          <h2 class="h2 uppercase md:text-right">{entry.data.title}</h2>
         </div>
         <img
-          src={cdnBaseUrl + frontmatter.thumbnail}
-          alt={frontmatter.title}
+          src={cdnBaseUrl + entry.data.thumbnail}
+          alt={entry.data.title}
           class="w-full aspect-square rounded shadow"
-          style={{ backgroundColor: frontmatter.accent }}
-          transition:name={`${frontmatter.thumbnail}-thumbnail`}
+          style={{ backgroundColor: entry.data.accent }}
+          transition:name={`${entry.data.thumbnail}-thumbnail`}
         />
         {
-          frontmatter.website && (
-            <a class="btn" href={frontmatter.website} target="_blank">
+          entry.data.website && (
+            <a class="btn preset-filled-secondary-500" href={entry.data.website} target="_blank">
               Launch &rarr;
             </a>
           )
@@ -40,17 +43,19 @@ const cdnBaseUrl: string =
       </header>
       <!-- Horz Rule -->
       <div class="hidden md:block">
-        <hr class="hr-vert" />
+        <hr class="vr" />
       </div>
       <!-- Article -->
-      <article class="prose prose-invert max-w-none">
+      <article class="space-y-10">
         <!-- Markdown -->
-        <slot />
+        <div class="space-y-4">
+          <Content />
+        </div>
         <hr class="hr" />
         <!-- Video -->
         {
-          frontmatter.videos.length > 0 &&
-            frontmatter.videos.map((video: any) => (
+          entry.data.videos.length > 0 &&
+            entry.data.videos.map((video: any) => (
               <figure>
                 <iframe
                   src={video.src}
@@ -71,8 +76,8 @@ const cdnBaseUrl: string =
         }
         <!-- Screenshots -->
         {
-          frontmatter.screenshots.length > 0 &&
-            frontmatter.screenshots.map((screenshot: any) => (
+          entry.data.screenshots.length > 0 &&
+            entry.data.screenshots.map((screenshot: any) => (
               <figure>
                 <img
                   src={cdnBaseUrl + screenshot.src}
@@ -90,5 +95,4 @@ const cdnBaseUrl: string =
       </article>
     </div>
   </section>
-  <Footer />
-</LayoutRoot>
+</LayoutPage>

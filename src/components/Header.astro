@@ -5,15 +5,17 @@ const links = [
   { href: "/", label: "Works" },
   { href: "/about", label: "About" },
 ];
+const linkActive = 'underline decoration-4 decoration-secondary-500 underline-offset-4'
+const linkInactive = 'hover:no-underline';
 
 function setActiveClass(link: Record<string, string>) {
-  if (link.href === pathname)
-    return "!opacity-100 decoration-white/50 decoration-4 underline underline-offset-4";
-  return;
+  return link.href === pathname ? linkActive : linkInactive;
 }
+
+
 ---
 
-<header class="bg-primary p-4 md:p-6">
+<header class="bg-primary-500 p-4 md:p-6">
   <div
     class="container mx-auto grid grid-cols-[auto_1fr_auto] gap-4 items-center"
   >
@@ -30,7 +32,7 @@ function setActiveClass(link: Record<string, string>) {
       pathname.includes("/works") ? (
         // Go Back
         <nav>
-          <a class="anchor" href="/">
+          <a class="anchor hover:no-underline" href="/">
             &larr; Go Back
           </a>
         </nav>
@@ -47,6 +49,6 @@ function setActiveClass(link: Record<string, string>) {
     }
 
     <!-- Contact -->
-    <a class="btn" href="mailto:chris@skeleton.dev">Let's Talk</a>
+    <a class="btn preset-filled-secondary-500" href="mailto:chris@skeleton.dev">Let's Talk</a>
   </div>
 </header>
