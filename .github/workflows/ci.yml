@@ -28,7 +28,7 @@ jobs:
       - name: Check formatting (Prettier)
         run: pnpm format:check
 
-      - name: Lint
+      - name: Lint (oxlint)
         run: pnpm lint
 
       - name: Check Astro
