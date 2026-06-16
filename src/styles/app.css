@@ -2,7 +2,6 @@
 
 /* Skeleton */
 @import "@skeletonlabs/skeleton";
-@import "@skeletonlabs/skeleton/optional/presets";
 @import "./cyberpunk";
 
 @custom-variant dark (&:where(.dark, .dark *));

@@ -8,6 +8,8 @@ import AutoImport from "astro-auto-import";
 // https://astro.build/config
 export default defineConfig({
   output: "server",
+  // https://docs.astro.build/en/reference/configuration-reference/#devtoolbarenabled
+  devToolbar: { enabled: false },
   // https://docs.astro.build/en/guides/integrations-guide/cloudflare/
   adapter: cloudflare(),
   integrations: [
