@@ -1,0 +1,10 @@
+dist/
+.astro/
+node_modules/
+.wrangler/
+pnpm-lock.yaml
+public/
+
+# Markdown excluded — Prettier unreliable on these
+*.md
+*.mdx

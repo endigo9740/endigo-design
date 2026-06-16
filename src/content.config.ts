@@ -16,7 +16,7 @@ const works = defineCollection({
     thumbnail: z.string(),
     videos: z.array(z.object({ src: z.string() })),
     screenshots: z.array(
-      z.object({ src: z.string(), caption: z.string().optional() })
+      z.object({ src: z.string(), caption: z.string().optional() }),
     ),
   }),
 });

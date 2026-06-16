@@ -1,24 +1,28 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
 
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 const cdnBaseUrl: string =
   "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
 
 async function getCollectionByID(id: string) {
-  return getCollection('works', (data: CollectionEntry<'works'>) => data.id.includes(id));
+  return getCollection("works", (data: CollectionEntry<"works">) =>
+    data.id.includes(id),
+  );
 }
 
 // Get Works Collections by ID
 const works = [
-  { label: 'Skeleton Labs', entries: await getCollectionByID('skeleton-labs') },
-  { label: 'Brain & Bones', entries: await getCollectionByID('brain-bones') },
-  { label: 'Jackpot Rising', entries: await getCollectionByID('jackpot-rising') },
-  { label: 'Gaming', entries: await getCollectionByID('gaming') },
+  { label: "Skeleton Labs", entries: await getCollectionByID("skeleton-labs") },
+  { label: "Brain & Bones", entries: await getCollectionByID("brain-bones") },
+  {
+    label: "Jackpot Rising",
+    entries: await getCollectionByID("jackpot-rising"),
+  },
+  { label: "Gaming", entries: await getCollectionByID("gaming") },
 ];
-
 ---
 
 <LayoutPage>
@@ -33,8 +37,11 @@ const works = [
         <span aria-hidden="true">Chris Simmons</span>
       </p>
     </div>
-    <p class="text-2xl text-balance text-center font-medium heading-font-color dark:heading-font-color-dark">I craft design systems, accessible interfaces, games, and more.</p>
-    </div>
+    <p
+      class="text-2xl text-balance text-center font-medium heading-font-color dark:heading-font-color-dark"
+    >
+      I craft design systems, accessible interfaces, games, and more.
+    </p>
     <img
       class="md:hidden"
       src="/hero-mobile.png"
@@ -73,34 +80,39 @@ const works = [
         </div>
         <!-- Grid -->
         <div class="space-y-10">
-          {works.map(work => (
-            <h3 class="h3">
-              <span class="text-primary-500 font-bold">{"["}</span>
-              {work.label}
-              <span class="text-primary-500 font-bold">{"]"}</span>
-            </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-              {work.entries
-                .sort((a: any, b: any) => a.data.order - b.data.order)
-                .map((entry: CollectionEntry<'works'>) => (
-                  <a href={`/works/${entry.id}`}>
-                    <figure class="space-y-2">
-                      <img
-                        src={cdnBaseUrl + entry.data.thumbnail}
-                        alt={entry.data.title}
-                        class="w-full aspect-square rounded shadow-xl hover:scale-[98%] hover:shadow transition-transform"
-                        style={{ backgroundColor: entry.data.accent }}
-                        transition:name={`${entry.data.thumbnail}-thumbnail`}
-                      />
-                      <strong class="block text-center">
-                        {entry.data.title}
-                      </strong>
-                    </figure>
-                  </a>
-                ))}
-            </div>
-          ))}
+          {
+            works.map((work) => (
+              <>
+                <h3 class="h3">
+                  <span class="text-primary-500 font-bold">{"["}</span>
+                  {work.label}
+                  <span class="text-primary-500 font-bold">{"]"}</span>
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+                  {work.entries
+                    .sort((a: any, b: any) => a.data.order - b.data.order)
+                    .map((entry: CollectionEntry<"works">) => (
+                      <a href={`/works/${entry.id}`}>
+                        <figure class="space-y-2">
+                          <img
+                            src={cdnBaseUrl + entry.data.thumbnail}
+                            alt={entry.data.title}
+                            class="w-full aspect-square rounded shadow-xl hover:scale-[98%] hover:shadow transition-transform"
+                            style={{ backgroundColor: entry.data.accent }}
+                            transition:name={`${entry.data.thumbnail}-thumbnail`}
+                          />
+                          <strong class="block text-center">
+                            {entry.data.title}
+                          </strong>
+                        </figure>
+                      </a>
+                    ))}
+                </div>
+              </>
+            ))
+          }
         </div>
+      </div>
     </div>
   </main>
 </LayoutPage>
