@@ -96,7 +96,7 @@ export default function Hero({
   children,
 }: HeroProps) {
   return (
-    <header className="relative bg-surface-black p-4 py-20 md:p-20  overflow-hidden">
+    <header className="relative bg-surface-black p-4 py-20 md:p-20 overflow-hidden">
       <Warp
         colors={colors}
         proportion={proportion}
@@ -138,7 +138,7 @@ export default function Hero({
           }}
         />
       )}
-      <div className="relative flex min-h-56 flex-col items-center justify-center">
+      <div className="relative flex flex-col items-center justify-center">
         {children}
       </div>
     </header>
