@@ -1,6 +1,7 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
 
+import { Image } from "astro:assets";
 import { getEntry, render } from "astro:content";
 
 const cdnBaseUrl: string =
@@ -20,7 +21,7 @@ const { Content } = await render(entry);
       class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-10"
     >
       <header
-        class="flex flex-col justify-start items-start md:items-end gap-4 w-[320px]"
+        class="flex flex-col justify-start items-start md:items-end gap-4 w-[320px] md:sticky md:top-24 md:self-start"
       >
         <div class="md:text-right">
           <small class="text-lg capitalize opacity-50"
@@ -28,10 +29,12 @@ const { Content } = await render(entry);
           >
           <h2 class="h2 uppercase md:text-right">{entry.data.title}</h2>
         </div>
-        <img
+        <Image
           src={cdnBaseUrl + entry.data.thumbnail}
           alt={entry.data.title}
-          class="w-full aspect-square rounded shadow"
+          width={300}
+          height={300}
+          class="w-full aspect-square rounded-lg shadow"
           style={{ backgroundColor: entry.data.accent }}
           transition:name={`${entry.data.thumbnail}-thumbnail`}
         />

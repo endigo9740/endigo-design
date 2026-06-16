@@ -6,7 +6,7 @@ const links = [
   { href: "/about", label: "About" },
 ];
 const linkActive =
-  "underline decoration-4 decoration-primary-500 underline-offset-4";
+  "underline decoration-4 decoration-primary-500 underline-offset-6";
 const linkInactive = "hover:no-underline";
 
 function setActiveClass(link: Record<string, string>) {
@@ -16,26 +16,27 @@ function setActiveClass(link: Record<string, string>) {
 
 <header class="sticky top-0 z-10 bg-surface-50-950/90 backdrop-blur-md p-4">
   <div
-    class="container mx-auto grid grid-cols-[auto_1fr_auto] gap-4 items-center"
+    class="container mx-auto grid grid-cols-[1fr_auto_1fr] gap-4 items-center"
   >
     <!-- Logo -->
     <a href="/" title="Endigo Design">
-      <img class="w-15 anim-cube-spin" src="/logo.png" alt="Endigo Design" />
+      <img class="w-12 anim-cube-spin" src="/logo.png" alt="Endigo Design" />
     </a>
+
     <!-- Navigation -->
     {
       pathname.includes("/works") ? (
-        // Go Back
-        <nav>
-          <a class="hover:no-underline" href="/">
-            &larr; Go Back
+        // Return Home
+        <nav class="justify-self-center">
+          <a class="font-bold hover:no-underline" href="/">
+            &larr; Return Home
           </a>
         </nav>
       ) : (
         // Browse
-        <nav class="flex gap-4">
+        <nav class="flex gap-4 justify-self-center">
           {links.map((link) => (
-            <a href={link.href} class={`${setActiveClass(link)}`}>
+            <a href={link.href} class={`font-bold ${setActiveClass(link)}`}>
               {link.label}
             </a>
           ))}
@@ -44,6 +45,9 @@ function setActiveClass(link: Record<string, string>) {
     }
 
     <!-- Contact -->
-    <a class="btn preset-filled" href="mailto:chris@skeleton.dev">Let's Talk</a>
+    <a
+      class="btn preset-filled justify-self-end"
+      href="mailto:chris@skeleton.dev">Let's Talk</a
+    >
   </div>
 </header>

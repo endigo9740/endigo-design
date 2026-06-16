@@ -29,6 +29,16 @@ body {
   corner-shape: bevel;
 }
 
+/* Animation: Cube Spin */
+
+.anim-cube-spin {
+  transition: transform 250ms ease-in-out;
+}
+
+.anim-cube-spin:hover {
+  transform: rotate(180deg);
+}
+
 /* Animation: Glitchy Text */
 /* Reference: https://codepen.io/cbanlawi/pen/xxRBeMY */
 

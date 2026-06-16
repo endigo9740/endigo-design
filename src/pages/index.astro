@@ -3,6 +3,9 @@ import LayoutPage from "@layouts/LayoutPage.astro";
 import DecorStripes from "@components/decor-stripes.astro";
 import Hero from "@components/Hero.tsx";
 
+import { Image } from "astro:assets";
+import avatar from "../assets/avatar.webp";
+
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
@@ -31,10 +34,12 @@ const works = [
   <!-- Shader -->
   <Hero client:visible>
     <div class="flex flex-col items-center gap-4 md:gap-6">
-      <img
-        src="https://cdn.bsky.app/img/avatar/plain/did:plc:zqdyuwlnk3dl5ozgytk7hya5/bafkreidweuh7y2ghzyk7s23sc72oba3v2vpo52wimenvoauvjyzmbaklbm"
-        alt="Avatar"
-        class="border-2 border-white/10 size-24 rounded-full grayscale shadow-xl"
+      <Image
+        src={avatar}
+        alt="Chris Simmons"
+        width={192}
+        height={192}
+        class="border-6 border-black/20 size-24 rounded-full grayscale shadow-xl"
       />
       <div class="glitch-container">
         <p class="heading-font-family text-5xl md:text-6xl lg:text-8xl glitch">
@@ -91,9 +96,11 @@ const works = [
                     .map((entry: CollectionEntry<"works">) => (
                       <a href={`/works/${entry.id}`}>
                         <figure class="space-y-2">
-                          <img
+                          <Image
                             src={cdnBaseUrl + entry.data.thumbnail}
                             alt={entry.data.title}
+                            width={300}
+                            height={300}
                             class="w-full aspect-square rounded-xl shadow-xl hover:scale-[98%] hover:shadow transition-transform"
                             style={{ backgroundColor: entry.data.accent }}
                             transition:name={`${entry.data.thumbnail}-thumbnail`}
