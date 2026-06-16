@@ -34,7 +34,7 @@ function setActiveClass(link: Record<string, string>) {
         </nav>
       ) : (
         // Browse
-        <nav class="flex gap-4 justify-self-center">
+        <nav class="flex gap-6 justify-self-center">
           {links.map((link) => (
             <a href={link.href} class={`font-bold ${setActiveClass(link)}`}>
               {link.label}

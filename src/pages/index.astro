@@ -2,6 +2,7 @@
 import LayoutPage from "@layouts/LayoutPage.astro";
 import DecorStripes from "@components/decor-stripes.astro";
 import Hero from "@components/Hero.tsx";
+import HoverCard from "@components/HoverCard.astro";
 
 import { Image } from "astro:assets";
 import avatar from "../assets/avatar.webp";
@@ -101,22 +102,14 @@ const works = [
                       ) => a.data.order - b.data.order,
                     )
                     .map((entry: CollectionEntry<"works">) => (
-                      <a href={`/works/${entry.id}`}>
-                        <figure class="space-y-2">
-                          <Image
-                            src={cdnBaseUrl + entry.data.thumbnail}
-                            alt={entry.data.title}
-                            width={300}
-                            height={300}
-                            class="w-full aspect-square rounded-xl shadow-xl hover:scale-[98%] hover:shadow transition-transform"
-                            style={{ backgroundColor: entry.data.accent }}
-                            transition:name={`${entry.data.thumbnail}-thumbnail`}
-                          />
-                          <strong class="block text-center md:text-xl">
-                            {entry.data.title}
-                          </strong>
-                        </figure>
-                      </a>
+                      <HoverCard
+                        href={`/works/${entry.id}`}
+                        src={cdnBaseUrl + entry.data.thumbnail}
+                        alt={entry.data.title}
+                        title={entry.data.title}
+                        accent={entry.data.accent}
+                        transitionName={`${entry.data.thumbnail}-thumbnail`}
+                      />
                     ))}
                 </div>
               </>
