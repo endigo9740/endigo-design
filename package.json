@@ -2,10 +2,12 @@
   "name": "endigo-design-astro",
   "type": "module",
   "version": "4.0.0",
+  "packageManager": "pnpm@10.16.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "check": "astro check",
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write .",
