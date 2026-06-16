@@ -64,12 +64,34 @@ const { href, src, alt, title, accent, transitionName } = Astro.props;
       1.059 78%,
       1
     );
+  }
 
-    filter: drop-shadow(var(--shadow) 0.1rem #00000003)
-      drop-shadow(var(--shadow) 0.2rem #00000003)
-      drop-shadow(var(--shadow) 0.3rem #00000003)
-      drop-shadow(var(--shadow) 0.4rem #00000003);
-    transition: filter ease-out 400ms;
+  /*
+   * Shadow as a compositor-only layer.
+   * Replaces an animated `filter: drop-shadow()` stack (which repainted every
+   * frame) with a static box-shadow revealed via opacity + translate — both
+   * run on the GPU compositor with no per-frame repaint.
+   */
+  .hover-3d::after {
+    content: "";
+    grid-area: 1 / 1 / 4 / 4;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: 0.75rem; /* matches rounded-xl on the face */
+    opacity: 0;
+    box-shadow:
+      0 0 0.1rem #00000003,
+      0 0 0.2rem #00000003,
+      0 0 0.3rem #00000003,
+      0 0 0.4rem #00000003;
+    translate: var(--shadow);
+    transition:
+      opacity ease-out 400ms,
+      translate ease-out 400ms;
+  }
+
+  .hover-3d:hover::after {
+    opacity: 1;
   }
 
   .hover-3d > :nth-child(n + 2) {
@@ -197,5 +219,23 @@ const { href, src, alt, title, accent, transitionName } = Astro.props;
     --transform: 1, -1;
     --shine: 200% 200%;
     --shadow: 0.5rem 0.5rem;
+  }
+
+  /*
+   * Respect reduced-motion: Here we remove the spatial motion entirely so the
+   * card stays put — the shine/shadow/outline still reveal (no motion),
+   * just without the 3D tilt, scale, or positional drift.
+   */
+  @media (prefers-reduced-motion: reduce) {
+    .hover-3d > :first-child,
+    .hover-3d:hover > :first-child {
+      transform: none;
+      scale: 1;
+    }
+
+    .hover-3d > :first-child::before,
+    .hover-3d::after {
+      translate: none;
+    }
   }
 </style>
