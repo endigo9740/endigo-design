@@ -69,7 +69,7 @@ export default function Hero({
   children,
 }: HeroProps) {
   return (
-    <header className="relative bg-surface-black p-4 md:p-20  overflow-hidden">
+    <header className="relative bg-surface-black p-4 py-20 md:p-20  overflow-hidden">
       <MeshGradient
         colors={colors}
         distortion={distortion}

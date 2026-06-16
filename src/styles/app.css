@@ -1,6 +1,6 @@
 @import "tailwindcss";
 /* Fonts */
-@import "@fontsource-variable/orbitron";
+@import "@fontsource-variable/albert-sans";
 /* Skeleton */
 @import "@skeletonlabs/skeleton";
 @import "@skeletonlabs/skeleton/themes/concord";
@@ -16,10 +16,13 @@ body {
 /* Skeleton Overrides */
 
 [data-theme="concord"] {
-  --heading-font-family: "Orbitron Variable", sans-serif;
+  --heading-font-family: "Albert Sans Variable", sans-serif;
+  --base-font-family: "Albert Sans Variable", sans-serif;
+  --base-font-weight: 300;
 }
 
 .btn {
+  font-weight: bold;
   border-radius: 0px;
   border-top-right-radius: var(--radius-lg);
   border-bottom-left-radius: var(--radius-lg);

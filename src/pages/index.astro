@@ -1,6 +1,5 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
-import Heading from "@components/heading.astro";
 import DecorStripes from "@components/decor-stripes.astro";
 import Hero from "@components/Hero.tsx";
 
@@ -45,7 +44,7 @@ const works = [
         </p>
       </div>
       <p
-        class="text-2xl text-balance text-center font-medium heading-font-color dark:heading-font-color-dark"
+        class="text-xl text-balance text-center font-medium heading-font-color dark:heading-font-color-dark"
       >
         I craft design systems, accessible interfaces, games, and more.
       </p>
@@ -85,7 +84,7 @@ const works = [
           {
             works.map((work) => (
               <>
-                <Heading tag="h3">{work.label}</Heading>
+                <h3 class="h3">{work.label}</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
                   {work.entries
                     .sort((a: any, b: any) => a.data.order - b.data.order)
@@ -95,11 +94,11 @@ const works = [
                           <img
                             src={cdnBaseUrl + entry.data.thumbnail}
                             alt={entry.data.title}
-                            class="w-full aspect-square rounded shadow-xl hover:scale-[98%] hover:shadow transition-transform"
+                            class="w-full aspect-square rounded-xl shadow-xl hover:scale-[98%] hover:shadow transition-transform"
                             style={{ backgroundColor: entry.data.accent }}
                             transition:name={`${entry.data.thumbnail}-thumbnail`}
                           />
-                          <strong class="block text-center">
+                          <strong class="block text-center md:text-xl">
                             {entry.data.title}
                           </strong>
                         </figure>

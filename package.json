@@ -18,7 +18,7 @@
     "@astrojs/cloudflare": "^13.7.0",
     "@astrojs/mdx": "^6.0.3",
     "@astrojs/react": "^5.0.7",
-    "@fontsource-variable/orbitron": "^5.2.8",
+    "@fontsource-variable/albert-sans": "^5.2.8",
     "@paper-design/shaders-react": "^0.0.76",
     "@tailwindcss/vite": "^4.3.1",
     "astro": "^6.4.7",
