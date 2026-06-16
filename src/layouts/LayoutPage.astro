@@ -3,10 +3,13 @@ import LayoutRoot from "@layouts/LayoutRoot.astro";
 
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
+import DecorStripes from "@components/decor-stripes.astro";
 ---
 
 <LayoutRoot>
   <Header />
+  <DecorStripes class="h-8" />
   <slot />
+  <DecorStripes class="h-8" />
   <Footer />
 </LayoutRoot>

@@ -2,6 +2,7 @@ import { defineConfig } from "astro/config";
 
 import cloudflare from "@astrojs/cloudflare";
 import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
 
@@ -24,6 +25,8 @@ export default defineConfig({
     }),
     // https://docs.astro.build/en/guides/integrations-guide/mdx/
     mdx(),
+    // https://docs.astro.build/en/guides/integrations-guide/react/
+    react(),
   ],
   vite: {
     plugins: [

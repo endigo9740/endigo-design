@@ -1,6 +1,8 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
 import Heading from "@components/heading.astro";
+import DecorStripes from "@components/decor-stripes.astro";
+import Hero from "@components/Hero.tsx";
 
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
@@ -27,33 +29,32 @@ const works = [
 ---
 
 <LayoutPage>
-  <!-- Hero -->
-  <header
-    class="bg-primary-500 p-4 md:p-6 pb-0! pt-10! flex flex-col items-center gap-4 md:gap-6 scanlines"
-  >
-    <div class="glitch-container">
-      <p class="heading-font-family text-5xl md:text-6xl lg:text-8xl glitch">
-        <span aria-hidden="true">Chris Simmons</span>
-        Chris Simmons
-        <span aria-hidden="true">Chris Simmons</span>
+  <!-- Shader -->
+  <Hero client:visible>
+    <div class="flex flex-col items-center gap-4 md:gap-6">
+      <img
+        src="https://cdn.bsky.app/img/avatar/plain/did:plc:zqdyuwlnk3dl5ozgytk7hya5/bafkreidweuh7y2ghzyk7s23sc72oba3v2vpo52wimenvoauvjyzmbaklbm"
+        alt="Avatar"
+        class="border-2 border-white/10 size-24 rounded-full grayscale shadow-xl"
+      />
+      <div class="glitch-container">
+        <p class="heading-font-family text-5xl md:text-6xl lg:text-8xl glitch">
+          <span aria-hidden="true">Chris Simmons</span>
+          Chris Simmons
+          <span aria-hidden="true">Chris Simmons</span>
+        </p>
+      </div>
+      <p
+        class="text-2xl text-balance text-center font-medium heading-font-color dark:heading-font-color-dark"
+      >
+        I craft design systems, accessible interfaces, games, and more.
       </p>
     </div>
-    <p
-      class="text-2xl text-balance text-center font-medium heading-font-color dark:heading-font-color-dark"
-    >
-      I craft design systems, accessible interfaces, games, and more.
-    </p>
-    <img
-      class="md:hidden"
-      src="/hero-mobile.png"
-      alt="Portrait of Chris Simmons"
-    />
-    <img
-      class="hidden md:block"
-      src="/hero.png"
-      alt="Portrait of Chris Simmons"
-    />
-  </header>
+  </Hero>
+
+  <!-- Decorative Stripes -->
+  <DecorStripes class="h-8" />
+
   <!-- Main -->
   <main class="p-4 py-12 md:py-24">
     <div class="container mx-auto">
