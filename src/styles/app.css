@@ -123,3 +123,28 @@ body {
       -0.04em -0.025em 0 var(--color-warning-500);
   }
 }
+
+/* Respect users who prefer reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch,
+  .glitch span:first-child,
+  .glitch span:last-child {
+    animation: none;
+  }
+
+  .anim-cube-spin,
+  .anim-cube-spin:hover {
+    transition: none;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

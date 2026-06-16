@@ -8,9 +8,7 @@ import avatar from "../assets/avatar.webp";
 
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-
-const cdnBaseUrl: string =
-  "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
+import { cdnBaseUrl } from "@lib/constants";
 
 async function getCollectionByID(id: string) {
   return getCollection("works", (data: CollectionEntry<"works">) =>
@@ -89,10 +87,15 @@ const works = [
           {
             works.map((work) => (
               <>
-                <h3 class="h3">{work.label}</h3>
+                <h2 class="h3">{work.label}</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
                   {work.entries
-                    .sort((a: any, b: any) => a.data.order - b.data.order)
+                    .sort(
+                      (
+                        a: CollectionEntry<"works">,
+                        b: CollectionEntry<"works">,
+                      ) => a.data.order - b.data.order,
+                    )
                     .map((entry: CollectionEntry<"works">) => (
                       <a href={`/works/${entry.id}`}>
                         <figure class="space-y-2">

@@ -3,9 +3,12 @@ import LayoutPage from "@layouts/LayoutPage.astro";
 
 import { Image } from "astro:assets";
 import { getEntry, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { cdnBaseUrl } from "@lib/constants";
 
-const cdnBaseUrl: string =
-  "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
+type WorkData = CollectionEntry<"works">["data"];
+type Video = WorkData["videos"][number];
+type Screenshot = WorkData["screenshots"][number];
 
 const { slug } = Astro.params;
 
@@ -13,9 +16,17 @@ const entry = await getEntry("works", slug!);
 if (!entry) throw new Error(`Could not find ${slug}`);
 
 const { Content } = await render(entry);
+
+const category = slug!.split("/")[0].replace("-", " ");
+const metaTitle = `${entry.data.title} | Endigo Design`;
+const metaDescription = `${entry.data.title} — ${category} work by Chris Simmons.`;
 ---
 
-<LayoutPage>
+<LayoutPage
+  title={metaTitle}
+  description={metaDescription}
+  image={cdnBaseUrl + entry.data.thumbnail}
+>
   <section class="p-4 py-12 md:py-24">
     <div
       class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-10"
@@ -27,7 +38,7 @@ const { Content } = await render(entry);
           <small class="text-lg capitalize opacity-50"
             >{slug!.split("/")[0].replace("-", " ")}</small
           >
-          <h2 class="h2 uppercase md:text-right">{entry.data.title}</h2>
+          <h1 class="h2 uppercase md:text-right">{entry.data.title}</h1>
         </div>
         <Image
           src={cdnBaseUrl + entry.data.thumbnail}
@@ -44,6 +55,7 @@ const { Content } = await render(entry);
               class="btn preset-filled"
               href={entry.data.website}
               target="_blank"
+              rel="noopener noreferrer"
             >
               Launch &rarr;
             </a>
@@ -64,13 +76,12 @@ const { Content } = await render(entry);
         <!-- Video -->
         {
           entry.data.videos.length > 0 &&
-            entry.data.videos.map((video: any) => (
+            entry.data.videos.map((video: Video) => (
               <figure>
                 <iframe
                   src={video.src}
-                  class="w-full aspect-video bg-black/30 rounded shadow-xl"
-                  title="YouTube video player"
-                  frameborder="0"
+                  class="w-full aspect-video bg-black/30 rounded shadow-xl border-0"
+                  title={video.caption ?? `${entry.data.title} video`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                   loading="lazy"
@@ -86,11 +97,11 @@ const { Content } = await render(entry);
         <!-- Screenshots -->
         {
           entry.data.screenshots.length > 0 &&
-            entry.data.screenshots.map((screenshot: any) => (
+            entry.data.screenshots.map((screenshot: Screenshot) => (
               <figure>
                 <img
                   src={cdnBaseUrl + screenshot.src}
-                  alt={screenshot.caption}
+                  alt={screenshot.caption ?? `${entry.data.title} screenshot`}
                   class="bg-black/30 w-full aspect-auto rounded shadow-xl"
                 />
                 {screenshot.caption && (

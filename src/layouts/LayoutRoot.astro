@@ -1,24 +1,62 @@
 ---
+// TODO: Revisit the social share image. The avatar fallback is disabled for now;
+// og:image/twitter:image only render when an explicit `image` prop is passed.
+
 import { ClientRouter } from "astro:transitions";
 import "@styles/app.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Absolute or root-relative URL to the social share image. */
+  image?: string;
+  noindex?: boolean;
+}
+
+const defaultTitle = "Endigo Design | The Portfolio of Chris Simmons";
+const defaultDescription =
+  "The portfolio of Chris Simmons. Developer, designer, UX, and more.";
+
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+  image,
+  noindex = false,
+} = Astro.props;
+
+// Astro.site is configured in astro.config.mjs; fall back gracefully in dev.
+const siteUrl = Astro.site ?? new URL("https://endigodesign.com");
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = image ? new URL(image, siteUrl).href : undefined;
 ---
 
 <html lang="en" data-theme="concord" class="dark">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="description"
-      content="The portfolio of Chris Simmons. Developer, designer, UX, and more."
-    />
-    <meta
-      name="keywords"
-      content="game, game dev, game design, game interface, rpg, mobile, web, design, development, html5, responsive, css, portfolio, trends, standards, photoshop, graphic design, seo, search engine optomization, svelte, sveltekit, react, tailwind, shopify, pixi"
-    />
-    <meta name="theme-color" content="#00AF98" />
-    <link rel="icon" type="image/png+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonical} />
+
+    <meta name="theme-color" content="#00AF98" />
     <meta name="generator" content={Astro.generator} />
-    <title>Endigo Design | The Portfolio of Chris Simmon</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Endigo Design" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
 
     <!-- Astro View Transitions -->
     <!-- https://docs.astro.build/en/guides/view-transitions/ -->

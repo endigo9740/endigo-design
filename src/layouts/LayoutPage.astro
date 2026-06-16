@@ -4,12 +4,27 @@ import LayoutRoot from "@layouts/LayoutRoot.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import DecorStripes from "@components/decor-stripes.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const { title, description, image, noindex } = Astro.props;
 ---
 
-<LayoutRoot>
+<LayoutRoot {title} {description} {image} {noindex}>
+  <a
+    href="#content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 btn preset-filled"
+  >
+    Skip to content
+  </a>
   <Header />
   <DecorStripes class="h-8" />
-  <slot />
+  <div id="content"><slot /></div>
   <DecorStripes class="h-8" />
   <Footer />
 </LayoutRoot>

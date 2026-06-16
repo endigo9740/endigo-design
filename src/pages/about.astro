@@ -2,7 +2,10 @@
 import LayoutPage from "@layouts/LayoutPage.astro";
 ---
 
-<LayoutPage>
+<LayoutPage
+  title="About Chris Simmons"
+  description="Senior frontend developer and design engineer with 20+ years building production web platforms, design systems, and games. The creator of Skeleton."
+>
   <main class="p-4 py-12 md:py-24">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
@@ -25,7 +28,7 @@ import LayoutPage from "@layouts/LayoutPage.astro";
               prominent works. I'm a senior frontend developer and design
               engineer who has spent the last 20+ years building production web
               platforms and design systems, and crafting professional user
-              experiences. I'm primarily self taught, and I still make time to
+              experiences. I'm primarily self-taught, and I still make time to
               research, tinker, and learn something new every day.
             </p>
             <p>
@@ -78,7 +81,7 @@ import LayoutPage from "@layouts/LayoutPage.astro";
           <!-- Media Appearances -->
           <section class="space-y-4">
             <header class="flex justify-between items-center">
-              <h3 class="h3">Media Appearances</h3>
+              <h2 class="h3">Media Appearances</h2>
             </header>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <iframe
@@ -121,11 +124,12 @@ import LayoutPage from "@layouts/LayoutPage.astro";
           <!-- Resume -->
           <section class="space-y-4">
             <header class="flex justify-between items-center">
-              <h3 class="h3">Resume</h3>
+              <h2 class="h3">Resume</h2>
               <a
                 href="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
                 class="btn preset-filled"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 <span>View on</span>
                 <svg
@@ -143,6 +147,8 @@ import LayoutPage from "@layouts/LayoutPage.astro";
               class="bg-white shadow-xl"
               width="100%"
               height="800px"
+              title="Chris Simmons resume"
+              loading="lazy"
               src="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
             ></iframe>
           </section>

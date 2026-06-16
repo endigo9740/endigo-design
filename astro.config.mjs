@@ -8,6 +8,8 @@ import AutoImport from "astro-auto-import";
 
 // https://astro.build/config
 export default defineConfig({
+  // Production URL — used for canonical links, Open Graph tags, and the sitemap.
+  site: "https://endigodesign.com",
   output: "server",
   // https://docs.astro.build/en/reference/configuration-reference/#devtoolbarenabled
   devToolbar: { enabled: false },

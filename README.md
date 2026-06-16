@@ -2,7 +2,7 @@
 
 The portfolio website of Chris Simmons.
 
-## Teck Stack
+## Tech Stack
 
 - [Astro](https://docs.astro.build)
 - [Skeleton](https://www.skeleton.dev)
