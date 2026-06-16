@@ -1,5 +1,6 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
+import Heading from "@components/heading.astro";
 
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
@@ -28,10 +29,10 @@ const works = [
 <LayoutPage>
   <!-- Hero -->
   <header
-    class="bg-primary-500 p-4 md:p-6 !pb-0 !pt-10 flex flex-col items-center gap-4 md:gap-6 scanlines"
+    class="bg-primary-500 p-4 md:p-6 pb-0! pt-10! flex flex-col items-center gap-4 md:gap-6 scanlines"
   >
     <div class="glitch-container">
-      <p class="text-5xl md:text-6xl lg:text-8xl glitch">
+      <p class="heading-font-family text-5xl md:text-6xl lg:text-8xl glitch">
         <span aria-hidden="true">Chris Simmons</span>
         Chris Simmons
         <span aria-hidden="true">Chris Simmons</span>
@@ -57,12 +58,12 @@ const works = [
   <main class="p-4 py-12 md:py-24">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
-        <!-- Heading -->
+        <!-- Heading 1 -->
         <h1
-          class="h1 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[180px] md:whitespace-nowrap"
+          class="h1 md:[writing-mode:vertical-rl] md:rotate-180 md:self-start md:flex md:items-center md:gap-3"
         >
           <svg
-            class="fill-current md:size-9 !hidden md:!inline-block fa-solid fa-arrow-left-long -translate-y-1"
+            class="fill-current md:size-9 hidden! md:inline-block! fa-solid fa-arrow-left-long md:rotate-90"
             xmlns="http://www.w3.org/2000/svg"
             height="16"
             width="16"
@@ -76,18 +77,14 @@ const works = [
         </h1>
         <!-- Horz Rule -->
         <div class="hidden md:block">
-          <hr class="vr" />
+          <hr class="vr border-dashed" />
         </div>
         <!-- Grid -->
         <div class="space-y-10">
           {
             works.map((work) => (
               <>
-                <h3 class="h3">
-                  <span class="text-primary-500 font-bold">{"["}</span>
-                  {work.label}
-                  <span class="text-primary-500 font-bold">{"]"}</span>
-                </h3>
+                <Heading tag="h3">{work.label}</Heading>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
                   {work.entries
                     .sort((a: any, b: any) => a.data.order - b.data.order)

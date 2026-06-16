@@ -1,20 +1,21 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
+import Heading from "@components/heading.astro";
 ---
 
 <LayoutPage>
   <main class="p-4 py-12 md:py-24">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
-        <!-- Heading -->
+        <!-- Heading 1 -->
         <h1
-          class="h1 md:origin-top-right md:-rotate-90 md:-translate-x-12 md:translate-y-31.5 md:whitespace-nowrap"
+          class="h1 md:[writing-mode:vertical-rl] md:rotate-180 md:self-start"
         >
           <span>ABOUT</span>
         </h1>
         <!-- Horz Rule -->
         <div class="hidden md:block">
-          <hr class="vr" />
+          <hr class="vr border-dashed" />
         </div>
         <div class="space-y-10">
           <!-- About Text -->
@@ -78,11 +79,7 @@ import LayoutPage from "@layouts/LayoutPage.astro";
           <!-- Media Appearances -->
           <section class="space-y-4">
             <header class="flex justify-between items-center">
-              <h3 class="h3">
-                <span class="text-primary-500 font-bold">{"["}</span>
-                <span>Media Appearances</span>
-                <span class="text-primary-500 font-bold">{"]"}</span>
-              </h3>
+              <Heading tag="h3">Media Appearances</Heading>
             </header>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <iframe
@@ -125,11 +122,7 @@ import LayoutPage from "@layouts/LayoutPage.astro";
           <!-- Resume -->
           <section class="space-y-4">
             <header class="flex justify-between items-center">
-              <h3 class="h3">
-                <span class="text-primary-500 font-bold">{"["}</span>
-                <span>Resume</span>
-                <span class="text-primary-500 font-bold">{"]"}</span>
-              </h3>
+              <Heading tag="h3">Resume</Heading>
               <a
                 href="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
                 class="btn preset-filled-secondary-500"

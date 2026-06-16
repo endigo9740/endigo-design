@@ -17,6 +17,7 @@
     "@astrojs/check": "^0.9.9",
     "@astrojs/cloudflare": "^13.7.0",
     "@astrojs/mdx": "^6.0.3",
+    "@fontsource-variable/orbitron": "^5.2.8",
     "@tailwindcss/vite": "^4.3.1",
     "astro": "^6.4.7",
     "astro-auto-import": "^0.5.1",

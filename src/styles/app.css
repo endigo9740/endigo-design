@@ -1,5 +1,6 @@
 @import "tailwindcss";
-
+/* Fonts */
+@import "@fontsource-variable/orbitron";
 /* Skeleton */
 @import "@skeletonlabs/skeleton";
 @import "./cyberpunk";
@@ -16,8 +17,9 @@ body {
 
 .btn {
   border-radius: 0px;
-  border-top-right-radius: var(--radius-md);
-  border-bottom-left-radius: var(--radius-md);
+  border-top-right-radius: var(--radius-lg);
+  border-bottom-left-radius: var(--radius-lg);
+  corner-shape: bevel;
 }
 
 /* Animation: Glitchy Text */

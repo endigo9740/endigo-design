@@ -10,7 +10,7 @@
   --base-letter-spacing: 0em;
   --heading-font-color: inherit;
   --heading-font-color-dark: oklch(1 0 0 / 1);
-  --heading-font-family: inherit;
+  --heading-font-family: "Orbitron Variable", sans-serif;
   --heading-font-weight: bold;
   --heading-font-style: normal;
   --heading-letter-spacing: inherit;
