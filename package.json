@@ -1,7 +1,7 @@
 {
   "name": "endigo-design-astro",
   "type": "module",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "packageManager": "pnpm@10.16.1",
   "scripts": {
     "dev": "astro dev",
