@@ -2,30 +2,34 @@
 import LayoutPage from "@layouts/LayoutPage.astro";
 ---
 
-<LayoutPage>
+<LayoutPage
+  title="About Chris Simmons"
+  description="Senior frontend developer and design engineer with 20+ years building production web platforms, design systems, and games. The creator of Skeleton."
+>
   <main class="p-4 py-12 md:py-24">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
-        <!-- Heading -->
+        <!-- Heading 1 -->
         <h1
-          class="h1 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[125px] md:whitespace-nowrap"
+          class="h1 md:[writing-mode:vertical-rl] md:rotate-180 md:self-start"
         >
           <span>ABOUT</span>
         </h1>
         <!-- Horz Rule -->
         <div class="hidden md:block">
-          <hr class="vr" />
+          <hr class="vr border-dashed" />
         </div>
         <div class="space-y-10">
-          <!-- Article -->
-          <article class="space-y-4 text-xl">
+          <!-- About Text -->
+          <section class="space-y-4 text-xl">
             <p>Hi, I'm Chris 👋</p>
             <p>
               Welcome to my humble showcase, featuring a few of my most
-              prominent works. I have dedicated the last 20+ years of my life to
-              building a career in professional development, design, and UX. I
-              am primarily self taught in these disciplines, but still take time
-              to research, tinker, and learn more every day.
+              prominent works. I'm a senior frontend developer and design
+              engineer who has spent the last 20+ years building production web
+              platforms and design systems, and crafting professional user
+              experiences. I'm primarily self-taught, and I still make time to
+              research, tinker, and learn something new every day.
             </p>
             <p>
               I discovered my passion for programming and design while attending
@@ -33,60 +37,121 @@ import LayoutPage from "@layouts/LayoutPage.astro";
               lifelong fan of video games, which all began when I received my
               first console as a kid, a classic Nintendo Entertainment System. I
               still remember the magic of picking up that controller and making
-              Mario run and jump on the screen - though occasionally to his
-              untimely death.
+              Mario run and jump across the screen (occasionally to his untimely
+              death). It was this that sparked my earliest interest in design
+              and development.
             </p>
             <p>
-              My passion has fueled a lifelong journey, culminating in a career
-              path that includes a broad spectrum of industries, including:
-              photography, corporate media, a digital agency, as well as a
-              number of tech startups - all before landing in my current role as
-              the core maintainer for <a
+              That passion grew into a career spanning a broad range of
+              industries, including photography, corporate media, a digital
+              agency, and a handful of tech startups. Along the way I created <a
                 class="anchor"
                 href="https://skeleton.dev/"
                 target="_blank"
                 rel="noreferrer">Skeleton</a
-              >, a web-based component library and opinionated design system. Over the years, I've had the privilage
-              of working alongside some of the most talented and passionate
-              individuals in the industry, while helping building platforms for the web, gaming,
-              and open source.
+              >, a free and open source UI library that has now achieved 150k+
+              monthly downloads. I serve as its core maintainer and co-founded <a
+                class="anchor"
+                href="https://www.skeletonlabs.co/"
+                target="_blank"
+                rel="noreferrer">Skeleton Labs</a
+              > to support the project. It's been a privilege to work alongside some
+              of the most talented and passionate people in the industry while building
+              platforms for the web, video games, and open source.
             </p>
             <p>
-              I feel my strength lies not just in writing code or designing
-              interfaces, but in solving real world problems. I pride myself in
-              my ability to listen, learn, and help determine what is really
-              needed for any and all challenges. Providing solutions at every
-              step of the process, from concept to execution. Whether you’re
-              trying to build a web application, engage your audience, or carve
-              a new path in the world. My skills can help your project move forward along that journey!
+              These days my focus is on agentic development and AI-augmented
+              workflows. I put LLM technology to practical use, from importing
+              and structuring site content to generating real design solutions
+              for customers.
             </p>
-          </article>
+            <p>
+              I believe my strength lies not just in writing code or designing
+              interfaces, but in solving real world problems. I pride myself on
+              my ability to listen, learn, and help figure out what a project
+              truly needs, then deliver at every step from concept to execution.
+              Whether you're building a web application, looking to engage your
+              audience, or carving a new path in the world, I'd love to help
+              your project move forward on that journey.
+            </p>
+          </section>
+
           <hr class="hr" />
-          <header class="flex justify-between items-center">
-            <h3 class="h3">
-              <span class="text-primary-500 font-bold">{"["}</span>
-              <span>Resume</span>
-              <span class="text-primary-500 font-bold">{"]"}</span>
-            </h3>
-            <a href="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true" class="btn preset-filled-secondary-500" target="_blank">
-              <span>View on</span>
-              <svg
-                class="inline-block fill-current size-4 -translate-y-[2px]"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 488 512"
-                ><path
-                  d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
-                ></path></svg
+
+          <!-- Media Appearances -->
+          <section class="space-y-4">
+            <header class="flex justify-between items-center">
+              <h2 class="h3">Media Appearances</h2>
+            </header>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <iframe
+                class="w-full aspect-video shadow-xl"
+                src="https://www.youtube.com/embed/SLPBmP588Hk"
+                title="Interview with Segun Adebayo, creator of Chakra UI"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+              <iframe
+                class="w-full aspect-video shadow-xl"
+                src="https://www.youtube.com/embed/txM-BCrZcbc?start=2561"
+                title="This Week in Svelte"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+              <iframe
+                class="w-full aspect-video shadow-xl"
+                src="https://www.youtube.com/embed/KxK9iA1ktlU"
+                title="Speaker at the Svelte Summit"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+              <iframe
+                class="w-full aspect-video shadow-xl"
+                src="https://www.youtube.com/embed/2OnJYCXJPK4"
+                title="Speaker on the Svelte Sirens livestream"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
+          </section>
+
+          <hr class="hr" />
+
+          <!-- Resume -->
+          <section class="space-y-4">
+            <header class="flex justify-between items-center">
+              <h2 class="h3">Resume</h2>
+              <a
+                href="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
+                class="btn preset-filled"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-              <span>&rarr;</span>
-            </a>
-          </header>
-          <iframe
-            class="bg-white shadow-xl"
-            width="100%"
-            height="800px"
-            src="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
-          ></iframe>
+                <span>View on</span>
+                <svg
+                  class="inline-block fill-current size-4 -translate-y-0.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 488 512"
+                  ><path
+                    d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
+                  ></path></svg
+                >
+                <span>&rarr;</span>
+              </a>
+            </header>
+            <iframe
+              class="bg-white shadow-xl"
+              width="100%"
+              height="800px"
+              title="Chris Simmons resume"
+              loading="lazy"
+              src="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
+            ></iframe>
+          </section>
         </div>
       </div>
     </div>

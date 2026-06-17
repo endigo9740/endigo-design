@@ -1,41 +1,61 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
 
-import { getEntry, render } from 'astro:content';
+import { Image } from "astro:assets";
+import { getEntry, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { cdnBaseUrl } from "@lib/constants";
 
-const cdnBaseUrl: string =
-  "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
+type WorkData = CollectionEntry<"works">["data"];
+type Video = WorkData["videos"][number];
+type Screenshot = WorkData["screenshots"][number];
 
 const { slug } = Astro.params;
 
-const entry = await getEntry('works', slug!);
+const entry = await getEntry("works", slug!);
 if (!entry) throw new Error(`Could not find ${slug}`);
 
 const { Content } = await render(entry);
+
+const metaTitle = `${entry.data.title} | Endigo Design`;
+const metaDescription = `An example of my work.`;
 ---
 
-<LayoutPage>
-    <section class="p-4 py-12 md:py-24">
+<LayoutPage
+  title={metaTitle}
+  description={metaDescription}
+  image={cdnBaseUrl + entry.data.thumbnail}
+>
+  <section class="p-4 py-12 md:py-24">
     <div
       class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-10"
     >
       <header
-        class="flex flex-col justify-start items-start md:items-end gap-4 w-[320px]"
+        class="flex flex-col justify-start items-start md:items-end gap-4 w-[320px] md:sticky md:top-24 md:self-start"
       >
         <div class="md:text-right">
-          <small class="text-lg capitalize opacity-50">{slug!.split('/')[0].replace('-',' ')}</small>
-          <h2 class="h2 uppercase md:text-right">{entry.data.title}</h2>
+          <small class="text-lg capitalize opacity-50"
+            >{slug!.split("/")[0].replace("-", " ")}</small
+          >
+          <h1 class="h2 uppercase md:text-right">{entry.data.title}</h1>
         </div>
-        <img
+        <Image
           src={cdnBaseUrl + entry.data.thumbnail}
           alt={entry.data.title}
-          class="w-full aspect-square rounded shadow"
+          width={300}
+          height={300}
+          class="w-full aspect-square rounded-lg shadow"
           style={{ backgroundColor: entry.data.accent }}
           transition:name={`${entry.data.thumbnail}-thumbnail`}
         />
         {
           entry.data.website && (
-            <a class="btn preset-filled-secondary-500" href={entry.data.website} target="_blank">
+            <a
+              class="btn preset-filled"
+              href={entry.data.website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Launch &rarr;
             </a>
           )
@@ -55,13 +75,12 @@ const { Content } = await render(entry);
         <!-- Video -->
         {
           entry.data.videos.length > 0 &&
-            entry.data.videos.map((video: any) => (
+            entry.data.videos.map((video: Video) => (
               <figure>
                 <iframe
                   src={video.src}
-                  class="w-full aspect-video bg-black/30 rounded shadow-xl"
-                  title="YouTube video player"
-                  frameborder="0"
+                  class="w-full aspect-video bg-black/30 rounded shadow-xl border-0"
+                  title={video.caption ?? `${entry.data.title} video`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
                   loading="lazy"
@@ -77,11 +96,11 @@ const { Content } = await render(entry);
         <!-- Screenshots -->
         {
           entry.data.screenshots.length > 0 &&
-            entry.data.screenshots.map((screenshot: any) => (
+            entry.data.screenshots.map((screenshot: Screenshot) => (
               <figure>
                 <img
                   src={cdnBaseUrl + screenshot.src}
-                  alt={screenshot.caption}
+                  alt={screenshot.caption ?? `${entry.data.title} screenshot`}
                   class="bg-black/30 w-full aspect-auto rounded shadow-xl"
                 />
                 {screenshot.caption && (

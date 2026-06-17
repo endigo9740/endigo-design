@@ -1,8 +1,6 @@
-import { z, defineCollection } from "astro:content";
+import { defineCollection } from "astro:content";
+import { z } from "astro/zod";
 import { glob } from "astro/loaders";
-
-// Collection: Pages
-// ...TODO...
 
 // Collection: Works
 const works = defineCollection({
@@ -13,9 +11,11 @@ const works = defineCollection({
     website: z.string(),
     accent: z.string(),
     thumbnail: z.string(),
-    videos: z.array(z.object({ src: z.string() })),
+    videos: z.array(
+      z.object({ src: z.string(), caption: z.string().optional() }),
+    ),
     screenshots: z.array(
-      z.object({ src: z.string(), caption: z.string().optional() })
+      z.object({ src: z.string(), caption: z.string().optional() }),
     ),
   }),
 });

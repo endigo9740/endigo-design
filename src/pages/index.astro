@@ -1,61 +1,77 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
+import DecorStripes from "@components/decor-stripes.astro";
+import Hero from "@components/Hero.tsx";
+import HoverCard from "@components/HoverCard.astro";
 
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { Image } from "astro:assets";
+import avatar from "../assets/avatar.webp";
 
-const cdnBaseUrl: string =
-  "https://d1fp2fj544zz6e.cloudfront.net/endigo_design/portfolio";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { cdnBaseUrl } from "@lib/constants";
 
 async function getCollectionByID(id: string) {
-  return getCollection('works', (data: CollectionEntry<'works'>) => data.id.includes(id));
+  return getCollection("works", (data: CollectionEntry<"works">) =>
+    data.id.includes(id),
+  );
 }
 
 // Get Works Collections by ID
 const works = [
-  { label: 'Skeleton Labs', entries: await getCollectionByID('skeleton-labs') },
-  { label: 'Brain & Bones', entries: await getCollectionByID('brain-bones') },
-  { label: 'Jackpot Rising', entries: await getCollectionByID('jackpot-rising') },
-  { label: 'Gaming', entries: await getCollectionByID('gaming') },
+  { label: "Skeleton Labs", entries: await getCollectionByID("skeleton-labs") },
+  { label: "Brain & Bones", entries: await getCollectionByID("brain-bones") },
+  {
+    label: "Jackpot Rising",
+    entries: await getCollectionByID("jackpot-rising"),
+  },
+  { label: "Gaming", entries: await getCollectionByID("gaming") },
 ];
-
 ---
 
 <LayoutPage>
-  <!-- Hero -->
-  <header
-    class="bg-primary-500 p-4 md:p-6 !pb-0 !pt-10 flex flex-col items-center gap-4 md:gap-6 scanlines"
-  >
-    <div class="glitch-container">
-      <p class="text-5xl md:text-6xl lg:text-8xl glitch">
-        <span aria-hidden="true">Chris Simmons</span>
-        Chris Simmons
-        <span aria-hidden="true">Chris Simmons</span>
-      </p>
+  <!-- Shader -->
+  <Hero client:visible>
+    <div class="flex flex-col items-center gap-4 md:gap-6">
+      <Image
+        src={avatar}
+        alt="Chris Simmons"
+        width={192}
+        height={192}
+        class="border-6 border-surface-200-800/50 size-24 rounded-full grayscale shadow-xl"
+      />
+      <div class="glitch-container">
+        <p class="heading-font-family text-5xl md:text-6xl lg:text-8xl glitch">
+          <span aria-hidden="true">Chris Simmons</span>
+          Chris Simmons
+          <span aria-hidden="true">Chris Simmons</span>
+        </p>
+      </div>
+      <div
+        class="bg-surface-200-800/50 backdrop-blur-md rounded-full py-1.5 px-5"
+      >
+        <p
+          class="text-xs md:text-base xl:text-lg text-balance text-center font-medium"
+        >
+          Design systems, accessible interfaces, games, and more.
+        </p>
+      </div>
     </div>
-    <p class="text-2xl text-balance text-center font-medium heading-font-color dark:heading-font-color-dark">I create design systems, accessible interfaces, games, and more.</p>
-    </div>
-    <img
-      class="md:hidden"
-      src="/hero-mobile.png"
-      alt="Portrait of Chris Simmons"
-    />
-    <img
-      class="hidden md:block"
-      src="/hero.png"
-      alt="Portrait of Chris Simmons"
-    />
-  </header>
+  </Hero>
+
+  <!-- Decorative Stripes -->
+  <DecorStripes class="h-8" />
+
   <!-- Main -->
   <main class="p-4 py-12 md:py-24">
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
-        <!-- Heading -->
+        <!-- Heading 1 -->
         <h1
-          class="h1 md:origin-top-right md:-rotate-[90deg] md:-translate-x-[48px] md:translate-y-[180px] md:whitespace-nowrap"
+          class="h1 md:[writing-mode:vertical-rl] md:rotate-180 md:self-start md:flex md:items-center md:gap-3"
         >
           <svg
-            class="fill-current md:size-9 !hidden md:!inline-block fa-solid fa-arrow-left-long -translate-y-1"
+            class="fill-current md:size-9 hidden! md:inline-block! fa-solid fa-arrow-left-long md:rotate-90"
             xmlns="http://www.w3.org/2000/svg"
             height="16"
             width="16"
@@ -69,38 +85,62 @@ const works = [
         </h1>
         <!-- Horz Rule -->
         <div class="hidden md:block">
-          <hr class="vr" />
+          <hr class="vr border-dashed" />
         </div>
         <!-- Grid -->
         <div class="space-y-10">
-          {works.map(work => (
-            <h3 class="h3">
-              <span class="text-primary-500 font-bold">{"["}</span>
-              {work.label}
-              <span class="text-primary-500 font-bold">{"]"}</span>
-            </h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-              {work.entries
-                .sort((a: any, b: any) => a.data.order - b.data.order)
-                .map((entry: CollectionEntry<'works'>) => (
-                  <a href={`/works/${entry.id}`}>
-                    <figure class="space-y-2">
-                      <img
+          {
+            works.map((work) => (
+              <>
+                <h2 class="h3">{work.label}</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+                  {work.entries
+                    .sort(
+                      (
+                        a: CollectionEntry<"works">,
+                        b: CollectionEntry<"works">,
+                      ) => a.data.order - b.data.order,
+                    )
+                    .map((entry: CollectionEntry<"works">) => (
+                      <HoverCard
+                        href={`/works/${entry.id}`}
                         src={cdnBaseUrl + entry.data.thumbnail}
                         alt={entry.data.title}
-                        class="w-full aspect-square rounded shadow-xl hover:scale-[98%] hover:shadow transition-transform"
-                        style={{ backgroundColor: entry.data.accent }}
-                        transition:name={`${entry.data.thumbnail}-thumbnail`}
+                        title={entry.data.title}
+                        accent={entry.data.accent}
+                        transitionName={`${entry.data.thumbnail}-thumbnail`}
+                        workId={entry.id}
                       />
-                      <strong class="block text-center">
-                        {entry.data.title}
-                      </strong>
-                    </figure>
-                  </a>
-                ))}
-            </div>
-          ))}
+                    ))}
+                </div>
+              </>
+            ))
+          }
         </div>
+      </div>
     </div>
   </main>
 </LayoutPage>
+
+<script>
+  // Scroll to a specific project when params available
+  // collection (`c`) and project (`p`) params
+  // e.g. `/?c=brain-bones&p=branding`.
+  function scrollToViewedWork() {
+    const params = new URLSearchParams(window.location.search);
+    const collection = params.get("c");
+    const project = params.get("p");
+    if (!collection || !project) return;
+
+    const workId = `${collection}/${project}`;
+    const target = document.querySelector<HTMLElement>(
+      `[data-work-id="${CSS.escape(workId)}"]`,
+    );
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: "auto", block: "start" });
+  }
+
+  // Run on initial load and after each client-side (view transition) navigation.
+  document.addEventListener("astro:page-load", scrollToViewedWork);
+</script>
