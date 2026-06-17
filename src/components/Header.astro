@@ -9,6 +9,12 @@ const linkActive =
   "underline decoration-4 decoration-primary-500 underline-offset-6";
 const linkInactive = "hover:no-underline";
 
+const segments = pathname.split("/").filter(Boolean);
+const isWork = segments[0] === "works" && segments.length >= 3;
+
+// Set return path from individual works (collection/project)
+const returnHref = isWork ? `/?c=${segments[1]}&p=${segments.at(-1)}` : "/";
+
 function setActiveClass(link: Record<string, string>) {
   return link.href === pathname ? linkActive : linkInactive;
 }
@@ -28,7 +34,7 @@ function setActiveClass(link: Record<string, string>) {
       pathname.includes("/works") ? (
         // Return Home
         <nav class="justify-self-center">
-          <a class="font-bold hover:no-underline" href="/">
+          <a class="font-bold hover:no-underline" href={returnHref}>
             &larr; Return Home
           </a>
         </nav>

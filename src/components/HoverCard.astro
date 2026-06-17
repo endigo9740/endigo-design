@@ -10,12 +10,13 @@ interface Props {
   title: string;
   accent?: string;
   transitionName?: string;
+  workId?: string;
 }
 
-const { href, src, alt, title, accent, transitionName } = Astro.props;
+const { href, src, alt, title, accent, transitionName, workId } = Astro.props;
 ---
 
-<a href={href}>
+<a href={href} data-work-id={workId} class="scroll-mt-24">
   <figure class="space-y-2">
     <!-- 3D hover card (image only) -->
     <div class="hover-3d w-full">

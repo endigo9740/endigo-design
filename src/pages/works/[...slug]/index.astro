@@ -17,9 +17,8 @@ if (!entry) throw new Error(`Could not find ${slug}`);
 
 const { Content } = await render(entry);
 
-const category = slug!.split("/")[0].replace("-", " ");
 const metaTitle = `${entry.data.title} | Endigo Design`;
-const metaDescription = `${entry.data.title} — ${category} work by Chris Simmons.`;
+const metaDescription = `An example of my work.`;
 ---
 
 <LayoutPage
