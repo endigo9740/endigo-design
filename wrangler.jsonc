@@ -1,0 +1,14 @@
+{
+  // Minimal Wrangler config consumed by @astrojs/cloudflare at BUILD time.
+  // The adapter merges these bindings into the deployable config it generates
+  // at dist/server/wrangler.json (which we deploy with: wrangler deploy -c dist/server/wrangler.json).
+  // We intentionally omit `main`/`assets` here — the adapter supplies those, and
+  // declaring `main` would break the build (it points at a not-yet-built file).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // The adapter always enables Astro sessions backed by a SESSION KV binding.
+  // The site doesn't use sessions, but the binding must resolve to a real
+  // namespace at deploy time, so we point it at a dedicated (unused) namespace.
+  "kv_namespaces": [
+    { "binding": "SESSION", "id": "87d3e8a4924245009f30d446d3a4f8c0" }
+  ]
+}
