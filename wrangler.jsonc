@@ -9,6 +9,6 @@
   // The site doesn't use sessions, but the binding must resolve to a real
   // namespace at deploy time, so we point it at a dedicated (unused) namespace.
   "kv_namespaces": [
-    { "binding": "SESSION", "id": "87d3e8a4924245009f30d446d3a4f8c0" }
-  ]
+    { "binding": "SESSION", "id": "87d3e8a4924245009f30d446d3a4f8c0" },
+  ],
 }
