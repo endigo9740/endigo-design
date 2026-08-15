@@ -23,14 +23,16 @@ import ResumeMenu from "@components/ResumeMenu";
         <div class="space-y-10">
           <!-- Resume -->
           <section class="space-y-4">
-            <header class="flex justify-between items-center">
+            <header
+              class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4"
+            >
               <p class="opacity-60">
                 Tap the action on the right for view options.
               </p>
               <ResumeMenu client:load />
             </header>
             <iframe
-              class="bg-white shadow-xl overflow-hidde rounded-lg h-150 lg:h-[3150px]"
+              class="bg-white shadow-xl overflow-hidde rounded-lg h-128 lg:h-[3150px]"
               width="100%"
               title="Chris Simmons resume"
               loading="lazy"
