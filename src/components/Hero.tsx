@@ -1,10 +1,10 @@
-// Via: https://shaders.paper.design/warp
+// Via: https://shaders.paper.design/mesh-gradient
 
-import { Warp } from "@paper-design/shaders-react";
+import { MeshGradient } from "@paper-design/shaders-react";
 import type { ReactNode } from "react";
 
-// SVG fractal-noise texture used as a film-grain overlay on top of the shader.
-// Warp has no built-in grain param, so we composite this layer with a blend mode.
+// SVG fractal-noise texture used as a film-grain overlay on top of the shader,
+// independent from the shader's own grainMixer/grainOverlay uniforms.
 const NOISE_SVG = encodeURIComponent(
   "<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'>" +
     "<filter id='n'>" +
@@ -30,21 +30,15 @@ const THEME_COLORS = [
 export interface HeroProps {
   /** Override the color stops (up to 10). Defaults to the theme palette. */
   colors?: string[];
-  /** Blend point between colors, 0.5 = equal distribution. 0–1. */
-  proportion?: number;
-  /** Color transition sharpness, 0 = hard edge, 1 = smooth gradient. 0–1. */
-  softness?: number;
-  /** Base pattern the warp flows over. */
-  shape?: "checks" | "stripes" | "edge";
-  /** Zoom level of the base pattern, 0–1. */
-  shapeScale?: number;
-  /** Strength of noise-based distortion, 0–1. */
+  /** Power of organic noise distortion, 0–1. */
   distortion?: number;
-  /** Strength of the swirl distortion, 0–1. */
+  /** Power of vortex distortion, 0–1. */
   swirl?: number;
-  /** Number of layered swirl passes (more = more intricate ribbons), 0–20. */
-  swirlIterations?: number;
-  /** Film-grain overlay intensity, 0 = off. 0–1. */
+  /** Strength of grain distortion applied to shape edges, 0–1. */
+  grainMixer?: number;
+  /** Post-processing black/white grain overlay from the shader itself, 0–1. */
+  grainOverlay?: number;
+  /** Film-grain overlay intensity (separate CSS blend layer), 0 = off. 0–1. */
   grain?: number;
   /** Animation speed (0 = static). */
   speed?: number;
@@ -74,18 +68,15 @@ export interface HeroProps {
 
 export default function Hero({
   colors = THEME_COLORS,
-  proportion = 0.5,
-  softness = 1,
-  shape = "checks",
-  shapeScale = 0.1,
-  distortion = 0.25,
-  swirl = 0.8,
-  swirlIterations = 10,
+  distortion = 0.8,
+  swirl = 1,
+  grainMixer = 0,
+  grainOverlay = 0,
   grain = 1,
-  speed = 0.3,
+  speed = 0.2,
   frame = 0,
   fit = "cover",
-  scale = 2.5,
+  scale = 1,
   rotation = 0,
   originX = 0.5,
   originY = 0.5,
@@ -97,15 +88,12 @@ export default function Hero({
 }: HeroProps) {
   return (
     <header className="relative bg-surface-black p-4 py-20 md:p-20 overflow-hidden">
-      <Warp
+      <MeshGradient
         colors={colors}
-        proportion={proportion}
-        softness={softness}
-        shape={shape}
-        shapeScale={shapeScale}
         distortion={distortion}
         swirl={swirl}
-        swirlIterations={swirlIterations}
+        grainMixer={grainMixer}
+        grainOverlay={grainOverlay}
         speed={speed}
         frame={frame}
         fit={fit}
