@@ -4,6 +4,7 @@
 /* Skeleton */
 @import "@skeletonlabs/skeleton";
 @import "@skeletonlabs/skeleton/themes/concord";
+@import "@skeletonlabs/skeleton-react";
 
 @custom-variant dark (&:where(.dark, .dark *));
 

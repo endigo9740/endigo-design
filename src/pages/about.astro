@@ -1,6 +1,5 @@
 ---
 import LayoutPage from "@layouts/LayoutPage.astro";
-import DecorStripes from "@components/decor-stripes.astro";
 ---
 
 <LayoutPage
@@ -21,9 +20,8 @@ import DecorStripes from "@components/decor-stripes.astro";
           <hr class="vr border-dashed" />
         </div>
         <div class="space-y-10">
-          <!-- About Text -->
-          <section class="space-y-4 text-xl">
-            <p>Hi, I'm Chris 👋</p>
+          <p class="text-4xl font-bold">Hi, I'm Chris 👋</p>
+          <section class="space-y-4 text-2xl font-medium">
             <p>
               Welcome to my humble showcase, featuring a few of my most
               prominent works. I'm a senior frontend developer and design
@@ -32,6 +30,11 @@ import DecorStripes from "@components/decor-stripes.astro";
               experiences. I'm primarily self-taught, and I still make time to
               research, tinker, and learn something new every day.
             </p>
+          </section>
+          <hr class="hr" />
+          <!-- About Text -->
+          <section class="space-y-4 text-xl">
+            <h2 class="h2">My Story</h2>
             <p>
               I discovered my passion for programming and design while attending
               classes for Visual Basic and Photoshop in high school. I'm also a
@@ -75,83 +78,6 @@ import DecorStripes from "@components/decor-stripes.astro";
               audience, or carving a new path in the world, I'd love to help
               your project move forward on that journey.
             </p>
-          </section>
-
-          <DecorStripes class="border-t border-b border-surface-200-800 h-3" />
-
-          <!-- Media Appearances -->
-          <section class="space-y-4">
-            <header class="flex justify-between items-center">
-              <h2 class="h3">Media Appearances</h2>
-            </header>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <iframe
-                class="w-full aspect-video rounded-lg shadow-xl"
-                src="https://www.youtube.com/embed/SLPBmP588Hk"
-                title="Interview with Segun Adebayo, creator of Chakra UI"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-              <iframe
-                class="w-full aspect-video rounded-lg shadow-xl"
-                src="https://www.youtube.com/embed/txM-BCrZcbc?start=2561"
-                title="This Week in Svelte"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-              <iframe
-                class="w-full aspect-video rounded-lg shadow-xl"
-                src="https://www.youtube.com/embed/KxK9iA1ktlU"
-                title="Speaker at the Svelte Summit"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-              <iframe
-                class="w-full aspect-video rounded-lg shadow-xl"
-                src="https://www.youtube.com/embed/2OnJYCXJPK4"
-                title="Speaker on the Svelte Sirens livestream"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-            </div>
-          </section>
-
-          <DecorStripes class="border-t border-b border-surface-200-800 h-3" />
-
-          <!-- Resume -->
-          <section class="space-y-4">
-            <header class="flex justify-between items-center">
-              <h2 class="h3">Resume</h2>
-              <a
-                href="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
-                class="btn preset-filled"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>View on</span>
-                <svg
-                  class="inline-block fill-current size-4 -translate-y-0.5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 488 512"
-                  ><path
-                    d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
-                  ></path></svg
-                >
-                <span>&rarr;</span>
-              </a>
-            </header>
-            <iframe
-              class="bg-white shadow-xl overflow-hidde rounded-lg"
-              width="100%"
-              height="3200px"
-              title="Chris Simmons resume"
-              loading="lazy"
-              src="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
-            ></iframe>
           </section>
         </div>
       </div>
