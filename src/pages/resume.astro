@@ -1,0 +1,44 @@
+---
+import LayoutPage from "@layouts/LayoutPage.astro";
+import ResumeMenu from "@components/ResumeMenu";
+---
+
+<LayoutPage
+  title="Resume | Chris Simmons"
+  description="Resume for Chris Simmons, senior frontend developer and design engineer, creator of Skeleton."
+>
+  <main class="p-4 py-12 md:py-24">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
+        <!-- Heading 1 -->
+        <h1
+          class="h1 md:[writing-mode:vertical-rl] md:rotate-180 md:self-start"
+        >
+          <span>RESUME</span>
+        </h1>
+        <!-- Horz Rule -->
+        <div class="hidden md:block">
+          <hr class="vr border-dashed" />
+        </div>
+        <div class="space-y-10">
+          <!-- Resume -->
+          <section class="space-y-4">
+            <header class="flex justify-between items-center">
+              <p class="opacity-60">
+                Tap the action on the right for view options.
+              </p>
+              <ResumeMenu client:load />
+            </header>
+            <iframe
+              class="bg-white shadow-xl overflow-hidde rounded-lg h-150 lg:h-[3150px]"
+              width="100%"
+              title="Chris Simmons resume"
+              loading="lazy"
+              src="https://docs.google.com/document/d/e/2PACX-1vTXIHHD4NuQLXrSOJheUW6R-fJIKDrvt0R8VE5o9E1VmP7jTYybQziw01PC45jvAtM3-WP9CzqyRjXc/pub?embedded=true"
+            ></iframe>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</LayoutPage>

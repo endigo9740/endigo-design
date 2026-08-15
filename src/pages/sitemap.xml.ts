@@ -4,7 +4,7 @@ import { getCollection } from "astro:content";
 export const GET: APIRoute = async ({ site }) => {
   const base = site ?? new URL("https://endigodesign.com");
 
-  const staticPaths = ["/", "/about"];
+  const staticPaths = ["/", "/about", "/interviews", "/resume"];
   const works = await getCollection("works");
   const workPaths = works.map((entry) => `/works/${entry.id}`);
 

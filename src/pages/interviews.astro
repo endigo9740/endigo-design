@@ -1,0 +1,80 @@
+---
+import LayoutPage from "@layouts/LayoutPage.astro";
+---
+
+<LayoutPage
+  title="Media Appearances | Chris Simmons"
+  description="Interviews, talks, and livestream appearances featuring Chris Simmons, creator of Skeleton."
+>
+  <main class="p-4 py-12 md:py-24">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
+        <!-- Heading 1 -->
+        <h1
+          class="h1 md:[writing-mode:vertical-rl] md:rotate-180 md:self-start"
+        >
+          <span>INTERVIEWS</span>
+        </h1>
+        <!-- Horz Rule -->
+        <div class="hidden md:block">
+          <hr class="vr border-dashed" />
+        </div>
+        <div class="space-y-10">
+          <!-- Podcasts -->
+          <section class="space-y-4">
+            <header class="flex justify-between items-center">
+              <h2 class="h3">Podcasts</h2>
+            </header>
+            <iframe
+              class="bg-black rounded-lg shadow-xl"
+              src="https://player.fireside.fm/v3/XHXVzqW5+sOQmMIhr?theme=dark"
+              width="100%"
+              height="200"
+              frameborder="0"
+              scrolling="no"></iframe>
+          </section>
+          <!-- Vodcasts -->
+          <section class="space-y-4">
+            <header class="flex justify-between items-center">
+              <h2 class="h3">Vodcasts</h2>
+            </header>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <iframe
+                class="bg-black w-full aspect-video rounded-lg shadow-xl"
+                src="https://www.youtube.com/embed/SLPBmP588Hk"
+                title="Interview with Segun Adebayo, creator of Chakra UI"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+              <iframe
+                class="bg-black w-full aspect-video rounded-lg shadow-xl"
+                src="https://www.youtube.com/embed/txM-BCrZcbc?start=2561"
+                title="This Week in Svelte"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+              <iframe
+                class="bg-black w-full aspect-video rounded-lg shadow-xl"
+                src="https://www.youtube.com/embed/KxK9iA1ktlU"
+                title="Speaker at the Svelte Summit"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+              <iframe
+                class="bg-black w-full aspect-video rounded-lg shadow-xl"
+                src="https://www.youtube.com/embed/2OnJYCXJPK4"
+                title="Speaker on the Svelte Sirens livestream"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen></iframe>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+</LayoutPage>
