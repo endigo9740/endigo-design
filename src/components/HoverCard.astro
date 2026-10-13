@@ -11,12 +11,29 @@ interface Props {
   accent?: string;
   transitionName?: string;
   workId?: string;
+  /** Accessible link name; defaults to the title. Use to disambiguate duplicate titles. */
+  label?: string;
+  /** Load immediately instead of lazily (above-the-fold cards). */
+  eager?: boolean;
+  /** Fetch with high priority (the likely LCP image). */
+  priority?: boolean;
 }
 
-const { href, src, alt, title, accent, transitionName, workId } = Astro.props;
+const {
+  href,
+  src,
+  alt,
+  title,
+  accent,
+  transitionName,
+  workId,
+  label,
+  eager = false,
+  priority = false,
+} = Astro.props;
 ---
 
-<a href={href} data-work-id={workId} class="scroll-mt-24">
+<a href={href} data-work-id={workId} aria-label={label} class="scroll-mt-24">
   <figure class="space-y-2">
     <!-- 3D hover card (image only) -->
     <div class="hover-3d w-full">
@@ -27,6 +44,8 @@ const { href, src, alt, title, accent, transitionName, workId } = Astro.props;
           alt={alt}
           width={300}
           height={300}
+          loading={eager ? "eager" : "lazy"}
+          fetchpriority={priority ? "high" : undefined}
           class="block w-full aspect-square rounded-xl"
           style={{ backgroundColor: accent }}
           transition:name={transitionName}

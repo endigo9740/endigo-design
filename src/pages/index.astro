@@ -38,6 +38,7 @@ const works = [
         alt="Chris Simmons"
         width={192}
         height={192}
+        quality={70}
         class="border-6 border-surface-200-800/50 size-24 rounded-full grayscale shadow-xl"
       />
       <div class="glitch-container">
@@ -88,7 +89,7 @@ const works = [
         <!-- Grid -->
         <div class="space-y-10">
           {
-            works.map((work) => (
+            works.map((work, workIndex) => (
               <>
                 <h2 class="h3">{work.label}</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
@@ -99,17 +100,22 @@ const works = [
                         b: CollectionEntry<"works">,
                       ) => a.data.order - b.data.order,
                     )
-                    .map((entry: CollectionEntry<"works">) => (
-                      <HoverCard
-                        href={`/works/${entry.id}`}
-                        src={cdnBaseUrl + entry.data.thumbnail}
-                        alt={entry.data.title}
-                        title={entry.data.title}
-                        accent={entry.data.accent}
-                        transitionName={`${entry.data.thumbnail}-thumbnail`}
-                        workId={entry.id}
-                      />
-                    ))}
+                    .map(
+                      (entry: CollectionEntry<"works">, entryIndex: number) => (
+                        <HoverCard
+                          href={`/works/${entry.id}`}
+                          src={cdnBaseUrl + entry.data.thumbnail}
+                          alt=""
+                          label={`${entry.data.title} (${work.label})`}
+                          eager={workIndex === 0}
+                          priority={workIndex === 0 && entryIndex === 0}
+                          title={entry.data.title}
+                          accent={entry.data.accent}
+                          transitionName={`${entry.data.thumbnail}-thumbnail`}
+                          workId={entry.id}
+                        />
+                      ),
+                    )}
                 </div>
               </>
             ))
