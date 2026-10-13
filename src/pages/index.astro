@@ -48,9 +48,7 @@ const works = [
           <span aria-hidden="true">Chris Simmons</span>
         </p>
       </div>
-      <div
-        class="bg-surface-200-800/50 backdrop-blur-md rounded-full py-1.5 px-5"
-      >
+      <div class="bg-surface-200-800/50 backdrop-blur-md rounded-full py-1.5 px-5">
         <p class="text-base xl:text-lg text-balance text-center font-medium">
           Senior Frontend &amp; Design Systems Engineer
         </p>
@@ -66,9 +64,7 @@ const works = [
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-[48px_auto_1fr] gap-4 md:gap-8">
         <!-- Heading 1 -->
-        <h1
-          class="h1 md:[writing-mode:vertical-rl] md:rotate-180 md:self-start md:flex md:items-center md:gap-3"
-        >
+        <h1 class="h1 md:[writing-mode:vertical-rl] md:rotate-180 md:self-start md:flex md:items-center md:gap-3">
           <svg
             class="fill-current md:size-9 hidden! md:inline-block! fa-solid fa-arrow-left-long md:rotate-90"
             xmlns="http://www.w3.org/2000/svg"
@@ -76,9 +72,7 @@ const works = [
             width="16"
             viewBox="0 0 512 512"
           >
-            <path
-              d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"
-            ></path>
+            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"></path>
           </svg>
           <span>WORKS</span>
         </h1>
@@ -88,38 +82,36 @@ const works = [
         </div>
         <!-- Grid -->
         <div class="space-y-10">
-          {
-            works.map((work, workIndex) => (
-              <>
-                <h2 class="h3">{work.label}</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-                  {work.entries
-                    .sort(
-                      (
-                        a: CollectionEntry<"works">,
-                        b: CollectionEntry<"works">,
-                      ) => a.data.order - b.data.order,
-                    )
-                    .map(
-                      (entry: CollectionEntry<"works">, entryIndex: number) => (
-                        <HoverCard
-                          href={`/works/${entry.id}`}
-                          src={cdnBaseUrl + entry.data.thumbnail}
-                          alt=""
-                          label={`${entry.data.title} (${work.label})`}
-                          eager={workIndex === 0}
-                          priority={workIndex === 0 && entryIndex === 0}
-                          title={entry.data.title}
-                          accent={entry.data.accent}
-                          transitionName={`${entry.data.thumbnail}-thumbnail`}
-                          workId={entry.id}
-                        />
-                      ),
-                    )}
-                </div>
-              </>
-            ))
-          }
+          {works.map((work, workIndex) => (
+            <>
+              <h2 class="h3">{work.label}</h2>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
+                {work.entries
+                  .sort(
+                    (
+                      a: CollectionEntry<"works">,
+                      b: CollectionEntry<"works">,
+                    ) => a.data.order - b.data.order,
+                  )
+                  .map(
+                    (entry: CollectionEntry<"works">, entryIndex: number) => (
+                      <HoverCard
+                        href={`/works/${entry.id}`}
+                        src={cdnBaseUrl + entry.data.thumbnail}
+                        alt=""
+                        label={`${entry.data.title} (${work.label})`}
+                        eager={workIndex === 0}
+                        priority={workIndex === 0 && entryIndex === 0}
+                        title={entry.data.title}
+                        accent={entry.data.accent}
+                        transitionName={`${entry.data.thumbnail}-thumbnail`}
+                        workId={entry.id}
+                      />
+                    ),
+                  )}
+              </div>
+            </>
+          ))}
         </div>
       </div>
     </div>

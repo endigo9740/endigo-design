@@ -17,9 +17,9 @@ body {
 /* Skeleton Overrides */
 
 [data-theme="concord"] {
-  --heading-font-family: "Albert Sans Variable", sans-serif;
-  --base-font-family: "Albert Sans Variable", sans-serif;
-  --base-font-weight: 300;
+  --typo-heading--font-family: "Albert Sans Variable", sans-serif;
+  --typo-base--font-family: "Albert Sans Variable", sans-serif;
+  --typo-base--font-weight: 300;
 }
 
 .btn {

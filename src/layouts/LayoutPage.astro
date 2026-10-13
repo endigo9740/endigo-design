@@ -24,7 +24,9 @@ const { title, description, image, noindex } = Astro.props;
   </a>
   <Header />
   <DecorStripes class="h-8" />
-  <div id="content"><slot /></div>
+  <div id="content">
+    <slot />
+  </div>
   <DecorStripes class="h-8" />
   <Footer />
 </LayoutRoot>

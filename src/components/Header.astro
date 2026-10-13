@@ -23,9 +23,7 @@ function setActiveClass(link: Record<string, string>) {
 ---
 
 <header class="sticky top-0 z-10 bg-surface-50-950/90 backdrop-blur-md p-4">
-  <div
-    class="container mx-auto grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] gap-2 items-center"
-  >
+  <div class="container mx-auto grid grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr] gap-2 items-center">
     <!-- Logo -->
     <a href="/" title="Endigo Design">
       <img
@@ -38,25 +36,23 @@ function setActiveClass(link: Record<string, string>) {
     </a>
 
     <!-- Navigation -->
-    {
-      pathname.includes("/works") ? (
-        // Return Home
-        <nav class="justify-self-center">
-          <a class="font-bold hover:no-underline" href={returnHref}>
-            &larr; Return Home
+    {pathname.includes("/works") ? (
+      // Return Home
+      <nav class="justify-self-center">
+        <a class="font-bold hover:no-underline" href={returnHref}>
+          &larr; Return Home
+        </a>
+      </nav>
+    ) : (
+      // Browse
+      <nav class="flex gap-4 justify-self-center">
+        {links.map((link) => (
+          <a href={link.href} class={`font-bold ${setActiveClass(link)}`}>
+            {link.label}
           </a>
-        </nav>
-      ) : (
-        // Browse
-        <nav class="flex gap-4 justify-self-center">
-          {links.map((link) => (
-            <a href={link.href} class={`font-bold ${setActiveClass(link)}`}>
-              {link.label}
-            </a>
-          ))}
-        </nav>
-      )
-    }
+        ))}
+      </nav>
+    )}
 
     <!-- Contact -->
     <a
