@@ -27,16 +27,12 @@ const metaDescription = `An example of my work.`;
   image={cdnBaseUrl + entry.data.thumbnail}
 >
   <section class="p-4 py-12 md:py-24">
-    <div
-      class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-10"
-    >
-      <header
-        class="flex flex-col justify-start items-start md:items-end gap-4 w-[320px] md:sticky md:top-24 md:self-start"
-      >
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-[auto_auto_1fr] gap-10">
+      <header class="flex flex-col justify-start items-start md:items-end gap-4 w-[320px] md:sticky md:top-24 md:self-start">
         <div class="md:text-right">
-          <small class="text-lg capitalize opacity-50"
-            >{slug!.split("/")[0].replace("-", " ")}</small
-          >
+          <small class="text-lg capitalize opacity-50">
+            {slug!.split("/")[0].replace("-", " ")}
+          </small>
           <h1 class="h2 uppercase md:text-right">{entry.data.title}</h1>
         </div>
         <Image
@@ -48,18 +44,16 @@ const metaDescription = `An example of my work.`;
           style={{ backgroundColor: entry.data.accent }}
           transition:name={`${entry.data.thumbnail}-thumbnail`}
         />
-        {
-          entry.data.website && (
-            <a
-              class="btn preset-filled"
-              href={entry.data.website}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Launch &rarr;
-            </a>
-          )
-        }
+        {entry.data.website && (
+          <a
+            class="btn preset-filled"
+            href={entry.data.website}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Launch &rarr;
+          </a>
+        )}
       </header>
       <!-- Horz Rule -->
       <div class="hidden md:block">
@@ -73,44 +67,40 @@ const metaDescription = `An example of my work.`;
         </div>
         <hr class="hr" />
         <!-- Video -->
-        {
-          entry.data.videos.length > 0 &&
-            entry.data.videos.map((video: Video) => (
-              <figure>
-                <iframe
-                  src={video.src}
-                  class="w-full aspect-video bg-black/30 rounded shadow-xl border-0"
-                  title={video.caption ?? `${entry.data.title} video`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                  loading="lazy"
-                />
-                {video.caption && (
-                  <span class="block mt-3 text-xs text-center opacity-60">
-                    {video.caption}
-                  </span>
-                )}
-              </figure>
-            ))
-        }
+        {entry.data.videos.length > 0 &&
+          entry.data.videos.map((video: Video) => (
+            <figure>
+              <iframe
+                src={video.src}
+                class="w-full aspect-video bg-black/30 rounded shadow-xl border-0"
+                title={video.caption ?? `${entry.data.title} video`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"
+              />
+              {video.caption && (
+                <span class="block mt-3 text-xs text-center opacity-60">
+                  {video.caption}
+                </span>
+              )}
+            </figure>
+          ))}
         <!-- Screenshots -->
-        {
-          entry.data.screenshots.length > 0 &&
-            entry.data.screenshots.map((screenshot: Screenshot) => (
-              <figure>
-                <img
-                  src={cdnBaseUrl + screenshot.src}
-                  alt={screenshot.caption ?? `${entry.data.title} screenshot`}
-                  class="bg-black/30 w-full aspect-auto rounded shadow-xl"
-                />
-                {screenshot.caption && (
-                  <span class="block pt-2 text-center text-xs opacity-50">
-                    {screenshot.caption}
-                  </span>
-                )}
-              </figure>
-            ))
-        }
+        {entry.data.screenshots.length > 0 &&
+          entry.data.screenshots.map((screenshot: Screenshot) => (
+            <figure>
+              <img
+                src={cdnBaseUrl + screenshot.src}
+                alt={screenshot.caption ?? `${entry.data.title} screenshot`}
+                class="bg-black/30 w-full aspect-auto rounded shadow-xl"
+              />
+              {screenshot.caption && (
+                <span class="block pt-2 text-center text-xs opacity-50">
+                  {screenshot.caption}
+                </span>
+              )}
+            </figure>
+          ))}
       </article>
     </div>
   </section>
